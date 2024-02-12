@@ -1,10 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+}
+
+@font-face {
+  font-family: wildGrowth;
+  src: url(./fonts/WildGrowth.ttf);
+}
+
 .stingrayScenics {
-  text-align: center;
-  background-color: grey;
-  /* border: 2px solid red; */
-  width: 100vw;
+  font-family: wildGrowth;
+  color: white;
+
   height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  perspective: 10px;
+}
+
+.parallax {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  transform-style: preserve-3d;
+  z-index: -1;
+  /* border: 2px solid yellow; */
+}
+
+.background,
+.foreground {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.background {
+  transform: translateZ(-10px) scale(2);
+}
+
+.foreground {
+  transform: translateZ(-5px) scale(1.5);
+  right: 0%;
+}
+.logo {
+  border: 2px solid yellow;
+  width: 40%;
+  height: auto;
+}
+
+.title {
+  width: 97%;
+  margin-top: 5%;
+  position: absolute;
+  color: white;
+  text-align: center;
+  /* border: 2px solid red; */
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+
+
 
 }
+h1 {
+  /* border: 2px solid gold; */
+  padding: 3%;
+  font-size: 8rem;
+  z-index: 15;
+  letter-spacing: 12px;
+
+  color: transparent;
+  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-width: 1px;
+  background: linear-gradient( #c2c52d, 30%, #099a09, 60%, #c2c52d);
+  background-clip: text;
+}
+.sceneTitle {
+  position: relative;
+  left: 5%;
+  padding-bottom: 110px;
+}
+
+
+.bodyOne {
+  border: 2px solid magenta;
+  font-size: 2rem;
+  padding: 2rem;
+  background-color: #333;
+  color: white;
+  width: 75%;
+  /* mix-blend-mode: color; */
+}
+
+
+
+
+
 
 
