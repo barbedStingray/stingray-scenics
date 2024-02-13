@@ -1,61 +1,92 @@
 import './App.css';
+import React, { useState } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
-import greenStingray from './images/DGreenIcon.png';
-import vinesBackground from './images/vines.jpg';
-import LoremIpsum from './components/loremIpsum/loremIpsum.jsx';
+
+
+// component imports
 import TitlePage from './components/ParallaxTitle/TitlePage.jsx';
-import ModelPage from './components/ModelPage/ModelPage.jsx';
-import TerrainPage from './components/TerrainPage/TerrainPage.jsx';
+import ParallaxPage from './components/ParallaxPage/ParallaxPage.jsx';
 import Contacts from './components/Contacts/Contacts.jsx';
+import IntroSquare from './components/IntroSquare/IntroSquare.jsx';
+import ModelDisplay from './components/ModelDisplay/ModelDisplay.jsx';
 
 
 
 function App() {
 
+    // index for the photos array, starts at position 0
+    const [index, setIndex] = useState(0);
 
+    // Scenic Square Photos
+    const photos = [
+      'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareTwelve.jpg',
+      'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareOne.jpg',
+      'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareTwo.jpg',
+      'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareThree.jpg',
+      'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareFour.jpg',
+      'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareFive.jpg',
+      'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareSix.jpg',
+      'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareSeven.jpg',
+      'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareEight.jpg',
+      'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareNine.jpg',
+      'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareTen.jpg',
+      'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareEleven.jpg'
+    ];
+  
+  
+    // functions for setting the index of the array
+    function next() {
+      // console.log(`i clicked next`);
+      if (index === photos.length - 1) {
+        setIndex(0); // reset your index
+        return
+      } else {
+        setIndex(index + 1); // increment your index
+      }
+      // console.log(index);
+    }
+    function prev() {
+      // console.log(`i clicked prev`);
+      if (index === 0) {
+        setIndex(photos.length - 1); // reset index
+        return
+      } else {
+        setIndex(index - 1); // increment index
+      }
+      // console.log(index);
+    }
+  
+  
 
   return (
     <div className="stingrayScenics">
 
       <TitlePage />
 
-      <div className='intro'>
-        <p className='wildGrowth'>Hello!</p>
-        <img className='introPhoto'
-          src='http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/y1qjdmbyxlo5lzfuqmsq.jpg'
+      <IntroSquare />
+
+      <ParallaxPage title='Models' />
+
+      <ModelDisplay />
+
+      <ParallaxPage title='Terrain'/>
+
+      <div className='slideshow'>
+        <img
+          className='slideImage'
+          alt='Scenic Square'
+          src={photos[index]}
         />
-        <p>Welcome to stingray Scenics! My name is Ben, and this site was born out of a passion for table top gaming.</p>
+        <div className='buttons'>
+          <button onClick={prev} className='prevButton'>Prev</button>
+          <button onClick={next} className='nextButton'>Next</button>
+        </div>
       </div>
 
-      <ModelPage />
-
-      <div className='modelDisplay'>
-        <img className='modelPhoto'
-          src='http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/all5_zfhvce.jpg'
-        />
-        <img className='modelPhoto'
-          src='http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/ebemptmke7olrzlkxfo8.jpg'
-        />
-        <img className='modelPhoto'
-          src='http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/zymnrjjv4w0gupqz8uvc.jpg'
-        />
-        <img className='modelPhoto'
-          src='http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/IMG_4466_zqgttj.jpg'
-        />
-
-
-      </div>
-
-      <TerrainPage />
+      <ParallaxPage title=''/>
 
 
       <Contacts />
-
-
-
-
-
-
 
     </div>
   );
