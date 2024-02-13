@@ -2,12 +2,11 @@ import React from 'react';
 import vinesBackground from '../../images/vines.jpg';
 
 
-const Parallax = () => {
+const TitlePage = () => {
   return (
     <div className='parallax'>
         {/* picture background */}
         <img src={vinesBackground} className='background' alt="background of vines" />
-        <div></div>
         {/* <img src={greenStingray} className='foreground logo' alt='stingrayScenics Logo' /> */}
         <div className='foreground title'>
           <h1 className='stingTitle'>Stingray</h1>
@@ -17,4 +16,4 @@ const Parallax = () => {
   )
 }
 
-export default Parallax;
+export default TitlePage;

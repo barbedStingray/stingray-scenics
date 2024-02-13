@@ -3,7 +3,11 @@ import { motion as m, AnimatePresence } from 'framer-motion';
 import greenStingray from './images/DGreenIcon.png';
 import vinesBackground from './images/vines.jpg';
 import LoremIpsum from './components/loremIpsum/loremIpsum.jsx';
-import Parallax from './components/parallax/Parallax.jsx';
+import TitlePage from './components/ParallaxTitle/TitlePage.jsx';
+import ModelPage from './components/ModelPage/ModelPage.jsx';
+import TerrainPage from './components/TerrainPage/TerrainPage.jsx';
+import Contacts from './components/Contacts/Contacts.jsx';
+
 
 
 function App() {
@@ -13,37 +17,40 @@ function App() {
   return (
     <div className="stingrayScenics">
 
-      <Parallax />
+      <TitlePage />
 
-      <div className='bodyOne'>
-        <LoremIpsum />
+      <div className='intro'>
+        <p className='wildGrowth'>Hello!</p>
+        <img className='introPhoto'
+          src='http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/y1qjdmbyxlo5lzfuqmsq.jpg'
+        />
+        <p>Welcome to stingray Scenics! My name is Ben, and this site was born out of a passion for table top gaming.</p>
       </div>
-      {/* <div className='bodyOne'>
-        <LoremIpsum />
-      </div> */}
-      <div className='parallax'>
-        {/* picture background */}
-        <img src={vinesBackground} className='background' alt="background of vines" />
-        <div></div>
-        <img src={greenStingray} className='foreground logo' alt='stingrayScenics Logo' />
-        <div className='title'>
-          <h1 >Stingray</h1>
-          <h1 >scenics.</h1>
-        </div>
+
+      <ModelPage />
+
+      <div className='modelDisplay'>
+        <img className='modelPhoto'
+          src='http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/all5_zfhvce.jpg'
+        />
+        <img className='modelPhoto'
+          src='http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/ebemptmke7olrzlkxfo8.jpg'
+        />
+        <img className='modelPhoto'
+          src='http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/zymnrjjv4w0gupqz8uvc.jpg'
+        />
+        <img className='modelPhoto'
+          src='http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/IMG_4466_zqgttj.jpg'
+        />
+
+
       </div>
-      <div className='bodyOne'>
-        <LoremIpsum />
-      </div>
-      <div className='parallax'>
-        {/* picture background */}
-        <img src={vinesBackground} className='background' alt="background of vines" />
-        <div></div>
-        <img src={greenStingray} className='foreground logo' alt='stingrayScenics Logo' />
-        <div className='title'>
-          <h1 >Stingray</h1>
-          <h1 >scenics.</h1>
-        </div>
-      </div>
+
+      <TerrainPage />
+
+
+      <Contacts />
+
 
 
 

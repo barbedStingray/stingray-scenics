@@ -16,9 +16,11 @@ body {
   font-family: wildGrowth;
   src: url(./fonts/WildGrowth.ttf);
 }
+.wildGrowth {
+  font-family: wildGrowth;
+}
 
 .stingrayScenics {
-  font-family: wildGrowth;
   color: white;
 
   height: 100vh;
@@ -28,6 +30,8 @@ body {
 }
 
 .parallax {
+  font-family: wildGrowth;
+
   position: relative;
   display: flex;
   justify-content: center;
@@ -49,33 +53,31 @@ body {
 
 .background {
   transform: translateZ(-10px) scale(2);
+  /* border: 2px solid magenta; */
 }
 
 .foreground {
   transform: translateZ(-5px) scale(1.5);
-  right: 0%;
+  right: -5%;
 }
 .logo {
-  border: 2px solid yellow;
-  width: 40%;
+  /* border: 2px solid yellow; */
+  width: 50%;
   height: auto;
 }
 
 .title {
+  font-family: wildGrowth;
   width: 97%;
   margin-top: 5%;
   position: absolute;
   color: white;
   text-align: center;
-  /* border: 2px solid red; */
   overflow: visible;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 20px;
-
-
-
 }
 h1 {
   /* border: 2px solid gold; */
@@ -84,6 +86,7 @@ h1 {
   z-index: 15;
   letter-spacing: 12px;
 
+  /* text gradient */
   color: transparent;
   -webkit-text-stroke-color: black;
   -webkit-text-stroke-width: 1px;
@@ -97,14 +100,90 @@ h1 {
 }
 
 
+.intro {
+  border: 2px solid grey;
+  border-radius: 10px;
+  margin: 0% 10%;
+  padding: 20px 10px;
+  text-align: center;
+  font-size: 2rem;
+  /* padding: 2rem; */
+  background-color: #333333aa;
+  color: white;
+  width: 600px;
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
 .bodyOne {
-  border: 2px solid magenta;
+  border: 2px solid #099a09;
+  margin: 0% 10%;
   font-size: 2rem;
   padding: 2rem;
   background-color: #333;
   color: white;
-  width: 75%;
-  /* mix-blend-mode: color; */
+  width: 65%;
+}
+.modelDisplay {
+  /* border: 2px solid #099a09; */
+  margin: 0% 10%;
+  font-size: 2rem;
+  /* padding: 2rem; */
+  /* background-color: #333; */
+  color: white;
+  width: 65%;
+  width: 650px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.footer {
+  border: 2px solid #099a09;
+  font-size: 2rem;
+  padding: 2rem;
+  background-color: #333;
+  color: white;
+}
+
+.normalDiv {
+  /* border: 2px solid gold; */
+  position: relative;
+  right: 25%;
+  margin: 0;
+  font-size: 5rem;
+  padding: 10px 10px 90px 85px;
+  letter-spacing: 8px;
+
+  color: transparent;
+  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-width: 1px;
+  background: linear-gradient( #c2c52d, 30%, #099a09, 60%, #c2c52d);
+  background-clip: text;
+
+
+}
+
+
+.introPhoto {
+  width: 300px;
+  height: auto;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+.modelPhoto {
+  width: 300px;
+  height: auto;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 8px;
+  box-shadow: 0 0 10px black;
+
 }
 
 
