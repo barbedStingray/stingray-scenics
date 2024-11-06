@@ -1,91 +1,75 @@
 import './App.css';
-import React, { useState } from 'react';
-
-
-// component imports
-import TitlePage from './components/ParallaxTitle/TitlePage.jsx';
-import ParallaxPage from './components/ParallaxPage/ParallaxPage.jsx';
-import Contacts from './components/Contacts/Contacts.jsx';
-import IntroSquare from './components/IntroSquare/IntroSquare.jsx';
-import ModelDisplay from './components/ModelDisplay/ModelDisplay.jsx';
-
+import React, { useEffect, useRef } from 'react';
+import hobbiton from './images/hobbiton.jpg'
+import stingrayIcon from './images/DGreenIcon.png'
 
 
 function App() {
 
-    // index for the photos array, starts at position 0
-    const [index, setIndex] = useState(0);
+  // Scenic Square Photos
+  const photos = [
+    'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareTwelve.jpg',
+    'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareOne.jpg',
+    'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareTwo.jpg',
+    'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareThree.jpg',
+    'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareFour.jpg',
+    'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareFive.jpg',
+    'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareSix.jpg',
+    'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareSeven.jpg',
+    'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareEight.jpg',
+    'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareNine.jpg',
+    'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareTen.jpg',
+    'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareEleven.jpg'
+  ];
 
-    // Scenic Square Photos
-    const photos = [
-      'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareTwelve.jpg',
-      'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareOne.jpg',
-      'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareTwo.jpg',
-      'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareThree.jpg',
-      'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareFour.jpg',
-      'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareFive.jpg',
-      'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareSix.jpg',
-      'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareSeven.jpg',
-      'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareEight.jpg',
-      'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareNine.jpg',
-      'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareTen.jpg',
-      'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareEleven.jpg'
-    ];
-  
-  
-    // functions for setting the index of the array
-    function next() {
-      // console.log(`i clicked next`);
-      if (index === photos.length - 1) {
-        setIndex(0); // reset your index
-        return
-      } else {
-        setIndex(index + 1); // increment your index
+  const bannerRef = useRef(null);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY
+      // Adjust the translateY value for a parallax effect
+      if (bannerRef.current) {
+        bannerRef.current.style.transform = `translateY(${scrollPosition * 0.2}px)`
       }
-      // console.log(index);
     }
-    function prev() {
-      // console.log(`i clicked prev`);
-      if (index === 0) {
-        setIndex(photos.length - 1); // reset index
-        return
-      } else {
-        setIndex(index - 1); // increment index
-      }
-      // console.log(index);
-    }
-  
-  
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
 
   return (
     <div className="stingrayScenics">
 
-      <TitlePage />
-
-      <IntroSquare />
-
-      <ParallaxPage title='Models' />
-
-      <ModelDisplay />
-
-      <ParallaxPage title='Terrain'/>
-
-      <div className='slideshow'>
-        <img
-          className='slideImage'
-          alt='Scenic Square'
-          src={photos[index]}
-        />
-        <div className='buttons'>
-          <button onClick={prev} className='prevButton'>Prev</button>
-          <button onClick={next} className='nextButton'>Next</button>
+      <div className='navigation'>
+        <h1 className='title'>Stingray Scenics</h1>
+        <div className='navOptions'>
+          <p>Home</p>
+          <p>Models</p>
+          <p>Terrain</p>
+          <p>Reviews</p>
         </div>
       </div>
 
-      <ParallaxPage title=''/>
+      <img className='bannerImage' ref={bannerRef} src={hobbiton} alt='banner image' />
 
+      <div className='scrollContent'>
+        <img className='stingrayIcon' src={stingrayIcon} alt='brandIcon' />
 
-      <Contacts />
+        <div className='introduction'>
+          <h2>Introduction</h2>
+          <p>Hello! I'm Ben!</p>
+        </div>
+
+        <div className='scenicOptions'>
+          <div className='scenicItem'><h2>Models</h2></div>
+          <div className='scenicItem'><h2>Terrain</h2></div>
+          <div className='scenicItem'><h2>Stripping</h2></div>
+        </div>
+      </div>
+
+      <div className='copyright'>
+        <p>@barbed_stingray 2024</p>
+      </div>
+
 
     </div>
   );
