@@ -1,0 +1,125 @@
+.navigation {
+  background-color: white;
+  height: 8dvh;
+  width: 100%;
+  padding: 0 2dvh;
+  top: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 30;
+}
+
+.title {
+  font-family: wildGrowth;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 3.5dvh;
+  margin: 0.5dvh auto 0 4dvh;
+}
+
+
+.navOptions {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2dvh;
+}
+
+
+
+
+
+
+
+
+
+/* menu */
+.hamburger-menu {
+  --x-width: calc(var(--hamburger-height) * 1.41421356237);
+  display: flex;
+  flex-direction: column;
+  gap: var(--hamburger-gap);
+  z-index: 40;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  /* For mobile browsers */
+}
+
+.hamburger-menu:has(input:checked) {
+  /* --foreground: #white;
+    --background: #333; */
+}
+
+.hamburger-menu:has(input:focus-visible)::before,
+.hamburger-menu:has(input:focus-visible)::after,
+.hamburger-menu:has(input:focus-visible) {
+  border: 1px solid var(--background);
+  box-shadow: 0 0 0 1px var(--foreground);
+}
+
+.hamburger-menu::before,
+.hamburger-menu::after,
+.hamburger-menu input {
+  content: '';
+  width: var(--bar-width);
+  height: var(--bar-height);
+  background-color: var(--foreground);
+  border-radius: 50px;
+  transform-origin: left center;
+  transition: opacity var(--animation-timing), width var(--animation-timing),
+    rotate var(--animation-timing), translate var(--animation-timing);
+  /* background-color var(--animation-timing) */
+}
+
+.hamburger-menu input {
+  appearance: none;
+  outline: none;
+  pointer-events: none;
+}
+
+.hamburger-menu:has(input:checked)::before {
+  rotate: 45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--bar-height) / -2)
+}
+
+.hamburger-menu:has(input:checked)::after {
+  rotate: -45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--bar-height) / 2)
+}
+
+.hamburger-menu input:checked {
+  opacity: 0;
+  width: 0;
+}
+
+.sidebar {
+  position: fixed;
+  border: 2px solid red;
+  /* 8dvh is the height of the navigation use css variables */
+  top: 8dvh;
+  right: 0;
+  translate: 100%;
+  transition: translate var(--animation-timing);
+  padding: 0.5rem 1rem;
+  background-color: var(--foreground);
+  color: var(--background);
+  width: 10rem;
+  max-width: 10rem;
+  height: 80dvh;
+  z-index: -10;
+}
+
+.hamburger-menu:has(input:checked)~.sidebar {
+  translate: 0;
+}
+
+
+
+
