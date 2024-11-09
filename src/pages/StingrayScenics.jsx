@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
@@ -7,7 +8,11 @@ import stingrayIcon from '../images/DGreenIcon.png'
 import oneRing from '../images/oneRing.png'
 import mordor from '../images/mordor.png'
 import imperials from '../images/imperials.jpeg'
-import pelenorFields from '../images/pelenorFields.jpeg'
+import pelennorFields from '../images/pelennorFields.jpeg'
+import trolls from '../images/trolls.jpeg'
+import rivendellCharge from '../images/rivendellCharge.jpeg'
+import droids from '../images/droids.png'
+
 
 
 const HomePage = () => {
@@ -27,12 +32,38 @@ const HomePage = () => {
     const stingrayRef = useRef(null)
 
     const parallaxElements = [
-        { ref: bannerRef, speed: 0.20, direction: 'down' },
+        { ref: bannerRef, speed: 0.15, direction: 'down' },
         { ref: introRef, speed: 0.3, direction: 'up' },
         { ref: stingrayRef, speed: 0.75, direction: 'up' },
     ];
     const [opacity, setOpacity] = useState(0)
 
+    const linkElements = [
+        {
+            title: 'Miniatures',
+            photo: imperials,
+            alt: 'Imperial Troopers',
+            path: '/miniatures'
+        },
+        {
+            title: 'Terrain',
+            photo: trolls,
+            alt: 'Three Trolls',
+            path: '/'
+        },
+        {
+            title: 'Commission',
+            photo: droids,
+            alt: 'Droid Squad',
+            path: '/'
+        },
+        {
+            title: 'The Hobby',
+            photo: rivendellCharge,
+            alt: 'Rivendell Charge',
+            path: '/'
+        },
+    ]
 
 
     const handleParallax = () => {
@@ -84,23 +115,14 @@ const HomePage = () => {
                 {/* Scenic options */}
                 <img className='oneRing' src={oneRing} alt='the one ring' style={{ opacity: opacity, }} />
                 <div className='scenicOptions' ref={scenicOptionsRef}>
-                    <div data-aos="flip-down" data-aos-offset="300" className='scenicItem'>
-                        <h1>Miniatures</h1>
-                        <img className='linkIcon' src={imperials} alt='warriors' />
-                    </div>
-                    <div data-aos="flip-down" data-aos-offset="300" className='scenicItem'>
-                        <h1>Terrain</h1>
-                        <img className='linkIcon' src={pelenorFields} alt='warriors' />
-                    </div>
-                    <div data-aos="flip-down" data-aos-offset="300" className='scenicItem'>
-                        <h1>Store</h1>
-                        <img className='linkIcon' src={imperials} alt='warriors' />
-                    </div>
-                    <div data-aos="flip-down" data-aos-offset="300" className='scenicItem'>
-                        <h1>Contact</h1>
-                        <img className='linkIcon' src={imperials} alt='warriors' />
-                    </div>
+                    {linkElements.map((item, i) => (
+                    <Link to={item.path} data-aos="flip-down" data-aos-offset="300" className='scenicItem'>
+                        <h1>{item.title}</h1>
+                        <img className='linkIcon' src={item.photo} alt={item.alt} />
+                    </Link>
+                    ))}
                 </div>
+
 
             </div>
 

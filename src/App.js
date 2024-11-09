@@ -1,8 +1,10 @@
 import './App.css';
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import HomePage from './pages/HomePage'
 import NavBar from './components/navigationBar/NavBar'
+import StingrayScenics from './pages/StingrayScenics'
+import Miniatures from './pages/Miniatures'
+
 
 function App() {
 
@@ -30,7 +32,8 @@ function App() {
       <NavBar />
 
       <Routes>
-        <Route path='/' element={<HomePage />} />
+        <Route path='/' element={<StingrayScenics />} />
+        <Route path='/miniatures' element={<Miniatures />} />
         {/* 404 path */}
       </Routes>
 
