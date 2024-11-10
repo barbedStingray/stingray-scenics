@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './navBar.css'
 
 
@@ -7,8 +8,8 @@ const NavBar = () => {
 
     return (
         <div className='navigation'>
-            
-            <h1 className='title'>Stingray Scenics</h1>
+
+            <Link to='/' className='title'>Stingray Scenics</Link>
 
 
             <label className='hamburger-menu'>

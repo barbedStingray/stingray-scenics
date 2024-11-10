@@ -1,6 +1,6 @@
 import './App.css';
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import NavBar from './components/navigationBar/NavBar'
 import StingrayScenics from './pages/StingrayScenics'
 import Miniatures from './pages/Miniatures'
@@ -23,6 +23,12 @@ function App() {
     'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareTen.jpg',
     'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareEleven.jpg'
   ];
+
+
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
 
 
 
