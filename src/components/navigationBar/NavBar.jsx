@@ -17,12 +17,17 @@ const NavBar = () => {
             </label>
             <aside className='sidebar'>
                 <nav>
-                    <div>Miniatures</div>
-                    <div>Terrain</div>
-                    <div>Store</div>
-                    <div>Videos</div>
+
+                    <div>Miniature Gallery</div>
+                    <div>Terrain Gallery</div>
+                    <div>Commission</div>
+                    <div>Model Restoration</div>
+                    <div>The Hobby (HH)</div>
+                    <div>Scenic Materials</div>
+                    <div>Products</div>
                     <div>Contact</div>
                     <div>About</div>
+
                 </nav>
             </aside>
 

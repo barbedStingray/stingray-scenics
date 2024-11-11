@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import NavBar from './components/navigationBar/NavBar'
 import StingrayScenics from './pages/StingrayScenics'
-import Miniatures from './pages/Miniatures'
+import Miniatures from './pages/miniGallery/Miniatures'
 
 
 function App() {
@@ -25,24 +25,15 @@ function App() {
   ];
 
 
-  const { pathname } = useLocation()
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [pathname])
-
-
 
   return (
     <div className="stingrayScenics">
-
       <NavBar />
-
       <Routes>
         <Route path='/' element={<StingrayScenics />} />
         <Route path='/miniatures' element={<Miniatures />} />
         {/* 404 path */}
       </Routes>
-
     </div>
   );
 }
