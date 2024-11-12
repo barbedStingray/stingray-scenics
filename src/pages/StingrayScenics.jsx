@@ -15,7 +15,7 @@ import droids from '../images/droids.png'
 
 
 
-const HomePage = () => {
+const StingrayScenics = () => {
 
     useEffect(() => {
         AOS.init({
@@ -116,7 +116,7 @@ const HomePage = () => {
                 <img className='oneRing' src={oneRing} alt='the one ring' style={{ opacity: opacity, }} />
                 <div className='scenicOptions' ref={scenicOptionsRef}>
                     {linkElements.map((item, i) => (
-                    <Link to={item.path} data-aos="flip-down" data-aos-offset="300" className='scenicItem'>
+                    <Link key={i} to={item.path} data-aos="flip-down" data-aos-offset="300" className='scenicItem'>
                         <h1>{item.title}</h1>
                         <img className='linkIcon' src={item.photo} alt={item.alt} />
                     </Link>
@@ -134,4 +134,4 @@ const HomePage = () => {
     )
 }
 
-export default HomePage
+export default StingrayScenics
