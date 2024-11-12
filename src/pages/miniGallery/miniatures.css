@@ -18,7 +18,7 @@
     height: 100dvh;
     position: sticky;
     top: 0;
-    background-image: url(../../images/oneRing.png);
+    background-image: url(../../images/empireLogo.png);
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -35,5 +35,30 @@
 .emptyElement {
     border: 2px solid blue;
     height: 70dvh;
+}
+
+.parallaxContainer {
+    border: 2px solid lime;
+    display: flex;
+    /* display: relative; */
+}
+.parallaxBox {
+    width: 20dvh;
+    height: 20dvh;
+    position: relative;
+    display: flex;
+}
+.blue {
+    background-color: blue;
+}
+.red {
+    background-color: red;
+}
+
+.parallaxImage {
+    width: 35dvh;
+    height: 30dvh;
+    position: relative;
+    object-fit: cover;
 }
 
