@@ -1,6 +1,6 @@
 .navigation {
   background-color: white;
-  height: 8dvh;
+  height: var(--nav-height);
   width: 100%;
   padding: 0 2dvh;
   top: 0;

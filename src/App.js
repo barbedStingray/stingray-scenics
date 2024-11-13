@@ -4,7 +4,7 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 import NavBar from './components/navigationBar/NavBar'
 import StingrayScenics from './pages/StingrayScenics'
 import Miniatures from './pages/miniGallery/Miniatures'
-
+import DemoPage from './pages/demoPage/DemoPage';
 
 function App() {
 
@@ -32,6 +32,7 @@ function App() {
       <Routes>
         <Route path='/' element={<StingrayScenics />} />
         <Route path='/miniatures' element={<Miniatures />} />
+        <Route path='/demoPage' element={<DemoPage />} />
         {/* 404 path */}
       </Routes>
     </div>
