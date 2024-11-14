@@ -28,7 +28,7 @@ function App() {
 
   return (
     <div className="stingrayScenics">
-      <NavBar />
+      {/* <NavBar /> */}
       <Routes>
         <Route path='/' element={<StingrayScenics />} />
         <Route path='/miniatures' element={<Miniatures />} />

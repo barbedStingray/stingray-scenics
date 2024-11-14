@@ -1,6 +1,8 @@
 .navigation {
   background-color: white;
+  border: 2px solid blue;
   height: var(--nav-height);
+  height: 50px;
   width: 100%;
   padding: 0 2dvh;
   top: 0;
@@ -9,6 +11,7 @@
   justify-content: center;
   align-items: center;
   position: fixed;
+  /* position: sticky; */
   z-index: 30;
 }
 
@@ -18,7 +21,15 @@
   justify-content: flex-start;
   align-items: center;
   font-size: 3.5dvh;
-  margin: 0.5dvh auto 0 4dvh;
+  margin: 0.5dvh auto 0 10dvh;
+}
+
+.stingrayLogo {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  z-index: 40;
 }
 
 

@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef, useMemo } from 'react';
 import { motion, useSpring, useTransform, useScroll, useMotionTemplate, useMotionValueEvent } from 'framer-motion';
 import './demoPage.css'
 
+import NavBar from '../../components/navigationBar/NavBar';
+
 import hobbiton from '../../images/hobbiton.jpg'
 import stingrayIcon from '../../images/DGreenIcon.png'
 import oneRing from '../../images/oneRing.png'
@@ -14,6 +16,7 @@ import droids from '../../images/droids.png'
 import empireLogo from '../../images/empireLogo.png'
 
 import DemoPar from '../../components/DemoPar';
+import { main } from 'framer-motion/client';
 
 const DemoPage = () => {
 
@@ -28,7 +31,6 @@ const DemoPage = () => {
     //     container: containerRef,
     //     offset: ['start start', 'end end']
     // })
-
 
     const opacityOne = useTransform(mainContainer, [0, 0.17, 0.83, 1], [0, 1, 1, 0]);
     const rotateOne = useTransform(mainContainer, [0.17, 1], ['0deg', '80deg']);
@@ -49,15 +51,15 @@ const DemoPage = () => {
     // useMotionValueEvent(yOne, 'change', (latest) =>
     //     console.log('yOne', latest)
     // )
-    useMotionValueEvent(mainContainer, 'change', (latest) =>
-        console.log('mainY', latest)
-    )
-
+    // useMotionValueEvent(mainContainer, 'change', (latest) =>
+    //     console.log('mainY', latest)
+    // )
 
 
 
     return (
         <div className='demoDiv' ref={containerRef}>
+            <NavBar mainContainer={mainContainer} />
 
             <div className='galleryHeader'>
                 <motion.img src={imperials} className='galleryImage'
