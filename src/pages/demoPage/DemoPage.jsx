@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef, useMemo } from 'react';
-import { motion, useSpring, useTransform, useScroll, useMotionTemplate, useMotionValueEvent } from 'framer-motion';
+import { motion, useSpring, useInView, useTransform, useScroll, useMotionTemplate, useMotionValueEvent } from 'framer-motion';
 import './demoPage.css'
 
 import NavBar from '../../components/navigationBar/NavBar';
@@ -27,18 +27,24 @@ const DemoPage = () => {
         offset: ['start start', 'end end']
     })
     // const { scrollYProgress: viewObject } = useScroll({
-    //     // target: demoRef,
-    //     container: containerRef,
+    //     target: targetRef,
+    //     // container: containerRef,
     //     offset: ['start start', 'end end']
     // })
+
+
+
+
+
+
+
+
 
     const opacityOne = useTransform(mainContainer, [0, 0.17, 0.83, 1], [0, 1, 1, 0]);
     const rotateOne = useTransform(mainContainer, [0.17, 1], ['0deg', '80deg']);
 
     // const transformOne = useMotionTemplate`opacity: ${opacityOne}; rotate(${rotateOne}))`
 
-
-    const yOne = useTransform(mainContainer, [0, 0.3], [-2000, 800])
     const yBanner = useTransform(mainContainer, [0, 0.3], [0, 400])
     const yTitle = useTransform(mainContainer, [0, 0.3], [0, -300])
     const opacityView = useTransform(mainContainer, [0, 0.025], [1, 0])
@@ -55,7 +61,24 @@ const DemoPage = () => {
     //     console.log('mainY', latest)
     // )
 
+    const parallaxImages = [
+        {
+            container: mainContainer,
+            picture: pelennorFields,
+            motionValues: [0.1, 0.3],
+            yOffset: ['-80dvh', '-50dvh'],
+            dimensions: ['40dvh', '60dvw'],
+        },
+        {
+            container: mainContainer,
+            picture: droids,
+            motionValues: [0.15, 0.35],
+            yOffset: ['-20dvh', '-10dvh'],
+            dimensions: ['30dvh', '30dvw'],
+        },
+    ]
 
+ 
 
     return (
         <div className='demoDiv' ref={containerRef}>
@@ -90,16 +113,20 @@ const DemoPage = () => {
                         }}
                     />
                 </div>
-                {/* center Image */}
 
                 {/* <div className='demoParallax'>
                     <motion.img className='demoLaxImage' src={rivendellCharge}
                         style={{ y: yOne }}
                     />
-                    <DemoPar scrollYProgress={mainContainer} />
 
                     <img className='demoLaxImage' src={trolls} />
                 </div> */}
+                <div className='demoParallax'>
+                    {parallaxImages.map((example, i) => (
+                        <DemoPar key={i} parDetails={example} />
+                    ))}
+                </div>
+
             </div>
 
 
