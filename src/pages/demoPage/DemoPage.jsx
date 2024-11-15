@@ -8,6 +8,7 @@ import hobbiton from '../../images/hobbiton.jpg'
 import stingrayIcon from '../../images/DGreenIcon.png'
 import oneRing from '../../images/oneRing.png'
 import mordor from '../../images/mordor.png'
+import smugglers from '../../images/smugglers.jpeg'
 import imperials from '../../images/imperials.jpeg'
 import pelennorFields from '../../images/pelennorFields.jpeg'
 import trolls from '../../images/trolls.jpeg'
@@ -63,18 +64,34 @@ const DemoPage = () => {
 
     const parallaxImages = [
         {
-            container: mainContainer,
             picture: pelennorFields,
             motionValues: [0.1, 0.3],
             yOffset: ['-80dvh', '-50dvh'],
             dimensions: ['40dvh', '60dvw'],
         },
         {
-            container: mainContainer,
             picture: droids,
             motionValues: [0.15, 0.35],
             yOffset: ['-20dvh', '-10dvh'],
             dimensions: ['30dvh', '30dvw'],
+        },
+        {
+            picture: trolls,
+            motionValues: [0.175, 0.375],
+            yOffset: ['-60dvh', '-20dvh'],
+            dimensions: ['60dvh', '40dvw'],
+        },
+        {
+            picture: rivendellCharge,
+            motionValues: [0.25, 0.4],
+            yOffset: ['-20dvh', '-20dvh'],
+            dimensions: ['30dvh', '50dvw'],
+        },
+        {
+            picture: smugglers,
+            motionValues: [0.28, 0.475],
+            yOffset: ['-40dvh', '-10dvh'],
+            dimensions: ['30dvh', '50dvw'],
         },
     ]
 
@@ -123,7 +140,7 @@ const DemoPage = () => {
                 </div> */}
                 <div className='demoParallax'>
                     {parallaxImages.map((example, i) => (
-                        <DemoPar key={i} parDetails={example} />
+                        <DemoPar key={i} scrollContainer={mainContainer} parDetails={example} />
                     ))}
                 </div>
 

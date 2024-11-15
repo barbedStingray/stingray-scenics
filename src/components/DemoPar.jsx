@@ -3,36 +3,16 @@ import { motion, useTransform, useInView, useScroll, useMotionTemplate, useMotio
 import imperials from '../images/imperials.jpeg'
 
 
-const DemoPar = ({ parDetails }) => {
+const DemoPar = ({ scrollContainer, parDetails }) => {
     // const exampleY = useTransform(mainContainer, [0.1, 0.4], [-200, 100])
-
-    console.log('parDetails', parDetails)
-    const { container, picture, motionValues, yOffset, dimensions } = parDetails
-    const yPosition = useTransform(container, motionValues, yOffset)
-    const opacity = useTransform(container, [motionValues[0], motionValues[0] + 0.05, motionValues[1] - 0.05, motionValues[1]], [0, 1, 1, 0])
-
-
-
-
-    const targetRef = useRef()
-    // Use useInView to check if targetRef is in the viewport
-    const isInView = useInView({
-        target: targetRef,
-        triggerOnce: false, // Set to true to trigger only once
-        offset: ['start end', 'end start'],
-        // amount: 0.5, // Trigger when 50% of the element is in view
-    });
-
-    useEffect(() => {
-        console.log('Is the element in view?', isInView);
-    }, [isInView]);  // Re-run whenever isInView changes
-
+    const { picture, motionValues, yOffset, dimensions } = parDetails
+    const yPosition = useTransform(scrollContainer, motionValues, yOffset)
+    const opacity = useTransform(scrollContainer, [motionValues[0], motionValues[0] + 0.05, motionValues[1] - 0.05, motionValues[1]], [0, 1, 1, 0])
 
 
 
     return (
         <motion.img
-            ref={targetRef}
             className='demoLaxImage'
             src={picture}
             style={{
