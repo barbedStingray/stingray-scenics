@@ -1,0 +1,27 @@
+.homePage {
+    border: 2px solid blue;
+    width: 100dvw;
+    height: 100dvh;
+    display: block;
+    overflow-y: scroll;
+
+}
+
+.bannerDisplay {
+    border: 2px solid red;
+
+}
+
+.bannerImage {
+    width: 100%;
+    height: 55dvh;
+    object-fit: cover;
+    position: relative;
+}
+
+.homeHeader {
+    border: 2px solid orangered;
+    height: 40dvh;
+    position: relative;
+    background-color: var(--background);
+}
