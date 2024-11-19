@@ -45,7 +45,7 @@ const StingrayScenics = () => {
     const flip = useTransform(mainContainer, [0.15, 0.2], ['90deg', '0deg'])
     const opacity = useTransform(mainContainer, [0.15, 0.2], [0, 1])
     const h1Width = useTransform(mainContainer, [0.1, 0.15], [0, 200])
-    // const h1Opacity = useTransform(mainContainer, [0.15, 0.2], [0, 1])
+    const blueOpacity = useTransform(mainContainer, [0.075, 0.1], [1, 0])
     // console.log('flip', flip)
 
     return (
@@ -65,15 +65,28 @@ const StingrayScenics = () => {
 
 
             <div className='modelSection'>
+                
                 <motion.h1 className='sectionTitle'
                     style={{
-                        background: '#0ff',
-                        width: h1Width,
-                        // opacity: h1Opacity,
                     }}
                 >
                     Miniatures
                 </motion.h1>
+
+                <motion.div className='blueSquare'
+                // style={{ opacity: blueOpacity }}
+                initial={{ 
+                    opacity: 1, 
+                }}
+                whileInView={{
+                    opacity: 0,
+                }}
+                viewport={{
+                    // amount: 'all',
+                    margin: '-200px',
+                    // once: true,
+                }}
+                ></motion.div>
 
                 <motion.img src={droids} className='coverPhoto'
                     // ref={targetRef}
