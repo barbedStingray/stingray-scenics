@@ -21,17 +21,19 @@
   justify-content: flex-start;
   align-items: center;
   font-size: 3.5dvh;
-  margin: 0.5dvh auto 0 10dvh;
+  margin: 0.5dvh auto 0 5dvh;
 }
 
 .stingrayLogo {
-  width: 50px;
-  height: 50px;
+  /* border: 2px solid red; */
+  width: 10dvh;
+  height: 10dvh;
   position: fixed;
-  top: 0;
+  top: 1.5dvh;
+  left: 1.5dvh;
   z-index: 40;
+  filter: drop-shadow(4px 4px 4px black)
 }
-
 
 .navOptions {
   display: flex;
@@ -45,92 +47,73 @@
 
 
 
-
-
-
-
 /* menu */
-.hamburger-menu {
+.menuLabel {
   --x-width: calc(var(--hamburger-height) * 1.41421356237);
   display: flex;
   flex-direction: column;
   gap: var(--hamburger-gap);
   z-index: 40;
-  cursor: pointer;
+  /* cursor: pointer; */
   -webkit-tap-highlight-color: transparent;
-  /* For mobile browsers */
 }
 
-.hamburger-menu:has(input:checked) {
-  /* --foreground: #white;
-    --background: #333; */
-}
-
-.hamburger-menu:has(input:focus-visible)::before,
-.hamburger-menu:has(input:focus-visible)::after,
-.hamburger-menu:has(input:focus-visible) {
-  border: 1px solid var(--background);
-  box-shadow: 0 0 0 1px var(--foreground);
-}
-
-.hamburger-menu::before,
-.hamburger-menu::after,
-.hamburger-menu input {
+.navButton,
+.menuLabel::before,
+.menuLabel::after {
   content: '';
+  border: none;
+  background-color: var(--foreground);
+  border-radius: 10px;
   width: var(--bar-width);
   height: var(--bar-height);
-  background-color: var(--foreground);
-  border-radius: 50px;
   transform-origin: left center;
-  transition: opacity var(--animation-timing), width var(--animation-timing),
-    rotate var(--animation-timing), translate var(--animation-timing);
-  /* background-color var(--animation-timing) */
+  transition:
+    opacity var(--animation-timing),
+    width var(--animation-timing),
+    translate var(--animation-timing),
+    rotate var(--animation-timing);
 }
 
-.hamburger-menu input {
-  appearance: none;
-  outline: none;
-  pointer-events: none;
-}
-
-.hamburger-menu:has(input:checked)::before {
-  rotate: 45deg;
-  width: var(--x-width);
-  translate: 0 calc(var(--bar-height) / -2)
-}
-
-.hamburger-menu:has(input:checked)::after {
+.menuLabel.open::after {
   rotate: -45deg;
   width: var(--x-width);
   translate: 0 calc(var(--bar-height) / 2)
 }
 
-.hamburger-menu input:checked {
+.menuLabel.open::before {
+  rotate: 45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--bar-height) / -2)
+}
+
+.navButton.open {
   opacity: 0;
   width: 0;
+}
+
+
+
+
+
+
+
+.sidebar.open {
+  translate: 0%;
+  opacity: 1;
 }
 
 .sidebar {
   position: fixed;
   border: 2px solid red;
-  /* 8dvh is the height of the navigation use css variables */
-  top: 8dvh;
+  top: var(--nav-height);
   right: 0;
-  translate: 100%;
-  transition: translate var(--animation-timing);
+  translate: 15%;
+  transition: translate var(--animation-timing), opacity var(--animation-timing);
   padding: 0.5rem 1rem;
   background-color: var(--foreground);
   color: var(--background);
-  width: 10rem;
-  max-width: 10rem;
-  height: 80dvh;
+  width: 50%;
   z-index: -10;
+  opacity: 0;
 }
-
-.hamburger-menu:has(input:checked)~.sidebar {
-  translate: 0;
-}
-
-
-
-

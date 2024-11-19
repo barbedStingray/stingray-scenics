@@ -9,7 +9,7 @@
 
 .bannerDisplay {
     border: 2px solid red;
-
+    color: white;
 }
 
 .bannerImage {
@@ -21,7 +21,30 @@
 
 .homeHeader {
     border: 2px solid orangered;
-    height: 40dvh;
+    height: 50dvh;
     position: relative;
     background-color: var(--background);
 }
+
+
+
+
+.sectionTitle {
+    border: 2px solid red;
+    color: black;
+    position: sticky;
+    top: 0;
+}
+.modelSection {
+    border: 2px solid lime;
+    width: 100%;
+    height: 200dvh;
+}
+.coverPhoto {
+    border: 2px solid white;
+    width: 100%;
+    height: 50dvh;
+    object-fit: cover;
+    transform-origin: bottom;
+}
+

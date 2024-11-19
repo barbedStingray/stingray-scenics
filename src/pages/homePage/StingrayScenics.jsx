@@ -26,15 +26,27 @@ const StingrayScenics = () => {
         container: containerRef,
         offset: ['start start', 'end end']
     })
+    const openingLine = 'Welcome to Stingray Scenics, the intersection of passion, creativity, and art! We specialize in crafting unique terrain and custom-painted miniatures, all tailored to your personal vision. Whether its a modular battlefield, a dramatic scene, or custom work on a personal hero, our versatile commissions ensure your tabletop is as epic as your imagination.'
 
-    // useMotionValueEvent(mainContainer, 'change', (latest) =>
-    //     console.log('mainY', latest)
-    // )
+    useMotionValueEvent(mainContainer, 'change', (latest) =>
+        console.log('mainY', latest)
+    )
 
     const yBanner = useTransform(mainContainer, [0, 0.4], [0, 100])
+    const yHeader = useTransform(mainContainer, [0, 0.4], [0, -100])
+    const magicAct = useTransform(mainContainer, [0, 0.075], [1, 0])
 
 
 
+    const targetRef = useRef()
+    const isModelSectionInView = useInView(targetRef, { offset: ['start end', 'end start'] })
+    console.log('in view', isModelSectionInView)
+
+    const flip = useTransform(mainContainer, [0.15, 0.2], ['90deg', '0deg'])
+    const opacity = useTransform(mainContainer, [0.15, 0.2], [0, 1])
+    const h1Width = useTransform(mainContainer, [0.1, 0.15], [0, 200])
+    // const h1Opacity = useTransform(mainContainer, [0.15, 0.2], [0, 1])
+    // console.log('flip', flip)
 
     return (
         <div className='homePage' ref={containerRef}>
@@ -43,11 +55,36 @@ const StingrayScenics = () => {
 
             <div className='bannerDisplay'>
                 <motion.img className='bannerImage' src={pelennorFields} style={{ y: yBanner }} />
-                <div className='homeHeader'>
+                <motion.div className='homeHeader' style={{ y: yHeader }}>
                     <h1>Stingray Scenics</h1>
+                    <p>{openingLine}</p>
                     <p>Custom Wargamming since 2020</p>
-                </div>
+                    <motion.h3 style={{ opacity: magicAct }}>Keep scrolling to learn more!</motion.h3>
+                </motion.div>
             </div>
+
+
+            <div className='modelSection'>
+                <motion.h1 className='sectionTitle'
+                    style={{
+                        background: '#0ff',
+                        width: h1Width,
+                        // opacity: h1Opacity,
+                    }}
+                >
+                    Miniatures
+                </motion.h1>
+
+                <motion.img src={droids} className='coverPhoto'
+                    // ref={targetRef}
+                    style={{
+                        rotateX: flip,
+                        opacity: opacity
+                    }}
+                />
+            </div>
+
+
 
             <div className='emptyElement' />
 
