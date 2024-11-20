@@ -7,7 +7,7 @@ import stingrayLogo from '../../images/DGreenIcon.png'
 
 const NavBar = ({ mainContainer }) => {
 
-    const [isHidden, setIsHidden] = useState(false)
+    const [isHidden, setIsHidden] = useState(true)
     const [isSidebarOpen, setIsSidebarOpen] = useState(false)
     const prevY = useRef(0)
 
@@ -20,34 +20,35 @@ const NavBar = ({ mainContainer }) => {
         }
     })
 
-    // useMotionValueEvent(mainContainer, 'change', (latest) =>
-    //     console.log('mainY', latest)
-    // )
+    useMotionValueEvent(mainContainer, 'change', (latest) =>
+        console.log('mainY', latest)
+    )
 
 
     return (
         <>
             <motion.img
                 onMouseEnter={() => setIsHidden(false)}
-                initial={false}
+                // initial={false}
                 src={stingrayLogo} className='stingrayLogo'
-                animate={isHidden ? 'visible' : 'hidden'}
+                // animate={isHidden ? 'visible' : 'hidden'}
                 // transition={{ duration: 0.3 }}
-                transition={{ type: 'spring', stiffness: 80, damping: 10 }}
-                variants={{
-                    hidden: {
-                        opacity: 0,
-                        y: '100%'
-                    },
-                    visible: {
-                        opacity: 1,
-                        y: '0%'
-                    }
-                }}
+                // transition={{ type: 'spring', stiffness: 80, damping: 10 }}
+                // variants={{
+                //     hidden: {
+                //         opacity: 0,
+                //         y: '100%'
+                //     },
+                //     visible: {
+                //         opacity: 1,
+                //         y: '0%'
+                //     }
+                // }}
             />
 
             <motion.div
                 animate={isHidden ? 'hidden' : 'visible'}
+                initial={false}
                 // whileHover='visible'
                 onFocusCapture={() => setIsHidden(false)}
                 variants={{
@@ -64,8 +65,6 @@ const NavBar = ({ mainContainer }) => {
                 transition={{ duration: 0.3 }}
                 className='navigation'
             >
-
-                <Link to='/' className='title'>Stingray Scenics</Link>
 
                 <label className={`menuLabel ${isSidebarOpen ? 'open' : ''}`}>
                     <button className={`navButton ${isSidebarOpen ? 'open' : ''}`} onClick={() => setIsSidebarOpen(!isSidebarOpen)}></button>

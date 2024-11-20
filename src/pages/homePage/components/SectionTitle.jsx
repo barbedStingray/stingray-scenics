@@ -21,12 +21,12 @@ const SectionTitle = ({ homeTitle }) => {
         hidden: {
             opacity: 0,
             y: 20,
-            // color: '#00fff0'
+            color: '#85a600'
         },
         visible: {
             opacity: 1,
             y: 0,
-            // color: '#000',
+            color: '#fff',
         },
     }
 

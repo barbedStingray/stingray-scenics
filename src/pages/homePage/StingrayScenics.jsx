@@ -36,7 +36,7 @@ const StingrayScenics = () => {
         console.log('mainY', latest)
     )
 
-    const yBanner = useTransform(mainContainer, [0, 0.4], [0, 100])
+    const yBanner = useTransform(mainContainer, [0, 0.15], [0, 50])
     const yHeader = useTransform(mainContainer, [0, 0.4], [0, -100])
     const magicAct = useTransform(mainContainer, [0, 0.075], [1, 0])
 
@@ -60,7 +60,7 @@ const StingrayScenics = () => {
             <NavBar mainContainer={mainContainer} />
 
             <div className='bannerDisplay'>
-                <img className='bannerImage' src={pelennorFields} style={{ y: yBanner }} />
+                <motion.img className='bannerImage' src={pelennorFields} style={{ y: yBanner }} />
                 <div className='homeHeader' style={{ y: yHeader }}>
 
                 <div className='websiteTitle'>
