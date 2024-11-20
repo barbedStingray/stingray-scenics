@@ -139,3 +139,33 @@ const StingrayScenics = () => {
 }
 
 export default StingrayScenics
+
+
+
+
+
+
+<h2>Paint Removal</h2>
+<h2>Damage Repair</h2>
+<h2>Prime and Repaint</h2>
+
+
+<p>The first step in restoration usually involves stripping the old paint. I use a variety of chemicals based on the composition of your original model. In this age, most of the models I come across are a form of plastic, resin, or soft metal. These models are usually based on other plastics or even wood bases such as mdf. </p>
+                <p>Next, we repair any damages to the model to make sure all of the details can be seen clearly. </p>
+
+
+<h4>Acetone</h4>
+<p>Found in nail polish removal, acetone has eaten through everything I have applied it to. Even plastics and resin.</p>
+<h4>Pro's</h4>
+<ul>
+    <li>Will shred paint off models very quickly</li>
+    <li>Breaks through hard shells of sealant easily</li>
+    <li>Does not require the model to soak, but you can if you like</li>
+    <li></li>
+</ul>
+<h4>Con's</h4>
+<ul>
+    <li>Will ruin your plastic and resin models</li>
+    <li>Dries quickly leaving fine particles of paint on your model. It requires a second scrubbing.</li>
+</ul>
+

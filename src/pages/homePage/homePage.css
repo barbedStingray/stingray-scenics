@@ -13,51 +13,77 @@
 
 .bannerImage {
     width: 100%;
-    height: 55dvh;
+    height: 50dvh;
     object-fit: cover;
     position: relative;
 }
 
 .homeHeader {
-    border: 2px solid orangered;
+    /* border: 2px solid orangered; */
     height: 50dvh;
     position: relative;
-    background-color: var(--background);
+    /* background-color: var(--background); */
 }
 
+/* title components */
 
 
-.modelSection {
-    /* border: 2px solid lime; */
+
+.websiteTitle {
+    /* border: 2px solid pink; */
     width: 100%;
-    height: 200dvh;
-    position: relative;
+    padding: 0% 5%;
+    margin-top: -10dvh;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.titleStingray,
+.titleScenics {
+    /* border: 2px solid lime; */
+    font-size: 8dvw;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    /* font-family: wildGrowth; */
+    /* perspective: 1000px; */
+}
+.titleStingray {
+    justify-content: flex-start;
+}
+.titleScenics {
+    justify-content: flex-end;
 }
 
 .sectionTitle {
-    /* border: 2px solid teal; */
-    height: 10dvh;
-    color: white;
-    position: absolute;
-    top: 0;
-}
-.blueSquare {
-    background-color: blue;
-    width: 100%;
-    height: 10dvh;
-    position: absolute;
-    top: 0;
+    border: 2px solid blue;
+    /* display: flex; */
+    /* justify-content: flex-start; */
+    /* align-items: center; */
+    /* transform-style: preserve-3d; */
 }
 
-
-
-
-.coverPhoto {
-    border: 2px solid white;
-    width: 100%;
-    height: 50dvh;
-    object-fit: cover;
-    transform-origin: bottom;
-    margin-top: 5dvh;
+.titleCharacter {
+    border: 2px solid grey;
+    display: inline-block;
+    /* transform: rotateY(0deg); */
+    /* transition: transform 0.3s ease, color 0.3s ease; */
 }
+
+/* Add 3D rotation effect when hovering over the title */
+.titleCharacter:hover {
+    /* transform: rotateY(360deg); */
+    /* color: #92d003; */
+}
+.titleCharacter {
+    /* text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); */
+}
+
+
+
+
+
+
+
+
 

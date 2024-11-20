@@ -40,8 +40,17 @@ html {
   flex-flow: column nowrap;
   /* justify-content: center; */
   align-items: center;
+  color: white;
 }
 
+
+
+
+.stingrayContainer {
+  border: 2px solid yellow;
+  width: 30dvh;
+  height: 30dvh;
+}
 
 
 
