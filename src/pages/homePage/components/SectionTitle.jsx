@@ -8,9 +8,11 @@ const SectionTitle = ({ homeTitle }) => {
     const titleInView = useInView(
         titleRef,
         {
-            // amount: 1,
-            margin: '-100px',
-            once: true,
+            // amount: 1, // element based
+            // margin: '-100px 0px -100px 0px' ,
+            margin: '-20% 0px -50% 0px' ,
+            // threshold: 0.5, // element based
+            // once: true,
         }
     )
     console.log(`${homeTitle} in view`, titleInView)

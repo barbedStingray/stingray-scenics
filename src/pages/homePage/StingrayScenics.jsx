@@ -74,21 +74,26 @@ const StingrayScenics = () => {
     const stickImageY6 = useTransform(mainContainer, [0.27, 0.34, 0.41], [50, 0, 50])
 
 
-    const gradientColor = useTransform(mainContainer, [0.03, 0.21], [
+    const gradientColor = useTransform(mainContainer, [0, 1], [
         'linear-gradient(90deg, #ff7eb3, #ff758c)', // Gradient at start
         'linear-gradient(90deg, #6a11cb, #2575fc)', // Gradient at end
     ])
-    const gradientStyle = useMotionTemplate`${gradientColor}`;
+    const defaultGradient = 'linear-gradient(90deg, #ff7eb3, #ff758c)'
+    const gradientStyle = useMotionTemplate`${gradientColor}`
 
-        const [isMounted, setIsMounted] = useState(false);
-        useEffect(() => {
-          // Set mounted to true after the first render
-          setIsMounted(true);
-        }, []);
+
+    // miniature section
+    const miniArray = new Array(20).fill(null)
+    // const miniTitleOp = useTransform(mainContainer, [0.4, 0.45, 0.6, 0.65], [0, 1, 1, 0])
+    const miniTitleY1 = useTransform(mainContainer, [0.4, 0.45, 0.6, 0.65], [50, 0, 0, -50])
+    const divideH = useTransform(mainContainer, [0.47, 0.6], ['0%', '100%'])
+    const divideR = useTransform(mainContainer, [0.47, 0.6], ['0deg', '90deg'])
 
 
     return (
-        <div className='homePage' ref={containerRef}>
+        <div className='homePage' ref={containerRef}
+        // style={{ background: gradientStyle || defaultGradient}}
+        >
 
             <NavBar mainContainer={mainContainer} />
 
@@ -115,15 +120,7 @@ const StingrayScenics = () => {
                 <motion.div className='stickyDetails'
                     style={{ opacity: tinyDetailOp1, y: tinyDetailY1 }}
                 >
-                    <motion.h1
-                        animate={{ backgroundPosition: isMounted ? '100%' : '0%'}}
-                        style={{
-                            background: gradientStyle,
-                            WebkitBackgroundClip: 'text', // Makes the gradient only affect text
-                            WebkitTextFillColor: 'transparent', // Ensures only the gradient shows
-
-                        }}
-                    >Epic Worlds</motion.h1>
+                    <motion.h1>Epic Worlds</motion.h1>
                 </motion.div>
                 <div className='stickyImages'>
                     <motion.img src={trolls} className='stickImage' style={{ opacity: stickImageOp1, x: stickImageX1 }} />
@@ -146,12 +143,15 @@ const StingrayScenics = () => {
 
 
             <div className='miniatureSection'>
-                {/* <motion.div className='titleWrapper'
-                    style={{ opacity: miniHeaderOpacity, y: miniHeaderY }}
-                > */}
-                <SectionTitle homeTitle='Miniatures' />
-                {/* </motion.div> */}
-                <p>Small Figures, Big Adventures</p>
+                <div className='titleMiniatures'>
+                    <SectionTitle homeTitle='Miniatures' />
+                </div>
+
+                <div className='homeMiniDisplay'>
+                    
+                </div>
+
+
             </div>
 
             {/* <div className='terrainSection'>
@@ -173,7 +173,7 @@ const StingrayScenics = () => {
                 <p>Epic Moments captured in miniature</p>
             </div> */}
 
-            <div className='paintStrip'>
+            {/* <div className='paintStrip'>
                 <h1>Miniature Restoration</h1>
                 <p>From Forgotten to Fantastic, Cracked to Classic, Worn to Wonder</p>
                 <p>The Process</p>
@@ -182,7 +182,7 @@ const StingrayScenics = () => {
                 <StripIt mainContainer={mainContainer} aniParams={{ enter: 0.145, exit: 0.20, picture: smugglers }} />
                 <StripIt mainContainer={mainContainer} aniParams={{ enter: 0.165, exit: 0.22, picture: droids }} />
                 <p>Find out more in Miniature Restoration HERE</p>
-            </div>
+            </div> */}
 
 
 
@@ -211,13 +211,13 @@ const StingrayScenics = () => {
                     }}
                 ></motion.div>
 
-                <motion.img src={droids} className='coverPhoto'
+                {/* <motion.img src={droids} className='coverPhoto'
                     // ref={targetRef}
                     style={{
                         rotateX: flip,
                         opacity: opacity
                     }}
-                />
+                /> */}
             </div>
 
 
