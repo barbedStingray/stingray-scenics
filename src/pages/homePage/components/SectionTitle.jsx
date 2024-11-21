@@ -40,7 +40,7 @@ const SectionTitle = ({ homeTitle }) => {
                 initial='hidden'
                 // animate='visible'
                 animate={titleInView ? 'visible' : 'hidden'}
-                transition={{ staggerChildren: 0.2, staggerDirection: direction, }}
+                transition={{ staggerChildren: 0.05, staggerDirection: direction, }}
             >
                 {homeTitle.split('').map((char, i) => (
                     <motion.span

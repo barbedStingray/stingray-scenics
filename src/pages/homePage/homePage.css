@@ -7,20 +7,22 @@
 }
 
 .bannerDisplay {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     color: white;
 }
 
 .bannerImage {
     width: 100%;
     height: 40dvh;
+    height: 300px;
     object-fit: cover;
     position: relative;
 }
 
 .homeHeader {
     border: 2px solid orangered;
-    height: 50dvh;
+    height: 30dvh;
+    height: 250px;
     position: relative;
     /* background-color: var(--background); */
 }
@@ -33,7 +35,8 @@
     /* border: 2px solid pink; */
     width: 100%;
     padding: 0% 2.5%;
-    margin-top: -14dvh;
+    /* margin-top: -14dvh; */
+    margin-top: -85px;
     display: flex;
     flex-flow: column nowrap;
 }
@@ -84,6 +87,53 @@
 
 
 
+.tinyWorlds {
+    border: 2px solid yellow;
+    height: 2000px;
+    position: relative;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+
+.stickyDetails {
+    border: 2px solid green;
+    position: sticky;
+    top: 100px;
+    height: 100px;
+}
+.stickyDetails h1 {
+    text-align: center;
+    font-size: 72px;
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* position: absolute;
+    left: 50%;
+    top: 50%; */
+    /* transform: translate(-50%, -50%); */
+    width: 100%;
+}
+
+.stickyImages {
+    border: 2px solid purple;
+    /* height: 500px; */
+    position: sticky;
+    top: 200px;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.stickImage {
+    border: 2px solid white;
+    width: 225px;
+    height: 225px;
+    object-fit: cover;
+}
 
 
 
