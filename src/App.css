@@ -20,7 +20,7 @@ html {
   /* layout variables */
   --nav-height: 6dvh;
   --background: #0e1400;
-  background-color: var(--background);
+  /* background-color: var(--background); */
 
 }
 

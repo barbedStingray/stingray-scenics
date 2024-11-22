@@ -5,8 +5,9 @@ import './homePage.css'
 import NavBar from '../../components/navigationBar/NavBar';
 
 
-import StripIt from '../../components/stripIt/StripIt';
 import SectionTitle from './components/SectionTitle';
+
+import Big from '../../images/BIG.svg'
 
 import hobbiton from '../../images/hobbiton.jpg'
 import stingrayIcon from '../../images/DGreenIcon.png'
@@ -90,6 +91,7 @@ const StingrayScenics = () => {
     const divideR = useTransform(mainContainer, [0.47, 0.6], ['0deg', '90deg'])
 
 
+
     return (
         <div className='homePage' ref={containerRef}
         // style={{ background: gradientStyle || defaultGradient}}
@@ -113,6 +115,9 @@ const StingrayScenics = () => {
 
                     {/* <p>{openingLine}</p> */}
                     <motion.h3 style={{ opacity: magicAct }}>Keep scrolling to learn more!</motion.h3>
+
+
+
                 </div>
             </div>
 
@@ -142,52 +147,20 @@ const StingrayScenics = () => {
             </div>
 
 
-            <div className='miniatureSection'>
+            {/* <div className='miniatureSection'>
                 <div className='titleMiniatures'>
                     <SectionTitle homeTitle='Miniatures' />
                 </div>
 
                 <div className='homeMiniDisplay'>
-                    
+
                 </div>
 
 
-            </div>
-
-            {/* <div className='terrainSection'>
-                <SectionTitle homeTitle='Terrain' />
-
-                <p>Epic Tales in Small Scale</p>
-            </div> */}
-
-            {/* <div className='theHobby'>
-                <h1>The Hobby</h1>
-                <p>Transforming plastic into personality</p>
-                <p>From Basecoat to Battle</p>
-            </div> */}
-
-            {/* <p>One brush to paint them all</p>
-            <p>From the Shire to Mt. Doom, in exquisite detail</p> */}
-
-            {/* <div className='contact'>
-                <p>Epic Moments captured in miniature</p>
-            </div> */}
-
-            {/* <div className='paintStrip'>
-                <h1>Miniature Restoration</h1>
-                <p>From Forgotten to Fantastic, Cracked to Classic, Worn to Wonder</p>
-                <p>The Process</p>
-                <p>Restoring miniatures for tabletop gaming is a satisfying craft that intertwines creativity with chemistry. Over time, models can accumulate layers of old paint, dirt, or damage that obscure their intricate details and original charm. Restoring them to their original condition and preparing them for a repaint requires patience, care, and a thoughtful approach tailored to each model's unique condition and composition.</p>
-                <StripIt mainContainer={mainContainer} aniParams={{ enter: 0.125, exit: 0.18, picture: trolls }} />
-                <StripIt mainContainer={mainContainer} aniParams={{ enter: 0.145, exit: 0.20, picture: smugglers }} />
-                <StripIt mainContainer={mainContainer} aniParams={{ enter: 0.165, exit: 0.22, picture: droids }} />
-                <p>Find out more in Miniature Restoration HERE</p>
             </div> */}
 
 
-
-
-            <div className='modelSection'>
+            {/* <div className='modelSection'>
 
                 <motion.h1 className='sectionTitle'
                     style={{
@@ -211,14 +184,7 @@ const StingrayScenics = () => {
                     }}
                 ></motion.div>
 
-                {/* <motion.img src={droids} className='coverPhoto'
-                    // ref={targetRef}
-                    style={{
-                        rotateX: flip,
-                        opacity: opacity
-                    }}
-                /> */}
-            </div>
+            </div> */}
 
 
 
@@ -227,7 +193,7 @@ const StingrayScenics = () => {
             <div className='emptyElement' />
             <p>Custom Wargamming since 2020</p>
 
-        </div>
+        </div >
     )
 }
 
