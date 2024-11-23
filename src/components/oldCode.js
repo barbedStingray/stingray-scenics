@@ -169,3 +169,45 @@ export default StingrayScenics
     <li>Dries quickly leaving fine particles of paint on your model. It requires a second scrubbing.</li>
 </ul>
 
+
+
+
+
+
+// svg clipping mask for later
+<svg
+width="1%00"
+height="100vh"
+viewBox="0 0 200 200"
+xmlns="http://www.w3.org/2000/svg"
+>
+{/* Define the clipPath */}
+<defs>
+    <clipPath id="circleMask">
+        <motion.circle
+            cx="100" // X position of the circle's center
+            cy="100" // Y position of the circle's center
+            r={circleR} // Animate the radius
+            fill="white" // Required, but color doesn't matter for clip paths
+            transition={{
+                duration: 2, // Animation duration
+                ease: "easeInOut", // Easing function
+            }}
+        />
+    </clipPath>
+</defs>
+{/* Apply the clipping mask to the group */}
+<g clipPath="url(#circleMask)">
+    <motion.image
+        className='circleImage'
+        href={pelennorFields} // Replace with your desired image
+        width="100%"
+        height="100%"
+        style={{
+            scale: imageScale, // Dynamically scale the image as you scroll
+            y: imageY, // Move the image upwards to create a "zooming in" effect
+        }}
+    />
+</g>
+</svg>
+

@@ -7,52 +7,111 @@
     /* background-color: blue; */
 }
 
-.bannerDisplay {
-    /* border: 2px solid red; */
-    color: white;
-}
-
-.bannerImage {
+.displayContainer {
+    border: 2px solid white;
     width: 100%;
-    height: 40dvh;
-    height: 300px;
-    object-fit: cover;
-    position: relative;
+    height: 2000px;
 }
 
-.homeHeader {
-    border: 2px solid orangered;
-    height: 30dvh;
-    height: 250px;
-    position: relative;
-    /* background-color: var(--background); */
+.displayFrame {
+    border: 2px solid purple;
+    width: 100%;
+    height: 100dvh;
+    position: sticky;
+    top: 0;
 }
+
+.displayImages {
+    /* border: 2px solid lime; */
+    display: flex;
+    flex-flow: row nowrap;
+    height: 40dvh;
+}
+.imageContainer {
+    /* border: 2px solid red; */
+    border-left: 1px solid white ;
+    border-right: 1px solid white ;
+    /* width: 25%; */
+    /* flex: 1; */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.heroImage {
+    /* border: 2px solid white; */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bannerScroll {
+    border: 2px solid white;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-flow: column nowrap;
+}
+.banner {
+    border: 2px solid gold;
+    width: 100%;
+    flex: 1;
+    font-size: 55px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.tinySwap {
+    border: 2px solid grey;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    width: 150px;
+    overflow: hidden;
+}
+.wordSwap {
+    border: 2px solid blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 100%;    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* title components */
-
-
-
 .websiteTitle {
     /* border: 2px solid pink; */
     width: 100%;
     padding: 0% 2.5%;
     /* margin-top: -14dvh; */
-    margin-top: -85px;
     display: flex;
     flex-flow: column nowrap;
-}
-
-.titleStingray,
-.titleScenics {
-    /* border: 2px solid lime; */
-    /* font-size: 8dvw; */
-    font-size: 40px;
+    font-size: 30px;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    /* font-family: wildGrowth; */
-    perspective: 1000px;
+    height: 100px;
 }
+
 .titleStingray {
     justify-content: flex-start;
 }
@@ -62,10 +121,6 @@
 }
 
 .sectionTitle {
-    /* border: 2px solid blue; */
-    /* display: flex; */
-    /* justify-content: flex-start; */
-    /* align-items: center; */
     transform-style: preserve-3d;
 }
 
@@ -86,114 +141,6 @@
     text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
     /* -webkit-text-stroke: 1px green; */
 }
-
-
-
-.tinyWorlds {
-    border: 2px solid yellow;
-    height: 1800px;
-    position: relative;
-    /* display: flex; */
-    /* align-items: center; */
-    /* justify-content: center; */
-}
-
-.stickyDetails {
-    border: 2px solid green;
-    position: sticky;
-    top: 100px;
-    height: 100px;
-}
-.stickyDetails h1 {
-    text-align: center;
-    font-size: 72px;
-    background: -webkit-linear-gradient(#eee, #333);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    /* position: absolute;
-    left: 50%;
-    top: 50%; */
-    /* transform: translate(-50%, -50%); */
-    width: 100%;
-}
-
-.stickyImages {
-    border: 2px solid purple;
-    /* height: 500px; */
-    position: sticky;
-    top: 200px;
-
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-}
-
-.stickImage {
-    border: 2px solid white;
-    width: 225px;
-    height: 225px;
-    object-fit: cover;
-}
-
-
-
-
-/* Miniature Section */
-
-.miniatureSection {
-    border: 2px solid purple;
-    width: 100%;
-    height: 2000px;
-    /* background-color: #1a0c0c; */
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    
-}
-.titleMiniatures {
-    border: 2px solid purple;
-    position: sticky;
-    top: 100px;
-}
-.titleMiniatures h1 {
-    text-align: center;
-    font-size: 72px;
-    /* background: -webkit-linear-gradient(#eee, #333); */
-    /* background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
-    /* position: absolute;
-    left: 50%;
-    top: 50%; */
-    /* transform: translate(-50%, -50%); */
-    width: 100%;
-    height: 100px;
-}
-
-
-.homeMiniDisplay {
-    border: 2px solid red;
-    height: 500px;   
-    width: 90%;
-    /* width: 500px;  */
-    position: sticky;
-    top: 200px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-
-
-
-
-
 
 
 
