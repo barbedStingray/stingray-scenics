@@ -22,22 +22,77 @@
 }
 
 .displayImages {
-    /* border: 2px solid lime; */
+    border: 2px solid lime;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column wrap;
     height: 40dvh;
+
+    margin: 1dvh;
+    position: relative;
 }
-.imageContainer {
-    /* border: 2px solid red; */
-    border-left: 1px solid white ;
-    border-right: 1px solid white ;
-    /* width: 25%; */
-    /* flex: 1; */
-    height: 100%;
+
+.dImage1,
+.dImage2,
+.dImage3,
+.dImage4,
+.dImage5 {
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+.dImage1 {
+    border: 2px solid red;
+}
+
+.dImage2 {
+    border: 2px solid blue;
+}
+.dImage3 {
+    border: 2px solid teal;
+}
+.dImage4 {
+    border: 2px solid green;
+}
+.dImage5 {
+    border: 2px solid purple;
+}
+
+.box {
+    border: 2px solid blue;
+    height: 100%;
+    flex: 0 0 100%;
+}
+
+.smallDiv {
+    border: 2px solid orange;
+    font-size: 35px;
+    /* position: absolute; */
+    /* bottom: 0; */
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+    letter-spacing: 5px;
+}
+.bigDiv {
+    border: 2px solid green;
+    font-size: 60px;
+    position: absolute; 
+    left: 50%; 
+    top: 50%;
+    transform: translate(-50%, -50%);
+    writing-mode: vertical-rl; 
+    text-orientation: upright; 
+}
+.figureDiv {
+    border: 2px solid gold;
+    position: absolute;
+    top: 0;
+    transform: rotate(-180deg);
+    font-size: 35px;
+    letter-spacing: 5px;
+}
+
 .heroImage {
     /* border: 2px solid white; */
     width: 100%;
@@ -52,6 +107,7 @@
     display: flex;
     flex-flow: column nowrap;
 }
+
 .banner {
     border: 2px solid gold;
     width: 100%;
@@ -62,6 +118,7 @@
     justify-content: center;
     align-items: center;
 }
+
 .tinySwap {
     border: 2px solid grey;
     display: flex;
@@ -70,12 +127,13 @@
     width: 150px;
     overflow: hidden;
 }
+
 .wordSwap {
     border: 2px solid blue;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 0 0 100%;    
+    flex: 0 0 100%;
 }
 
 
@@ -115,6 +173,7 @@
 .titleStingray {
     justify-content: flex-start;
 }
+
 .titleScenics {
     justify-content: flex-end;
     margin-top: -2dvh;
@@ -137,13 +196,8 @@
     /* transform: rotateY(360deg); */
     color: #92d003;
 }
+
 .titleCharacter {
     text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
     /* -webkit-text-stroke: 1px green; */
 }
-
-
-
-
-
-
