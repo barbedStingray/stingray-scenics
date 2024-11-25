@@ -68,7 +68,7 @@ const StingrayScenics = () => {
     const box3Left = useTransform(mainContainer, [0, 0.1], ['35dvhw', '25dvw'])
     const box3Bottom = useTransform(mainContainer, [0, 0.1], ['0dvh', '0dvh'])
 
-     
+
     const box4w = useTransform(mainContainer, [0, 0.1], ['35dvw', '55dvw'])
     const box4h = useTransform(mainContainer, [0, 0.1], ['25dvh', '15dvh'])
     const box4Left = useTransform(mainContainer, [0, 0.1], ['60dvhw', '40dvw'])
@@ -94,6 +94,10 @@ const StingrayScenics = () => {
 
 
 
+    // Transformations for the circle
+    const circleRadius = useTransform(mainContainer, [0.0, 0.1], ['30dvw', '60dvw']);
+
+
 
     return (
         <div className='homePage' ref={containerRef}
@@ -101,32 +105,40 @@ const StingrayScenics = () => {
         >
 
             <NavBar mainContainer={mainContainer} />
+
+
+
+
+
             <div className='displayContainer'>
 
-                <div className='displayFrame'>
+
+
+                <div className='displayFrame'
+                    style={{ clipPath: "url(#circleClip)" }}
+                >
                     <div className='websiteTitle'>
                         {/* <SectionTitle homeTitle='Stingray' /> */}
                         <h1>Stingray Scenics</h1>
                     </div>
 
-
                     <div className='displayImages'>
 
-                        <motion.div className='dImage1' style={{ 
+                        <motion.div className='dImage1' style={{
                             height: box1h, width: box1w, top: box1Top, left: box1Left
-                            }}>
+                        }}>
                             {/* <div className='box'></div> */}
                             Box 1
                         </motion.div>
 
-                        <motion.div className='dImage2' style={{ 
+                        <motion.div className='dImage2' style={{
                             height: box2h, width: box2w, top: box2Top, left: box2Left
                         }}>
                             <motion.div className='smallDiv' style={{ opacity: smallO }}><p>Small</p></motion.div>
                             <motion.div className='bigDiv' style={{ opacity: bigO }}><p>BIG</p></motion.div>
                         </motion.div>
 
-                        <motion.div className='dImage3' style={{ 
+                        <motion.div className='dImage3' style={{
                             height: box3h, width: box3w, bottom: box3Bottom, left: box3Left
                         }}>
                             {/* <div className='box'></div> */}
@@ -142,7 +154,7 @@ const StingrayScenics = () => {
 
                         </motion.div>
 
-                        <motion.div className='dImage5' style={{ 
+                        <motion.div className='dImage5' style={{
                             height: box5h, width: box5w, bottom: box5Bottom, left: box5Left
                         }}>
                             {/* <div className='box'></div> */}
@@ -151,6 +163,8 @@ const StingrayScenics = () => {
                         </motion.div>
 
                     </div>
+
+
 
 
 
@@ -173,6 +187,7 @@ const StingrayScenics = () => {
                         </div>
                     </div>
                 </div>
+
             </div>
 
 
