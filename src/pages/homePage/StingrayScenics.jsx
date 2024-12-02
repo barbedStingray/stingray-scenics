@@ -82,7 +82,7 @@ const StingrayScenics = () => {
                 <div className='displayFrame'>
 
                     <div className='websiteTitle'>
-                        <p>Stingray scenics</p>
+                        <p>Stingray Scenics</p>
                     </div>
 
                     <div className='displayBox'>
@@ -92,10 +92,11 @@ const StingrayScenics = () => {
                         >
                             <img className='homeImage' src={imperials} />
                         </motion.div>
+{/* 
                         <motion.div className='displayInsideTwo'
                             style={{ opacity: mainOp, y: mainTwoY }}
                         >Stingray Scenics
-                        </motion.div>
+                        </motion.div> */}
 
 
                         <motion.div className='displayInsideOne'
