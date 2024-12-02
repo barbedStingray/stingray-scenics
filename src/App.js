@@ -1,7 +1,6 @@
 import './App.css';
 import React, { useEffect } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
-import NavBar from './components/navigationBar/NavBar'
 import StingrayScenics from './pages/homePage/StingrayScenics'
 import Miniatures from './pages/miniGallery/Miniatures'
 import DemoPage from './pages/demoPage/DemoPage';
@@ -28,7 +27,6 @@ function App() {
 
   return (
     <div className="stingrayScenics">
-      {/* <NavBar /> */}
       <Routes>
         <Route path='/' element={<StingrayScenics />} />
         <Route path='/miniatures' element={<Miniatures />} />

@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef, useMemo } from 'react';
 import { motion, useSpring, useInView, useTransform, useScroll, useMotionTemplate, useMotionValueEvent } from 'framer-motion';
 import './demoPage.css'
 
-import NavBar from '../../components/navigationBar/NavBar';
 
 import hobbiton from '../../images/hobbiton.jpg'
 import stingrayIcon from '../../images/DGreenIcon.png'
@@ -99,7 +98,6 @@ const DemoPage = () => {
 
     return (
         <div className='demoDiv' ref={containerRef}>
-            <NavBar mainContainer={mainContainer} />
 
             <div className='galleryHeader'>
                 <motion.img src={imperials} className='galleryImage'

@@ -20,7 +20,7 @@ html {
   /* layout variables */
   --nav-height: 6dvh;
   --background: #0e1400;
-  background-color: var(--background);
+  /* background-color: var(--background); */
 
 }
 
@@ -41,6 +41,11 @@ html {
   /* justify-content: center; */
   align-items: center;
   color: white;
+
+  background-image: url('../src/images/mountains.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 
