@@ -101,7 +101,7 @@ const StingrayScenics = () => {
 
                         <motion.div className='displayInsideOne'
                             style={{ opacity: secondOp, y: secondOneY }}
-                        >Models
+                        >Miniatures
                         </motion.div>
 
                         <motion.div className='displayInsideTwo'
