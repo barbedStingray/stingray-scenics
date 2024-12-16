@@ -3,6 +3,8 @@ import { motion, useSpring, useInView, useTransform, useScroll, useMotionTemplat
 import { Link } from 'react-router-dom'
 import './homePage.css'
 
+import DemoPar from '../../components/DemoPar';
+
 
 import SectionTitle from './components/SectionTitle';
 
@@ -21,6 +23,7 @@ import droids from '../../images/droids.png'
 import smugglers from '../../images/smugglers.jpeg'
 import empireLogo from '../../images/empireLogo.png'
 import { main } from 'framer-motion/client';
+
 
 
 const StingrayScenics = () => {
@@ -45,8 +48,8 @@ const StingrayScenics = () => {
 
 
 
-    // Small
-    const mainOp = useTransform(mainContainer, [0, 0.1], [1, 0])
+    const titleOp = useTransform(mainContainer, [0, 0.1], [1, 0])
+
     const mainOneY = useTransform(mainContainer, [0, 0.1], ['0px', '80px'])
     const mainTwoY = useTransform(mainContainer, [0, 0.1], ['0px', '-80px'])
 
@@ -59,6 +62,7 @@ const StingrayScenics = () => {
     const smallW = useTransform(mainContainer, [0, 0.1], ['15dvw', '15dvw'])
     const smallH = useTransform(mainContainer, [0, 0.1], ['8dvh', '8dvh'])
 
+    const homePhotoScale = useTransform(mainContainer, [0, 0.5], [1.25, 1])
 
     const gradientColor = useTransform(mainContainer, [0, 1], [
         'linear-gradient(90deg, #ff7eb3, #ff758c)', // Gradient at start
@@ -68,7 +72,39 @@ const StingrayScenics = () => {
     const gradientStyle = useMotionTemplate`${gradientColor}`
 
 
-
+    const parallaxImages = [
+        {
+            picture: pelennorFields,
+            motionValues: [0.05, 0.22],
+            yOffset: ['-8dvh', '8dvh'],
+            dimensions: ['40dvh', '60dvw'],
+        },
+        {
+            picture: droids,
+            motionValues: [0.15, 0.35],
+            yOffset: ['-20dvh', '-10dvh'],
+            dimensions: ['30dvh', '30dvw'],
+        },
+        {
+            picture: trolls,
+            motionValues: [0.175, 0.375],
+            yOffset: ['-60dvh', '-20dvh'],
+            dimensions: ['60dvh', '40dvw'],
+        },
+        {
+            picture: rivendellCharge,
+            motionValues: [0.25, 0.4],
+            yOffset: ['-20dvh', '-20dvh'],
+            dimensions: ['30dvh', '50dvw'],
+        },
+        {
+            picture: smugglers,
+            motionValues: [0.28, 0.475],
+            yOffset: ['-40dvh', '-10dvh'],
+            dimensions: ['30dvh', '50dvw'],
+        },
+    ]
+    
 
 
 
@@ -77,8 +113,39 @@ const StingrayScenics = () => {
         // style={{ background: gradientStyle || defaultGradient }}
         >
 
-            <div className='homeDiv'>
-                <img className='homeImage' src={pelennorFields} />
+            <div className='scrollingDiv'>
+
+                <div className='homeDiv'>
+                    <motion.div className='title'
+                        style={{ opacity: titleOp }}
+                    >
+                        {/* <p>Welcome to...</p> */}
+                        <p>Stingray</p>
+                        <p>Scenics</p>
+
+                        {/* <p>Stingray Scenics</p> */}
+                        {/* <p>scroll down ^^</p> */}
+                    </motion.div>
+                    {/* <div className='slogan'>
+                        <p>Tiny Figures</p>
+                        <p>Epic Stories</p>
+                    </div> */}
+                    <motion.img style={{ scale: homePhotoScale }} className='homeImage' src={pelennorFields} />
+                </div>
+
+                <div className='tinyFigures'>
+                    <p>Tiny</p>
+                    <p>Figures</p>
+                </div>
+
+
+                {/* <div className='demoParallax'>
+                    {parallaxImages.map((example, i) => (
+                        <DemoPar key={i} scrollContainer={mainContainer} parDetails={example} />
+                    ))}
+                </div> */}
+
+
             </div>
 
 
