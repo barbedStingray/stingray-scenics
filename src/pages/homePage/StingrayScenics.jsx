@@ -77,46 +77,11 @@ const StingrayScenics = () => {
         // style={{ background: gradientStyle || defaultGradient }}
         >
 
-            <div className='displayContainer'>
-
-                <div className='displayFrame'>
-
-                    <div className='websiteTitle'>
-                        <p>Stingray Scenics</p>
-                    </div>
-
-                    <div className='displayBox'>
-
-                        <motion.div className='displayInsideOne'
-                            style={{ opacity: mainOp, y: mainOneY }}
-                        >
-                            <img className='homeImage' src={imperials} />
-                        </motion.div>
-{/* 
-                        <motion.div className='displayInsideTwo'
-                            style={{ opacity: mainOp, y: mainTwoY }}
-                        >Stingray Scenics
-                        </motion.div> */}
-
-
-                        <motion.div className='displayInsideOne'
-                            style={{ opacity: secondOp, y: secondOneY }}
-                        >Miniatures
-                        </motion.div>
-
-                        <motion.div className='displayInsideTwo'
-                            style={{ opacity: secondOp, y: secondTwoY }}
-                        >
-                            <img className='homeImage' src={pelennorFields} />
-                        </motion.div>
-
-
-
-                    </div>
-
-                </div>
-
+            <div className='homeDiv'>
+                <img className='homeImage' src={pelennorFields} />
             </div>
+
+
 
 
             <div className='emptyElement' />

@@ -8,98 +8,17 @@
     /* background-color: blue; */
 }
 
-/* title components */
-.websiteTitle {
-    border: 2px solid pink;
-    height: 120px;
-    font-size: 10dvw;
-    /* position: absolute; */
-    /* top: 4dvh;
-    left: 18dvw; */
-    z-index: 10;
-
-    /* font-family: wildGrowth; */
-    /* margin-top: 14dvh; */
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    /* align-items: center; */
-}
 
 
-.displayContainer {
-    border: 2px solid white;
-    width: 100%;
-    height: 2000px;
-}
-
-.displayFrame {
-    border: 2px solid purple;
-    width: 100%;
+.homeDiv {
+    border: 2px solid orange;
     height: 100dvh;
-    position: sticky;
-    top: 0;
+    width: 100%;
+
 }
+
 .homeImage {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 20px;
 }
-
-.displayBox {
-    /* border: 2px solid green; */
-    width: 80dvw;
-    height: 80dvh;
-    border-radius: 40px;
-    box-shadow: 0px 5px 30px black;
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -47%);
-
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-
-    /* glass morphism */
-    background-color: transparent;
-    backdrop-filter: blur(3px);
-    background-image: linear-gradient(
-        150deg,
-        rgba(255, 255, 255, 0.3),
-        rgba(0, 0, 0, 0.3)
-    );
-    /* background-size: 30px; */
-}
-
-.dividedBox {
-    border: 2px solid orangered;
-    flex: 1;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.displayInsideOne {
-    border: 2px solid gold;
-    position: absolute;
-    top: 5%;
-    left: 2.5%;
-    height: 50%;
-    width: 90%;
-
-}
-.displayInsideTwo {
-    border: 2px solid purple;
-    position: absolute;
-    bottom: 5%;
-    right: 2.5%;
-    width: 90%;
-    height: 50%;
-}
-
