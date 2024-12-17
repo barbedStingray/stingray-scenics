@@ -22,7 +22,7 @@ import rivendellCharge from '../../images/rivendellCharge.jpeg'
 import droids from '../../images/droids.png'
 import smugglers from '../../images/smugglers.jpeg'
 import empireLogo from '../../images/empireLogo.png'
-import { main } from 'framer-motion/client';
+import { filter, main } from 'framer-motion/client';
 
 
 
@@ -50,12 +50,18 @@ const StingrayScenics = () => {
 
     const titleOp = useTransform(mainContainer, [0, 0.1], [1, 0])
 
+    // home photo
     const homePhotoScale = useTransform(mainContainer, [0, 0.5], [1.25, 1])
     const grayscaleValue = useTransform(mainContainer, [0, 0.5], ['0%', '100%'])
-    const filterStyle = useMotionTemplate`grayscale(${grayscaleValue})`
+    const blurValue = useTransform(mainContainer, [0.12, 0.3], [0, 2]);
+    const filterStyle = useMotionTemplate`grayscale(${grayscaleValue}) blur(${blurValue}px)`;
+
 
     const tinyFiguresOp = useTransform(mainContainer, [0.12, 0.16, 0.26, 0.3], [0, 1, 1, 0])
     const tinyFiguresY = useTransform(mainContainer, [0.12, 0.3], ['0', '-5dvh'])
+
+    
+    const paraImageY = useTransform(mainContainer, [0.12, 0.4], ['0', '-45dvh'])
 
 
     const mainTwoY = useTransform(mainContainer, [0, 0.1], ['0px', '-80px'])
@@ -123,21 +129,20 @@ const StingrayScenics = () => {
             <div className='scrollingDiv'>
 
                 <div className='homeDiv'>
-                    <motion.div className='parallaxText'
+                    {/* <motion.div className='parallaxText'
                         style={{ opacity: titleOp }}
                     >
-                        {/* <p>Welcome to...</p> */}
-                        <p className='border'>Stingray</p>
+                        <p>Stingray</p>
                         <p>scenics,</p>
-
-                        {/* <p>Stingray Scenics</p> */}
-                        {/* <p>scroll down ^^</p> */}
-                    </motion.div>
+                    </motion.div> */}
 
                     <motion.img className='homeImage' src={pelennorFields}
                         style={{ scale: homePhotoScale, filter: filterStyle }}
                     />
 
+                    <motion.p className='parallaxText'
+                        style={{ opacity: titleOp }}
+                    >Stingray scenics,</motion.p>
                     <motion.p className='parallaxText tinyFigures'
                         style={{ y: tinyFiguresY, opacity: tinyFiguresOp }}
                     >Tiny figures"</motion.p>
@@ -145,7 +150,9 @@ const StingrayScenics = () => {
                         style={{ y: tinyFiguresY, opacity: tinyFiguresOp }}
                     >Epic stories!</motion.p>
 
-                    <motion.img className='parallaxHomeImage' src={droids} />
+                    <motion.img className='parallaxHomeImage' src={droids}
+                        style={{ y: paraImageY, opacity: tinyFiguresOp }}
+                    />
 
 
                 </div>
