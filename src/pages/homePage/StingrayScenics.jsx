@@ -49,6 +49,7 @@ const StingrayScenics = () => {
 
 
     const titleOp = useTransform(mainContainer, [0, 0.1], [1, 0])
+    const titleY = useTransform(mainContainer, [0, 0.1], ['0', '-5dvh'])
 
     // home photo
     const homePhotoScale = useTransform(mainContainer, [0, 0.5], [1.25, 1])
@@ -60,7 +61,7 @@ const StingrayScenics = () => {
     const tinyFiguresOp = useTransform(mainContainer, [0.12, 0.16, 0.26, 0.3], [0, 1, 1, 0])
     const tinyFiguresY = useTransform(mainContainer, [0.12, 0.3], ['0', '-5dvh'])
 
-    
+
     const paraImageY = useTransform(mainContainer, [0.12, 0.4], ['0', '-45dvh'])
 
 
@@ -128,21 +129,19 @@ const StingrayScenics = () => {
 
             <div className='scrollingDiv'>
 
-                <div className='homeDiv'>
-                    {/* <motion.div className='parallaxText'
-                        style={{ opacity: titleOp }}
-                    >
-                        <p>Stingray</p>
-                        <p>scenics,</p>
-                    </motion.div> */}
+                <div className='homeDisplay'>
 
                     <motion.img className='homeImage' src={pelennorFields}
                         style={{ scale: homePhotoScale, filter: filterStyle }}
                     />
 
+                    {/* titles */}
                     <motion.p className='parallaxText'
                         style={{ opacity: titleOp }}
                     >Stingray scenics,</motion.p>
+
+
+                    
                     <motion.p className='parallaxText tinyFigures'
                         style={{ y: tinyFiguresY, opacity: tinyFiguresOp }}
                     >Tiny figures"</motion.p>
@@ -150,10 +149,10 @@ const StingrayScenics = () => {
                         style={{ y: tinyFiguresY, opacity: tinyFiguresOp }}
                     >Epic stories!</motion.p>
 
+                    {/* images */}
                     <motion.img className='parallaxHomeImage' src={droids}
                         style={{ y: paraImageY, opacity: tinyFiguresOp }}
                     />
-
 
                 </div>
 

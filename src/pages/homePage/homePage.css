@@ -11,13 +11,10 @@
 .scrollingDiv {
     border: 2px solid gold;
     height: 3000px;
-
-
     /* position: relative; */
-
 }
 
-.homeDiv {
+.homeDisplay {
     border: 2px solid red;
     height: 100dvh;
     width: 100%;
