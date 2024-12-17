@@ -50,7 +50,14 @@ const StingrayScenics = () => {
 
     const titleOp = useTransform(mainContainer, [0, 0.1], [1, 0])
 
-    const mainOneY = useTransform(mainContainer, [0, 0.1], ['0px', '80px'])
+    const homePhotoScale = useTransform(mainContainer, [0, 0.5], [1.25, 1])
+    const grayscaleValue = useTransform(mainContainer, [0, 0.5], ['0%', '100%'])
+    const filterStyle = useMotionTemplate`grayscale(${grayscaleValue})`
+
+    const tinyFiguresOp = useTransform(mainContainer, [0.12, 0.16, 0.26, 0.3], [0, 1, 1, 0])
+    const tinyFiguresY = useTransform(mainContainer, [0.12, 0.3], ['0', '-5dvh'])
+
+
     const mainTwoY = useTransform(mainContainer, [0, 0.1], ['0px', '-80px'])
 
     const secondOp = useTransform(mainContainer, [0, 0.1, 0.2], [0, 1, 0])
@@ -62,7 +69,6 @@ const StingrayScenics = () => {
     const smallW = useTransform(mainContainer, [0, 0.1], ['15dvw', '15dvw'])
     const smallH = useTransform(mainContainer, [0, 0.1], ['8dvh', '8dvh'])
 
-    const homePhotoScale = useTransform(mainContainer, [0, 0.5], [1.25, 1])
 
     const gradientColor = useTransform(mainContainer, [0, 1], [
         'linear-gradient(90deg, #ff7eb3, #ff758c)', // Gradient at start
@@ -70,6 +76,7 @@ const StingrayScenics = () => {
     ])
     const defaultGradient = 'linear-gradient(90deg, #ff7eb3, #ff758c)'
     const gradientStyle = useMotionTemplate`${gradientColor}`
+
 
 
     const parallaxImages = [
@@ -104,7 +111,7 @@ const StingrayScenics = () => {
             dimensions: ['30dvh', '50dvw'],
         },
     ]
-    
+
 
 
 
@@ -116,27 +123,35 @@ const StingrayScenics = () => {
             <div className='scrollingDiv'>
 
                 <div className='homeDiv'>
-                    <motion.div className='title'
+                    <motion.div className='parallaxText'
                         style={{ opacity: titleOp }}
                     >
                         {/* <p>Welcome to...</p> */}
-                        <p>Stingray</p>
-                        <p>Scenics</p>
+                        <p className='border'>Stingray</p>
+                        <p>scenics,</p>
 
                         {/* <p>Stingray Scenics</p> */}
                         {/* <p>scroll down ^^</p> */}
                     </motion.div>
-                    {/* <div className='slogan'>
-                        <p>Tiny Figures</p>
-                        <p>Epic Stories</p>
-                    </div> */}
-                    <motion.img style={{ scale: homePhotoScale }} className='homeImage' src={pelennorFields} />
+
+                    <motion.img className='homeImage' src={pelennorFields}
+                        style={{ scale: homePhotoScale, filter: filterStyle }}
+                    />
+
+                    <motion.p className='parallaxText tinyFigures'
+                        style={{ y: tinyFiguresY, opacity: tinyFiguresOp }}
+                    >Tiny figures"</motion.p>
+                    <motion.p className='parallaxText epicStories'
+                        style={{ y: tinyFiguresY, opacity: tinyFiguresOp }}
+                    >Epic stories!</motion.p>
+
+                    <motion.img className='parallaxHomeImage' src={droids} />
+
+
                 </div>
 
-                <div className='tinyFigures'>
-                    <p>Tiny</p>
-                    <p>Figures</p>
-                </div>
+
+
 
 
                 {/* <div className='demoParallax'>
