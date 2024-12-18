@@ -3,8 +3,7 @@ import { motion, useSpring, useInView, useTransform, useScroll, useMotionTemplat
 import { Link } from 'react-router-dom'
 import './homePage.css'
 
-import DemoPar from '../../components/DemoPar';
-
+import ParallaxImage from '../../components/ParallaxImage';
 
 import SectionTitle from './components/SectionTitle';
 
@@ -15,14 +14,15 @@ import stingrayIcon from '../../images/DGreenIcon.png'
 import blueStingray from '../../images/blueStingray.svg'
 import oneRing from '../../images/oneRing.png'
 import mordor from '../../images/mordor.png'
+
 import imperials from '../../images/imperials.jpeg'
 import pelennorFields from '../../images/pelennorFields.jpeg'
 import trolls from '../../images/trolls.jpeg'
 import rivendellCharge from '../../images/rivendellCharge.jpeg'
 import droids from '../../images/droids.png'
 import smugglers from '../../images/smugglers.jpeg'
+
 import empireLogo from '../../images/empireLogo.png'
-import { filter, main } from 'framer-motion/client';
 
 
 
@@ -52,32 +52,54 @@ const StingrayScenics = () => {
     // const titleY = useTransform(mainContainer, [0, 0.1], ['0', '-5dvh'])
 
     // home photo
-    const homePhotoScale = useTransform(mainContainer, [0, 0.5], [1.25, 1])
-    const homePhotoY = useTransform(mainContainer, [0.5, 0.7 ], ['0dvh', '100dvh'])
+    const homePhotoScale = useTransform(mainContainer, [0, 0.8], [1.25, 1])
+    const homePhotoY = useTransform(mainContainer, [0.8, 1], ['0dvh', '100dvh'])
     const grayscaleValue = useTransform(mainContainer, [0, 0.5], ['0%', '100%'])
-    const blurValue = useTransform(mainContainer, [0.12, 0.3], [0, 2]);
+    const blurValue = useTransform(mainContainer, [0.14, 0.20], [0, 2]);
     const filterStyle = useMotionTemplate`grayscale(${grayscaleValue}) blur(${blurValue}px)`;
 
+
+
     // mini titles
-    const tinyFiguresOp = useTransform(mainContainer, [0.10, 0.14, 0.24, 0.28], [0, 1, 1, 0])
-    const tinyFiguresY = useTransform(mainContainer, [0.12, 0.3], ['0', '-5dvh'])
+    const tinyFiguresOp = useTransform(mainContainer, [0.13, 0.18, 0.37, 0.42], [0, 1, 1, 0])
+    const tinyFiguresY = useTransform(mainContainer, [0.12, 0.41], ['0', '-5dvh'])
+
     const epicStoriesOp = useTransform(mainContainer, [0.12, 0.16, 0.26, 0.3], [0, 1, 1, 0])
     const epicStoriesY = useTransform(mainContainer, [0.12, 0.3], ['0', '-5dvh'])
 
+    const tinyFiguresImages = [
+        {
+            picture: smugglers,
+            position: ['5%', '10%'],
+            dimensions: ['25dvh', '75dvw'],
+            motionValues: [0.18, 0.5],
+            yOffset: ['0dvh', '-3dvh'],
+        },
+        {
+            picture: trolls,
+            position: ['35%', '5%'],
+            dimensions: ['45dvh', '40dvw'],
+            motionValues: [0.23, 0.5],
+            yOffset: ['0dvh', '12dvh'],
+        },
+        {
+            picture: imperials,
+            position: ['65%', '45%'],
+            dimensions: ['35dvh', '50dvw'],
+            motionValues: [0.28, 0.5],
+            yOffset: ['0dvh', '-8dvh'],
+        },
+        {
+            picture: rivendellCharge,
+            position: ['30%', '38%'],
+            dimensions: ['20dvh', '55dvw'],
+            motionValues: [0.33, 0.5],
+            yOffset: ['0dvh', '10dvh'],
+        },
+    ]
 
-    const paraImageY = useTransform(mainContainer, [0.12, 0.4], ['0', '-45dvh'])
 
 
-    const mainTwoY = useTransform(mainContainer, [0, 0.1], ['0px', '-80px'])
-
-    const secondOp = useTransform(mainContainer, [0, 0.1, 0.2], [0, 1, 0])
-    const secondOneY = useTransform(mainContainer, [0, 0.1, 0.2], ['-30px', '0px', '50px'])
-    const secondTwoY = useTransform(mainContainer, [0, 0.1, 0.2], ['50px', '0px', '-30px'])
-
-    const smallLeft = useTransform(mainContainer, [0, 0.1], ['18dvw', '20dvw'])
-    const smallTop = useTransform(mainContainer, [0, 0.1], ['15dvh', '20dvh'])
-    const smallW = useTransform(mainContainer, [0, 0.1], ['15dvw', '15dvw'])
-    const smallH = useTransform(mainContainer, [0, 0.1], ['8dvh', '8dvh'])
 
 
     const gradientColor = useTransform(mainContainer, [0, 1], [
@@ -86,41 +108,6 @@ const StingrayScenics = () => {
     ])
     const defaultGradient = 'linear-gradient(90deg, #ff7eb3, #ff758c)'
     const gradientStyle = useMotionTemplate`${gradientColor}`
-
-
-
-    const parallaxImages = [
-        {
-            picture: pelennorFields,
-            motionValues: [0.05, 0.22],
-            yOffset: ['-8dvh', '8dvh'],
-            dimensions: ['40dvh', '60dvw'],
-        },
-        {
-            picture: droids,
-            motionValues: [0.15, 0.35],
-            yOffset: ['-20dvh', '-10dvh'],
-            dimensions: ['30dvh', '30dvw'],
-        },
-        {
-            picture: trolls,
-            motionValues: [0.175, 0.375],
-            yOffset: ['-60dvh', '-20dvh'],
-            dimensions: ['60dvh', '40dvw'],
-        },
-        {
-            picture: rivendellCharge,
-            motionValues: [0.25, 0.4],
-            yOffset: ['-20dvh', '-20dvh'],
-            dimensions: ['30dvh', '50dvw'],
-        },
-        {
-            picture: smugglers,
-            motionValues: [0.28, 0.475],
-            yOffset: ['-40dvh', '-10dvh'],
-            dimensions: ['30dvh', '50dvw'],
-        },
-    ]
 
 
 
@@ -163,14 +150,19 @@ const StingrayScenics = () => {
                     <motion.p className='parallaxText tinyFigures'
                         style={{ y: tinyFiguresY, opacity: tinyFiguresOp }}
                     >Tiny figures"</motion.p>
-                    <motion.p className='parallaxText epicStories'
+
+                    {/* <motion.p className='parallaxText epicStories'
                         style={{ y: epicStoriesY, opacity: epicStoriesOp }}
-                    >Epic stories!</motion.p>
+                    >Epic stories!</motion.p> */}
+
 
                     {/* images */}
-                    <motion.img className='parallaxHomeImage' src={droids}
-                        style={{ y: paraImageY, opacity: tinyFiguresOp }}
-                    />
+                    {tinyFiguresImages.map((tinyImage, i) => (
+                        <ParallaxImage key={i} scrollContainer={mainContainer} parDetails={tinyImage} />
+                    ))}
+
+
+
 
 
 

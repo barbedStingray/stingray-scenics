@@ -1,5 +1,5 @@
 .homePage {
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     width: 100dvw;
     height: 100dvh;
     display: block;
@@ -10,7 +10,7 @@
 
 .scrollingDiv {
     border: 2px solid gold;
-    height: 4000px;
+    height: 5000px;
     /* position: relative; */
 }
 
@@ -63,14 +63,14 @@
 }
 
 .SStitle {
-    border: 2px solid white;
+    border: 4px solid white;
     font-family: wildGrowth;
     top: 30%;
     left: 50%;
     transform: translate(-50%, -50%) rotateX(15deg) rotateY(-10deg);
     /* width: 80dvw;
     height: 36dvw; */
-    width: 110%;
+    width: 105%;
     height: 30%;
     font-size: 12vw;
     padding: 0 0 8dvh 6dvw;
@@ -94,42 +94,44 @@
     font-size: 6vw;
     top: 40%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) rotateX(15deg) rotateY(-10deg);
 }
 
 
 
 .tinyFigures {
+    border: 2px solid lime;
     font-family: wildGrowth;
-    height: 20%;
-    width: 70%;
-    font-size: 6vw;
-    top: 10%;
-    left: 10%;
+    height: 15%;
+    width: 95%;
+    font-size: 8vw;
+    top: 30%;
+    left: 5%;
     /* word-spacing: 20px; */
 }
 
 .epicStories {
     font-family: wildGrowth;
     height: 20%;
-    width: 70%;
-    font-size: 6vw;
+    width: 100%;
+    font-size: 8vw;
     top: 20%;
     left: 25%;
 }
+
+
 
 
 .parallaxHomeImage {
     border: 2px solid white;
     border-radius: 10px;
     position: absolute;
-    top: 70%;
-    left: 50%;
-    width: 40dvw;
-    height: 25dvh;
     object-fit: cover;
     box-shadow: 3px 3px 15px 5px black;
 }
+
+
+
 
 .menuOptions {
     border: 2px solid lime;
@@ -138,7 +140,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 0;
+    /* z-index: 0; */
     /* position: relative;
     z-index: 10; */
 }
