@@ -15,6 +15,7 @@ import blueStingray from '../../images/blueStingray.svg'
 import oneRing from '../../images/oneRing.png'
 import mordor from '../../images/mordor.png'
 
+import sBattleDroid from '../../images/sBattleDroid.png'
 import imperials from '../../images/imperials.jpeg'
 import pelennorFields from '../../images/pelennorFields.jpeg'
 import trolls from '../../images/trolls.jpeg'
@@ -76,7 +77,7 @@ const StingrayScenics = () => {
             yOffset: ['0dvh', '-3dvh'],
         },
         {
-            picture: trolls,
+            picture: sBattleDroid,
             position: ['35%', '5%'],
             dimensions: ['45dvh', '40dvw'],
             motionValues: [0.23, 0.5],

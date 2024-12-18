@@ -126,7 +126,8 @@
     border: 2px solid white;
     border-radius: 10px;
     position: absolute;
-    object-fit: cover;
+    object-fit: contain;
+    /* object-fit: cover; */
     box-shadow: 3px 3px 15px 5px black;
 }
 
