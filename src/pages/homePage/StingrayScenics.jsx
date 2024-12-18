@@ -48,6 +48,7 @@ const StingrayScenics = () => {
 
     // stingrayScenics
     const titleOp = useTransform(mainContainer, [0, 0.1], [1, 0])
+    const scrollAdventureOp = useTransform(mainContainer, [0, 0.1], [1, 0])
     // const titleY = useTransform(mainContainer, [0, 0.1], ['0', '-5dvh'])
 
     // home photo
@@ -58,7 +59,7 @@ const StingrayScenics = () => {
     const filterStyle = useMotionTemplate`grayscale(${grayscaleValue}) blur(${blurValue}px)`;
 
     // mini titles
-    const tinyFiguresOp = useTransform(mainContainer, [0.12, 0.16, 0.26, 0.3], [0, 1, 1, 0])
+    const tinyFiguresOp = useTransform(mainContainer, [0.10, 0.14, 0.24, 0.28], [0, 1, 1, 0])
     const tinyFiguresY = useTransform(mainContainer, [0.12, 0.3], ['0', '-5dvh'])
     const epicStoriesOp = useTransform(mainContainer, [0.12, 0.16, 0.26, 0.3], [0, 1, 1, 0])
     const epicStoriesY = useTransform(mainContainer, [0.12, 0.3], ['0', '-5dvh'])
@@ -151,11 +152,13 @@ const StingrayScenics = () => {
                     />
 
                     {/* titles */}
-                    <motion.p className='parallaxText'
+                    <motion.p className='parallaxText SStitle'
                         style={{ opacity: titleOp }}
                     >Stingray scenics,</motion.p>
 
-
+                    <motion.p className='parallaxText scrollAdventure'
+                        style={{ opacity: scrollAdventureOp }}
+                    >Scroll for Adventure</motion.p>
 
                     <motion.p className='parallaxText tinyFigures'
                         style={{ y: tinyFiguresY, opacity: tinyFiguresOp }}

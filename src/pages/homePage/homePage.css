@@ -40,37 +40,16 @@
 
 
 .parallaxText {
-    border: 2px solid white;
     /* background-color: #051f0088; */
     color: #89ac00;
     color: rgb(0, 0, 0);
     color: #d0d0d0;
     /* filter: blur(3px); */
-
-    /* Glass morph */
-    background-color: transparent;
-    backdrop-filter: blur(3px);
-    background-image: linear-gradient(
-        120deg,
-        #051f0088,
-        #ffffff55,
-        #b6f80155
-    );
-
-    font-family: wildGrowth;
     z-index: 10;
     position: absolute;
     text-align: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotateX(15deg) rotateY(-10deg);
-    width: 80dvw;
-    height: 36dvw;
-    padding: 0 0 3dvh 3dvw;
-    font-size: 10vw;
     font-weight: 700;
     letter-spacing: 2px;
-
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -83,9 +62,45 @@
         5px 5px 14px rgba(0, 0, 0, 0.4);
 }
 
+.SStitle {
+    border: 2px solid white;
+    font-family: wildGrowth;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateX(15deg) rotateY(-10deg);
+    /* width: 80dvw;
+    height: 36dvw; */
+    width: 110%;
+    height: 30%;
+    font-size: 12vw;
+    padding: 0 0 8dvh 6dvw;
+    word-wrap: break-word;
+
+
+
+    /* Glass morph */
+    background-color: transparent;
+    backdrop-filter: blur(3px);
+    background-image: linear-gradient(120deg,
+            #051f0088,
+            #ffffff55,
+            #b6f80155);
+}
+
+.scrollAdventure {
+    /* border: 2px solid lime; */
+    height: 20%;
+    width: 75%;
+    font-size: 6vw;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
 
 .tinyFigures {
-    border: 2px solid lime;
+    font-family: wildGrowth;
     height: 20%;
     width: 70%;
     font-size: 6vw;
@@ -95,7 +110,7 @@
 }
 
 .epicStories {
-    border: 2px solid lime;
+    font-family: wildGrowth;
     height: 20%;
     width: 70%;
     font-size: 6vw;
