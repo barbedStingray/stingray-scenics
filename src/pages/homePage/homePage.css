@@ -10,7 +10,7 @@
 
 .scrollingDiv {
     border: 2px solid gold;
-    height: 3000px;
+    height: 4000px;
     /* position: relative; */
 }
 
@@ -23,6 +23,7 @@
     top: 0;
     overflow: hidden;
 
+    z-index: 10;
 
     /* display: flex;
     flex-flow: column nowrap;
@@ -115,3 +116,14 @@
     box-shadow: 3px 3px 15px 5px black;
 }
 
+.menuOptions {
+    border: 2px solid lime;
+    height: 100dvh;
+    /* width: 100%; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    /* position: relative;
+    z-index: 10; */
+}

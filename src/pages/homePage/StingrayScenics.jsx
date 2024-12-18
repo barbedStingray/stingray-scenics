@@ -44,22 +44,24 @@ const StingrayScenics = () => {
     const isModelSectionInView = useInView(targetRef, { offset: ['start end', 'end start'] })
     console.log('in view', isModelSectionInView)
 
-    // Box manuvers 
 
 
-
+    // stingrayScenics
     const titleOp = useTransform(mainContainer, [0, 0.1], [1, 0])
-    const titleY = useTransform(mainContainer, [0, 0.1], ['0', '-5dvh'])
+    // const titleY = useTransform(mainContainer, [0, 0.1], ['0', '-5dvh'])
 
     // home photo
     const homePhotoScale = useTransform(mainContainer, [0, 0.5], [1.25, 1])
+    const homePhotoY = useTransform(mainContainer, [0.5, 0.7 ], ['0dvh', '100dvh'])
     const grayscaleValue = useTransform(mainContainer, [0, 0.5], ['0%', '100%'])
     const blurValue = useTransform(mainContainer, [0.12, 0.3], [0, 2]);
     const filterStyle = useMotionTemplate`grayscale(${grayscaleValue}) blur(${blurValue}px)`;
 
-
+    // mini titles
     const tinyFiguresOp = useTransform(mainContainer, [0.12, 0.16, 0.26, 0.3], [0, 1, 1, 0])
     const tinyFiguresY = useTransform(mainContainer, [0.12, 0.3], ['0', '-5dvh'])
+    const epicStoriesOp = useTransform(mainContainer, [0.12, 0.16, 0.26, 0.3], [0, 1, 1, 0])
+    const epicStoriesY = useTransform(mainContainer, [0.12, 0.3], ['0', '-5dvh'])
 
 
     const paraImageY = useTransform(mainContainer, [0.12, 0.4], ['0', '-45dvh'])
@@ -131,8 +133,21 @@ const StingrayScenics = () => {
 
                 <div className='homeDisplay'>
 
+                    <div className='menuOptions'>
+                        <p>Custom Wargamming since 2020</p>
+                        <p>Gallery</p>
+                        <p>Commission</p>
+                        <p>The Hobby</p>
+                        <p>Scenic Materials</p>
+                        <p>Products</p>
+                        <p>Contact</p>
+                        <p>Model Restoration</p>
+                        <p>About</p>
+                    </div>
+
+
                     <motion.img className='homeImage' src={pelennorFields}
-                        style={{ scale: homePhotoScale, filter: filterStyle }}
+                        style={{ scale: homePhotoScale, filter: filterStyle, y: homePhotoY }}
                     />
 
                     {/* titles */}
@@ -141,12 +156,12 @@ const StingrayScenics = () => {
                     >Stingray scenics,</motion.p>
 
 
-                    
+
                     <motion.p className='parallaxText tinyFigures'
                         style={{ y: tinyFiguresY, opacity: tinyFiguresOp }}
                     >Tiny figures"</motion.p>
                     <motion.p className='parallaxText epicStories'
-                        style={{ y: tinyFiguresY, opacity: tinyFiguresOp }}
+                        style={{ y: epicStoriesY, opacity: epicStoriesOp }}
                     >Epic stories!</motion.p>
 
                     {/* images */}
@@ -154,8 +169,10 @@ const StingrayScenics = () => {
                         style={{ y: paraImageY, opacity: tinyFiguresOp }}
                     />
 
-                </div>
 
+
+
+                </div>
 
 
 
@@ -166,16 +183,9 @@ const StingrayScenics = () => {
                     ))}
                 </div> */}
 
-
             </div>
 
-
-
-
-            <div className='emptyElement' />
-
-            <div className='emptyElement' />
-            <p>Custom Wargamming since 2020</p>
+            {/* <div className='emptyElement' /> */}
 
         </motion.div >
     )
