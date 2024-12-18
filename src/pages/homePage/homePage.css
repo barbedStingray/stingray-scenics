@@ -100,48 +100,78 @@
 
 
 .tinyFigures {
-    border: 2px solid lime;
+    /* border: 2px solid lime; */
     font-family: wildGrowth;
     height: 15%;
     width: 95%;
-    font-size: 8vw;
+    font-size: 10vw;
     top: 30%;
-    left: 5%;
+    left: 0%;
     /* word-spacing: 20px; */
 }
 
 .epicStories {
+    /* border: 2px solid lime; */
     font-family: wildGrowth;
-    height: 20%;
-    width: 100%;
-    font-size: 8vw;
-    top: 20%;
-    left: 25%;
+    height: 15%;
+    width: 95%;
+    font-size: 10vw;
+    top: 40%;
+    left: 15%;
 }
 
 
 
 
-.parallaxHomeImage {
-    border: 2px solid white;
+.miniImage {
+    /* border: 2px solid white; */
     border-radius: 10px;
     position: absolute;
     object-fit: contain;
-    /* object-fit: cover; */
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.75));
+
+}
+
+.landscapeImage {
+    border: 2px solid white;
+    border-radius: 10px;
+    position: absolute;
+    object-fit: cover;
     box-shadow: 3px 3px 15px 5px black;
 }
 
 
 
 
-.menuOptions {
+.homeMenu {
     border: 2px solid lime;
+    /* background-color: grey; */
     height: 100dvh;
-    /* width: 100%; */
+    width: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    /* z-index: 0; */
-    /* position: relative;
-    z-index: 10; */
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.bannerLink {
+    border: 2px solid blue;
+    flex: 1;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+}
+
+.bannerLink p {
+    border: 2px solid white;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+}
+
+.homeMenu img {
+    border: 2px solid red;
+    flex: 8;
 }

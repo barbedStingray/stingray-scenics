@@ -16,6 +16,9 @@ import oneRing from '../../images/oneRing.png'
 import mordor from '../../images/mordor.png'
 
 import sBattleDroid from '../../images/sBattleDroid.png'
+import sBattleDroid2 from '../../images/sBattleDroid2.png'
+import sBattleDroid3 from '../../images/sBattleDroid3.png'
+import rohan from '../../images/rohan.png'
 import imperials from '../../images/imperials.jpeg'
 import pelennorFields from '../../images/pelennorFields.jpeg'
 import trolls from '../../images/trolls.jpeg'
@@ -63,20 +66,22 @@ const StingrayScenics = () => {
 
     // mini titles
     const tinyFiguresOp = useTransform(mainContainer, [0.13, 0.18, 0.37, 0.42], [0, 1, 1, 0])
-    const tinyFiguresY = useTransform(mainContainer, [0.12, 0.41], ['0', '-5dvh'])
+    const tinyFiguresY = useTransform(mainContainer, [0.13, 0.42], ['0', '-5dvh'])
 
-    const epicStoriesOp = useTransform(mainContainer, [0.12, 0.16, 0.26, 0.3], [0, 1, 1, 0])
-    const epicStoriesY = useTransform(mainContainer, [0.12, 0.3], ['0', '-5dvh'])
+    const epicStoriesOp = useTransform(mainContainer, [0.48, 0.52, 0.75, 0.8], [0, 1, 1, 0])
+    const epicStoriesY = useTransform(mainContainer, [0.42, 0.6], ['0', '5dvh'])
 
     const tinyFiguresImages = [
         {
-            picture: smugglers,
+            photoType: 'miniImage',
+            picture: rohan,
             position: ['5%', '10%'],
             dimensions: ['25dvh', '75dvw'],
             motionValues: [0.18, 0.5],
             yOffset: ['0dvh', '-3dvh'],
         },
         {
+            photoType: 'miniImage',
             picture: sBattleDroid,
             position: ['35%', '5%'],
             dimensions: ['45dvh', '40dvw'],
@@ -84,20 +89,59 @@ const StingrayScenics = () => {
             yOffset: ['0dvh', '12dvh'],
         },
         {
-            picture: imperials,
+            photoType: 'miniImage',
+            picture: sBattleDroid2,
             position: ['65%', '45%'],
             dimensions: ['35dvh', '50dvw'],
             motionValues: [0.28, 0.5],
             yOffset: ['0dvh', '-8dvh'],
         },
         {
-            picture: rivendellCharge,
-            position: ['30%', '38%'],
+            photoType: 'miniImage',
+            picture: sBattleDroid3,
+            position: ['40%', '38%'],
             dimensions: ['20dvh', '55dvw'],
             motionValues: [0.33, 0.5],
             yOffset: ['0dvh', '10dvh'],
         },
     ]
+
+    const epicStoriesImages = [
+        {
+            photoType: 'landscapeImage',
+            picture: smugglers,
+            position: ['5%', '10%'],
+            dimensions: ['25dvh', '75dvw'],
+            motionValues: [0.55, 0.8],
+            yOffset: ['0dvh', '-3dvh'],
+        },
+        {
+            photoType: 'landscapeImage',
+            picture: trolls,
+            position: ['35%', '5%'],
+            dimensions: ['45dvh', '40dvw'],
+            motionValues: [0.60, 0.8],
+            yOffset: ['0dvh', '12dvh'],
+        },
+        {
+            photoType: 'landscapeImage',
+            picture: droids,
+            position: ['60%', '45%'],
+            dimensions: ['35dvh', '50dvw'],
+            motionValues: [0.65, 0.8],
+            yOffset: ['0dvh', '-8dvh'],
+        },
+        {
+            photoType: 'landscapeImage',
+            picture: rivendellCharge,
+            position: ['30%', '38%'],
+            dimensions: ['20dvh', '55dvw'],
+            motionValues: [0.70, 0.8],
+            yOffset: ['0dvh', '10dvh'],
+        },
+    ]
+
+
 
 
 
@@ -110,8 +154,8 @@ const StingrayScenics = () => {
     const defaultGradient = 'linear-gradient(90deg, #ff7eb3, #ff758c)'
     const gradientStyle = useMotionTemplate`${gradientColor}`
 
-
-
+    const bannerWidth0 = useTransform(mainContainer, [0.8, 0.9], ['100%', '0%'])
+    const bannerWidth1 = useTransform(mainContainer, [0.83, 0.93], ['100%', '0%'])
 
     return (
         <motion.div className='homePage' ref={containerRef}
@@ -122,9 +166,13 @@ const StingrayScenics = () => {
 
                 <div className='homeDisplay'>
 
-                    <div className='menuOptions'>
-                        <p>Custom Wargamming since 2020</p>
-                        <p>Gallery</p>
+                    <div className='homeMenu'>
+                        <div className='bannerLink'>
+                            <p>Custom Wargamming since 2020</p>
+                        </div>
+                        <div className='bannerLink'>
+                            <p>Gallery</p>
+                        </div>
                         <p>Commission</p>
                         <p>The Hobby</p>
                         <p>Scenic Materials</p>
@@ -132,6 +180,24 @@ const StingrayScenics = () => {
                         <p>Contact</p>
                         <p>Model Restoration</p>
                         <p>About</p>
+                        <img src={mordor} />
+                    </div>
+
+                    <div className='homeMenu'>
+                        <motion.div className='bannerLink' style={{ width: bannerWidth0 }}>
+                            <p >Custom Wargamming since 2020</p>
+                        </motion.div>
+                        <motion.div className='bannerLink' style={{ width: bannerWidth1 }}>
+                            <p>Gallery</p>
+                        </motion.div>
+                        <p>Commission</p>
+                        <p>The Hobby</p>
+                        <p>Scenic Materials</p>
+                        <p>Products</p>
+                        <p>Contact</p>
+                        <p>Model Restoration</p>
+                        <p>About</p>
+                        <img src={mordor} />
                     </div>
 
 
@@ -142,7 +208,7 @@ const StingrayScenics = () => {
                     {/* titles */}
                     <motion.p className='parallaxText SStitle'
                         style={{ opacity: titleOp }}
-                    >Stingray scenics,</motion.p>
+                    >Stingray scenics"</motion.p>
 
                     <motion.p className='parallaxText scrollAdventure'
                         style={{ opacity: scrollAdventureOp }}
@@ -150,38 +216,26 @@ const StingrayScenics = () => {
 
                     <motion.p className='parallaxText tinyFigures'
                         style={{ y: tinyFiguresY, opacity: tinyFiguresOp }}
-                    >Tiny figures"</motion.p>
+                    >Tiny figures+</motion.p>
 
-                    {/* <motion.p className='parallaxText epicStories'
+                    <motion.p className='parallaxText epicStories'
                         style={{ y: epicStoriesY, opacity: epicStoriesOp }}
-                    >Epic stories!</motion.p> */}
+                    >Epic stories?</motion.p>
 
 
                     {/* images */}
                     {tinyFiguresImages.map((tinyImage, i) => (
                         <ParallaxImage key={i} scrollContainer={mainContainer} parDetails={tinyImage} />
                     ))}
-
-
-
-
+                    {epicStoriesImages.map((storyImage, i) => (
+                        <ParallaxImage key={i} scrollContainer={mainContainer} parDetails={storyImage} />
+                    ))}
 
 
 
                 </div>
-
-
-
-
-                {/* <div className='demoParallax'>
-                    {parallaxImages.map((example, i) => (
-                        <DemoPar key={i} scrollContainer={mainContainer} parDetails={example} />
-                    ))}
-                </div> */}
-
             </div>
 
-            {/* <div className='emptyElement' /> */}
 
         </motion.div >
     )
