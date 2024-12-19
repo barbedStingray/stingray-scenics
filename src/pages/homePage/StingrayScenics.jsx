@@ -154,8 +154,14 @@ const StingrayScenics = () => {
     const defaultGradient = 'linear-gradient(90deg, #ff7eb3, #ff758c)'
     const gradientStyle = useMotionTemplate`${gradientColor}`
 
-    const bannerWidth0 = useTransform(mainContainer, [0.8, 0.9], ['100%', '0%'])
-    const bannerWidth1 = useTransform(mainContainer, [0.83, 0.93], ['100%', '0%'])
+    const bannerWidth0 = useTransform(mainContainer, [0.81, 0.89], ['100%', '0%'])
+    const bannerWidth1 = useTransform(mainContainer, [0.823, 0.90], ['100%', '0%'])
+    const bannerWidth2 = useTransform(mainContainer, [0.836, 0.91], ['100%', '0%'])
+    const bannerWidth3 = useTransform(mainContainer, [0.849, 0.92], ['100%', '0%'])
+    const bannerWidth4 = useTransform(mainContainer, [0.862, 0.93], ['100%', '0%'])
+    const bannerWidth5 = useTransform(mainContainer, [0.875, 0.94], ['100%', '0%'])
+    const bannerWidth6 = useTransform(mainContainer, [0.888, 0.95], ['100%', '0%'])
+    const bannerWidth7 = useTransform(mainContainer, [0.901, 0.96], ['100%', '0%'])
 
     return (
         <motion.div className='homePage' ref={containerRef}
@@ -168,37 +174,61 @@ const StingrayScenics = () => {
 
                     <div className='homeMenu'>
                         <div className='bannerLink'>
-                            <p>Custom Wargamming since 2020</p>
+                            <p className='colorChange'>Gallery</p>
                         </div>
                         <div className='bannerLink'>
-                            <p>Gallery</p>
+                            <p className='colorChange'>Commission</p>
                         </div>
-                        <p>Commission</p>
-                        <p>The Hobby</p>
-                        <p>Scenic Materials</p>
-                        <p>Products</p>
-                        <p>Contact</p>
-                        <p>Model Restoration</p>
-                        <p>About</p>
+                        <div className='bannerLink'>
+                            <p className='colorChange'>The Hobby</p>
+                        </div>
+                        <div className='bannerLink'>
+                            <p className='colorChange'>Scenic Materials</p>
+                        </div>
+                        <div className='bannerLink'>
+                            <p className='colorChange'>Products</p>
+                        </div>
+                        <div className='bannerLink'>
+                            <p className='colorChange'>Contact</p>
+                        </div>
+                        <div className='bannerLink'>
+                            <p className='colorChange'>Model Restoration</p>
+                        </div>
+                        <div className='bannerLink'>
+                            <p className='colorChange'>About</p>
+                        </div>
                         <img src={mordor} />
                     </div>
 
                     <div className='homeMenu'>
                         <motion.div className='bannerLink' style={{ width: bannerWidth0 }}>
-                            <p >Custom Wargamming since 2020</p>
-                        </motion.div>
-                        <motion.div className='bannerLink' style={{ width: bannerWidth1 }}>
                             <p>Gallery</p>
                         </motion.div>
-                        <p>Commission</p>
-                        <p>The Hobby</p>
-                        <p>Scenic Materials</p>
-                        <p>Products</p>
-                        <p>Contact</p>
-                        <p>Model Restoration</p>
-                        <p>About</p>
+                        <motion.div className='bannerLink' style={{ width: bannerWidth1 }}>
+                            <p>Commission</p>
+                        </motion.div>
+                        <motion.div className='bannerLink' style={{ width: bannerWidth2 }}>
+                            <p>The Hobby</p>
+                        </motion.div>
+                        <motion.div className='bannerLink' style={{ width: bannerWidth3 }}>
+                            <p>Scenic Materials</p>
+                        </motion.div>
+                        <motion.div className='bannerLink' style={{ width: bannerWidth4 }}>
+                            <p>Products</p>
+                        </motion.div>
+                        <motion.div className='bannerLink' style={{ width: bannerWidth5 }}>
+                            <p>Contact</p>
+                        </motion.div>
+                        <motion.div className='bannerLink' style={{ width: bannerWidth6 }}>
+                            <p>Model Restoration</p>
+                        </motion.div>
+                        <motion.div className='bannerLink' style={{ width: bannerWidth7 }}>
+                            <p>About</p>
+                        </motion.div>
+
                         <img src={mordor} />
                     </div>
+
 
 
                     <motion.img className='homeImage' src={pelennorFields}
@@ -231,10 +261,11 @@ const StingrayScenics = () => {
                         <ParallaxImage key={i} scrollContainer={mainContainer} parDetails={storyImage} />
                     ))}
 
-
-
                 </div>
             </div>
+
+            {/* <p>Custom Wargamming since 2020</p> */}
+
 
 
         </motion.div >
