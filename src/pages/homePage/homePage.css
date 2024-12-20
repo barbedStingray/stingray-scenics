@@ -148,11 +148,14 @@
     /* background-color: grey; */
     height: 100dvh;
     width: 100%;
+    overflow: hidden;
     position: absolute;
     top: 0;
     left: 0;
     display: flex;
     flex-flow: column nowrap;
+    justify-content: center;
+    z-index: 10;
 }
 
 .glassMorph {
@@ -167,28 +170,21 @@
 
 .bannerLink {
     /* border: 2px solid blue; */
-    flex: 1.25;
+    /* flex: 1.25; */
+    height: 10%;
     white-space: nowrap;
     /* position: relative; */
     overflow: hidden;
     /* color: grey; */
-    background-color: black;
-
-    background-color: transparent;
-    backdrop-filter: blur(2px);
-    background-image: linear-gradient(120deg,
-            #051f0088,
-            #ffffff55,
-            #b6f80155);
-
-
+    transform: rotateX(15deg) rotateY(-10deg);
 
 }
 
 .bannerLink p {
     /* border: 2px solid red; */
     /* border-top: 1px solid red; */
-    border-bottom: 1px solid silver;
+    border-top: 4px solid white;
+    border-bottom: 4px solid white;
 
     /* position: absolute; */
     /* top: 50%;

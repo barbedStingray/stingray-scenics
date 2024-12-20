@@ -154,14 +154,11 @@ const StingrayScenics = () => {
     const defaultGradient = 'linear-gradient(90deg, #ff7eb3, #ff758c)'
     const gradientStyle = useMotionTemplate`${gradientColor}`
 
-    const bannerWidth0 = useTransform(mainContainer, [0.81, 0.89], ['100%', '0%'])
-    const bannerWidth1 = useTransform(mainContainer, [0.823, 0.90], ['100%', '0%'])
-    const bannerWidth2 = useTransform(mainContainer, [0.836, 0.91], ['100%', '0%'])
-    const bannerWidth3 = useTransform(mainContainer, [0.849, 0.92], ['100%', '0%'])
-    const bannerWidth4 = useTransform(mainContainer, [0.862, 0.93], ['100%', '0%'])
-    const bannerWidth5 = useTransform(mainContainer, [0.875, 0.94], ['100%', '0%'])
-    const bannerWidth6 = useTransform(mainContainer, [0.888, 0.95], ['100%', '0%'])
-    const bannerWidth7 = useTransform(mainContainer, [0.901, 0.96], ['100%', '0%'])
+    const bannerWidth0 = useTransform(mainContainer, [0.81, 0.89], ['0%', '105%'])
+    const bannerWidth1 = useTransform(mainContainer, [0.823, 0.90], ['0%', '105%'])
+    const bannerWidth2 = useTransform(mainContainer, [0.836, 0.91], ['0%', '105%'])
+    const bannerWidth3 = useTransform(mainContainer, [0.849, 0.92], ['0%', '105%'])
+    const bannerWidth4 = useTransform(mainContainer, [0.862, 0.93], ['0%', '105%'])
 
     return (
         <motion.div className='homePage' ref={containerRef}
@@ -172,7 +169,7 @@ const StingrayScenics = () => {
 
                 <div className='homeDisplay'>
 
-                    <div className='homeMenu'>
+                    {/* <div className='homeMenu'>
                         <div className='bannerLink'>
                             <p className='colorChange'>Gallery</p>
                         </div>
@@ -198,41 +195,32 @@ const StingrayScenics = () => {
                             <p className='colorChange'>About</p>
                         </div>
                         <img src={mordor} />
-                    </div>
+                    </div> */}
 
                     <div className='homeMenu'>
-                        <motion.div className='bannerLink' style={{ width: bannerWidth0 }}>
-                            <p>Gallery</p>
+                        <motion.div className='bannerLink glassMorph' style={{ width: bannerWidth0 }}>
+                            <Link to={'/demoPage'}>Gallery</Link>
                         </motion.div>
-                        <motion.div className='bannerLink' style={{ width: bannerWidth1 }}>
+                        <motion.div className='bannerLink glassMorph' style={{ width: bannerWidth1 }}>
                             <p>Commission</p>
                         </motion.div>
-                        <motion.div className='bannerLink' style={{ width: bannerWidth2 }}>
-                            <p>The Hobby</p>
+                        <motion.div className='bannerLink glassMorph' style={{ width: bannerWidth2 }}>
+                            <p>Hobby About Materials Strip</p>
                         </motion.div>
-                        <motion.div className='bannerLink' style={{ width: bannerWidth3 }}>
-                            <p>Scenic Materials</p>
-                        </motion.div>
-                        <motion.div className='bannerLink' style={{ width: bannerWidth4 }}>
+                        <motion.div className='bannerLink glassMorph' style={{ width: bannerWidth3 }}>
                             <p>Products</p>
                         </motion.div>
-                        <motion.div className='bannerLink' style={{ width: bannerWidth5 }}>
+                        <motion.div className='bannerLink glassMorph' style={{ width: bannerWidth4 }}>
                             <p>Contact</p>
                         </motion.div>
-                        <motion.div className='bannerLink' style={{ width: bannerWidth6 }}>
-                            <p>Model Restoration</p>
-                        </motion.div>
-                        <motion.div className='bannerLink' style={{ width: bannerWidth7 }}>
-                            <p>About</p>
-                        </motion.div>
 
-                        <img src={mordor} />
+                        {/* <img src={mordor} /> */}
                     </div>
 
 
 
                     <motion.img className='homeImage' src={pelennorFields}
-                        style={{ scale: homePhotoScale, filter: filterStyle, y: homePhotoY }}
+                        style={{ scale: homePhotoScale, filter: filterStyle }}
                     />
 
                     {/* titles */}
