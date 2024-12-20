@@ -151,9 +151,10 @@
     top: 0;
     left: 0;
 
+    padding-top: 15dvh;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 20px;
 }
 
@@ -189,7 +190,7 @@
     color: white;
     font-size: 7.5dvw;
     font-weight: 700;
-    padding: 0px 0px 10px 10px;
+    padding: 0px 0px 6px 10px;
     letter-spacing: 3px;
     z-index: 10;
 

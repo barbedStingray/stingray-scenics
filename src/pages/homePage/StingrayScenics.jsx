@@ -48,28 +48,41 @@ const StingrayScenics = () => {
     const isModelSectionInView = useInView(targetRef, { offset: ['start end', 'end start'] })
     console.log('in view', isModelSectionInView)
 
+    // timeline
 
+    // 0.1 SS disappear
+    // 0.13 tiny figures title
+    // 0.14 blur starts
 
-    // stingrayScenics
-    const titleOp = useTransform(mainContainer, [0, 0.1], [1, 0])
-    const scrollAdventureOp = useTransform(mainContainer, [0, 0.1], [1, 0])
-    // const titleY = useTransform(mainContainer, [0, 0.1], ['0', '-5dvh'])
+    // 0.48 epic stories starts
+
+    // 0.78 grayscale and blur revert begins
+    // 0.8 banner links begin
+    // 1 end
+
 
     // home photo
     const homePhotoScale = useTransform(mainContainer, [0, 1], [1.25, 1])
     const homePhotoY = useTransform(mainContainer, [0.8, 1], ['0dvh', '100dvh'])
-    const grayscaleValue = useTransform(mainContainer, [0, 0.5, 0.8, 1], ['0%', '100%', '100%', '0%'])
-    const blurValue = useTransform(mainContainer, [0.14, 0.20, 0.8, 0.9], [0, 2, 2, 0]);
+    const grayscaleValue = useTransform(mainContainer, [0, 0.5, 0.78, 0.9], ['0%', '100%', '100%', '0%'])
+    const blurValue = useTransform(mainContainer, [0.14, 0.20, 0.78, 0.83], [0, 2, 2, 0]);
     const filterStyle = useMotionTemplate`grayscale(${grayscaleValue}) blur(${blurValue}px)`;
 
-
-
     // mini titles
+    const titleOp = useTransform(mainContainer, [0, 0.1], [1, 0])
+    const scrollAdventureOp = useTransform(mainContainer, [0, 0.1], [1, 0])
     const tinyFiguresOp = useTransform(mainContainer, [0.13, 0.18, 0.37, 0.42], [0, 1, 1, 0])
     const tinyFiguresY = useTransform(mainContainer, [0.13, 0.42], ['0', '-5dvh'])
-
     const epicStoriesOp = useTransform(mainContainer, [0.48, 0.52, 0.75, 0.8], [0, 1, 1, 0])
-    const epicStoriesY = useTransform(mainContainer, [0.42, 0.6], ['0', '5dvh'])
+    const epicStoriesY = useTransform(mainContainer, [0.48, 0.6], ['0', '5dvh'])
+
+    // banner links
+    const bannerWidth0 = useTransform(mainContainer, [0.80, 0.94], ['0%', '105%'])
+    const bannerWidth1 = useTransform(mainContainer, [0.83, 0.96], ['0%', '105%'])
+    const bannerWidth2 = useTransform(mainContainer, [0.86, 0.98], ['0%', '105%'])
+    const bannerWidth3 = useTransform(mainContainer, [0.89, 1], ['0%', '105%'])
+
+
 
     const tinyFiguresImages = [
         {
@@ -149,10 +162,6 @@ const StingrayScenics = () => {
     const defaultGradient = 'linear-gradient(90deg, #ff7eb3, #ff758c)'
     const gradientStyle = useMotionTemplate`${gradientColor}`
 
-    const bannerWidth0 = useTransform(mainContainer, [0.81, 0.89], ['0%', '105%'])
-    const bannerWidth1 = useTransform(mainContainer, [0.823, 0.90], ['0%', '105%'])
-    const bannerWidth2 = useTransform(mainContainer, [0.836, 0.91], ['0%', '105%'])
-    const bannerWidth3 = useTransform(mainContainer, [0.849, 0.92], ['0%', '105%'])
 
     return (
         <motion.div className='homePage' ref={containerRef}
