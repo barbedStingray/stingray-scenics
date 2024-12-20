@@ -23,7 +23,7 @@
     top: 0;
     overflow: hidden;
 
-    z-index: 10;
+    z-index: 5;
 
     /* display: flex;
     flex-flow: column nowrap;
@@ -41,8 +41,6 @@
 
 .parallaxText {
     /* background-color: #051f0088; */
-    color: #89ac00;
-    color: rgb(0, 0, 0);
     color: #d0d0d0;
     /* filter: blur(3px); */
     z-index: 10;
@@ -148,57 +146,61 @@
     /* background-color: grey; */
     height: 100dvh;
     width: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
     position: absolute;
     top: 0;
     left: 0;
+
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
-    z-index: 10;
+    gap: 20px;
 }
 
-.glassMorph {
-    /* Glass morph */
-    background-color: transparent;
-    backdrop-filter: blur(3px);
-    background-image: linear-gradient(120deg,
-            #051f0088,
-            #ffffff55,
-            #b6f80155);
-}
 
 .bannerLink {
     /* border: 2px solid blue; */
     /* flex: 1.25; */
-    height: 10%;
+    height: 12%;
     white-space: nowrap;
+    margin-left: -10px;
     /* position: relative; */
     overflow: hidden;
     /* color: grey; */
     transform: rotateX(15deg) rotateY(-10deg);
+    z-index: 10;
 
 }
 
-.bannerLink p {
+.bannerLink a {
     /* border: 2px solid red; */
     /* border-top: 1px solid red; */
-    border-top: 4px solid white;
-    border-bottom: 4px solid white;
-
-    /* position: absolute; */
-    /* top: 50%;
-    left: 20px;
-    transform: translateY(-50%); */
-    padding-left: 20px;
+    border-top: 3px solid white;
+    border-bottom: 3px solid white;
     width: 100%;
     height: 100%;
+
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 
-    font-size: 25px;
+    font-family: wildGrowth;
+    text-decoration: none;
+    color: white;
+    font-size: 7.5dvw;
     font-weight: 700;
+    padding: 0px 0px 10px 10px;
+    letter-spacing: 3px;
+    z-index: 10;
+
+    text-shadow:
+        1px 1px 2px rgba(0, 0, 0, 0.8),
+        2px 2px 5px rgba(0, 0, 0, 0.7),
+        3px 3px 8px rgba(0, 0, 0, 0.6),
+        4px 4px 11px rgba(0, 0, 0, 0.5),
+        5px 5px 14px rgba(0, 0, 0, 0.4);
+
+
 }
 
 .colorChange {

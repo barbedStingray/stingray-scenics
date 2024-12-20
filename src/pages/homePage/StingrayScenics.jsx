@@ -56,10 +56,10 @@ const StingrayScenics = () => {
     // const titleY = useTransform(mainContainer, [0, 0.1], ['0', '-5dvh'])
 
     // home photo
-    const homePhotoScale = useTransform(mainContainer, [0, 0.8], [1.25, 1])
+    const homePhotoScale = useTransform(mainContainer, [0, 1], [1.25, 1])
     const homePhotoY = useTransform(mainContainer, [0.8, 1], ['0dvh', '100dvh'])
-    const grayscaleValue = useTransform(mainContainer, [0, 0.5], ['0%', '100%'])
-    const blurValue = useTransform(mainContainer, [0.14, 0.20], [0, 2]);
+    const grayscaleValue = useTransform(mainContainer, [0, 0.5, 0.8, 1], ['0%', '100%', '100%', '0%'])
+    const blurValue = useTransform(mainContainer, [0.14, 0.20, 0.8, 0.9], [0, 2, 2, 0]);
     const filterStyle = useMotionTemplate`grayscale(${grayscaleValue}) blur(${blurValue}px)`;
 
 
@@ -142,11 +142,6 @@ const StingrayScenics = () => {
     ]
 
 
-
-
-
-
-
     const gradientColor = useTransform(mainContainer, [0, 1], [
         'linear-gradient(90deg, #ff7eb3, #ff758c)', // Gradient at start
         'linear-gradient(90deg, #6a11cb, #2575fc)', // Gradient at end
@@ -158,7 +153,6 @@ const StingrayScenics = () => {
     const bannerWidth1 = useTransform(mainContainer, [0.823, 0.90], ['0%', '105%'])
     const bannerWidth2 = useTransform(mainContainer, [0.836, 0.91], ['0%', '105%'])
     const bannerWidth3 = useTransform(mainContainer, [0.849, 0.92], ['0%', '105%'])
-    const bannerWidth4 = useTransform(mainContainer, [0.862, 0.93], ['0%', '105%'])
 
     return (
         <motion.div className='homePage' ref={containerRef}
@@ -168,56 +162,6 @@ const StingrayScenics = () => {
             <div className='scrollingDiv'>
 
                 <div className='homeDisplay'>
-
-                    {/* <div className='homeMenu'>
-                        <div className='bannerLink'>
-                            <p className='colorChange'>Gallery</p>
-                        </div>
-                        <div className='bannerLink'>
-                            <p className='colorChange'>Commission</p>
-                        </div>
-                        <div className='bannerLink'>
-                            <p className='colorChange'>The Hobby</p>
-                        </div>
-                        <div className='bannerLink'>
-                            <p className='colorChange'>Scenic Materials</p>
-                        </div>
-                        <div className='bannerLink'>
-                            <p className='colorChange'>Products</p>
-                        </div>
-                        <div className='bannerLink'>
-                            <p className='colorChange'>Contact</p>
-                        </div>
-                        <div className='bannerLink'>
-                            <p className='colorChange'>Model Restoration</p>
-                        </div>
-                        <div className='bannerLink'>
-                            <p className='colorChange'>About</p>
-                        </div>
-                        <img src={mordor} />
-                    </div> */}
-
-                    <div className='homeMenu'>
-                        <motion.div className='bannerLink glassMorph' style={{ width: bannerWidth0 }}>
-                            <Link to={'/demoPage'}>Gallery</Link>
-                        </motion.div>
-                        <motion.div className='bannerLink glassMorph' style={{ width: bannerWidth1 }}>
-                            <p>Commission</p>
-                        </motion.div>
-                        <motion.div className='bannerLink glassMorph' style={{ width: bannerWidth2 }}>
-                            <p>Hobby About Materials Strip</p>
-                        </motion.div>
-                        <motion.div className='bannerLink glassMorph' style={{ width: bannerWidth3 }}>
-                            <p>Products</p>
-                        </motion.div>
-                        <motion.div className='bannerLink glassMorph' style={{ width: bannerWidth4 }}>
-                            <p>Contact</p>
-                        </motion.div>
-
-                        {/* <img src={mordor} /> */}
-                    </div>
-
-
 
                     <motion.img className='homeImage' src={pelennorFields}
                         style={{ scale: homePhotoScale, filter: filterStyle }}
@@ -249,12 +193,32 @@ const StingrayScenics = () => {
                         <ParallaxImage key={i} scrollContainer={mainContainer} parDetails={storyImage} />
                     ))}
 
+
+                    <div className='homeMenu'>
+                        <motion.div className='bannerLink glassMorph' style={{ width: bannerWidth0 }}>
+                            <Link to={'/demoPage'}>Gallery.</Link>
+                        </motion.div>
+                        <motion.div className='bannerLink glassMorph' style={{ width: bannerWidth1 }}>
+                            <Link>Commission"</Link>
+                        </motion.div>
+                        <motion.div className='bannerLink glassMorph' style={{ width: bannerWidth2 }}>
+                            <Link>Contact$</Link>
+                        </motion.div>
+                        {/* <motion.div className='bannerLink glassMorph' style={{ width: bannerWidth3 }}>
+                            <Link>Products</Link>
+                        </motion.div> */}
+                        <motion.div className='bannerLink glassMorph' style={{ width: bannerWidth3 }}>
+                            <Link>The hobby%</Link>
+                        </motion.div>
+
+                        {/* <img src={mordor} /> */}
+                    </div>
+
+
                 </div>
             </div>
 
             {/* <p>Custom Wargamming since 2020</p> */}
-
-
 
         </motion.div >
     )
