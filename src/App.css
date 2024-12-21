@@ -1,53 +1,36 @@
 /* This is your base.css */
 
-
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 html {
   scroll-behavior: smooth;
 }
 
-:root {
-  
-  --bar-width: 50px;
-  --bar-height: 4px;
-  --hamburger-gap: 8px;
-  --foreground: #333;
-  --animation-timing: 300ms ease-in-out;
-  --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
-
-
-  /* layout variables */
-  --nav-height: 6dvh;
-  --background: #0e1400;
-  /* background-color: var(--background); */
-
-}
+:root {}
 
 @font-face {
   font-family: wildGrowth;
   src: url('./fonts/WildGrowth.ttf')
 }
 
-
 /* Mobile 425 - 430 width! */
 
 .stingrayScenics {
   /* border: 2px solid magenta; */
+  /* border-bottom: 2px solid black;
+  border-top: 2px solid black; */
   width: 100dvw;
   height: 100dvh;
   display: flex;
   flex-flow: column nowrap;
   /* justify-content: center; */
   align-items: center;
-
-  /* background-image: url('../src/images/mountains.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover; */
 }
 
 .glassMorph {
@@ -55,17 +38,7 @@ html {
   background-color: transparent;
   backdrop-filter: blur(3px);
   background-image: linear-gradient(120deg,
-          #051f0088,
-          #ffffff55,
-          #b6f80155);
+      #051f0088,
+      #ffffff55,
+      #b6f80155);
 }
-
-
-
-
-
-
-
-
-
-

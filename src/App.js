@@ -1,7 +1,9 @@
 import './App.css';
 import React, { useEffect } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
+
 import StingrayScenics from './pages/homePage/StingrayScenics'
+import GalleryPage from './pages/galleryPage/GalleryPage';
 
 function App() {
 
@@ -27,6 +29,7 @@ function App() {
     <div className="stingrayScenics">
       <Routes>
         <Route path='/' element={<StingrayScenics />} />
+        <Route path='/gallery' element={<GalleryPage />} />
         {/* 404 path */}
       </Routes>
     </div>

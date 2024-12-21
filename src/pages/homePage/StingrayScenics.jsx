@@ -19,9 +19,9 @@ const StingrayScenics = () => {
 
     const openingLine = 'Welcome to Stingray Scenics, the intersection of passion, creativity, and art! We specialize in crafting unique terrain and custom-painted miniatures, all tailored to your personal vision. Whether its a modular battlefield, a dramatic scene, or custom work on a personal hero, our versatile commissions ensure your tabletop is as epic as your imagination.'
 
-    useMotionValueEvent(mainContainer, 'change', (latest) =>
-        console.log('mainY', latest)
-    )
+    // useMotionValueEvent(mainContainer, 'change', (latest) =>
+    //     console.log('mainY', latest)
+    // )
 
 
     // timeline
@@ -69,9 +69,7 @@ const StingrayScenics = () => {
 
 
     return (
-        <motion.div className='homePage' ref={containerRef}
-        // style={{ background: gradientStyle || defaultGradient }}
-        >
+        <motion.div className='homePage' ref={containerRef}>
 
             <div className='homeScrollDiv'>
 
@@ -82,19 +80,19 @@ const StingrayScenics = () => {
                     />
 
                     {/* titles */}
-                    <motion.p className='parallaxText SStitle glassMorph'
+                    <motion.p className='homeTextStyle SStitle glassMorph'
                         style={{ opacity: titleOp }}
                     >Stingray scenics"</motion.p>
 
-                    <motion.p className='parallaxText scrollAdventure'
+                    <motion.p className='homeTextStyle scrollAdventure'
                         style={{ opacity: scrollAdventureOp }}
                     >Scroll for Adventure</motion.p>
 
-                    <motion.p className='parallaxText tinyFigures'
+                    <motion.p className='homeTextStyle tinyFigures'
                         style={{ y: tinyFiguresY, opacity: tinyFiguresOp }}
                     >Tiny figures+</motion.p>
 
-                    <motion.p className='parallaxText epicStories'
+                    <motion.p className='homeTextStyle epicStories'
                         style={{ y: epicStoriesY, opacity: epicStoriesOp }}
                     >Epic stories?</motion.p>
 
@@ -110,17 +108,17 @@ const StingrayScenics = () => {
 
 
                     <div className='homeMenu'>
-                        <motion.div className='bannerLink glassMorph' style={{ width: bannerWidth0 }}>
-                            <Link to={'/gallery'}>Gallery.</Link>
+                        <motion.div className='menuBanner glassMorph' style={{ width: bannerWidth0 }}>
+                            <Link className='homeTextStyle bannerText' to={'/gallery'}>Gallery.</Link>
                         </motion.div>
-                        <motion.div className='bannerLink glassMorph' style={{ width: bannerWidth1 }}>
-                            <Link>Commission"</Link>
+                        <motion.div className='menuBanner glassMorph' style={{ width: bannerWidth1 }}>
+                            <Link className='homeTextStyle bannerText'>Commission"</Link>
                         </motion.div>
-                        <motion.div className='bannerLink glassMorph' style={{ width: bannerWidth2 }}>
-                            <Link>Contact$</Link>
+                        <motion.div className='menuBanner glassMorph' style={{ width: bannerWidth2 }}>
+                            <Link className='homeTextStyle bannerText'>Contact$</Link>
                         </motion.div>
-                        <motion.div className='bannerLink glassMorph' style={{ width: bannerWidth3 }}>
-                            <Link>The hobby%</Link>
+                        <motion.div className='menuBanner glassMorph' style={{ width: bannerWidth3 }}>
+                            <Link className='homeTextStyle bannerText'>The hobby%</Link>
                         </motion.div>
                         {/* <motion.div className='bannerLink glassMorph' style={{ width: bannerWidth3 }}>
                             <Link>Products</Link>
