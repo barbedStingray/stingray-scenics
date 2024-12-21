@@ -4,31 +4,22 @@
     height: 100dvh;
     display: block;
     overflow-y: scroll;
-    /* position: relative; */
-    /* background-color: blue; */
 }
 
-.scrollingDiv {
-    border: 2px solid gold;
+.homeScrollDiv {
+    /* border: 2px solid gold; */
     height: 4000px;
     /* position: relative; */
 }
 
 .homeDisplay {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     height: 100dvh;
     width: 100%;
-
     position: sticky;
     top: 0;
     overflow: hidden;
-
     z-index: 5;
-
-    /* display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center; */
 }
 
 .homeImage {
@@ -38,11 +29,8 @@
     z-index: 0;
 }
 
-
 .parallaxText {
-    /* background-color: #051f0088; */
     color: #d0d0d0;
-    /* filter: blur(3px); */
     z-index: 10;
     position: absolute;
     text-align: center;
@@ -66,23 +54,11 @@
     top: 30%;
     left: 50%;
     transform: translate(-50%, -50%) rotateX(15deg) rotateY(-10deg);
-    /* width: 80dvw;
-    height: 36dvw; */
     width: 105%;
     height: 30%;
     font-size: 12vw;
     padding: 0 0 8dvh 6dvw;
     word-wrap: break-word;
-
-
-
-    /* Glass morph */
-    background-color: transparent;
-    backdrop-filter: blur(3px);
-    background-image: linear-gradient(120deg,
-            #051f0088,
-            #ffffff55,
-            #b6f80155);
 }
 
 .scrollAdventure {
@@ -94,8 +70,6 @@
     left: 50%;
     transform: translate(-50%, -50%) rotateX(15deg) rotateY(-10deg);
 }
-
-
 
 .tinyFigures {
     /* border: 2px solid lime; */
@@ -118,16 +92,12 @@
     left: 15%;
 }
 
-
-
-
 .miniImage {
     /* border: 2px solid white; */
     border-radius: 10px;
     position: absolute;
     object-fit: contain;
     filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.75));
-
 }
 
 .landscapeImage {
@@ -138,19 +108,13 @@
     box-shadow: 3px 3px 15px 5px black;
 }
 
-
-
-
 .homeMenu {
-    border: 2px solid lime;
-    /* background-color: grey; */
+    /* border: 2px solid lime; */
     height: 100dvh;
     width: 100%;
-    /* overflow: hidden; */
     position: absolute;
     top: 0;
     left: 0;
-
     padding-top: 15dvh;
     display: flex;
     flex-flow: column nowrap;
@@ -158,33 +122,27 @@
     gap: 20px;
 }
 
-
 .bannerLink {
     /* border: 2px solid blue; */
-    /* flex: 1.25; */
     height: 12%;
     white-space: nowrap;
     margin-left: -10px;
     /* position: relative; */
     overflow: hidden;
-    /* color: grey; */
     transform: rotateX(15deg) rotateY(-10deg);
     z-index: 10;
-
 }
 
 .bannerLink a {
     /* border: 2px solid red; */
     /* border-top: 1px solid red; */
-    border-top: 3px solid white;
-    border-bottom: 3px solid white;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
     width: 100%;
     height: 100%;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-family: wildGrowth;
     text-decoration: none;
     color: white;
@@ -193,15 +151,12 @@
     padding: 0px 0px 6px 10px;
     letter-spacing: 3px;
     z-index: 10;
-
     text-shadow:
         1px 1px 2px rgba(0, 0, 0, 0.8),
         2px 2px 5px rgba(0, 0, 0, 0.7),
         3px 3px 8px rgba(0, 0, 0, 0.6),
         4px 4px 11px rgba(0, 0, 0, 0.5),
         5px 5px 14px rgba(0, 0, 0, 0.4);
-
-
 }
 
 .colorChange {

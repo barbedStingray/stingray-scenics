@@ -2,8 +2,6 @@ import './App.css';
 import React, { useEffect } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import StingrayScenics from './pages/homePage/StingrayScenics'
-import Miniatures from './pages/miniGallery/Miniatures'
-import DemoPage from './pages/demoPage/DemoPage';
 
 function App() {
 
@@ -29,8 +27,6 @@ function App() {
     <div className="stingrayScenics">
       <Routes>
         <Route path='/' element={<StingrayScenics />} />
-        <Route path='/miniatures' element={<Miniatures />} />
-        <Route path='/demoPage' element={<DemoPage />} />
         {/* 404 path */}
       </Routes>
     </div>
