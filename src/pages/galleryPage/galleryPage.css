@@ -1,0 +1,21 @@
+.galleryPage {
+    border: 2px solid blue;
+    width: 100dvw;
+    height: 100dvh;
+    display: block;
+    overflow: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+.galleryScrollDiv {
+    border: 2px solid gold;
+    height: 500dvh;
+}
+
+.groupDisplay {
+    border: 2px solid red;
+    height: 100dvh;
+    width: 100%;
+    scroll-snap-align: start;
+}
+

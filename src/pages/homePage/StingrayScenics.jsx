@@ -11,17 +11,17 @@ import pelennorFields from '../../images/pelennorFields.jpeg'
 
 const StingrayScenics = () => {
 
-    const containerRef = useRef()
-    const { scrollYProgress: mainContainer } = useScroll({
-        container: containerRef,
+    const homeContainerRef = useRef()
+    const { scrollYProgress: homeContainer } = useScroll({
+        container: homeContainerRef,
         offset: ['start start', 'end end']
     })
 
     const openingLine = 'Welcome to Stingray Scenics, the intersection of passion, creativity, and art! We specialize in crafting unique terrain and custom-painted miniatures, all tailored to your personal vision. Whether its a modular battlefield, a dramatic scene, or custom work on a personal hero, our versatile commissions ensure your tabletop is as epic as your imagination.'
 
-    // useMotionValueEvent(mainContainer, 'change', (latest) =>
-    //     console.log('mainY', latest)
-    // )
+    useMotionValueEvent(homeContainer, 'change', (latest) =>
+        console.log('mainY', latest)
+    )
 
 
     // timeline
@@ -37,30 +37,30 @@ const StingrayScenics = () => {
 
 
     // home photo
-    const homePhotoScale = useTransform(mainContainer, [0, 1], [1.25, 1])
-    const homePhotoY = useTransform(mainContainer, [0.8, 1], ['0dvh', '100dvh'])
-    const grayscaleValue = useTransform(mainContainer, [0, 0.5, 0.78, 0.92], ['0%', '100%', '100%', '0%'])
-    const blurValue = useTransform(mainContainer, [0.14, 0.25, 0.78, 0.83], [0, 2, 2, 0]);
+    const homePhotoScale = useTransform(homeContainer, [0, 1], [1.25, 1])
+    const homePhotoY = useTransform(homeContainer, [0.8, 1], ['0dvh', '100dvh'])
+    const grayscaleValue = useTransform(homeContainer, [0, 0.5, 0.78, 0.92], ['0%', '100%', '100%', '0%'])
+    const blurValue = useTransform(homeContainer, [0.14, 0.25, 0.78, 0.83], [0, 2, 2, 0]);
     const filterStyle = useMotionTemplate`grayscale(${grayscaleValue}) blur(${blurValue}px)`;
 
     // mini titles
-    const titleOp = useTransform(mainContainer, [0, 0.1], [1, 0])
-    const scrollAdventureOp = useTransform(mainContainer, [0, 0.1], [1, 0])
+    const titleOp = useTransform(homeContainer, [0, 0.1], [1, 0])
+    const scrollAdventureOp = useTransform(homeContainer, [0, 0.1], [1, 0])
 
-    const tinyFiguresOp = useTransform(mainContainer, [0.13, 0.22, 0.39, 0.44], [0, 1, 1, 0])
-    const tinyFiguresY = useTransform(mainContainer, [0.13, 0.42], ['0', '-5dvh'])
-    const epicStoriesOp = useTransform(mainContainer, [0.48, 0.52, 0.75, 0.8], [0, 1, 1, 0])
-    const epicStoriesY = useTransform(mainContainer, [0.48, 0.6], ['0', '5dvh'])
+    const tinyFiguresOp = useTransform(homeContainer, [0.13, 0.22, 0.39, 0.44], [0, 1, 1, 0])
+    const tinyFiguresY = useTransform(homeContainer, [0.13, 0.42], ['0', '-5dvh'])
+    const epicStoriesOp = useTransform(homeContainer, [0.48, 0.52, 0.75, 0.8], [0, 1, 1, 0])
+    const epicStoriesY = useTransform(homeContainer, [0.48, 0.6], ['0', '5dvh'])
 
     // banner links
-    const bannerWidth0 = useTransform(mainContainer, [0.80, 0.94], ['0%', '105%'])
-    const bannerWidth1 = useTransform(mainContainer, [0.83, 0.96], ['0%', '105%'])
-    const bannerWidth2 = useTransform(mainContainer, [0.86, 0.98], ['0%', '105%'])
-    const bannerWidth3 = useTransform(mainContainer, [0.89, 1], ['0%', '105%'])
+    const bannerWidth0 = useTransform(homeContainer, [0.80, 0.94], ['0%', '105%'])
+    const bannerWidth1 = useTransform(homeContainer, [0.83, 0.96], ['0%', '105%'])
+    const bannerWidth2 = useTransform(homeContainer, [0.86, 0.98], ['0%', '105%'])
+    const bannerWidth3 = useTransform(homeContainer, [0.89, 1], ['0%', '105%'])
 
 
 
-    const gradientColor = useTransform(mainContainer, [0, 1], [
+    const gradientColor = useTransform(homeContainer, [0, 1], [
         'linear-gradient(90deg, #ff7eb3, #ff758c)', // Gradient at start
         'linear-gradient(90deg, #6a11cb, #2575fc)', // Gradient at end
     ])
@@ -69,7 +69,7 @@ const StingrayScenics = () => {
 
 
     return (
-        <motion.div className='homePage' ref={containerRef}>
+        <motion.div className='homePage' ref={homeContainerRef}>
 
             <div className='homeScrollDiv'>
 
@@ -99,11 +99,11 @@ const StingrayScenics = () => {
 
                     {/* images */}
                     {tinyFiguresImages.map((tinyImage, i) => (
-                        <ParallaxImage key={i} scrollContainer={mainContainer} parDetails={tinyImage} />
+                        <ParallaxImage key={i} scrollContainer={homeContainer} parDetails={tinyImage} />
                     ))}
 
                     {epicStoriesImages.map((storyImage, i) => (
-                        <ParallaxImage key={i} scrollContainer={mainContainer} parDetails={storyImage} />
+                        <ParallaxImage key={i} scrollContainer={homeContainer} parDetails={storyImage} />
                     ))}
 
 
