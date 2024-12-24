@@ -9,9 +9,12 @@ import theOneRing from '../../images/oneRing.png'
 
 const GalleryPage = () => {
 
-    const [gallerySection, setGallerySection] = useState(0)
+    const [gallerySection, setGallerySection] = useState('welcome')
     const [galleryIcon, setGalleryIcon] = useState(0)
     const [direction, setDirection] = useState(0)
+
+    console.log('gallerySection', gallerySection)
+    console.log('galleryIcon', galleryIcon)
 
 
     const motionVariants = {
@@ -22,7 +25,7 @@ const GalleryPage = () => {
             transformOrigin: "50% 50%",
         }),
         center: {
-            opacity: 1,
+            // opacity: 1,
             rotateY: 0,
             transformOrigin: "50% 50%"
         },
@@ -34,60 +37,55 @@ const GalleryPage = () => {
         })
     }
 
-    const imageMap = {
-        0: {
-            0: theStingray
-        },
-        1: {
-            0: theOneRing,
-            1: theEmpire,
-            2: 'gondor',
-            3: 'rohan',
-            4: 'isengard',
-        },
-        2: {
-            0: theEmpire,
-            1: theOneRing,
-            2: 'CIS',
-            3: 'The Republic',
-        },
-        3: {
-            0: theStingray
-        }
+    const iconMap = {
+        welcome: [theStingray],
+        lordOfTheRings: [theOneRing, theEmpire, 'gondor', 'rohan', 'isengard'],
+        starWars: [theEmpire, theOneRing, 'CIS', 'the Republic'],
+        terrain: [theStingray]
     }
 
-    const incrementDisplay = (increment) => {
-        const newGallerySection = gallerySection + increment
-        if (newGallerySection < 0 || newGallerySection > 3) return
-        setDirection(increment) // Update the direction
-        setGallerySection(newGallerySection)
-        setGalleryIcon(0)
-    };
 
-    const decideDisplaySection = (gallerySection) => {
-        switch (gallerySection) {
-            case 0:
-                return <div className='galleryWelcome'>
-                    <p>Welcome to the Gallery</p>
-                </div>
-            case 1:
-                return <div className='lotrDisplay'>
-                    <p>Lord of the Rings</p>
-                    <button onClick={() => setGalleryIcon(1)}>NEW ICON</button>
-                </div>
-            case 2:
-                return <div className='starWarsDisplay'>
-                    <p>Star Wars</p>
-                    <button onClick={() => setGalleryIcon(1)}>NEW ICON</button>
-                </div>
-            case 3:
-                return <div className='terrainDisplay'>
-                    <p>Terrain</p>
-                </div>
-            default:
-                return 'Default Section';
-        }
-    };
+    const handleSectionChange = (increment) => {
+        const sectionOrder = ['welcome', 'lordOfTheRings', 'starWars', 'terrain']
+        const currentIndex = sectionOrder.indexOf(gallerySection)
+        const newIndex = currentIndex + increment
+    
+        if (newIndex < 0 || newIndex >= sectionOrder.length) return
+    
+        setDirection(increment) // Update the direction
+        setGallerySection(sectionOrder[newIndex])
+        setGalleryIcon(0)
+      }
+
+
+      const handleIconChange = (newIconIndex) => {
+        setGalleryIcon(newIconIndex)
+      }
+
+      const sectionContent = {
+        welcome: (
+          <div className='galleryWelcome'>
+            <p>Welcome to the Gallery</p>
+          </div>
+        ),
+        lordOfTheRings: (
+          <div className='lotrDisplay'>
+            <p>Lord of the Rings</p>
+          </div>
+        ),
+        starWars: (
+          <div className='starWarsDisplay'>
+            <p>Star Wars</p>
+          </div>
+        ),
+        terrain: (
+          <div className='terrainDisplay'>
+            <p>Terrain</p>
+          </div>
+        ),
+      }
+
+
 
     return (
         <div className="galleryPage">
@@ -95,13 +93,13 @@ const GalleryPage = () => {
             <AnimatePresence custom={direction} mode="wait" initial={true}>
                 <motion.img
                     className='sectionIcon'
-                    src={imageMap[gallerySection][galleryIcon]}
+                    src={iconMap[gallerySection][galleryIcon]}
                     key={`icon${gallerySection}${galleryIcon}`}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{
-                        duration: 1,
+                        duration: 0.85,
                         ease: 'easeInOut',
                     }}
                 />
@@ -120,21 +118,21 @@ const GalleryPage = () => {
                         type: 'spring',
                         stiffness: 200,
                         damping: 15,
-                        duration: 0.75,
+                        duration: 0.55,
                         ease: 'anticipate',
                     }}
                 >
-                    {decideDisplaySection(gallerySection)}
+                    {sectionContent[gallerySection]}
                 </motion.div>
             </AnimatePresence>
 
             <div>
-                <button onClick={() => incrementDisplay(-1)}>Left</button>
-                <button onClick={() => incrementDisplay(1)}>Right</button>
+                <button onClick={() => handleSectionChange(-1)}>Left</button>
+                <button onClick={() => handleSectionChange(1)}>Right</button>
             </div>
 
         </div>
-    );
-};
+    )
+}
 
 export default GalleryPage;
