@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import './galleryPage.css'
 
@@ -58,10 +58,34 @@ const GalleryPage = () => {
     }
 
     const calculateActiveSection = () => {
-        
+        console.log('scrolling icon')
+        if (sectionIconRef.current) {
+            const scrollLeft = sectionIconRef.current.scrollLeft;
+            const sectionWidth = sectionIconRef.current.offsetWidth;
+            const activeIndex = Math.round(scrollLeft / sectionWidth); // Calculate active index
+            console.log('active index', activeIndex)
+            setGalleryIcon(activeIndex); // Update the gallery icon
+        }
     }
 
-
+    // Add scroll event listener to track snap scrolling
+    useEffect(() => {
+        const lotrDisplay = sectionIconRef.current;
+    
+        if (lotrDisplay) {
+            const handleScroll = () => calculateActiveSection();
+    
+            // Attach the scroll listener when section changes
+            lotrDisplay.addEventListener('scroll', handleScroll);
+    
+            // Cleanup listener when component is unmounted or gallerySection changes
+            return () => {
+                lotrDisplay.removeEventListener('scroll', handleScroll);
+            };
+        }
+    }, [gallerySection]); // Now, this effect runs whenever the gallerySection changes
+        
+            
 
     const sectionContent = {
         welcome: (
@@ -70,7 +94,7 @@ const GalleryPage = () => {
             </div>
         ),
         lordOfTheRings: (
-            <div className='lotrDisplay'>
+            <div className='lotrDisplay' ref={sectionIconRef}>
                 <div className='displaySection'>
                     <p>Lord of the Rings</p>
                 </div>
@@ -130,6 +154,10 @@ const GalleryPage = () => {
                         damping: 15,
                         duration: 0.55,
                         ease: 'anticipate',
+                    }}
+                    onAnimationComplete={() => {
+                        console.log('animation complete')
+                        calculateActiveSection()
                     }}
                 >
                     {sectionContent[gallerySection]}

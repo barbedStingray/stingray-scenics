@@ -54,8 +54,9 @@
     border: 2px solid blue;
     width: 100%;
     height: 100%;
-    scroll-snap-align: start;
-    flex-shrink: 0;
+    scroll-snap-align: center;
+    /* flex-shrink: 0; */
+    flex: 0 0 100%;
 }
 
 
