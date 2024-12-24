@@ -2,7 +2,18 @@
     border: 2px solid blue;
     width: 100dvw;
     height: 100dvh;
-    /* display: block; */
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.sectionIcon {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: -10%;
+    left: -30%;
 }
 
 
@@ -10,7 +21,7 @@
     border: 2px solid red;
     height: 90dvh;
     width: 90%;
-    background-color: lightgrey;
+    background-color: #d3d3d377;
     perspective: 1000px;
     transform-style: preserve-3d;
     position: relative;

@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import './galleryPage.css';
+import React, { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import './galleryPage.css'
+
+import theStingray from '../../images/DGreenIcon.png'
+import theEmpire from '../../images/empireLogo.png'
+import theOneRing from '../../images/oneRing.png'
+
 
 const GalleryPage = () => {
-    const [gallerySection, setGallerySection] = useState(0);
-    const [direction, setDirection] = useState(0);
+
+    const [gallerySection, setGallerySection] = useState(0)
+    const [galleryIcon, setGalleryIcon] = useState(0)
+    const [direction, setDirection] = useState(0)
 
 
     const motionVariants = {
@@ -27,11 +34,34 @@ const GalleryPage = () => {
         })
     }
 
+    const imageMap = {
+        0: {
+            0: theStingray
+        },
+        1: {
+            0: theOneRing,
+            1: theEmpire,
+            2: 'gondor',
+            3: 'rohan',
+            4: 'isengard',
+        },
+        2: {
+            0: theEmpire,
+            1: theOneRing,
+            2: 'CIS',
+            3: 'The Republic',
+        },
+        3: {
+            0: theStingray
+        }
+    }
+
     const incrementDisplay = (increment) => {
-        const newGallerySection = gallerySection + increment;
-        if (newGallerySection < 0 || newGallerySection > 3) return;
-        setDirection(increment); // Update the direction
-        setGallerySection(newGallerySection);
+        const newGallerySection = gallerySection + increment
+        if (newGallerySection < 0 || newGallerySection > 3) return
+        setDirection(increment) // Update the direction
+        setGallerySection(newGallerySection)
+        setGalleryIcon(0)
     };
 
     const decideDisplaySection = (gallerySection) => {
@@ -43,10 +73,12 @@ const GalleryPage = () => {
             case 1:
                 return <div className='lotrDisplay'>
                     <p>Lord of the Rings</p>
+                    <button onClick={() => setGalleryIcon(1)}>NEW ICON</button>
                 </div>
             case 2:
                 return <div className='starWarsDisplay'>
                     <p>Star Wars</p>
+                    <button onClick={() => setGalleryIcon(1)}>NEW ICON</button>
                 </div>
             case 3:
                 return <div className='terrainDisplay'>
@@ -59,6 +91,22 @@ const GalleryPage = () => {
 
     return (
         <div className="galleryPage">
+
+            <AnimatePresence custom={direction} mode="wait" initial={true}>
+                <motion.img
+                    className='sectionIcon'
+                    src={imageMap[gallerySection][galleryIcon]}
+                    key={`icon${gallerySection}${galleryIcon}`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{
+                        duration: 1,
+                        ease: 'easeInOut',
+                    }}
+                />
+            </AnimatePresence>
+
             <AnimatePresence custom={direction} mode="wait" initial={false}>
                 <motion.div
                     className="gallerySection"
@@ -80,8 +128,11 @@ const GalleryPage = () => {
                 </motion.div>
             </AnimatePresence>
 
-            <button onClick={() => incrementDisplay(-1)}>Left</button>
-            <button onClick={() => incrementDisplay(1)}>Right</button>
+            <div>
+                <button onClick={() => incrementDisplay(-1)}>Left</button>
+                <button onClick={() => incrementDisplay(1)}>Right</button>
+            </div>
+
         </div>
     );
 };
