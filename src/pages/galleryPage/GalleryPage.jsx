@@ -1,13 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import './galleryPage.css'
 
 import theStingray from '../../images/DGreenIcon.png'
 import theEmpire from '../../images/empireLogo.png'
 import theOneRing from '../../images/oneRing.png'
+import theCIS from '../../images/CIS.png'
+import jediOrder from '../../images/JediOrder.png'
 
 
 const GalleryPage = () => {
+
+    const sectionIconRef = useRef(null)
 
     const [gallerySection, setGallerySection] = useState('welcome')
     const [galleryIcon, setGalleryIcon] = useState(0)
@@ -21,18 +25,15 @@ const GalleryPage = () => {
         enter: (direction) => ({
             rotateY: direction > 0 ? 90 : -90,
             rotateX: 3,
-            // opacity: 0,
             transformOrigin: "50% 50%",
         }),
         center: {
-            // opacity: 1,
             rotateY: 0,
             transformOrigin: "50% 50%"
         },
         exit: (direction) => ({
             rotateY: direction > 0 ? -90 : 90,
             rotateX: 3,
-            // opacity: 0,
             transformOrigin: "50% 50%",
         })
     }
@@ -41,9 +42,8 @@ const GalleryPage = () => {
         welcome: [theStingray],
         lordOfTheRings: [theOneRing, theEmpire, 'gondor', 'rohan', 'isengard'],
         starWars: [theEmpire, theOneRing, 'CIS', 'the Republic'],
-        terrain: [theStingray]
+        terrain: [jediOrder]
     }
-
 
     const handleSectionChange = (increment) => {
         const sectionOrder = ['welcome', 'lordOfTheRings', 'starWars', 'terrain']
@@ -57,10 +57,11 @@ const GalleryPage = () => {
         setGalleryIcon(0)
     }
 
-
-    const handleIconChange = (newIconIndex) => {
-        setGalleryIcon(newIconIndex)
+    const calculateActiveSection = () => {
+        
     }
+
+
 
     const sectionContent = {
         welcome: (
@@ -70,7 +71,15 @@ const GalleryPage = () => {
         ),
         lordOfTheRings: (
             <div className='lotrDisplay'>
-                <p>Lord of the Rings</p>
+                <div className='displaySection'>
+                    <p>Lord of the Rings</p>
+                </div>
+                <div className='displaySection'>
+                    <p>Gondor</p>
+                </div>
+                <div className='displaySection'>
+                    <p>Rivendell</p>
+                </div>
             </div>
         ),
         starWars: (
@@ -108,7 +117,8 @@ const GalleryPage = () => {
             <AnimatePresence custom={direction} mode="wait" initial={false}>
                 <motion.div
                     className="gallerySection"
-                    key={gallerySection} // Ensure re-render on section change
+                    key={`gallerySection${gallerySection}`}
+                    // key={gallerySection} // Ensure re-render on section change
                     custom={direction} // Pass direction to variants
                     initial="enter"
                     animate="center"
