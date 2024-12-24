@@ -49,41 +49,41 @@ const GalleryPage = () => {
         const sectionOrder = ['welcome', 'lordOfTheRings', 'starWars', 'terrain']
         const currentIndex = sectionOrder.indexOf(gallerySection)
         const newIndex = currentIndex + increment
-    
+
         if (newIndex < 0 || newIndex >= sectionOrder.length) return
-    
+
         setDirection(increment) // Update the direction
         setGallerySection(sectionOrder[newIndex])
         setGalleryIcon(0)
-      }
+    }
 
 
-      const handleIconChange = (newIconIndex) => {
+    const handleIconChange = (newIconIndex) => {
         setGalleryIcon(newIconIndex)
-      }
+    }
 
-      const sectionContent = {
+    const sectionContent = {
         welcome: (
-          <div className='galleryWelcome'>
-            <p>Welcome to the Gallery</p>
-          </div>
+            <div className='galleryWelcome'>
+                <p>Welcome to the Gallery</p>
+            </div>
         ),
         lordOfTheRings: (
-          <div className='lotrDisplay'>
-            <p>Lord of the Rings</p>
-          </div>
+            <div className='lotrDisplay'>
+                <p>Lord of the Rings</p>
+            </div>
         ),
         starWars: (
-          <div className='starWarsDisplay'>
-            <p>Star Wars</p>
-          </div>
+            <div className='starWarsDisplay'>
+                <p>Star Wars</p>
+            </div>
         ),
         terrain: (
-          <div className='terrainDisplay'>
-            <p>Terrain</p>
-          </div>
+            <div className='terrainDisplay'>
+                <p>Terrain</p>
+            </div>
         ),
-      }
+    }
 
 
 
