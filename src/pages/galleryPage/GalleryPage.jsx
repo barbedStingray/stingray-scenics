@@ -11,17 +11,15 @@ import jediOrder from '../../images/JediOrder.png'
 
 const GalleryPage = () => {
 
-    const sectionIconRef = useRef(null)
-
     const [gallerySection, setGallerySection] = useState('welcome')
-    const [galleryIcon, setGalleryIcon] = useState(0)
+    const [galleryIcon, setGalleryIcon] = useState('mainDisplay')
     const [direction, setDirection] = useState(0)
 
     console.log('gallerySection', gallerySection)
     console.log('galleryIcon', galleryIcon)
 
 
-    const motionVariants = {
+    const gallerySectionVariants = {
         enter: (direction) => ({
             rotateY: direction > 0 ? 90 : -90,
             rotateX: 3,
@@ -39,53 +37,51 @@ const GalleryPage = () => {
     }
 
     const iconMap = {
-        welcome: [theStingray],
-        lordOfTheRings: [theOneRing, theEmpire, 'gondor', 'rohan', 'isengard'],
-        starWars: [theEmpire, theOneRing, 'CIS', 'the Republic'],
-        terrain: [jediOrder]
+        welcome: {
+            mainDisplay: theStingray,
+        },
+        lordOfTheRings: {
+            mainDisplay: theOneRing,
+            gondor: 'gondor',
+            rohan: 'rohan',
+            mordor: 'mordor',
+            angmar: 'angmar',
+            moria: 'moria',
+        },
+        starWars: {
+            mainDisplay: theEmpire,
+            empire: theEmpire,
+            rebelAlliance: 'rebels',
+            jediOrder: 'jedi order',
+        },
+        terrain: {
+            mainDisplay: theStingray,
+            scenicSquare: 'scenic square',
+            modular: 'modular',
+        },
     }
 
-    const handleSectionChange = (increment) => {
-        const sectionOrder = ['welcome', 'lordOfTheRings', 'starWars', 'terrain']
-        const currentIndex = sectionOrder.indexOf(gallerySection)
+    const gallerySections = Object.keys(iconMap)
+    const lotrDisplays = Object.keys(iconMap.lordOfTheRings)
+    const starWarsDisplays = Object.keys(iconMap.starWars)
+
+    const handleSectionChange = (gallerySections, increment) => {
+        const currentIndex = gallerySections.indexOf(gallerySection)
         const newIndex = currentIndex + increment
-
-        if (newIndex < 0 || newIndex >= sectionOrder.length) return
-
+        if (newIndex < 0 || newIndex >= gallerySections.length) return
         setDirection(increment) // Update the direction
-        setGallerySection(sectionOrder[newIndex])
-        setGalleryIcon(0)
+        setGallerySection(gallerySections[newIndex])
+        setGalleryIcon('mainDisplay')
     }
 
-    const calculateActiveSection = () => {
-        console.log('scrolling icon')
-        if (sectionIconRef.current) {
-            const scrollLeft = sectionIconRef.current.scrollLeft;
-            const sectionWidth = sectionIconRef.current.offsetWidth;
-            const activeIndex = Math.round(scrollLeft / sectionWidth); // Calculate active index
-            console.log('active index', activeIndex)
-            setGalleryIcon(activeIndex); // Update the gallery icon
-        }
+    const handleDisplayChange = (displaySections, increment) => {
+        const currentIndex = displaySections.indexOf(galleryIcon)
+        const newIndex = currentIndex + increment
+        if (newIndex < 0 || newIndex >= displaySections.length) return
+        setDirection(increment)
+        setGalleryIcon(displaySections[newIndex])
     }
 
-    // Add scroll event listener to track snap scrolling
-    useEffect(() => {
-        const lotrDisplay = sectionIconRef.current;
-    
-        if (lotrDisplay) {
-            const handleScroll = () => calculateActiveSection();
-    
-            // Attach the scroll listener when section changes
-            lotrDisplay.addEventListener('scroll', handleScroll);
-    
-            // Cleanup listener when component is unmounted or gallerySection changes
-            return () => {
-                lotrDisplay.removeEventListener('scroll', handleScroll);
-            };
-        }
-    }, [gallerySection]); // Now, this effect runs whenever the gallerySection changes
-        
-            
 
     const sectionContent = {
         welcome: (
@@ -94,15 +90,11 @@ const GalleryPage = () => {
             </div>
         ),
         lordOfTheRings: (
-            <div className='lotrDisplay' ref={sectionIconRef}>
-                <div className='displaySection'>
-                    <p>Lord of the Rings</p>
-                </div>
-                <div className='displaySection'>
-                    <p>Gondor</p>
-                </div>
-                <div className='displaySection'>
-                    <p>Rivendell</p>
+            <div className='lotrDisplay'>
+                <p>Lord of the Rings</p>
+                <div>
+                    <button onClick={() => handleDisplayChange(lotrDisplays, -1)}>Backward</button>
+                    <button onClick={() => handleDisplayChange(lotrDisplays, 1)}>Forward</button>
                 </div>
             </div>
         ),
@@ -147,7 +139,7 @@ const GalleryPage = () => {
                     initial="enter"
                     animate="center"
                     exit="exit"
-                    variants={motionVariants}
+                    variants={gallerySectionVariants}
                     transition={{
                         type: 'spring',
                         stiffness: 200,
@@ -155,18 +147,14 @@ const GalleryPage = () => {
                         duration: 0.55,
                         ease: 'anticipate',
                     }}
-                    onAnimationComplete={() => {
-                        console.log('animation complete')
-                        calculateActiveSection()
-                    }}
                 >
                     {sectionContent[gallerySection]}
                 </motion.div>
             </AnimatePresence>
 
             <div>
-                <button onClick={() => handleSectionChange(-1)}>Left</button>
-                <button onClick={() => handleSectionChange(1)}>Right</button>
+                <button onClick={() => handleSectionChange(gallerySections, -1)}>Left</button>
+                <button onClick={() => handleSectionChange(gallerySections, 1)}>Right</button>
             </div>
 
         </div>
