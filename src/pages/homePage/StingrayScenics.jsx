@@ -49,7 +49,7 @@ const StingrayScenics = () => {
 
     const tinyFiguresOp = useTransform(homeContainer, [0.13, 0.20, 0.46, 0.50], [0, 1, 1, 0])
     const tinyFiguresY = useTransform(homeContainer, [0.13, 0.5], ['0', '-5dvh'])
-    const epicStoriesOp = useTransform(homeContainer, [0.48, 0.52, 0.75, 0.8], [0, 1, 1, 0])
+    const epicStoriesOp = useTransform(homeContainer, [0.48, 0.52, 0.78, 0.83], [0, 1, 1, 0])
     const epicStoriesX = useTransform(homeContainer, [0.48, 0.8], ['-1dvh', '2dvh'])
 
     // banner links

@@ -17,14 +17,14 @@ const tinyFiguresImages = [
         photoType: 'miniImage',
         picture: rohanCommand,
         dimensions: ['40dvh', '40dvh'],
-        motionValues: [0.27, 0.63],
+        motionValues: [0.27, 0.57],
         coordinateOffset: { xPosition: ['30dvw', '33dvw'], yPosition: ['56dvh', '58dvh'] },
     },
     {
         photoType: 'miniImage',
         picture: urukHaiBanner,
         dimensions: ['37dvh', '37dvh'],
-        motionValues: [0.25, 0.61],
+        motionValues: [0.25, 0.57],
         coordinateOffset: { xPosition: ['-11dvw', '-7dvw'], yPosition: ['52dvh', '61dvh']},
     },
     {
