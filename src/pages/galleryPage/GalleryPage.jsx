@@ -52,7 +52,7 @@ const GalleryPage = () => {
             mainDisplay: theEmpire,
             empire: theEmpire,
             rebelAlliance: 'rebels',
-            jediOrder: 'jedi order',
+            jediOrder: jediOrder,
         },
         terrain: {
             mainDisplay: theStingray,
@@ -101,6 +101,11 @@ const GalleryPage = () => {
         starWars: (
             <div className='starWarsDisplay'>
                 <p>Star Wars</p>
+                <div>
+                    <button onClick={() => handleDisplayChange(starWarsDisplays, -1)}>Backward</button>
+                    <button onClick={() => handleDisplayChange(starWarsDisplays, 1)}>Forward</button>
+                </div>
+
             </div>
         ),
         terrain: (
