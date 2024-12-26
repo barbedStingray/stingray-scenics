@@ -38,7 +38,7 @@ const StingrayScenics = () => {
 
     // home photo
     const homePhotoScale = useTransform(homeContainer, [0, 1], [1.25, 1])
-    const homePhotoY = useTransform(homeContainer, [0.8, 1], ['0dvh', '100dvh'])
+    // const homePhotoY = useTransform(homeContainer, [0.8, 1], ['0dvh', '100dvh'])
     const grayscaleValue = useTransform(homeContainer, [0, 0.5, 0.78, 0.92], ['0%', '100%', '100%', '0%'])
     const blurValue = useTransform(homeContainer, [0.14, 0.25, 0.78, 0.83], [0, 2, 2, 0]);
     const filterStyle = useMotionTemplate`grayscale(${grayscaleValue}) blur(${blurValue}px)`;
@@ -47,10 +47,10 @@ const StingrayScenics = () => {
     const titleOp = useTransform(homeContainer, [0, 0.1], [1, 0])
     const scrollAdventureOp = useTransform(homeContainer, [0, 0.1], [1, 0])
 
-    const tinyFiguresOp = useTransform(homeContainer, [0.13, 0.22, 0.39, 0.44], [0, 1, 1, 0])
-    const tinyFiguresY = useTransform(homeContainer, [0.13, 0.42], ['0', '-5dvh'])
+    const tinyFiguresOp = useTransform(homeContainer, [0.13, 0.20, 0.46, 0.50], [0, 1, 1, 0])
+    const tinyFiguresY = useTransform(homeContainer, [0.13, 0.5], ['0', '-5dvh'])
     const epicStoriesOp = useTransform(homeContainer, [0.48, 0.52, 0.75, 0.8], [0, 1, 1, 0])
-    const epicStoriesY = useTransform(homeContainer, [0.48, 0.6], ['0', '5dvh'])
+    const epicStoriesX = useTransform(homeContainer, [0.48, 0.8], ['-1dvh', '2dvh'])
 
     // banner links
     const bannerWidth0 = useTransform(homeContainer, [0.80, 0.94], ['0%', '105%'])
@@ -93,7 +93,7 @@ const StingrayScenics = () => {
                     >Tiny figures+</motion.p>
 
                     <motion.p className='homeTextStyle epicStories'
-                        style={{ y: epicStoriesY, opacity: epicStoriesOp }}
+                        style={{ x: epicStoriesX, opacity: epicStoriesOp }}
                     >Epic stories?</motion.p>
 
 

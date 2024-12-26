@@ -1,51 +1,66 @@
-import sBattleDroid from '../images/sBattleDroid.png'
-import sBattleDroid2 from '../images/sBattleDroid2.png'
-import sBattleDroid3 from '../images/sBattleDroid3.png'
-import rohan from '../images/rohan.png'
-import goblin from '../images/goblin.png'
+
+import rohanCommand from '../images/lordoftheRings/rohanCommand.png'
+import dunharrowGhost from '../images/lordoftheRings/dunharrowGhost.png'
+import treeEnt from '../images/lordoftheRings/treeEnt.png'
+import greatEagle from '../images/lordoftheRings/greatEagle.png'
+import moriaGandalf from '../images/lordoftheRings/moriaGandalf.png'
+import urukHaiBanner from '../images/lordoftheRings/urukHaiBanner.png'
+
+import superBattleDroidChrome from '../images/starWars/superBattleDroidChrome.png'
+import superBattleDroidBlue from '../images/starWars/superBattleDroidBlue.png'
+import b1BattleDroid from '../images/starWars/b1BattleDroid.png'
 
 
 
 const tinyFiguresImages = [
     {
         photoType: 'miniImage',
-        picture: rohan,
-        position: ['5%', '10%'],
-        dimensions: ['25dvh', '75dvw'],
-        motionValues: [0.21, 0.5],
-        coordinateOffset: { xPosition: ['0dvw', '-4dvw'], yPosition: ['0dvh', '-3dvh']},
+        picture: rohanCommand,
+        dimensions: ['40dvh', '40dvh'],
+        motionValues: [0.27, 0.63],
+        coordinateOffset: { xPosition: ['30dvw', '33dvw'], yPosition: ['56dvh', '58dvh'] },
     },
     {
         photoType: 'miniImage',
-        picture: sBattleDroid,
-        position: ['35%', '5%'],
-        dimensions: ['45dvh', '40dvw'],
-        motionValues: [0.17, 0.5],
-        coordinateOffset: { xPosition: ['0dvw', '-2dvw'], yPosition: ['0dvh', '-3dvh']},
+        picture: urukHaiBanner,
+        dimensions: ['37dvh', '37dvh'],
+        motionValues: [0.25, 0.61],
+        coordinateOffset: { xPosition: ['-11dvw', '-7dvw'], yPosition: ['52dvh', '61dvh']},
     },
     {
         photoType: 'miniImage',
-        picture: sBattleDroid2,
-        position: ['65%', '45%'],
-        dimensions: ['35dvh', '50dvw'],
+        picture: treeEnt,
+        dimensions: ['40dvh', '60dvw'],
+        motionValues: [0.23, 0.57],
+        coordinateOffset: { xPosition: ['45dvw', '49dvw'], yPosition: ['10dvh', '3dvh'] },
+    },
+    {
+        photoType: 'miniImage',
+        picture: greatEagle,
+        dimensions: ['40dvh', '85dvw'], // width, height
+        motionValues: [0.21, 0.57],
+        coordinateOffset: { xPosition: ['-12dvw', '-10dvw'], yPosition: ['-6dvh', '0dvh'] },
+    },
+    {
+        photoType: 'miniImage',
+        picture: superBattleDroidChrome,
+        dimensions: ['18dvh', '18dvh'],
         motionValues: [0.19, 0.5],
-        coordinateOffset: { xPosition: ['0dvw', '0dvw'], yPosition: ['0dvh', '-3dvh']},
+        coordinateOffset: { xPosition: ['6dvw', '5dvw'], yPosition: ['40dvh', '43dvh'] },
     },
     {
         photoType: 'miniImage',
-        picture: sBattleDroid3,
-        position: ['40%', '38%'],
-        dimensions: ['20dvh', '55dvw'],
-        motionValues: [0.33, 0.5],
-        coordinateOffset: { xPosition: ['0dvw', '2dvw'], yPosition: ['0dvh', '-3dvh']},
+        picture: superBattleDroidBlue,
+        dimensions: ['16dvh', '16dvh'],
+        motionValues: [0.17, 0.48],
+        coordinateOffset: { xPosition: ['65dvw', '67dvw'], yPosition: ['46dvh', '50dvh'] },
     },
     {
         photoType: 'miniImage',
-        picture: goblin,
-        position: ['5%', '50%'],
-        dimensions: ['20dvh', '55dvw'],
-        motionValues: [0.22, 0.5],
-        coordinateOffset: { xPosition: ['0dvw', '0dvw'], yPosition: ['0dvh', '-3dvh']},
+        picture: b1BattleDroid,
+        dimensions: ['22dvh', '22dvh'],
+        motionValues: [0.15, 0.46],
+        coordinateOffset: { xPosition: ['33dvw', '31dvw'], yPosition: ['42dvh', '40dvh'] },
     },
 ]
 

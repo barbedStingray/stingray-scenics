@@ -4,7 +4,7 @@ import { motion, useTransform, useInView, useScroll, useMotionTemplate, useMotio
 
 const ParallaxImage = ({ scrollContainer, parDetails }) => {
     // const exampleY = useTransform(mainContainer, [0.1, 0.4], [-200, 100])
-    const { photoType, picture, position, dimensions, motionValues, coordinateOffset  } = parDetails
+    const { photoType, picture, dimensions, motionValues, coordinateOffset  } = parDetails
     const {xPosition, yPosition} = coordinateOffset
     const xOffset = useTransform(scrollContainer, motionValues, xPosition)
     const yOffset = useTransform(scrollContainer, motionValues, yPosition)
@@ -18,8 +18,6 @@ const ParallaxImage = ({ scrollContainer, parDetails }) => {
             style={{
                 x: xOffset,
                 y: yOffset,
-                top: position[0],
-                left: position[1],
                 height: dimensions[0], width: dimensions[1],
                 opacity,
             }}

@@ -85,22 +85,25 @@
     height: 15%;
     width: 95%;
     font-size: 10vw;
-    top: 40%;
+    top: 38%;
     left: 15%;
 }
 
 .miniImage {
     /* border: 2px solid white; */
-    border-radius: 10px;
     position: absolute;
+    top: 0;
+    left: 0;
     object-fit: contain;
     filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.75));
 }
 
 .landscapeImage {
-    border: 2px solid white;
+    /* border: 2px solid white; */
     border-radius: 10px;
     position: absolute;
+    top: 0;
+    left: 0;
     object-fit: cover;
     box-shadow: 3px 3px 15px 5px black;
 }
