@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useTransform, useMotionTemplate } from 'framer-motion'
 import './galleryPage.css'
 
 import theStingray from '../../images/DGreenIcon.png'
@@ -21,7 +21,7 @@ const GalleryPage = () => {
 
     const gallerySectionVariants = {
         enter: (direction) => ({
-            rotateY: direction > 0 ? 90 : -90,
+            rotateY: direction > 0 ? -90 : 90,
             rotateX: 3,
             transformOrigin: "50% 50%",
         }),
@@ -30,7 +30,7 @@ const GalleryPage = () => {
             transformOrigin: "50% 50%"
         },
         exit: (direction) => ({
-            rotateY: direction > 0 ? -90 : 90,
+            rotateY: direction > 0 ? 90 : -90,
             rotateX: 3,
             transformOrigin: "50% 50%",
         })
@@ -82,39 +82,73 @@ const GalleryPage = () => {
         setGalleryIcon(displaySections[newIndex])
     }
 
-
     const sectionContent = {
-        welcome: (
-            <div className='galleryWelcome'>
-                <p>Welcome to the Gallery</p>
-            </div>
-        ),
-        lordOfTheRings: (
-            <div className='lotrDisplay'>
-                <p>Lord of the Rings</p>
-                <div>
-                    <button onClick={() => handleDisplayChange(lotrDisplays, -1)}>Backward</button>
-                    <button onClick={() => handleDisplayChange(lotrDisplays, 1)}>Forward</button>
+        welcome: {
+            mainDisplay: (
+                <div className='galleryWelcome'>
+                    <p>Welcome to the Gallery</p>
                 </div>
-            </div>
-        ),
-        starWars: (
-            <div className='starWarsDisplay'>
-                <p>Star Wars</p>
-                <div>
-                    <button onClick={() => handleDisplayChange(starWarsDisplays, -1)}>Backward</button>
-                    <button onClick={() => handleDisplayChange(starWarsDisplays, 1)}>Forward</button>
+            ),
+        },
+        lordOfTheRings: {
+            mainDisplay: (
+                <div className='lotrDisplay swGradient'>
+                    <p>Lord of the Rings</p>
+                    <div>
+                        <button onClick={() => handleDisplayChange(lotrDisplays, -1)}>Backward</button>
+                        <button onClick={() => handleDisplayChange(lotrDisplays, 1)}>Forward</button>
+                    </div>
                 </div>
-
-            </div>
-        ),
-        terrain: (
-            <div className='terrainDisplay'>
-                <p>Terrain</p>
-            </div>
-        ),
+            ),
+            gondor: (
+                <div className='lotrDisplay'>
+                    <p>Gondor</p>
+                    <div>
+                        <button onClick={() => handleDisplayChange(lotrDisplays, -1)}>Backward</button>
+                        <button onClick={() => handleDisplayChange(lotrDisplays, 1)}>Forward</button>
+                    </div>
+                </div>
+            ),
+            rohan: (
+                <div className='lotrDisplay'>
+                    <p>Rohan</p>
+                    <div>
+                        <button onClick={() => handleDisplayChange(lotrDisplays, -1)}>Backward</button>
+                        <button onClick={() => handleDisplayChange(lotrDisplays, 1)}>Forward</button>
+                    </div>
+                </div>
+            ),
+        },
+        starWars: {
+            mainDisplay: (
+                <div className='starWarsDisplay'>
+                    <p>Star Wars</p>
+                    <div>
+                        <button onClick={() => handleDisplayChange(starWarsDisplays, -1)}>Backward</button>
+                        <button onClick={() => handleDisplayChange(starWarsDisplays, 1)}>Forward</button>
+                    </div>
+    
+                </div>
+            ),
+            empire: (
+                <div className='starWarsDisplay'>
+                    <p>Empire</p>
+                    <div>
+                        <button onClick={() => handleDisplayChange(starWarsDisplays, -1)}>Backward</button>
+                        <button onClick={() => handleDisplayChange(starWarsDisplays, 1)}>Forward</button>
+                    </div>
+    
+                </div>
+            ),
+        },
+        terrain: {
+            mainDisplay: (
+                <div className='terrainDisplay'>
+                    <p>Terrain</p>
+                </div>
+            ),
+        }
     }
-
 
 
     return (
@@ -153,7 +187,7 @@ const GalleryPage = () => {
                         ease: 'anticipate',
                     }}
                 >
-                    {sectionContent[gallerySection]}
+                    {sectionContent[gallerySection][galleryIcon]}
                 </motion.div>
             </AnimatePresence>
 

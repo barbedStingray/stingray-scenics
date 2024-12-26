@@ -7,6 +7,8 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .sectionIcon {
@@ -32,7 +34,6 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-
 }
 .gallerySection > div {
     transform-style: preserve-3d;
@@ -40,7 +41,7 @@
 
 .lotrDisplay {
     border: 2px solid lime;
-    background-color: #3f000033;
+    /* background-color: #3f000033; */
     width: 100%;
     height: 100%;
     display: flex;
@@ -59,6 +60,30 @@
 
 
 
+
+/* gradient styles */
+
+.swGradient {
+    background-image: linear-gradient(
+      50deg,
+      hsl(240deg 100% 4%) 0%,
+      hsl(238deg 76% 10%) 22%,
+      hsl(230deg 100% 15%) 43%,
+      hsl(239deg 89% 21%) 61%,
+      hsl(230deg 90% 28%) 75%,
+      hsl(216deg 100% 33%) 87%,
+      hsl(208deg 100% 39%) 95%,
+      hsl(202deg 100% 44%) 100%
+    );
+  }
+
+
+/* const gradientColor = useTransform(homeContainer, [0, 1], [
+    'linear-gradient(90deg, #ff7eb3, #ff758c)', // Gradient at start
+    'linear-gradient(90deg, #6a11cb, #2575fc)', // Gradient at end
+])
+const defaultGradient = 'linear-gradient(90deg, #ff7eb3, #ff758c)'
+const gradientStyle = useMotionTemplate`${gradientColor}` */
 
 
 
