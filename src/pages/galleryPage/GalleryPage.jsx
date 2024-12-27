@@ -36,106 +36,82 @@ const GalleryPage = () => {
         })
     }
 
-
     const galleryData = {
         welcome: {
             mainDisplay: {
                 icon: theStingray,
-                content: (
-                    <div className='lotrDisplay'>
-                        <p>Welcome!</p>
-                    </div>
-                ),
+                content: {
+                    title: 'Welcome',
+                    description: 'Welcome to the gallery!',
+                    photo: null,
+                },
             },
         },
         lordOfTheRings: {
             mainDisplay: {
                 icon: theOneRing,
-                content: (
-                    <div className='lotrDisplay'>
-                        <p>Lord of the Rings</p>
-                        <div>
-                            <button onClick={() => handleNavigation('display', -1)}>Backward</button>
-                            <button onClick={() => handleNavigation('display', 1)}>Forward</button>
-                        </div>
-                    </div>
-                ),
+                content: {
+                    title: 'Lord of the Rings',
+                    description: 'Explore the world of Middle Earth!',
+                    photo: null,
+                },
             },
             gondor: {
                 icon: 'gondor',
-                content: (
-                    <div className='lotrDisplay'>
-                        <p>Gondor</p>
-                        <div>
-                            <button onClick={() => handleNavigation('display', -1)}>Backward</button>
-                            <button onClick={() => handleNavigation('display', 1)}>Forward</button>
-                        </div>
-                    </div>
-                ),
+                content: {
+                    title: 'Gondor',
+                    description: 'The White City',
+                    photo: null,
+                },
             },
             rohan: {
                 icon: 'rohan',
-                content: (
-                    <div className='lotrDisplay'>
-                        <p>Rohan</p>
-                        <div>
-                            <button onClick={() => handleNavigation('display', -1)}>Backward</button>
-                            <button onClick={() => handleNavigation('display', 1)}>Forward</button>
-                        </div>
-                    </div>
-                ),
+                content: {
+                    title: 'Rohan',
+                    description: 'Land of the horse lords.',
+                    photo: null,
+                },
             },
         },
         starWars: {
             mainDisplay: {
                 icon: theCIS,
-                content: (
-                    <div className='lotrDisplay'>
-                        <p>Star Wars</p>
-                        <div>
-                            <button onClick={() => handleNavigation('display', -1)}>Backward</button>
-                            <button onClick={() => handleNavigation('display', 1)}>Forward</button>
-                        </div>
-                    </div>
-                ),
+                content: {
+                    title: 'Star Wars',
+                    description: 'A galaxy far, far away awaits.',
+                    photo: null,
+                },
             },
             empire: {
                 icon: theEmpire,
-                content: (
-                    <div className='lotrDisplay'>
-                        <p>Empire</p>
-                        <div>
-                            <button onClick={() => handleNavigation('display', -1)}>Backward</button>
-                            <button onClick={() => handleNavigation('display', 1)}>Forward</button>
-                        </div>
-                    </div>
-                ),
+                content: {
+                    title: 'Empire',
+                    description: 'The Galactic Empire ruled by the Sith.',
+                    photo: null,
+                },
             },
             jediOrder: {
                 icon: jediOrder,
-                content: (
-                    <div className='lotrDisplay'>
-                        <p>Jedi Order</p>
-                        <div>
-                            <button onClick={() => handleNavigation('display', -1)}>Backward</button>
-                            <button onClick={() => handleNavigation('display', 1)}>Forward</button>
-                        </div>
-                    </div>
-                ),
+                content: {
+                    title: 'Jedi Order',
+                    description: 'Guardians of peace and justice in the galaxy.',
+                    photo: null,
+                },
             },
         },
         terrain: {
             mainDisplay: {
                 icon: theStingray,
-                content: (
-                    <div className='lotrDisplay'>
-                        <p>Terrain</p>
-                    </div>
-                ),
+                content: {
+                    title: 'Terrain',
+                    description: 'Various terrains to explore and admire.',
+                    photo: null,
+                },
             },
-        }
+        },
     }
 
+    const currentData = galleryData[gallerySection][galleryDisplay]['content']
 
 
     const handleNavigation = (type, increment) => {
@@ -153,6 +129,7 @@ const GalleryPage = () => {
             setGalleryDisplay(currentList[newIndex])
         }
     }
+
 
 
 
@@ -192,7 +169,17 @@ const GalleryPage = () => {
                         ease: 'anticipate',
                     }}
                 >
-                    {galleryData[gallerySection][galleryDisplay]['content']}
+                    <div className="galleryContent">
+                        <h2>{currentData.title}</h2>
+                        <img src={currentData.photo} alt={currentData.title} className="contentPhoto" />
+                        <p>{currentData.description}</p>
+                        <div>
+                            <button onClick={() => handleNavigation('display', -1)}>Backward</button>
+                            <button onClick={() => handleNavigation('display', 1)}>Forward</button>
+                        </div>
+
+                    </div>
+                    {/* {galleryData[gallerySection][galleryDisplay]['content']} */}
                 </motion.div>
             </AnimatePresence>
 
