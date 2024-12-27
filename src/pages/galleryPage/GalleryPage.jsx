@@ -7,6 +7,7 @@ import theEmpire from '../../images/empireLogo.png'
 import theOneRing from '../../images/oneRing.png'
 import theCIS from '../../images/CIS.png'
 import jediOrder from '../../images/JediOrder.png'
+import { section } from 'framer-motion/client'
 
 
 const GalleryPage = () => {
@@ -36,34 +37,110 @@ const GalleryPage = () => {
         })
     }
 
-    const iconMap = {
+
+    const sectionContent = {
         welcome: {
-            mainDisplay: theStingray,
+            mainDisplay: {
+                icon: theStingray,
+                content: (
+                    <div className='lotrDisplay'>
+                        <p>Welcome!</p>
+                    </div>
+                ),
+            },
         },
         lordOfTheRings: {
-            mainDisplay: theOneRing,
-            gondor: 'gondor',
-            rohan: 'rohan',
-            mordor: 'mordor',
-            angmar: 'angmar',
-            moria: 'moria',
+            mainDisplay: {
+                icon: theOneRing,
+                content: (
+                    <div className='lotrDisplay'>
+                        <p>Lord of the Rings</p>
+                        <div>
+                            <button onClick={() => handleDisplayChange(lotrDisplays, -1)}>Backward</button>
+                            <button onClick={() => handleDisplayChange(lotrDisplays, 1)}>Forward</button>
+                        </div>
+                    </div>
+                ),
+            },
+            gondor: {
+                icon: 'gondor',
+                content: (
+                    <div className='lotrDisplay'>
+                        <p>Gondor</p>
+                        <div>
+                            <button onClick={() => handleDisplayChange(lotrDisplays, -1)}>Backward</button>
+                            <button onClick={() => handleDisplayChange(lotrDisplays, 1)}>Forward</button>
+                        </div>
+                    </div>
+                ),
+            },
+            rohan: {
+                icon: 'rohan',
+                content: (
+                    <div className='lotrDisplay'>
+                        <p>Rohan</p>
+                        <div>
+                            <button onClick={() => handleDisplayChange(lotrDisplays, -1)}>Backward</button>
+                            <button onClick={() => handleDisplayChange(lotrDisplays, 1)}>Forward</button>
+                        </div>
+                    </div>
+                ),
+            },
         },
         starWars: {
-            mainDisplay: theEmpire,
-            empire: theEmpire,
-            rebelAlliance: 'rebels',
-            jediOrder: jediOrder,
+            mainDisplay: {
+                icon: theCIS,
+                content: (
+                    <div className='lotrDisplay'>
+                        <p>Star Wars</p>
+                        <div>
+                            <button onClick={() => handleDisplayChange(starWarsDisplays, -1)}>Backward</button>
+                            <button onClick={() => handleDisplayChange(starWarsDisplays, 1)}>Forward</button>
+                        </div>
+                    </div>
+                ),
+            },
+            empire: {
+                icon: theEmpire,
+                content: (
+                    <div className='lotrDisplay'>
+                        <p>Empire</p>
+                        <div>
+                            <button onClick={() => handleDisplayChange(starWarsDisplays, -1)}>Backward</button>
+                            <button onClick={() => handleDisplayChange(starWarsDisplays, 1)}>Forward</button>
+                        </div>
+                    </div>
+                ),
+            },
+            jediOrder: {
+                icon: jediOrder,
+                content: (
+                    <div className='lotrDisplay'>
+                        <p>Jedi Order</p>
+                        <div>
+                            <button onClick={() => handleDisplayChange(starWarsDisplays, -1)}>Backward</button>
+                            <button onClick={() => handleDisplayChange(starWarsDisplays, 1)}>Forward</button>
+                        </div>
+                    </div>
+                ),
+            },
         },
         terrain: {
-            mainDisplay: theStingray,
-            scenicSquare: 'scenic square',
-            modular: 'modular',
-        },
+            mainDisplay: {
+                icon: theStingray,
+                content: (
+                    <div className='lotrDisplay'>
+                        <p>Terrain</p>
+                    </div>
+                ),
+            },
+        }
     }
 
-    const gallerySections = Object.keys(iconMap)
-    const lotrDisplays = Object.keys(iconMap.lordOfTheRings)
-    const starWarsDisplays = Object.keys(iconMap.starWars)
+
+    const gallerySections = Object.keys(sectionContent)
+    const lotrDisplays = Object.keys(sectionContent.lordOfTheRings)
+    const starWarsDisplays = Object.keys(sectionContent.starWars)
 
     const handleSectionChange = (gallerySections, increment) => {
         const currentIndex = gallerySections.indexOf(gallerySection)
@@ -82,73 +159,6 @@ const GalleryPage = () => {
         setGalleryIcon(displaySections[newIndex])
     }
 
-    const sectionContent = {
-        welcome: {
-            mainDisplay: (
-                <div className='galleryWelcome'>
-                    <p>Welcome to the Gallery</p>
-                </div>
-            ),
-        },
-        lordOfTheRings: {
-            mainDisplay: (
-                <div className='lotrDisplay swGradient'>
-                    <p>Lord of the Rings</p>
-                    <div>
-                        <button onClick={() => handleDisplayChange(lotrDisplays, -1)}>Backward</button>
-                        <button onClick={() => handleDisplayChange(lotrDisplays, 1)}>Forward</button>
-                    </div>
-                </div>
-            ),
-            gondor: (
-                <div className='lotrDisplay'>
-                    <p>Gondor</p>
-                    <div>
-                        <button onClick={() => handleDisplayChange(lotrDisplays, -1)}>Backward</button>
-                        <button onClick={() => handleDisplayChange(lotrDisplays, 1)}>Forward</button>
-                    </div>
-                </div>
-            ),
-            rohan: (
-                <div className='lotrDisplay'>
-                    <p>Rohan</p>
-                    <div>
-                        <button onClick={() => handleDisplayChange(lotrDisplays, -1)}>Backward</button>
-                        <button onClick={() => handleDisplayChange(lotrDisplays, 1)}>Forward</button>
-                    </div>
-                </div>
-            ),
-        },
-        starWars: {
-            mainDisplay: (
-                <div className='starWarsDisplay'>
-                    <p>Star Wars</p>
-                    <div>
-                        <button onClick={() => handleDisplayChange(starWarsDisplays, -1)}>Backward</button>
-                        <button onClick={() => handleDisplayChange(starWarsDisplays, 1)}>Forward</button>
-                    </div>
-    
-                </div>
-            ),
-            empire: (
-                <div className='starWarsDisplay'>
-                    <p>Empire</p>
-                    <div>
-                        <button onClick={() => handleDisplayChange(starWarsDisplays, -1)}>Backward</button>
-                        <button onClick={() => handleDisplayChange(starWarsDisplays, 1)}>Forward</button>
-                    </div>
-    
-                </div>
-            ),
-        },
-        terrain: {
-            mainDisplay: (
-                <div className='terrainDisplay'>
-                    <p>Terrain</p>
-                </div>
-            ),
-        }
-    }
 
 
     return (
@@ -157,7 +167,7 @@ const GalleryPage = () => {
             <AnimatePresence custom={direction} mode="wait" initial={true}>
                 <motion.img
                     className='sectionIcon'
-                    src={iconMap[gallerySection][galleryIcon]}
+                    src={sectionContent[gallerySection][galleryIcon]['icon']}
                     key={`icon${gallerySection}${galleryIcon}`}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -187,7 +197,7 @@ const GalleryPage = () => {
                         ease: 'anticipate',
                     }}
                 >
-                    {sectionContent[gallerySection][galleryIcon]}
+                    {sectionContent[gallerySection][galleryIcon]['content']}
                 </motion.div>
             </AnimatePresence>
 
