@@ -7,17 +7,16 @@ import theEmpire from '../../images/empireLogo.png'
 import theOneRing from '../../images/oneRing.png'
 import theCIS from '../../images/CIS.png'
 import jediOrder from '../../images/JediOrder.png'
-import { section } from 'framer-motion/client'
 
 
 const GalleryPage = () => {
 
     const [gallerySection, setGallerySection] = useState('welcome')
-    const [galleryIcon, setGalleryIcon] = useState('mainDisplay')
+    const [galleryDisplay, setGalleryDisplay] = useState('mainDisplay')
     const [direction, setDirection] = useState(0)
 
     console.log('gallerySection', gallerySection)
-    console.log('galleryIcon', galleryIcon)
+    console.log('galleryIcon', galleryDisplay)
 
 
     const gallerySectionVariants = {
@@ -38,7 +37,7 @@ const GalleryPage = () => {
     }
 
 
-    const sectionContent = {
+    const galleryData = {
         welcome: {
             mainDisplay: {
                 icon: theStingray,
@@ -56,8 +55,8 @@ const GalleryPage = () => {
                     <div className='lotrDisplay'>
                         <p>Lord of the Rings</p>
                         <div>
-                            <button onClick={() => handleDisplayChange(lotrDisplays, -1)}>Backward</button>
-                            <button onClick={() => handleDisplayChange(lotrDisplays, 1)}>Forward</button>
+                            <button onClick={() => handleNavigation('display', -1)}>Backward</button>
+                            <button onClick={() => handleNavigation('display', 1)}>Forward</button>
                         </div>
                     </div>
                 ),
@@ -68,8 +67,8 @@ const GalleryPage = () => {
                     <div className='lotrDisplay'>
                         <p>Gondor</p>
                         <div>
-                            <button onClick={() => handleDisplayChange(lotrDisplays, -1)}>Backward</button>
-                            <button onClick={() => handleDisplayChange(lotrDisplays, 1)}>Forward</button>
+                            <button onClick={() => handleNavigation('display', -1)}>Backward</button>
+                            <button onClick={() => handleNavigation('display', 1)}>Forward</button>
                         </div>
                     </div>
                 ),
@@ -80,8 +79,8 @@ const GalleryPage = () => {
                     <div className='lotrDisplay'>
                         <p>Rohan</p>
                         <div>
-                            <button onClick={() => handleDisplayChange(lotrDisplays, -1)}>Backward</button>
-                            <button onClick={() => handleDisplayChange(lotrDisplays, 1)}>Forward</button>
+                            <button onClick={() => handleNavigation('display', -1)}>Backward</button>
+                            <button onClick={() => handleNavigation('display', 1)}>Forward</button>
                         </div>
                     </div>
                 ),
@@ -94,8 +93,8 @@ const GalleryPage = () => {
                     <div className='lotrDisplay'>
                         <p>Star Wars</p>
                         <div>
-                            <button onClick={() => handleDisplayChange(starWarsDisplays, -1)}>Backward</button>
-                            <button onClick={() => handleDisplayChange(starWarsDisplays, 1)}>Forward</button>
+                            <button onClick={() => handleNavigation('display', -1)}>Backward</button>
+                            <button onClick={() => handleNavigation('display', 1)}>Forward</button>
                         </div>
                     </div>
                 ),
@@ -106,8 +105,8 @@ const GalleryPage = () => {
                     <div className='lotrDisplay'>
                         <p>Empire</p>
                         <div>
-                            <button onClick={() => handleDisplayChange(starWarsDisplays, -1)}>Backward</button>
-                            <button onClick={() => handleDisplayChange(starWarsDisplays, 1)}>Forward</button>
+                            <button onClick={() => handleNavigation('display', -1)}>Backward</button>
+                            <button onClick={() => handleNavigation('display', 1)}>Forward</button>
                         </div>
                     </div>
                 ),
@@ -118,8 +117,8 @@ const GalleryPage = () => {
                     <div className='lotrDisplay'>
                         <p>Jedi Order</p>
                         <div>
-                            <button onClick={() => handleDisplayChange(starWarsDisplays, -1)}>Backward</button>
-                            <button onClick={() => handleDisplayChange(starWarsDisplays, 1)}>Forward</button>
+                            <button onClick={() => handleNavigation('display', -1)}>Backward</button>
+                            <button onClick={() => handleNavigation('display', 1)}>Forward</button>
                         </div>
                     </div>
                 ),
@@ -138,25 +137,21 @@ const GalleryPage = () => {
     }
 
 
-    const gallerySections = Object.keys(sectionContent)
-    const lotrDisplays = Object.keys(sectionContent.lordOfTheRings)
-    const starWarsDisplays = Object.keys(sectionContent.starWars)
 
-    const handleSectionChange = (gallerySections, increment) => {
-        const currentIndex = gallerySections.indexOf(gallerySection)
+    const handleNavigation = (type, increment) => {
+        const currentList = type === 'section' ? Object.keys(galleryData) : Object.keys(galleryData[gallerySection])
+        const currentIndex = currentList.indexOf(type === 'section' ? gallerySection : galleryDisplay)
         const newIndex = currentIndex + increment
-        if (newIndex < 0 || newIndex >= gallerySections.length) return
-        setDirection(increment) // Update the direction
-        setGallerySection(gallerySections[newIndex])
-        setGalleryIcon('mainDisplay')
-    }
 
-    const handleDisplayChange = (displaySections, increment) => {
-        const currentIndex = displaySections.indexOf(galleryIcon)
-        const newIndex = currentIndex + increment
-        if (newIndex < 0 || newIndex >= displaySections.length) return
+        if (newIndex < 0 || newIndex >= currentList.length) return
+
         setDirection(increment)
-        setGalleryIcon(displaySections[newIndex])
+        if (type === 'section') {
+            setGallerySection(currentList[newIndex])
+            setGalleryDisplay('mainDisplay')
+        } else {
+            setGalleryDisplay(currentList[newIndex])
+        }
     }
 
 
@@ -167,8 +162,8 @@ const GalleryPage = () => {
             <AnimatePresence custom={direction} mode="wait" initial={true}>
                 <motion.img
                     className='sectionIcon'
-                    src={sectionContent[gallerySection][galleryIcon]['icon']}
-                    key={`icon${gallerySection}${galleryIcon}`}
+                    src={galleryData[gallerySection][galleryDisplay]['icon']}
+                    key={`icon${gallerySection}${galleryDisplay}`}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
@@ -197,13 +192,13 @@ const GalleryPage = () => {
                         ease: 'anticipate',
                     }}
                 >
-                    {sectionContent[gallerySection][galleryIcon]['content']}
+                    {galleryData[gallerySection][galleryDisplay]['content']}
                 </motion.div>
             </AnimatePresence>
 
             <div>
-                <button onClick={() => handleSectionChange(gallerySections, -1)}>Left</button>
-                <button onClick={() => handleSectionChange(gallerySections, 1)}>Right</button>
+                <button onClick={() => handleNavigation('section', -1)}>Previous</button>
+                <button onClick={() => handleNavigation('section', 1)}>Next</button>
             </div>
 
         </div>
