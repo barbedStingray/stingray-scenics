@@ -1,6 +1,8 @@
 .galleryPage {
     border: 2px solid blue;
-    background-color: grey;
+    /* background-color: rgb(18, 18, 18); */
+    /* background: radial-gradient(circle, rgb(30, 30, 30) 0%, rgb(20, 20, 20) 40%, rgb(10, 10, 10) 100%); */
+    background: radial-gradient(circle, #c1c1c1 0%, rgb(143, 143, 143) 40%, rgb(10, 10, 10) 100%);
     width: 100dvw;
     height: 100dvh;
     display: flex;
@@ -9,14 +11,61 @@
     align-items: center;
     position: relative;
     overflow: hidden;
+
+    /* perspective: 1000px; */
 }
 
-.sectionIcon {
-    width: auto;
-    height: 70%;
+/* .galleryPage::after {
+    content: "";
     position: absolute;
-    top: -10%;
-    left: -30%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../../images/texture.png');
+    object-fit: cover;
+    opacity: 1.0;
+    pointer-events: none;
+} */
+
+.galleryPage::after {
+    /* content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255, 0, 150, 0.2) 20%, rgba(0, 200, 255, 0.2) 60%);
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    background: url('../../images/texture.png'); */
+
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(120deg, rgba(255, 0, 150, 0.2) 20%, rgba(0, 200, 255, 0.2) 60%), 
+        url('../../images/texture.png'); /* Combine layers */
+    background-size: cover; 
+    /* background-position: center; */
+    background-blend-mode: overlay, normal; 
+    /* Blend gradient and texture */
+    mix-blend-mode: overlay; /* Blend with the underlying content */
+    pointer-events: none; /* Ensure it's non-interactive */
+    opacity: 0.45;
+}
+
+
+.sectionIcon {
+    border: 2px solid white;
+    width: 50dvh;
+    height: 50dvh;
+    position: absolute;
+    top: -5%;
+    left: -20%;
 }
 
 
@@ -26,7 +75,7 @@
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5); /* Adjust values as needed */
     height: 90dvh;
     width: 90%;
-    /* background-color: #d3d3d377; */
+    /* background-color: #0b012d55; */
     perspective: 1000px;
     transform-style: preserve-3d;
     position: relative;
@@ -34,29 +83,26 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+
 }
 .gallerySection > div {
     transform-style: preserve-3d;
 }
 
-.lotrDisplay {
-    border: 2px solid lime;
-    /* background-color: #3f000033; */
+.displayOne {
+    border: 2px solid gold;
+    flex: 1;
     width: 100%;
-    height: 100%;
-    display: flex;
-    flex-flow: column nowrap;
+}
+.displayTwo {
+    border: 2px solid purple;
+    flex: 1;
+    width: 100%;
+
 }
 
 
-.starWarsDisplay {
-    border: 2px solid lime;
-    background-color: grey;
-}
-.terrainDisplay {
-    border: 2px solid lime;
-    background-color: rgb(0, 42, 0);
-}
+
 
 
 

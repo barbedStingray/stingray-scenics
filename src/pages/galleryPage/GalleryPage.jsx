@@ -7,7 +7,8 @@ import theEmpire from '../../images/empireLogo.png'
 import theOneRing from '../../images/oneRing.png'
 import theCIS from '../../images/CIS.png'
 import jediOrder from '../../images/JediOrder.png'
-
+import b2Droid from '../../images/starWars/superBattleDroidBlue.png'
+import texture from '../../images/texture.png'
 
 const GalleryPage = () => {
 
@@ -16,7 +17,7 @@ const GalleryPage = () => {
     const [direction, setDirection] = useState(0)
 
     console.log('gallerySection', gallerySection)
-    console.log('galleryIcon', galleryDisplay)
+    console.log('galleryDisplay', galleryDisplay)
 
 
     const gallerySectionVariants = {
@@ -132,7 +133,6 @@ const GalleryPage = () => {
 
 
 
-
     return (
         <div className="galleryPage">
 
@@ -169,7 +169,11 @@ const GalleryPage = () => {
                         ease: 'anticipate',
                     }}
                 >
-                    <div className="galleryContent">
+
+                    <div className='displayOne'>
+                        {/* <img src={texture} /> */}
+                    </div>
+                    <div className='displayTwo'>
                         <h2>{currentData.title}</h2>
                         <img src={currentData.photo} alt={currentData.title} className="contentPhoto" />
                         <p>{currentData.description}</p>
@@ -177,9 +181,9 @@ const GalleryPage = () => {
                             <button onClick={() => handleNavigation('display', -1)}>Backward</button>
                             <button onClick={() => handleNavigation('display', 1)}>Forward</button>
                         </div>
-
                     </div>
-                    {/* {galleryData[gallerySection][galleryDisplay]['content']} */}
+
+
                 </motion.div>
             </AnimatePresence>
 
