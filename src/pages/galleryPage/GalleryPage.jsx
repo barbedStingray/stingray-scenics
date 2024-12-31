@@ -222,9 +222,7 @@ const GalleryPage = () => {
 
                         <div className='displayLine'></div>
                         <p className='displayDescription'>{currentData.description}</p>
-
-                        <button className='viewCollection'>View {currentData.title} Collection</button>
-
+                        <button className='coolView'>View Miniatures</button>
                     </div>
 
 
@@ -232,9 +230,8 @@ const GalleryPage = () => {
             </AnimatePresence>
 
             <div className='sectionButtons'>
-                {/* <button onClick={() => handleNavigation('section', -1)}>Previous</button> */}
-                <button className='coolButton'>Menu</button>
-                {/* <button onClick={() => handleNavigation('section', 1)}>Next</button> */}
+                <button onClick={() => handleNavigation('section', -1)}>Previous</button>
+                <button onClick={() => handleNavigation('section', 1)}>Next</button>
             </div>
 
         </div >

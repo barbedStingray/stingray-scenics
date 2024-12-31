@@ -140,9 +140,6 @@
     text-align: center;
 }
 
-.viewCollection {
-    border: 2px solid magenta;
-}
 
 .noDisplay {
     display: none;
@@ -154,30 +151,32 @@
 :root {
     --dark: #050608;
     --light: #ffffff;
-    --primary: #d43132;
+    --primary: #ffffff;
     /* --font: 'Inter', Arial, Helvetica, sans-serif; */
     --rounded: 100vw;
 }
 
-
-
-.coolButton {
+.coolView {
+    border: none;
+    background: none;
+    /* border: 2px solid green; */
+    position: relative;
     cursor: pointer;
     overflow: hidden;
-    position: relative;
-    border: 0;
     border-radius: var(--rounded);
-    margin: 0;
     padding: 0.7rem 1rem 0.8rem 2rem;
-    display: inline-flex;
-    /* background: none; */
-    color: var(--light);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    /* color: var(--light); */
     font-size: 24px;
-    /* letter-spacing: 0px; */
+    z-index: 0;
+    letter-spacing: 1px;
     /* font-family: var(--font); */
 }
 
-.coolButton::before {
+.coolView::before {
     content: '';
     position: absolute;
     top: 0;
@@ -186,44 +185,54 @@
     height: 100%;
     width: 100%;
     border-radius: var(--rounded);
+    opacity: 0.3;
     background-image: linear-gradient(-45deg,
             var(--primary),
             transparent 50%);
-    opacity: 0;
-    transform: translateX(-100%);
+    transform: translateX(-101%);
     transition:
-        transform 0.4s cubic-bezier(0.25, 0, 0.75, 1),
-        opacity 1s ease;
+        transform 0.3s cubic-bezier(0.25, 0, 0.75, 1),
+        opacity 0.5s ease;
 }
 
-.coolButton:hover::before {
+
+.coolView:hover::before {
     transform: translateX(0);
-    opacity: 1;
+    opacity: 0.6;
 }
 
 
-.coolButton::after {
+.coolView::after {
     content: '❯';
     /* border: 2px solid green; */
     display: flex;
     justify-content: center;
     align-items: center;
-
-    height: 1em;
-    width: 1em;
-    padding: 4px;
-    /* margin-left: 0.65rem; */
+    height: 1.5em;
+    width: 1.5em;
+    font-size: 20px;
+    /* padding: 4px; */
+    margin-left: 2dvh;
     border-radius: var(--rounded);
     background: var(--primary);
     color: var(--dark);
-    font-size: 3dvw;
-    /* line-height: 0; */
-    transform: translateY(2px);
-    transition: background-color 0.25s ease 0.25s;
+    /* transform: translateY(2px); */
+    transition: background-color 0.25s ease 0.25s, color 0.25s ease;
 }
 
 
-.coolButton:hover::after {
+.coolView:hover::after {
     background: var(--light);
-    /* color: var(--primary); */
+    color: var(--primary);
 }
+
+
+
+
+
+
+
+
+
+
+  
