@@ -2,7 +2,7 @@
     border: 2px solid blue;
     /* background-color: rgb(18, 18, 18); */
     /* background: radial-gradient(circle, rgb(30, 30, 30) 0%, rgb(20, 20, 20) 40%, rgb(10, 10, 10) 100%); */
-    background: radial-gradient(circle, #c1c1c1 0%, rgb(143, 143, 143) 40%, rgb(10, 10, 10) 100%);
+    background: radial-gradient(circle, rgb(146, 146, 146) 0%, rgb(112, 112, 112) 40%, rgb(10, 10, 10) 100%);
     width: 100dvw;
     height: 100dvh;
     display: flex;
@@ -11,96 +11,129 @@
     align-items: center;
     position: relative;
     overflow: hidden;
-
     /* perspective: 1000px; */
 }
 
-/* .galleryPage::after {
+.galleryPage::after {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('../../images/texture.png');
-    object-fit: cover;
-    opacity: 1.0;
-    pointer-events: none;
-} */
-
-.galleryPage::after {
-    /* content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(120deg, rgba(255, 0, 150, 0.2) 20%, rgba(0, 200, 255, 0.2) 60%);
+    background:
+    /* Combine layers */
+        /* linear-gradient(120deg, rgba(255, 0, 150, 0.25) 20%, rgba(0, 200, 255, 0.25) 60%), */
+        linear-gradient(120deg, rgba(13, 0, 255, 0.25) 20%, rgba(255, 255, 0, 0.25) 60%),
+        url('../../images/texture.png');
+    /* background-position: center; */
+    background-size: cover;
+    /* Blend gradient and texture */
+    background-blend-mode: overlay, normal;
+    /* Blend with the underlying content */
     mix-blend-mode: overlay;
     pointer-events: none;
-    background: url('../../images/texture.png'); */
-
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        linear-gradient(120deg, rgba(255, 0, 150, 0.2) 20%, rgba(0, 200, 255, 0.2) 60%), 
-        url('../../images/texture.png'); /* Combine layers */
-    background-size: cover; 
-    /* background-position: center; */
-    background-blend-mode: overlay, normal; 
-    /* Blend gradient and texture */
-    mix-blend-mode: overlay; /* Blend with the underlying content */
-    pointer-events: none; /* Ensure it's non-interactive */
-    opacity: 0.45;
+    /* non-interactive */
+    opacity: 0.5;
 }
 
 
 .sectionIcon {
     border: 2px solid white;
-    width: 50dvh;
-    height: 50dvh;
+    width: 45dvh;
+    height: 45dvh;
     position: absolute;
     top: -5%;
-    left: -20%;
+    left: -70px;
 }
 
 
 .gallerySection {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     overflow: hidden;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5); /* Adjust values as needed */
+    /* box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5); */
     height: 90dvh;
     width: 90%;
-    /* background-color: #0b012d55; */
-    perspective: 1000px;
     transform-style: preserve-3d;
+    perspective: 1000px;
     position: relative;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-
 }
-.gallerySection > div {
+
+.gallerySection>div {
     transform-style: preserve-3d;
 }
 
-.displayOne {
-    border: 2px solid gold;
-    flex: 1;
+.displayOne,
+.displayTwo {
+    /* border: 2px solid purple; */
     width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 15px;
+    position: relative;
+}
+
+.displayOne {
+    flex: 2;
+    background: linear-gradient(180deg, rgba(255, 0, 150, 0) 30%, rgba(255, 255, 255, 0.05) 80%);
+    /* background: radial-gradient(circle at bottom, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0) 40%); */
+
 }
 .displayTwo {
-    border: 2px solid purple;
-    flex: 1;
-    width: 100%;
+    flex: 3;
+    background: linear-gradient(0deg, rgba(255, 0, 150, 0) 30%, rgba(255, 255, 255, 0.05) 80%);
+    /* background: radial-gradient(circle at top, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0) 40%); */    
+}
+
+.displayImage {
+    /* border: 2px solid lime; */
+    width: 30dvh;
+    height: 30dvh;
+    object-fit: contain;
+    position: absolute;
+    bottom: -15%;
+    left: 5%;
+    filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 0.75));
+}
+
+.displayButtons {
+    /* border: 2px solid gold; */
+    position: absolute;
+    right: 0;
+    bottom: -10%;
+    width: 30%;
+    height: 50%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.displayTitle {
+    /* border: 2px solid gold; */
+    /* margin-left: 20px; */
+    padding-top: 6dvh;
+    font-size: 10dvw;
+    font-weight: 700;
+    /* width: 90%; */
+}
+.displayLine {
+    border: 1px solid black;
+    width: 95%;
 
 }
 
+.displayDescription {
+    /* border: 2px solid gold; */
+    width: 90%;
+    text-align: center;
+}
 
 
 
@@ -130,7 +163,3 @@
 ])
 const defaultGradient = 'linear-gradient(90deg, #ff7eb3, #ff758c)'
 const gradientStyle = useMotionTemplate`${gradientColor}` */
-
-
-
-

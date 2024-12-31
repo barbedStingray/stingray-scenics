@@ -37,6 +37,18 @@ const GalleryPage = () => {
         })
     }
 
+    const galleryDisplayVariants = {
+        enter: {
+            opacity: 0,
+        },
+        center: {
+            opacity: 1,
+        },
+        exit: {
+            opacity: 0,
+        }
+    }
+
     const galleryData = {
         welcome: {
             mainDisplay: {
@@ -53,7 +65,7 @@ const GalleryPage = () => {
                 icon: theOneRing,
                 content: {
                     title: 'Lord of the Rings',
-                    description: 'Explore the world of Middle Earth!',
+                    description: 'Travel the world of Middle Earth with miniatures from Mordor, Gondor, Moria, Lothlorien, Rohan, Isengard, The Shire, Easterlings, Harad...',
                     photo: null,
                 },
             },
@@ -79,7 +91,7 @@ const GalleryPage = () => {
                 icon: theCIS,
                 content: {
                     title: 'Star Wars',
-                    description: 'A galaxy far, far away awaits.',
+                    description: 'Roam the galaxy far far away and cross paths with heroes and villains alike from groups like the Empire, Rebel Alliance, Galactic Republic, CIS, Jedi Order, Deathwatch, Crime Syndicates...',
                     photo: null,
                 },
             },
@@ -87,7 +99,7 @@ const GalleryPage = () => {
                 icon: theEmpire,
                 content: {
                     title: 'Empire',
-                    description: 'The Galactic Empire ruled by the Sith.',
+                    description: 'The Galactic Empire ruled by the Sith. Featuring figures such as Darth Vader, Emperor Palpatine, and legions of Storm Troopers.',
                     photo: null,
                 },
             },
@@ -171,16 +183,36 @@ const GalleryPage = () => {
                 >
 
                     <div className='displayOne'>
-                        {/* <img src={texture} /> */}
-                    </div>
-                    <div className='displayTwo'>
-                        <h2>{currentData.title}</h2>
-                        <img src={currentData.photo} alt={currentData.title} className="contentPhoto" />
-                        <p>{currentData.description}</p>
-                        <div>
+                        <img className='displayImage' src={b2Droid} />
+                        <div className='displayButtons'>
                             <button onClick={() => handleNavigation('display', -1)}>Backward</button>
                             <button onClick={() => handleNavigation('display', 1)}>Forward</button>
                         </div>
+
+                    </div>
+                    <div className='displayTwo'>
+
+                        <AnimatePresence mode='wait'>
+                            <motion.p
+                                className='displayTitle'
+                                key={`title-${gallerySection}${galleryDisplay}`}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{
+                                    duration: 0.85,
+                                    delay: 0.25,
+                                    ease: 'easeInOut',
+                                }}
+                            >
+                                {currentData.title}
+                            </motion.p>
+                        </AnimatePresence>
+
+                        <div className='displayLine'></div>
+                        <p className='displayDescription'>{currentData.description}</p>
+
+                        <button>View {currentData.title} Collection</button>
                     </div>
 
 
