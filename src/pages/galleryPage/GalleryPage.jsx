@@ -16,6 +16,9 @@ const GalleryPage = () => {
     const [galleryDisplay, setGalleryDisplay] = useState('mainDisplay')
     const [direction, setDirection] = useState(0)
 
+    const hiddenButtons = ['welcome', 'terrain']
+    const displayButtonClass = hiddenButtons.includes(gallerySection) ? 'noDisplay' : 'displayButtons'
+
     console.log('gallerySection', gallerySection)
     console.log('galleryDisplay', galleryDisplay)
 
@@ -40,18 +43,15 @@ const GalleryPage = () => {
     const displaySlideVariants = {
         enter: {
             opacity: 0,
-            y: 50,
-            // transformOrigin: "50% 50%",
+            y: 30,
         },
         center: {
             opacity: 1,
             y: 0,
-            // transformOrigin: "50% 50%"
         },
         exit: {
             opacity: 0,
-            y: -50,
-            // transformOrigin: "50% 50%",
+            y: 30,
         }
     }
 
@@ -61,8 +61,8 @@ const GalleryPage = () => {
             mainDisplay: {
                 icon: theStingray,
                 content: {
-                    title: 'Welcome',
-                    description: 'Welcome to the gallery!',
+                    title: 'The Gallery',
+                    description: 'Welcome! On display you will find figures from Lord of the Rings and Star Wars as well as custom made terrain. Use the arrows to browse the different sections and factions.',
                     photo: null,
                 },
             },
@@ -98,7 +98,7 @@ const GalleryPage = () => {
                 icon: theCIS,
                 content: {
                     title: 'Star Wars',
-                    description: 'Roam the galaxy far far away and cross paths with heroes and villains alike from groups like the Empire, Rebel Alliance, Galactic Republic, CIS, Jedi Order, Deathwatch, Crime Syndicates...',
+                    description: 'Roam the galaxy and encounter heroes and villains from the Galactic Republic, the Empire, Rebel Alliance, Separatist Battle Droids, Jedi Order, Deathwatch, Crime Syndicates...',
                     photo: null,
                 },
             },
@@ -190,81 +190,51 @@ const GalleryPage = () => {
                 >
 
 
-                    <AnimatePresence custom={direction} mode='wait'>
-
-                        <div className='displayContent'>
-                            <div className='displayButtons'>
-                                <button onClick={() => handleNavigation('display', -1)}>Backward</button>
-                                <button onClick={() => handleNavigation('display', 1)}>Forward</button>
-                            </div>
-
-                            <img className='displayImage' src={b2Droid} />
-
-                            <AnimatePresence mode='wait'>
-                                <motion.p
-                                    className='displayTitle'
-                                    key={`title-${gallerySection}${galleryDisplay}`}
-                                    initial="enter"
-                                    animate="center"
-                                    exit="exit"
-                                    variants={displaySlideVariants}
-                                    transition={{
-                                        type: 'spring',
-                                        stiffness: 180,
-                                        damping: 15,
-                                        duration: 0.40,
-                                        delay: 0.15,
-                                        ease: 'anticipate',
-                                    }}
-
-                                >
-                                    {currentData.title}
-                                </motion.p>
-                            </AnimatePresence>
-
-                            <div className='displayLine'></div>
-                            <p className='displayDescription'>{currentData.description}</p>
-
-                            <button>View {currentData.title} Collection</button>
-
+                    <div className='displayContent'>
+                        <div className={displayButtonClass}>
+                            <button onClick={() => handleNavigation('display', -1)}>Backward</button>
+                            <button onClick={() => handleNavigation('display', 1)}>Forward</button>
                         </div>
-                        {/* <div className='displayOne'>
-                            <img className='displayImage' src={b2Droid} />
-                            <div className='displayButtons'>
-                                <button onClick={() => handleNavigation('display', -1)}>Backward</button>
-                                <button onClick={() => handleNavigation('display', 1)}>Forward</button>
-                            </div>
-                        </div> */}
-                        {/* <div className='displayTwo'>
+
+                        <img className='displayImage' src={b2Droid} />
+
+                        <AnimatePresence mode='wait'>
                             <motion.p
                                 className='displayTitle'
                                 key={`title-${gallerySection}${galleryDisplay}`}
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
+                                initial="enter"
+                                animate="center"
+                                exit="exit"
+                                variants={displaySlideVariants}
                                 transition={{
-                                    duration: 0.85,
-                                    delay: 0.25,
-                                    ease: 'easeInOut',
+                                    type: 'spring',
+                                    stiffness: 180,
+                                    damping: 15,
+                                    duration: 0.40,
+                                    // delay: 0.15,
+                                    // ease: 'anticipate',
                                 }}
+
                             >
                                 {currentData.title}
                             </motion.p>
+                        </AnimatePresence>
 
-                            <div className='displayLine'></div>
-                            <p className='displayDescription'>{currentData.description}</p>
+                        <div className='displayLine'></div>
+                        <p className='displayDescription'>{currentData.description}</p>
 
-                            <button>View {currentData.title} Collection</button>
-                        </div> */}
-                    </AnimatePresence>
+                        <button className='viewCollection'>View {currentData.title} Collection</button>
+
+                    </div>
 
 
                 </motion.div>
             </AnimatePresence>
 
             <div className='sectionButtons'>
-                <button onClick={() => handleNavigation('section', -1)}>Previous</button>
-                <button onClick={() => handleNavigation('section', 1)}>Next</button>
+                {/* <button onClick={() => handleNavigation('section', -1)}>Previous</button> */}
+                <button className='coolButton'>Menu</button>
+                {/* <button onClick={() => handleNavigation('section', 1)}>Next</button> */}
             </div>
 
         </div >
