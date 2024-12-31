@@ -11,6 +11,7 @@
     align-items: center;
     position: relative;
     overflow: hidden;
+    padding: 2dvh 0dvw;
     /* perspective: 1000px; */
 }
 
@@ -39,7 +40,7 @@
 
 
 .sectionIcon {
-    border: 2px solid white;
+    /* border: 2px solid white; */
     width: 45dvh;
     height: 45dvh;
     position: absolute;
@@ -47,66 +48,22 @@
     left: -70px;
 }
 
-
-.gallerySection {
-    /* border: 2px solid red; */
-    overflow: hidden;
-    /* box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5); */
-    height: 90dvh;
-    width: 90%;
-    transform-style: preserve-3d;
-    perspective: 1000px;
-    position: relative;
+.sectionButtons {
+    /* border: 2px solid lime; */
+    flex: 1;
+    width: 100%;
+    height: 100%;
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-}
-
-.gallerySection>div {
-    transform-style: preserve-3d;
-}
-
-.displayOne,
-.displayTwo {
-    /* border: 2px solid purple; */
-    width: 100%;
-    display: flex;
-    flex-flow: column nowrap;
-    /* justify-content: center; */
-    align-items: center;
-    gap: 15px;
-    position: relative;
-}
-
-.displayOne {
-    flex: 2;
-    background: linear-gradient(180deg, rgba(255, 0, 150, 0) 30%, rgba(255, 255, 255, 0.05) 80%);
-    /* background: radial-gradient(circle at bottom, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0) 40%); */
-
-}
-.displayTwo {
-    flex: 3;
-    background: linear-gradient(0deg, rgba(255, 0, 150, 0) 30%, rgba(255, 255, 255, 0.05) 80%);
-    /* background: radial-gradient(circle at top, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0) 40%); */    
-}
-
-.displayImage {
-    /* border: 2px solid lime; */
-    width: 30dvh;
-    height: 30dvh;
-    object-fit: contain;
-    position: absolute;
-    bottom: -15%;
-    left: 5%;
-    filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 0.75));
 }
 
 .displayButtons {
     /* border: 2px solid gold; */
     position: absolute;
+    top: -50%;
     right: 0;
-    bottom: -10%;
     width: 30%;
     height: 50%;
     display: flex;
@@ -115,13 +72,57 @@
     align-items: center;
 }
 
+
+
+.gallerySection {
+    border: 2px solid red;
+    flex: 8;
+    /* overflow: hidden; */
+    /* box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5); */
+    /* height: 90dvh; */
+    width: 90%;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    /* align-items: center; */
+}
+
+.gallerySection>div {
+    transform-style: preserve-3d;
+}
+
+
+.displayContent {
+    /* border: 2px solid purple; */
+    height: 54%;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    background: linear-gradient(180deg, rgba(255, 0, 150, 0) 30%, rgba(255, 255, 255, 0.05) 80%);
+}
+
+.displayImage {
+    /* border: 2px solid lime; */
+    width: 30dvh;
+    height: 30dvh;
+    object-fit: contain;
+    position: absolute;
+    top: -68%;
+    left: 3%;
+    filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 0.75));
+}
+
+
 .displayTitle {
     /* border: 2px solid gold; */
-    /* margin-left: 20px; */
-    padding-top: 6dvh;
     font-size: 10dvw;
     font-weight: 700;
-    /* width: 90%; */
 }
 .displayLine {
     border: 1px solid black;
@@ -130,36 +131,10 @@
 }
 
 .displayDescription {
-    /* border: 2px solid gold; */
+    border: 2px solid gold;
+    height: 30%;
     width: 90%;
     text-align: center;
 }
 
 
-
-
-
-
-/* gradient styles */
-
-/* .swGradient {
-    background-image: linear-gradient(
-      50deg,
-      hsl(240deg 100% 4%) 0%,
-      hsl(238deg 76% 10%) 22%,
-      hsl(230deg 100% 15%) 43%,
-      hsl(239deg 89% 21%) 61%,
-      hsl(230deg 90% 28%) 75%,
-      hsl(216deg 100% 33%) 87%,
-      hsl(208deg 100% 39%) 95%,
-      hsl(202deg 100% 44%) 100%
-    );
-  } */
-
-
-/* const gradientColor = useTransform(homeContainer, [0, 1], [
-    'linear-gradient(90deg, #ff7eb3, #ff758c)', // Gradient at start
-    'linear-gradient(90deg, #6a11cb, #2575fc)', // Gradient at end
-])
-const defaultGradient = 'linear-gradient(90deg, #ff7eb3, #ff758c)'
-const gradientStyle = useMotionTemplate`${gradientColor}` */

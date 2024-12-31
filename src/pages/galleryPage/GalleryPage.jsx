@@ -37,17 +37,24 @@ const GalleryPage = () => {
         })
     }
 
-    const galleryDisplayVariants = {
+    const displaySlideVariants = {
         enter: {
             opacity: 0,
+            y: 50,
+            // transformOrigin: "50% 50%",
         },
         center: {
             opacity: 1,
+            y: 0,
+            // transformOrigin: "50% 50%"
         },
         exit: {
             opacity: 0,
+            y: -50,
+            // transformOrigin: "50% 50%",
         }
     }
+
 
     const galleryData = {
         welcome: {
@@ -157,7 +164,7 @@ const GalleryPage = () => {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{
-                        duration: 0.85,
+                        duration: 0.9,
                         ease: 'easeInOut',
                     }}
                 />
@@ -182,17 +189,53 @@ const GalleryPage = () => {
                     }}
                 >
 
-                    <div className='displayOne'>
-                        <img className='displayImage' src={b2Droid} />
-                        <div className='displayButtons'>
-                            <button onClick={() => handleNavigation('display', -1)}>Backward</button>
-                            <button onClick={() => handleNavigation('display', 1)}>Forward</button>
+
+                    <AnimatePresence custom={direction} mode='wait'>
+
+                        <div className='displayContent'>
+                            <div className='displayButtons'>
+                                <button onClick={() => handleNavigation('display', -1)}>Backward</button>
+                                <button onClick={() => handleNavigation('display', 1)}>Forward</button>
+                            </div>
+
+                            <img className='displayImage' src={b2Droid} />
+
+                            <AnimatePresence mode='wait'>
+                                <motion.p
+                                    className='displayTitle'
+                                    key={`title-${gallerySection}${galleryDisplay}`}
+                                    initial="enter"
+                                    animate="center"
+                                    exit="exit"
+                                    variants={displaySlideVariants}
+                                    transition={{
+                                        type: 'spring',
+                                        stiffness: 180,
+                                        damping: 15,
+                                        duration: 0.40,
+                                        delay: 0.15,
+                                        ease: 'anticipate',
+                                    }}
+
+                                >
+                                    {currentData.title}
+                                </motion.p>
+                            </AnimatePresence>
+
+                            <div className='displayLine'></div>
+                            <p className='displayDescription'>{currentData.description}</p>
+
+                            <button>View {currentData.title} Collection</button>
+
                         </div>
-
-                    </div>
-                    <div className='displayTwo'>
-
-                        <AnimatePresence mode='wait'>
+                        {/* <div className='displayOne'>
+                            <img className='displayImage' src={b2Droid} />
+                            <div className='displayButtons'>
+                                <button onClick={() => handleNavigation('display', -1)}>Backward</button>
+                                <button onClick={() => handleNavigation('display', 1)}>Forward</button>
+                            </div>
+                        </div> */}
+                        {/* <div className='displayTwo'>
                             <motion.p
                                 className='displayTitle'
                                 key={`title-${gallerySection}${galleryDisplay}`}
@@ -207,24 +250,24 @@ const GalleryPage = () => {
                             >
                                 {currentData.title}
                             </motion.p>
-                        </AnimatePresence>
 
-                        <div className='displayLine'></div>
-                        <p className='displayDescription'>{currentData.description}</p>
+                            <div className='displayLine'></div>
+                            <p className='displayDescription'>{currentData.description}</p>
 
-                        <button>View {currentData.title} Collection</button>
-                    </div>
+                            <button>View {currentData.title} Collection</button>
+                        </div> */}
+                    </AnimatePresence>
 
 
                 </motion.div>
             </AnimatePresence>
 
-            <div>
+            <div className='sectionButtons'>
                 <button onClick={() => handleNavigation('section', -1)}>Previous</button>
                 <button onClick={() => handleNavigation('section', 1)}>Next</button>
             </div>
 
-        </div>
+        </div >
     )
 }
 
