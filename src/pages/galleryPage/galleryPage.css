@@ -150,32 +150,28 @@
 
 /* Arrows */
 
-.arrowButton {
-
+:root {
+    --dot-size: 5px;
 }
-
-
-
-
 
 .button {
     border: 2px solid lime;
-    cursor: pointer;
+    /* cursor: pointer; */
     background: none;
     /* border: none; */
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    width: 100px;
-    height: 100px;
-    gap: 5px;
+    width: 80px;
+    height: 80px;
+    gap: var(--dot-size);
     /* transform: rotate(90deg); */
 }
 
 .round {
-    width: 5px;
-    height: 5px;
+    width: var(--dot-size);
+    height: var(--dot-size);
     background: #3da9fc;
     background: #fff;
     /* border: 1px solid white; */
@@ -186,16 +182,18 @@
     /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: var(--dot-size);
 }
 
-.two,
-.four {
-    transform: translateY(8px);
+.line-1,
+.line-3 {
+transform: translateY(calc(var(--dot-size) * 2 - 2px));
+
 }
 
-.three {
-    transform: translateY(16px);
+.line-2 {
+    transform: translateY(calc(var(--dot-size) * 4 - 4px));
+
 }
 
 

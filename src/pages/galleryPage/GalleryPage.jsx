@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence, useTransform, useMotionTemplate } from 'framer-motion'
 import './galleryPage.css'
 
+import ArrowButton from '../../components/ArrowButton'
+
 import theStingray from '../../images/DGreenIcon.png'
 import theEmpire from '../../images/empireLogo.png'
 import theOneRing from '../../images/oneRing.png'
@@ -194,33 +196,7 @@ const GalleryPage = () => {
                         <div className={displayButtonClass}>
                             <button onClick={() => handleNavigation('display', -1)}>Backward</button>
                             <button onClick={() => handleNavigation('display', 1)}>Forward</button>
-                            <button onClick={() => handleNavigation('display', 1)} className="button">
-                                <div className="line one">
-                                    <div className="round"></div>
-                                    <div className="round"></div>
-                                    <div className="round"></div>
-                                </div>
-                                <div className="line two">
-                                    <div className="round"></div>
-                                    <div className="round"></div>
-                                    <div className="round"></div>
-                                </div>
-                                <div className="line three">
-                                    <div className="round"></div>
-                                    <div className="round"></div>
-                                    <div className="round"></div>
-                                </div>
-                                <div className="line four">
-                                    <div className="round"></div>
-                                    <div className="round"></div>
-                                    <div className="round"></div>
-                                </div>
-                                <div className="line five">
-                                    <div className="round"></div>
-                                    <div className="round"></div>
-                                    <div className="round"></div>
-                                </div>
-                            </button>
+                            <ArrowButton />
                         </div>
 
                         <img className='displayImage' src={b2Droid} />
