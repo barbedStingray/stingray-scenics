@@ -12,7 +12,11 @@ html {
   scroll-behavior: smooth;
 }
 
-:root {}
+:root {
+  /* arrow button */
+  --dot-size: 5px;
+
+}
 
 @font-face {
   font-family: wildGrowth;

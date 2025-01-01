@@ -2,15 +2,8 @@ import React, { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence, useTransform, useMotionTemplate } from 'framer-motion'
 import './galleryPage.css'
 
+import galleryData from './galleryComponents/galleryData'
 import ArrowButton from '../../components/ArrowButton'
-
-import theStingray from '../../images/DGreenIcon.png'
-import theEmpire from '../../images/empireLogo.png'
-import theOneRing from '../../images/oneRing.png'
-import theCIS from '../../images/CIS.png'
-import jediOrder from '../../images/JediOrder.png'
-import b2Droid from '../../images/starWars/superBattleDroidBlue.png'
-import texture from '../../images/texture.png'
 
 const GalleryPage = () => {
 
@@ -20,9 +13,6 @@ const GalleryPage = () => {
 
     const hiddenButtons = ['welcome', 'terrain']
     const displayButtonClass = hiddenButtons.includes(gallerySection) ? 'noDisplay' : 'displayButtons'
-
-    console.log('gallerySection', gallerySection)
-    console.log('galleryDisplay', galleryDisplay)
 
 
     const gallerySectionVariants = {
@@ -58,81 +48,6 @@ const GalleryPage = () => {
     }
 
 
-    const galleryData = {
-        welcome: {
-            mainDisplay: {
-                icon: theStingray,
-                content: {
-                    title: 'The Gallery',
-                    description: 'Welcome! On display you will find figures from Lord of the Rings and Star Wars as well as custom made terrain. Use the arrows to browse the different sections and factions.',
-                    photo: null,
-                },
-            },
-        },
-        lordOfTheRings: {
-            mainDisplay: {
-                icon: theOneRing,
-                content: {
-                    title: 'Lord of the Rings',
-                    description: 'Travel the world of Middle Earth with miniatures from Mordor, Gondor, Moria, Lothlorien, Rohan, Isengard, The Shire, Easterlings, Harad...',
-                    photo: null,
-                },
-            },
-            gondor: {
-                icon: 'gondor',
-                content: {
-                    title: 'Gondor',
-                    description: 'The White City',
-                    photo: null,
-                },
-            },
-            rohan: {
-                icon: 'rohan',
-                content: {
-                    title: 'Rohan',
-                    description: 'Land of the horse lords.',
-                    photo: null,
-                },
-            },
-        },
-        starWars: {
-            mainDisplay: {
-                icon: theCIS,
-                content: {
-                    title: 'Star Wars',
-                    description: 'Roam the galaxy and encounter heroes and villains from the Galactic Republic, the Empire, Rebel Alliance, Separatist Battle Droids, Jedi Order, Deathwatch, Crime Syndicates...',
-                    photo: null,
-                },
-            },
-            empire: {
-                icon: theEmpire,
-                content: {
-                    title: 'Empire',
-                    description: 'The Galactic Empire ruled by the Sith. Featuring figures such as Darth Vader, Emperor Palpatine, and legions of Storm Troopers.',
-                    photo: null,
-                },
-            },
-            jediOrder: {
-                icon: jediOrder,
-                content: {
-                    title: 'Jedi Order',
-                    description: 'Guardians of peace and justice in the galaxy.',
-                    photo: null,
-                },
-            },
-        },
-        terrain: {
-            mainDisplay: {
-                icon: theStingray,
-                content: {
-                    title: 'Terrain',
-                    description: 'Various terrains to explore and admire.',
-                    photo: null,
-                },
-            },
-        },
-    }
-
     const currentData = galleryData[gallerySection][galleryDisplay]['content']
 
 
@@ -151,7 +66,6 @@ const GalleryPage = () => {
             setGalleryDisplay(currentList[newIndex])
         }
     }
-
 
 
     return (
@@ -176,7 +90,6 @@ const GalleryPage = () => {
                 <motion.div
                     className="gallerySection"
                     key={`gallerySection${gallerySection}`}
-                    // key={gallerySection} // Ensure re-render on section change
                     custom={direction} // Pass direction to variants
                     initial="enter"
                     animate="center"
@@ -194,14 +107,13 @@ const GalleryPage = () => {
 
                     <div className='displayContent'>
                         <div className={displayButtonClass}>
-                            <button onClick={() => handleNavigation('display', -1)}>Backward</button>
-                            <button onClick={() => handleNavigation('display', 1)}>Forward</button>
-                            <ArrowButton />
+                            <ArrowButton handleNavigation={handleNavigation} division='display' direction={-1} pointer='upArrow' />
+                            <ArrowButton handleNavigation={handleNavigation} division='display' direction={1} pointer='downArrow' />
                         </div>
 
-                        <img className='displayImage' src={b2Droid} />
+                        <img className='displayImage' src={currentData.photo} />
 
-                        <AnimatePresence mode='wait'>
+                        <AnimatePresence mode='wait' initial={false}>
                             <motion.p
                                 className='displayTitle'
                                 key={`title-${gallerySection}${galleryDisplay}`}
@@ -223,18 +135,17 @@ const GalleryPage = () => {
                             </motion.p>
                         </AnimatePresence>
 
+
                         <div className='displayLine'></div>
                         <p className='displayDescription'>{currentData.description}</p>
                         <button className='coolView'>View Miniatures</button>
                     </div>
-
-
                 </motion.div>
             </AnimatePresence>
 
             <div className='sectionButtons'>
-                <button onClick={() => handleNavigation('section', -1)}>Previous</button>
-                <button onClick={() => handleNavigation('section', 1)}>Next</button>
+                <ArrowButton handleNavigation={handleNavigation} division='section' direction={-1} pointer='leftArrow' />
+                <ArrowButton handleNavigation={handleNavigation} division='section' direction={1} pointer='rightArrow' />
             </div>
 
         </div >

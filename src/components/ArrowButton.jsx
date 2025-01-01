@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
-const ArrowButton = () => {
-    const [clicked, setClicked] = useState(false) // Track click state
-    const [resetColor, setResetColor] = useState(false) // Track if the dots should reset color
+const ArrowButton = ({ handleNavigation, division, direction, pointer }) => {
 
+    const [clicked, setClicked] = useState(false) // Track click state
     const lines = Array.from({ length: 5 }) 
     const dots = Array.from({ length: 3 })
 
@@ -14,6 +13,15 @@ const ArrowButton = () => {
         reset: { backgroundColor: "#fff" }, // Dots turn back to white after reset
     };
 
+    const arrowMap = {
+        downArrow: 'arrowButton',
+        upArrow: 'arrowButton upArrow',
+        leftArrow: 'arrowButton leftArrow',
+        rightArrow: 'arrowButton rightArrow',
+    }
+    const arrowClass = arrowMap[pointer]
+
+
     const handleClick = () => {
         setClicked(true) // Change dots to black
 
@@ -21,11 +29,15 @@ const ArrowButton = () => {
         setTimeout(() => {
             setClicked(false) // triggers reset animation
         }, 500) // Adjust delay as needed (in milliseconds)
+
+        handleNavigation(division, direction)
     };
+
 
     return (
         <motion.button
-            className="button"
+            // className="arrowButton"
+            className={arrowClass}
             onClick={handleClick} // Trigger the color change and reset on click
             initial="initial"
             animate={clicked ? "clicked" : "initial"} // Change animation based on click state
@@ -33,14 +45,14 @@ const ArrowButton = () => {
             {lines.map((_, lineIndex) => (
                 <motion.div
                     key={lineIndex}
-                    className={`line line-${lineIndex}`}
+                    className={`arrowLine line-${lineIndex}`}
                 >
                     {dots.map((_, dotIndex) => (
                         <motion.div
                             key={dotIndex}
-                            className="round"
+                            className="arrowDot"
                             variants={dotVariants}
-                            animate={clicked ? "clicked" : resetColor ? "reset" : "initial"} // Animate based on clicked or reset state
+                            animate={clicked ? "clicked" : "initial"} // Change animation based on click state
                             transition={{
                                 duration: 0.3, 
                                 delay: dotIndex * 0.1,

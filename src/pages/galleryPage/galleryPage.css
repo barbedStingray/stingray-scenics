@@ -68,7 +68,7 @@
     height: 50%;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 
@@ -148,17 +148,16 @@
 
 
 
+
+
+
 /* Arrows */
 
-:root {
-    --dot-size: 5px;
-}
-
-.button {
-    border: 2px solid lime;
-    /* cursor: pointer; */
+.arrowButton {
+    border: none;
+    /* border: 2px solid lime; */
+    cursor: pointer;
     background: none;
-    /* border: none; */
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
@@ -166,19 +165,28 @@
     width: 80px;
     height: 80px;
     gap: var(--dot-size);
-    /* transform: rotate(90deg); */
+}
+.upArrow {
+    transform: rotate(180deg);
+}
+.leftArrow {
+    transform: rotate(90deg);
+}
+.rightArrow {
+    transform: rotate(-90deg);
 }
 
-.round {
+.arrowDot {
     width: var(--dot-size);
     height: var(--dot-size);
     background: #3da9fc;
     background: #fff;
     /* border: 1px solid white; */
     border-radius: 50%;
+    transform: translateY(-5px);
 }
 
-.line {
+.arrowLine {
     /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
@@ -187,6 +195,7 @@
 
 .line-1,
 .line-3 {
+transform: translateY(calc(var(--dot-size) * 2 - 2px));
 transform: translateY(calc(var(--dot-size) * 2 - 2px));
 
 }
