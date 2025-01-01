@@ -194,6 +194,33 @@ const GalleryPage = () => {
                         <div className={displayButtonClass}>
                             <button onClick={() => handleNavigation('display', -1)}>Backward</button>
                             <button onClick={() => handleNavigation('display', 1)}>Forward</button>
+                            <button onClick={() => handleNavigation('display', 1)} className="button">
+                                <div className="line one">
+                                    <div className="round"></div>
+                                    <div className="round"></div>
+                                    <div className="round"></div>
+                                </div>
+                                <div className="line two">
+                                    <div className="round"></div>
+                                    <div className="round"></div>
+                                    <div className="round"></div>
+                                </div>
+                                <div className="line three">
+                                    <div className="round"></div>
+                                    <div className="round"></div>
+                                    <div className="round"></div>
+                                </div>
+                                <div className="line four">
+                                    <div className="round"></div>
+                                    <div className="round"></div>
+                                    <div className="round"></div>
+                                </div>
+                                <div className="line five">
+                                    <div className="round"></div>
+                                    <div className="round"></div>
+                                    <div className="round"></div>
+                                </div>
+                            </button>
                         </div>
 
                         <img className='displayImage' src={b2Droid} />

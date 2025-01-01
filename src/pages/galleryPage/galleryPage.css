@@ -148,6 +148,72 @@
 
 
 
+/* Arrows */
+
+.arrowButton {
+
+}
+
+
+
+
+
+.button {
+    border: 2px solid lime;
+    cursor: pointer;
+    background: none;
+    /* border: none; */
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    gap: 5px;
+    /* transform: rotate(90deg); */
+}
+
+.round {
+    width: 5px;
+    height: 5px;
+    background: #3da9fc;
+    background: #fff;
+    /* border: 1px solid white; */
+    border-radius: 50%;
+}
+
+.line {
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.two,
+.four {
+    transform: translateY(8px);
+}
+
+.three {
+    transform: translateY(16px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* button to view miniatures */
 :root {
     --dark: #050608;
     --light: #ffffff;
@@ -223,16 +289,6 @@
 
 .coolView:hover::after {
     background: var(--light);
-    color: var(--primary);
+    /* color: var(--primary); */
+    color: black;
 }
-
-
-
-
-
-
-
-
-
-
-  
