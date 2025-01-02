@@ -1,5 +1,5 @@
 .galleryPage {
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     /* background-color: rgb(18, 18, 18); */
     /* background: radial-gradient(circle, rgb(30, 30, 30) 0%, rgb(20, 20, 20) 40%, rgb(10, 10, 10) 100%); */
     background: radial-gradient(circle, rgb(146, 146, 146) 0%, rgb(112, 112, 112) 40%, rgb(10, 10, 10) 100%);
@@ -39,7 +39,7 @@
 }
 
 
-.sectionIcon {
+.displayIcon {
     /* border: 2px solid white; */
     width: 45dvh;
     height: 45dvh;
@@ -75,7 +75,7 @@
 
 
 .gallerySection {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     flex: 7;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0) 80%);
     /* overflow: hidden; */
@@ -97,7 +97,7 @@
 
 
 .displayContent {
-    border: 2px solid purple;
+    /* border: 2px solid purple; */
     height: 54%;
     width: 100%;
     display: flex;

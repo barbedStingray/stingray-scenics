@@ -1,13 +1,19 @@
-import theStingray from '../../../images/DGreenIcon.png'
-import theEmpire from '../../../images/empireLogo.png'
-import theOneRing from '../../../images/oneRing.png'
-import theCIS from '../../../images/CIS.png'
-import jediOrder from '../../../images/JediOrder.png'
+import {
+    theStingray,
+    theEmpire,
+    theOneRing,
+    theCIS,
+    jediOrder,
+} from '../../../images'; // Import all images from a single file
+
+// import theStingray from '../../../images/DGreenIcon.png'
+// import theEmpire from '../../../images/empireLogo.png'
+// import theOneRing from '../../../images/oneRing.png'
+// import theCIS from '../../../images/CIS.png'
+// import jediOrder from '../../../images/JediOrder.png'
 import b2Droid from '../../../images/starWars/superBattleDroidBlue.png'
 import b2DroidRed from '../../../images/starWars/superBattleDroidRed.png'
 import b2DroidChrome from '../../../images/starWars/superBattleDroidChrome.png'
-
-
 import dunharrowGhost from '../../../images/lordoftheRings/dunharrowGhost.png'
 import rohanCommand from '../../../images/lordoftheRings/rohanCommand.png'
 import urukHaiBanner from '../../../images/lordoftheRings/urukHaiBanner.png'
@@ -95,6 +101,30 @@ const galleryData = {
                 title: 'Terrain',
                 description: 'Various terrains to explore and admire.',
                 photo: b2DroidRed,
+            },
+        },
+        scatter: {
+            icon: theStingray,
+            content: {
+                title: 'Scatter Terrain',
+                description: 'Bits of terrain that can be spread across your battlefield',
+                photo: b2DroidChrome,
+            },
+        },
+        scenicSquares: {
+            icon: theStingray,
+            content: {
+                title: 'Scenic Squares',
+                description: 'A small section of terrain that can be configured in different arrangements to form an entire battlefield.',
+                photo: b2Droid,
+            },
+        },
+        miniBases: {
+            icon: theStingray,
+            content: {
+                title: 'Miniature Bases',
+                description: 'Unit bases for all sizes',
+                photo: b2Droid,
             },
         },
     },

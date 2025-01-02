@@ -1,8 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence, useTransform, useMotionTemplate } from 'framer-motion'
 import './galleryPage.css'
+import { sectionVariants } from './galleryComponents/animations'
 
 import galleryData from './galleryComponents/galleryData'
+import DisplayIcon from './galleryComponents/DisplayIcon'
+import DisplayImg from './galleryComponents/DisplayImg'
+import DisplayTitle from './galleryComponents/DisplayTitle'
+import DisplayDescript from './galleryComponents/DisplayDescript'
 import ArrowButton from '../../components/ArrowButton'
 
 const GalleryPage = () => {
@@ -11,45 +16,10 @@ const GalleryPage = () => {
     const [galleryDisplay, setGalleryDisplay] = useState('mainDisplay')
     const [direction, setDirection] = useState(0)
 
-    const hiddenButtons = ['welcome', 'terrain']
+    const hiddenButtons = ['welcome']
     const displayButtonClass = hiddenButtons.includes(gallerySection) ? 'noDisplay' : 'displayButtons'
 
-
-    const gallerySectionVariants = {
-        enter: (direction) => ({
-            rotateY: direction > 0 ? -90 : 90,
-            rotateX: 3,
-            transformOrigin: "50% 50%",
-        }),
-        center: {
-            rotateY: 0,
-            transformOrigin: "50% 50%"
-        },
-        exit: (direction) => ({
-            rotateY: direction > 0 ? 90 : -90,
-            rotateX: 3,
-            transformOrigin: "50% 50%",
-        })
-    }
-
-    const displaySlideVariants = {
-        enter: {
-            opacity: 0,
-            y: 30,
-        },
-        center: {
-            opacity: 1,
-            y: 0,
-        },
-        exit: {
-            opacity: 0,
-            y: 30,
-        }
-    }
-
-
     const currentData = galleryData[gallerySection][galleryDisplay]['content']
-
 
     const handleNavigation = (type, increment) => {
         const currentList = type === 'section' ? Object.keys(galleryData) : Object.keys(galleryData[gallerySection])
@@ -67,24 +37,10 @@ const GalleryPage = () => {
         }
     }
 
-
     return (
         <div className="galleryPage">
 
-            <AnimatePresence custom={direction} mode="wait" initial={true}>
-                <motion.img
-                    className='sectionIcon'
-                    src={galleryData[gallerySection][galleryDisplay]['icon']}
-                    key={`icon${gallerySection}${galleryDisplay}`}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{
-                        duration: 0.9,
-                        ease: 'easeInOut',
-                    }}
-                />
-            </AnimatePresence>
+            <DisplayIcon displayData={{gallerySection, galleryDisplay}} />
 
             <AnimatePresence custom={direction} mode="wait" initial={false}>
                 <motion.div
@@ -94,7 +50,7 @@ const GalleryPage = () => {
                     initial="enter"
                     animate="center"
                     exit="exit"
-                    variants={gallerySectionVariants}
+                    variants={sectionVariants}
                     transition={{
                         type: 'spring',
                         stiffness: 200,
@@ -103,41 +59,16 @@ const GalleryPage = () => {
                         ease: 'anticipate',
                     }}
                 >
-
-
                     <div className='displayContent'>
                         <div className={displayButtonClass}>
                             <ArrowButton handleNavigation={handleNavigation} division='display' direction={-1} pointer='upArrow' />
                             <ArrowButton handleNavigation={handleNavigation} division='display' direction={1} pointer='downArrow' />
                         </div>
 
-                        <img className='displayImage' src={currentData.photo} />
-
-                        <AnimatePresence mode='wait' initial={false}>
-                            <motion.p
-                                className='displayTitle'
-                                key={`title-${gallerySection}${galleryDisplay}`}
-                                initial="enter"
-                                animate="center"
-                                exit="exit"
-                                variants={displaySlideVariants}
-                                transition={{
-                                    type: 'spring',
-                                    stiffness: 180,
-                                    damping: 15,
-                                    duration: 0.40,
-                                    // delay: 0.15,
-                                    // ease: 'anticipate',
-                                }}
-
-                            >
-                                {currentData.title}
-                            </motion.p>
-                        </AnimatePresence>
-
-
+                        <DisplayImg displayData={{ gallerySection, galleryDisplay, currentData }} />
+                        <DisplayTitle displayData={{ gallerySection, galleryDisplay, currentData }} />
                         <div className='displayLine'></div>
-                        <p className='displayDescription'>{currentData.description}</p>
+                        <DisplayDescript displayData={{ gallerySection, galleryDisplay, currentData }} />
                         <button className='coolView'>View Miniatures</button>
                     </div>
                 </motion.div>
@@ -145,9 +76,9 @@ const GalleryPage = () => {
 
             <div className='sectionButtons'>
                 <ArrowButton handleNavigation={handleNavigation} division='section' direction={-1} pointer='leftArrow' />
+                <button>Menu</button>
                 <ArrowButton handleNavigation={handleNavigation} division='section' direction={1} pointer='rightArrow' />
             </div>
-
         </div >
     )
 }
