@@ -2,6 +2,7 @@ import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { slideVariants, displaySpring } from './animations'
 
+import FrostyButton from '../../../components/FrostyButton'
 
 const DisplayContent = ({ displayData }) => {
     const { gallerySection, galleryDisplay, currentData } = displayData;
@@ -52,6 +53,9 @@ const DisplayContent = ({ displayData }) => {
                 >
                     View Miniatures
                 </motion.button>
+
+                <FrostyButton />
+
 
             </motion.div>
         </AnimatePresence>)
