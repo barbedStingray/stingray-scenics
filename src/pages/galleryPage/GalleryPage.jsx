@@ -3,11 +3,9 @@ import { motion, AnimatePresence, useTransform, useMotionTemplate } from 'framer
 import './galleryPage.css'
 import { sectionVariants } from './galleryComponents/animations'
 
+import DisplayContent from './galleryComponents/DisplayContent'
 import galleryData from './galleryComponents/galleryData'
 import DisplayIcon from './galleryComponents/DisplayIcon'
-import DisplayImg from './galleryComponents/DisplayImg'
-import DisplayTitle from './galleryComponents/DisplayTitle'
-import DisplayDescript from './galleryComponents/DisplayDescript'
 import ArrowButton from '../../components/ArrowButton'
 
 const GalleryPage = () => {
@@ -40,7 +38,7 @@ const GalleryPage = () => {
     return (
         <div className="galleryPage">
 
-            <DisplayIcon displayData={{gallerySection, galleryDisplay}} />
+            <DisplayIcon displayData={{ gallerySection, galleryDisplay }} />
 
             <AnimatePresence custom={direction} mode="wait" initial={false}>
                 <motion.div
@@ -55,22 +53,16 @@ const GalleryPage = () => {
                         type: 'spring',
                         stiffness: 200,
                         damping: 15,
-                        duration: 0.55,
                         ease: 'anticipate',
                     }}
                 >
-                    <div className='displayContent'>
-                        <div className={displayButtonClass}>
-                            <ArrowButton handleNavigation={handleNavigation} division='display' direction={-1} pointer='upArrow' />
-                            <ArrowButton handleNavigation={handleNavigation} division='display' direction={1} pointer='downArrow' />
-                        </div>
-
-                        <DisplayImg displayData={{ gallerySection, galleryDisplay, currentData }} />
-                        <DisplayTitle displayData={{ gallerySection, galleryDisplay, currentData }} />
-                        <div className='displayLine'></div>
-                        <DisplayDescript displayData={{ gallerySection, galleryDisplay, currentData }} />
-                        <button className='coolView'>View Miniatures</button>
+                    <div className={displayButtonClass}>
+                        <ArrowButton handleNavigation={handleNavigation} division='display' direction={-1} pointer='upArrow' />
+                        <ArrowButton handleNavigation={handleNavigation} division='display' direction={1} pointer='downArrow' />
                     </div>
+
+                    <DisplayContent displayData={{ gallerySection, galleryDisplay, currentData }} />
+
                 </motion.div>
             </AnimatePresence>
 
