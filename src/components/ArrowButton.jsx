@@ -43,12 +43,12 @@ const ArrowButton = ({ handleNavigation, division, direction, pointer }) => {
             animate={clicked ? "clicked" : "initial"} // Change animation based on click state
         >
             {lines.map((_, lineIndex) => (
-                <motion.div
+                <motion.span
                     key={lineIndex}
                     className={`arrowLine line-${lineIndex}`}
                 >
                     {dots.map((_, dotIndex) => (
-                        <motion.div
+                        <motion.span
                             key={dotIndex}
                             className="arrowDot"
                             variants={dotVariants}
@@ -59,7 +59,7 @@ const ArrowButton = ({ handleNavigation, division, direction, pointer }) => {
                             }} 
                         />
                     ))}
-                </motion.div>
+                </motion.span>
             ))}
         </motion.button>
     );
