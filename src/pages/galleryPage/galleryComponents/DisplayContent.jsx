@@ -47,14 +47,14 @@ const DisplayContent = ({ displayData }) => {
                 </motion.p>
 
                 <motion.button
-                    className='coolView'
+                    className='galleryButton'
                     variants={slideVariants}
                     transition={displaySpring}
                 >
                     View Miniatures
                 </motion.button>
 
-                <FrostyButton />
+                {/* <FrostyButton /> */}
 
 
             </motion.div>

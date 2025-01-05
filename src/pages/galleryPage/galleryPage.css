@@ -145,6 +145,25 @@
 
 
 
+.galleryButton {
+    /* Glass morph */
+    background-color: transparent;
+    /* backdrop-filter: blur(3px); */
+    background-image: linear-gradient(120deg,
+            #6e6e6e66,
+            #ffffff66,
+            #6e6e6e66);
+    border: none;
+    width: 30%;
+    height: 8%;
+    font-size: 3dvw;
+    border-radius: 4px;
+    border: 1px solid #ffffff88;
+    cursor: pointer;
+}
+
+
+
 
 
 
@@ -164,6 +183,7 @@
     gap: var(--dot-size);
     z-index: 100;
 }
+
 .arrowButton * {
     cursor: pointer;
 }
@@ -171,9 +191,11 @@
 .upArrow {
     transform: rotate(180deg);
 }
+
 .leftArrow {
     transform: rotate(90deg);
 }
+
 .rightArrow {
     transform: rotate(-90deg);
 }
@@ -197,8 +219,8 @@
 
 .line-1,
 .line-3 {
-transform: translateY(calc(var(--dot-size) * 2 - 2px));
-transform: translateY(calc(var(--dot-size) * 2 - 2px));
+    transform: translateY(calc(var(--dot-size) * 2 - 2px));
+    transform: translateY(calc(var(--dot-size) * 2 - 2px));
 
 }
 
@@ -206,6 +228,8 @@ transform: translateY(calc(var(--dot-size) * 2 - 2px));
     transform: translateY(calc(var(--dot-size) * 4 - 4px));
 
 }
+
+
 
 
 

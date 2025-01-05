@@ -14,11 +14,11 @@
     --_frost: 0.15;
 
 
-    /* border: 2px solid purple; */
+    border: 0;
+    border: 2px solid purple;
     cursor: pointer;
     outline: 0;
     /* padding: 0; */
-    border: 0;
     border-radius: 1rem;
     background-color: transparent;
     position: relative;
