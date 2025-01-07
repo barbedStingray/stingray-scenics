@@ -4,6 +4,7 @@ import './galleryPage.css'
 import { sectionVariants } from './galleryComponents/animations'
 
 import DisplayContent from './galleryComponents/DisplayContent'
+import NavBar from '../../components/navigation/NavBar'
 import galleryData from './galleryComponents/galleryData'
 import DisplayIcon from './galleryComponents/DisplayIcon'
 import ArrowButton from '../../components/ArrowButton'
@@ -38,6 +39,13 @@ const GalleryPage = () => {
     return (
         <div className="galleryPage">
 
+            <NavBar />
+
+            <div className={displayButtonClass}>
+                <ArrowButton handleNavigation={handleNavigation} division='display' direction={-1} pointer='upArrow' />
+                <ArrowButton handleNavigation={handleNavigation} division='display' direction={1} pointer='downArrow' />
+            </div>
+
             <DisplayIcon displayData={{ gallerySection, galleryDisplay }} />
 
             <AnimatePresence custom={direction} mode="wait" initial={false}>
@@ -56,11 +64,6 @@ const GalleryPage = () => {
                         ease: 'anticipate',
                     }}
                 >
-                    <div className={displayButtonClass}>
-                        <ArrowButton handleNavigation={handleNavigation} division='display' direction={-1} pointer='upArrow' />
-                        <ArrowButton handleNavigation={handleNavigation} division='display' direction={1} pointer='downArrow' />
-                    </div>
-
                     <DisplayContent displayData={{ gallerySection, galleryDisplay, currentData }} />
 
                 </motion.div>

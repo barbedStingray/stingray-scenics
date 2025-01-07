@@ -47,3 +47,17 @@ html {
       #b6f80155);
 }
 
+.clearGlass {
+  /* Glass morph */
+  background-color: transparent;
+  backdrop-filter: blur(2px);
+  background-image: linear-gradient(90deg,
+      #ffffff33,
+      #80808033,
+      #ffffff33,
+      #80808033,
+      #ffffff33,
+      #80808033,
+      #ffffff33);
+}
+
