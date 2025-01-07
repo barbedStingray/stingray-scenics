@@ -49,7 +49,7 @@
 }
 
 .sectionButtons {
-    border: 2px solid lime;
+    border: 2px solid blue;
     flex: 1;
     width: 100%;
     height: 100%;
@@ -62,7 +62,7 @@
 .displayButtons {
     border: 2px solid gold;
     position: absolute;
-    top: 16%;
+    top: 6%;
     right: 5%;
     width: 25%;
     height: 25%;
@@ -70,7 +70,7 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    z-index: 10;
+    z-index: 90;
 }
 
 
@@ -82,16 +82,16 @@
     /* overflow: hidden; */
     /* box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5); */
     width: 90%;
-    transform-style: preserve-3d;
-    perspective: 1000px;
     position: relative;
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-end;
+
+    z-index: 10;
 }
 
 .displayContent {
-    border: 2px solid lime;
+    /* border: 2px solid lime; */
     width: 100%;
     height: 80%;
     display: flex;
@@ -101,10 +101,6 @@
     gap: 15px;
 }
 
-.gallerySection>div {
-    transform-style: preserve-3d;
-}
-
 
 .displayImage {
     border: 2px solid lime;
@@ -112,22 +108,22 @@
     height: 30dvh;
     object-fit: contain;
     position: absolute;
-    top: -18%;
+    top: 5%;
     left: 5%;
     filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 0.75));
 }
-
 
 .displayTitle {
     border: 2px solid gold;
     font-size: 10dvw;
     font-weight: 700;
+    z-index: 5;
 }
 
 .displayLine {
     border: 1px solid black;
     width: 95%;
-
+    z-index: 5;
 }
 
 .displayDescription {
@@ -135,6 +131,7 @@
     height: 20%;
     width: 90%;
     text-align: center;
+    z-index: 5;
 }
 
 
@@ -181,7 +178,7 @@
     width: 80px;
     height: 80px;
     gap: var(--dot-size);
-    z-index: 100;
+    /* z-index: 100; */
 }
 
 .arrowButton * {
@@ -221,99 +218,9 @@
 .line-3 {
     transform: translateY(calc(var(--dot-size) * 2 - 2px));
     transform: translateY(calc(var(--dot-size) * 2 - 2px));
-
 }
-
 .line-2 {
     transform: translateY(calc(var(--dot-size) * 4 - 4px));
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* button to view miniatures */
-/* :root {
-    --dark: #050608;
-    --light: #ffffff;
-    --primary: #ffffff;
-    --rounded: 100vw;
-}
-
-.coolView {
-    border: none;
-    background: none;
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
-    border-radius: var(--rounded);
-    padding: 0.7rem 1rem 0.8rem 2rem;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    z-index: 0;
-    letter-spacing: 1px;
-}
-
-.coolView::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    height: 100%;
-    width: 100%;
-    border-radius: var(--rounded);
-    opacity: 0.3;
-    background-image: linear-gradient(-45deg,
-            var(--primary),
-            transparent 50%);
-    transform: translateX(-101%);
-    transition:
-        transform 0.3s cubic-bezier(0.25, 0, 0.75, 1),
-        opacity 0.5s ease;
-}
-
-
-.coolView:hover::before {
-    transform: translateX(0);
-    opacity: 0.6;
-}
-
-
-.coolView::after {
-    content: '❯';
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 1.5em;
-    width: 1.5em;
-    font-size: 20px;
-    margin-left: 2dvh;
-    border-radius: var(--rounded);
-    background: var(--primary);
-    color: var(--dark);
-    transition: background-color 0.25s ease 0.25s, color 0.25s ease;
-}
-
-
-.coolView:hover::after {
-    background: var(--light);
-    color: black;
-} */

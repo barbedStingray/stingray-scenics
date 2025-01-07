@@ -36,7 +36,6 @@ const ArrowButton = ({ handleNavigation, division, direction, pointer }) => {
 
     return (
         <motion.button
-            // className="arrowButton"
             className={arrowClass}
             onClick={handleClick} // Trigger the color change and reset on click
             initial="initial"

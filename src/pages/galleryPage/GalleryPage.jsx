@@ -41,11 +41,6 @@ const GalleryPage = () => {
 
             <NavBar />
 
-            <div className={displayButtonClass}>
-                <ArrowButton handleNavigation={handleNavigation} division='display' direction={-1} pointer='upArrow' />
-                <ArrowButton handleNavigation={handleNavigation} division='display' direction={1} pointer='downArrow' />
-            </div>
-
             <DisplayIcon displayData={{ gallerySection, galleryDisplay }} />
 
             <AnimatePresence custom={direction} mode="wait" initial={false}>
@@ -65,6 +60,11 @@ const GalleryPage = () => {
                     }}
                 >
                     <DisplayContent displayData={{ gallerySection, galleryDisplay, currentData }} />
+
+                    <div className={displayButtonClass}>
+                        <ArrowButton handleNavigation={handleNavigation} division='display' direction={-1} pointer='upArrow' />
+                        <ArrowButton handleNavigation={handleNavigation} division='display' direction={1} pointer='downArrow' />
+                    </div>
 
                 </motion.div>
             </AnimatePresence>
