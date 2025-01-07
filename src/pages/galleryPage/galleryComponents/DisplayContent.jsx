@@ -1,4 +1,6 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import { motion, AnimatePresence } from 'framer-motion'
 import { slideVariants, displaySpring } from './animations'
 
@@ -6,6 +8,11 @@ import { slideVariants, displaySpring } from './animations'
 const DisplayContent = ({ displayData }) => {
     const { gallerySection, galleryDisplay, currentData, direction } = displayData;
 
+    const navigate = useNavigate()
+
+    const toGroupDisplay = () => {
+        navigate('/groupDisplay')
+    }
 
     return (
         <AnimatePresence mode="wait" initial={false}>
@@ -50,6 +57,7 @@ const DisplayContent = ({ displayData }) => {
 
                 <motion.button
                     className='galleryButton'
+                    onClick={toGroupDisplay}
                     custom={direction}
                     variants={slideVariants}
                     transition={displaySpring}

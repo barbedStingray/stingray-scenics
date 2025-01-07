@@ -1,0 +1,38 @@
+.groupDisplay {
+    border: 2px solid blue;
+    height: 100dvh;
+    width: 100dvw;
+    overflow: scroll;
+
+    /* display: flex; */
+    /* flex-flow: row nowrap; */
+
+    /* position: relative; */
+    
+}
+
+.scrollDisplay {
+    border: 2px solid magenta;
+    height: 500dvh;
+
+}
+
+.stickyGroup {
+    border: 2px solid gold;
+    width: 100%;
+    height: 20dvh;
+    height: 100dvh;
+    position: sticky;
+    top: 0;
+}
+
+
+.artImage {
+    border: 2px solid green;
+    width: 100%;
+    height: 25dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

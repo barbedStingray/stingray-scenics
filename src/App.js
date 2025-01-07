@@ -3,7 +3,8 @@ import React, { useEffect } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 
 import StingrayScenics from './pages/homePage/StingrayScenics'
-import GalleryPage from './pages/galleryPage/GalleryPage';
+import GalleryPage from './pages/galleryPage/GalleryPage'
+import GroupDisplay from './pages/groupDisplay/GroupDisplay'
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
       <Routes>
         <Route path='/' element={<StingrayScenics />} />
         <Route path='/gallery' element={<GalleryPage />} />
+        <Route path='/groupDisplay' element={<GroupDisplay />} />
         {/* 404 path */}
       </Routes>
     </div>
