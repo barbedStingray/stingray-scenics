@@ -1,18 +1,18 @@
 
-export const slideVariants = {
-    enter: {
-        opacity: 0,
-        y: 30,
-    },
-    center: {
-        opacity: 1,
-        y: 0,
-    },
-    exit: {
-        opacity: 0,
-        y: -30,
-    }
-}
+// export const slideVariants = {
+//     enter: {
+//         opacity: 0,
+//         y: 30,
+//     },
+//     center: {
+//         opacity: 1,
+//         y: 0,
+//     },
+//     exit: {
+//         opacity: 0,
+//         y: -30,
+//     }
+// }
 
 export const displaySpring = {
     type: "spring",
@@ -21,20 +21,20 @@ export const displaySpring = {
 }
 
 
-// export const slideVariants = {
-//     enter: (direction) => ({
-//         opacity: 0,
-//         y: direction > 0 ? -30 : 30,
-//     }),
-//     center: {
-//         opacity: 1,
-//         y: 0,
-//     },
-//     exit: (direction) => ({
-//         opacity: 0,
-//         y: direction > 0 ? -30 : 30,
-//     })
-// }
+export const slideVariants = {
+    enter: (direction) => ({
+        opacity: 0,
+        y: direction > 0 ? 30 : -30,
+    }),
+    center: {
+        opacity: 1,
+        y: 0,
+    },
+    exit: (direction) => ({
+        opacity: 0,
+        y: direction > 0 ? -30 : 30,
+    })
+}
 
 
 export const sectionVariants = {

@@ -2,11 +2,9 @@ import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { slideVariants, displaySpring } from './animations'
 
-import FrostyButton from '../../../components/FrostyButton'
 
 const DisplayContent = ({ displayData }) => {
-    const { gallerySection, galleryDisplay, currentData } = displayData;
-
+    const { gallerySection, galleryDisplay, currentData, direction } = displayData;
 
 
     return (
@@ -14,6 +12,7 @@ const DisplayContent = ({ displayData }) => {
             <motion.div
                 className='displayContent'
                 key={`content-${gallerySection}${galleryDisplay}`}
+                custom={direction}
                 initial="enter"
                 animate="center"
                 exit="exit"
@@ -25,11 +24,13 @@ const DisplayContent = ({ displayData }) => {
                     className="displayImage"
                     src={currentData.photo}
                     alt={currentData.title}
+                    custom={direction}
                     variants={slideVariants}
                     transition={displaySpring}
                 />
                 <motion.p
                     className="displayTitle"
+                    custom={direction}
                     variants={slideVariants}
                     transition={displaySpring}
                 >
@@ -40,6 +41,7 @@ const DisplayContent = ({ displayData }) => {
 
                 <motion.p
                     className="displayDescription"
+                    custom={direction}
                     variants={slideVariants}
                     transition={displaySpring}
                 >
@@ -48,13 +50,12 @@ const DisplayContent = ({ displayData }) => {
 
                 <motion.button
                     className='galleryButton'
+                    custom={direction}
                     variants={slideVariants}
                     transition={displaySpring}
                 >
                     View Miniatures
                 </motion.button>
-
-                {/* <FrostyButton /> */}
 
 
             </motion.div>

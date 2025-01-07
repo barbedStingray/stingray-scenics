@@ -7,7 +7,7 @@ import ParallaxImage from '../../components/ParallaxImage';
 import tinyFiguresImages from '../../parallaxImages/tinyFigures';
 import epicStoriesImages from '../../parallaxImages/epicStories';
 import pelennorFields from '../../images/pelennorFields.jpeg'
-
+import NavBar from '../../components/navigation/NavBar'
 
 const StingrayScenics = () => {
 
@@ -70,6 +70,8 @@ const StingrayScenics = () => {
 
     return (
         <motion.div className='homePage' ref={homeContainerRef}>
+            {/* <NavBar /> */}
+
 
             <div className='homeScrollDiv'>
 
