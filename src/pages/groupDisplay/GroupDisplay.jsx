@@ -1,8 +1,11 @@
 import React, { useRef, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './groupDisplay.css'
 import { motion, useScroll, useMotionTemplate, useTransform, useMotionValueEvent, useInView } from 'framer-motion'
 
 const GroupDisplay = () => {
+
+    const navigate = useNavigate()
 
     const groupContainerRef = useRef()
     const { scrollYProgress: groupContainer } = useScroll({
@@ -22,6 +25,9 @@ const GroupDisplay = () => {
     ])
     const gradientStyle = useMotionTemplate`${gradientColor}`
 
+    function backToGallery() {
+        navigate('/gallery')
+    }
 
     const theFellowship = ['Boromir', 'Aragorn', 'Legolas', 'Gandalf', 'Merry', 'Sam', 'Pippen', 'Frodo', 'Gimli', 'Kanan', 'Hera', 'Sabine', 'Chopper', 'Ezra', 'Zeb']
     const spectralSquad = ['Kanan', 'Hera', 'Sabine', 'Chopper', 'Ezra', 'Zeb']
@@ -37,7 +43,7 @@ const GroupDisplay = () => {
             <div className='scrollDisplay'>
                 <div className='stickyGroup'>
                     <h1>The Wookies</h1>
-                    <button>Back</button>
+                    <button onClick={backToGallery}>Back</button>
                 </div>
 
                 {theFellowship.map((member, i) => (

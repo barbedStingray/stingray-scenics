@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { motion, AnimatePresence, useTransform, useMotionTemplate } from 'framer-motion'
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform, useMotionTemplate } from 'framer-motion'
 import './galleryPage.css'
 import { sectionVariants } from './galleryComponents/animations'
 
@@ -13,6 +13,8 @@ const GalleryPage = () => {
     const [gallerySection, setGallerySection] = useState('welcome')
     const [galleryDisplay, setGalleryDisplay] = useState('mainDisplay')
     const [direction, setDirection] = useState(0)
+    const [colorShade, setColorShade] = useState('#008225')
+
 
     const hiddenButtons = ['welcome']
     const displayButtonClass = hiddenButtons.includes(gallerySection) ? 'noDisplay' : 'displayButtons'
@@ -29,15 +31,28 @@ const GalleryPage = () => {
         setDirection(increment)
 
         if (type === 'section') {
+            const newSection = currentList[newIndex];
+            const newShade = galleryData[newSection]['mainDisplay'].color
+
             setGallerySection(currentList[newIndex])
             setGalleryDisplay('mainDisplay')
+            setColorShade(newShade);
+
         } else {
+            const newDisplay = currentList[newIndex];
+            const newShade = galleryData[gallerySection][newDisplay].color
             setGalleryDisplay(currentList[newIndex])
+            setColorShade(newShade);
         }
+
     }
 
     return (
-        <div className="galleryPage">
+        <motion.div
+            className="galleryPage"
+            style={{ '--color-shadeOne': colorShade }}
+            // transition={{ duration: 0.5 }}
+        >
 
             <DisplayIcon displayData={{ gallerySection, galleryDisplay }} />
 
@@ -72,7 +87,8 @@ const GalleryPage = () => {
                 <button>Menu</button>
                 <ArrowButton handleNavigation={handleNavigation} division='section' direction={1} pointer='rightArrow' />
             </div>
-        </div >
+
+        </motion.div >
     )
 }
 
