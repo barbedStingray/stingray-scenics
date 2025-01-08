@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './groupDisplay.css'
+import '../galleryPage/galleryPage.css'
 import { motion, useScroll, useMotionTemplate, useTransform, useMotionValueEvent, useInView } from 'framer-motion'
 
 const GroupDisplay = () => {

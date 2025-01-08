@@ -49,7 +49,7 @@ const GalleryPage = () => {
 
     return (
         <motion.div
-            className="galleryPage"
+            className="galleryPage galleryBackground"
             style={{ '--color-shadeOne': colorShade }}
             // transition={{ duration: 0.5 }}
         >

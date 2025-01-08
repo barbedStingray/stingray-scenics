@@ -6,7 +6,7 @@ const galleryData = {
     welcome: {
         mainDisplay: {
             icon: images.theStingray,
-            color: '#008225',
+            color: '#00822533',
             content: {
                 title: 'The Gallery',
                 description: 'Welcome! On display you will find figures from Lord of the Rings and Star Wars as well as custom made terrain. Use the arrows to browse the different sections and factions.',
@@ -17,7 +17,7 @@ const galleryData = {
     lordOfTheRings: {
         mainDisplay: {
             icon: images.theOneRing,
-            color: '#0d00ff',
+            color: '#0d00ff44',
             content: {
                 title: 'Lord of the Rings',
                 description: 'Travel the world of Middle Earth with miniatures from Mordor, Gondor, Moria, Lothlorien, Rohan, Isengard, The Shire, Easterlings, Harad...',
@@ -55,7 +55,7 @@ const galleryData = {
     starWars: {
         mainDisplay: {
             icon: images.theCIS,
-            color: '#c90000',
+            color: '#c9000033',
             content: {
                 title: 'Star Wars',
                 description: 'Roam the galaxy and encounter heroes and villains from the Galactic Republic, the Empire, Rebel Alliance, Separatist Battle Droids, Jedi Order, Deathwatch, Crime Syndicates...',
@@ -64,7 +64,7 @@ const galleryData = {
         },
         empire: {
             icon: images.theEmpire,
-            color: '#0d00ff40',
+            color: '#9300c966',
             content: {
                 title: 'Empire',
                 description: 'The Galactic Empire ruled by the Sith. Featuring figures such as Darth Vader, Emperor Palpatine, and legions of Storm Troopers.',
@@ -73,7 +73,7 @@ const galleryData = {
         },
         jediOrder: {
             icon: images.jediOrder,
-            color: '#0d00ff40',
+            color: '#0d00ff',
             content: {
                 title: 'Jedi Order',
                 description: 'Guardians of peace and justice in the galaxy.',

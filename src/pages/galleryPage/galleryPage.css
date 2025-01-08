@@ -1,7 +1,7 @@
 .galleryPage {
 
     /* custom variables for after shading */
-    --color-shadeOne: #c90000;
+    --color-shadeOne: #9300c9;
 
     border: 2px solid blue;
     /* background-color: rgb(18, 18, 18); */
@@ -19,40 +19,6 @@
     /* perspective: 1000px; */
 }
 
-.galleryBackground {
-    --color-shadeOne: #c90000;
-    background: radial-gradient(circle, #929292 0%, #707070 40%, #0a0a0a 100%);
-
-}
-.galleryBackground::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* ! unable to transition gradients */
-    /* background-image:
-        linear-gradient(120deg, var(--color-shadeOne) 20%, var(--color-shadeTwo) 60%),
-        url('../../images/texture.png'); */
-    /* settled for solid color */
-    background-color: var(--color-shadeOne);
-    background-image: url('../../images/texture.png');
-
-
-    /* background-position: center; */
-    background-size: cover;
-    /* Blend gradient and texture */
-    background-blend-mode: overlay, normal;
-    /* Blend with the underlying content */
-    mix-blend-mode: overlay;
-    pointer-events: none;
-    /* non-interactive */
-    opacity: 0.5;
-    transition: background-color 0.75s ease-in-out;
-
-}
-
 .galleryPage::after {
     content: "";
     position: absolute;
@@ -67,6 +33,7 @@
     /* settled for solid color */
     background-color: var(--color-shadeOne);
     background-image: url('../../images/texture.png');
+
     /* background-position: center; */
     background-size: cover;
     /* Blend gradient and texture */
@@ -78,8 +45,6 @@
     opacity: 0.5;
     transition: background-color 0.75s ease-in-out;
 }
-
-
 
 
 .displayIcon {
