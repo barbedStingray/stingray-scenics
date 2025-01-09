@@ -6,11 +6,11 @@ import galleryData from './galleryData'
 const MenuSection = ({ controls }) => {
     const { setGallerySection, setGalleryDisplay, setColorShade } = controls
 
-    const [currentSection, setCurrentSection] = useState('welcome')
+    const [currentSection, setCurrentSection] = useState('lordOfTheRings')
     const menuSections = Object.keys(galleryData).map((section) => ({
         galleryLabel: section,
         title: galleryData[section]?.mainDisplay.content.title,
-    })).filter((_, i, arr) => i < arr.length - 1 && i !== 0 )
+    })).filter((_, i, arr) => i < arr.length - 1 && i !== 0)
     const menuDisplays = Object.keys(galleryData[currentSection]).map((display) => ({
         galleryLabel: display,
         title: galleryData[currentSection][display]?.content.title,
@@ -20,10 +20,10 @@ const MenuSection = ({ controls }) => {
 
     return (
         <div className='menuSection'>
-            <p>MENU</p>
             <div className='sectionItems'>
                 {menuSections.map((section, i) => (
                     <button
+                        className='menuButton'
                         onClick={() => setCurrentSection(section.galleryLabel)}
                         key={i}
                     >
@@ -35,6 +35,7 @@ const MenuSection = ({ controls }) => {
             <div className='displayItems'>
                 {menuDisplays.map((display, i) => (
                     <button
+                        className='menuButton'
                         key={i}
                         onClick={() => {
                             setGallerySection(currentSection)
