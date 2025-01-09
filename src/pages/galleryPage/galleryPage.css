@@ -167,68 +167,8 @@
     cursor: pointer;
 }
 
+/* menu Section */
 
-
-
-
-
-/* Arrows */
-
-.arrowButton {
-    border: none;
+.menuSection {
     border: 2px solid lime;
-    cursor: pointer;
-    background: none;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-    width: 80px;
-    height: 80px;
-    gap: var(--dot-size);
-    /* z-index: 100; */
 }
-
-.arrowButton * {
-    cursor: pointer;
-}
-
-.upArrow {
-    transform: rotate(180deg);
-}
-
-.leftArrow {
-    transform: rotate(90deg);
-}
-
-.rightArrow {
-    transform: rotate(-90deg);
-}
-
-.arrowDot {
-    width: var(--dot-size);
-    height: var(--dot-size);
-    background: #3da9fc;
-    background: #fff;
-    /* border: 1px solid blue; */
-    border-radius: 50%;
-    transform: translateY(-5px);
-}
-
-.arrowLine {
-    /* border: 1px solid black; */
-    display: flex;
-    flex-direction: column;
-    gap: var(--dot-size);
-}
-
-.line-1,
-.line-3 {
-    transform: translateY(calc(var(--dot-size) * 2 - 2px));
-    transform: translateY(calc(var(--dot-size) * 2 - 2px));
-}
-.line-2 {
-    transform: translateY(calc(var(--dot-size) * 4 - 4px));
-
-}
-

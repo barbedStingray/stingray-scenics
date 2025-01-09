@@ -119,6 +119,17 @@ const galleryData = {
             },
         },
     },
+    menuSection: {
+        mainDisplay: {
+            icon: images.theStingray,
+            color: '#0d00ff40',
+            content: {
+                title: 'MENU',
+                description: 'Welcome to the menu, please see all the different factions below',
+                photo: images.b2DroidRed,
+            },
+        },
+    },
 }
 
 

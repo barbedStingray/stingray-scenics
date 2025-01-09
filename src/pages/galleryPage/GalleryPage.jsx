@@ -3,30 +3,39 @@ import { motion, AnimatePresence, useMotionValue, useSpring, useTransform, useMo
 import './galleryPage.css'
 import { sectionVariants } from './galleryComponents/animations'
 
+import MenuSection from './galleryComponents/MenuSection'
 import DisplayContent from './galleryComponents/DisplayContent'
 import galleryData from './galleryComponents/galleryData'
 import DisplayIcon from './galleryComponents/DisplayIcon'
-import ArrowButton from '../../components/ArrowButton'
+import ArrowButton from '../../components/arrowButton/ArrowButton'
 
 const GalleryPage = () => {
 
     const [gallerySection, setGallerySection] = useState('welcome')
     const [galleryDisplay, setGalleryDisplay] = useState('mainDisplay')
     const [direction, setDirection] = useState(0)
+    const currentData = galleryData[gallerySection][galleryDisplay]['content']
     const [colorShade, setColorShade] = useState('#008225')
 
-
-    const hiddenButtons = ['welcome']
+    const hiddenButtons = ['welcome', 'menuSection']
     const displayButtonClass = hiddenButtons.includes(gallerySection) ? 'noDisplay' : 'displayButtons'
 
-    const currentData = galleryData[gallerySection][galleryDisplay]['content']
 
-    const handleNavigation = (type, increment) => {
+    const handleViewJump = () => {
+        console.log('menu option')
+        setGallerySection('menuSection')
+        setGalleryDisplay('mainDisplay')
+        // set color for menu as well OR leave it as whatever color it already is
+    }
+
+
+
+    const handleArrowNavigation = (type, increment) => {
         const currentList = type === 'section' ? Object.keys(galleryData) : Object.keys(galleryData[gallerySection])
         const currentIndex = currentList.indexOf(type === 'section' ? gallerySection : galleryDisplay)
         const newIndex = currentIndex + increment
 
-        if (newIndex < 0 || newIndex >= currentList.length) return
+        if (newIndex < 0 || newIndex >= currentList.length || currentList[newIndex] === 'menuSection') return
 
         setDirection(increment)
 
@@ -48,10 +57,12 @@ const GalleryPage = () => {
     }
 
     return (
-        <motion.div
+        <div
             className="galleryPage galleryBackground"
             style={{ '--color-shadeOne': colorShade }}
-            // transition={{ duration: 0.5 }}
+            transition={{
+                duration: 0.5
+            }}
         >
 
             <DisplayIcon displayData={{ gallerySection, galleryDisplay }} />
@@ -72,23 +83,27 @@ const GalleryPage = () => {
                         ease: 'anticipate',
                     }}
                 >
-                    <DisplayContent displayData={{ gallerySection, galleryDisplay, currentData, direction }} />
+                    {gallerySection === 'menuSection' ?
+                        <MenuSection controls={{ setGallerySection, setGalleryDisplay, setColorShade }} />
+                        :
+                        <DisplayContent displayData={{ gallerySection, galleryDisplay, currentData, direction }} />
+                    }
 
                     <div className={displayButtonClass}>
-                        <ArrowButton handleNavigation={handleNavigation} division='display' direction={-1} pointer='upArrow' />
-                        <ArrowButton handleNavigation={handleNavigation} division='display' direction={1} pointer='downArrow' />
+                        <ArrowButton handleNavigation={handleArrowNavigation} division='display' direction={-1} pointer='upArrow' />
+                        <ArrowButton handleNavigation={handleArrowNavigation} division='display' direction={1} pointer='downArrow' />
                     </div>
 
                 </motion.div>
             </AnimatePresence>
 
             <div className='sectionButtons'>
-                <ArrowButton handleNavigation={handleNavigation} division='section' direction={-1} pointer='leftArrow' />
-                <button>Menu</button>
-                <ArrowButton handleNavigation={handleNavigation} division='section' direction={1} pointer='rightArrow' />
+                <ArrowButton handleNavigation={handleArrowNavigation} division='section' direction={-1} pointer='leftArrow' />
+                <button onClick={handleViewJump}>Menu</button>
+                <ArrowButton handleNavigation={handleArrowNavigation} division='section' direction={1} pointer='rightArrow' />
             </div>
 
-        </motion.div >
+        </div >
     )
 }
 
