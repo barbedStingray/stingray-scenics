@@ -82,7 +82,7 @@ const StingrayScenics = () => {
                     />
 
                     {/* titles */}
-                    <motion.p className='homeTextStyle SStitle glassMorph'
+                    <motion.p className='homeTextStyle SStitle glassMorphGreen'
                         style={{ opacity: titleOp }}
                     >Stingray scenics"</motion.p>
 
@@ -110,19 +110,19 @@ const StingrayScenics = () => {
 
 
                     <div className='homeMenu'>
-                        <motion.div className='menuBanner glassMorph' style={{ width: bannerWidth0 }}>
+                        <motion.div className='menuBanner glassMorphGreen' style={{ width: bannerWidth0 }}>
                             <Link className='homeTextStyle bannerText' to={'/gallery'}>Gallery.</Link>
                         </motion.div>
-                        <motion.div className='menuBanner glassMorph' style={{ width: bannerWidth1 }}>
+                        <motion.div className='menuBanner glassMorphGreen' style={{ width: bannerWidth1 }}>
                             <Link className='homeTextStyle bannerText'>Commission"</Link>
                         </motion.div>
-                        <motion.div className='menuBanner glassMorph' style={{ width: bannerWidth2 }}>
+                        <motion.div className='menuBanner glassMorphGreen' style={{ width: bannerWidth2 }}>
                             <Link className='homeTextStyle bannerText'>Contact$</Link>
                         </motion.div>
-                        <motion.div className='menuBanner glassMorph' style={{ width: bannerWidth3 }}>
+                        <motion.div className='menuBanner glassMorphGreen' style={{ width: bannerWidth3 }}>
                             <Link className='homeTextStyle bannerText'>The hobby%</Link>
                         </motion.div>
-                        {/* <motion.div className='bannerLink glassMorph' style={{ width: bannerWidth3 }}>
+                        {/* <motion.div className='bannerLink glassMorphGreen' style={{ width: bannerWidth3 }}>
                             <Link>Products</Link>
                         </motion.div> */}
                     </div>

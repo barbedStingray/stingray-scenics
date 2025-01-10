@@ -12,7 +12,7 @@ const NavBar = () => {
     })
 
     return (
-        <ul className='navBar clearGlass'
+        <ul className='navBar glassMorphClear'
             onMouseLeave={() => {
                 setPosition((prev) => ({
                     ...prev,

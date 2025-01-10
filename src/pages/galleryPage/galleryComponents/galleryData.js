@@ -121,12 +121,12 @@ const galleryData = {
     },
     menuSection: {
         mainDisplay: {
-            icon: images.theStingray,
-            color: '#0d00ff40',
+            icon: images.theStingray, // change menu icon
+            color: '#000',
             content: {
                 title: 'MENU',
                 description: 'Welcome to the menu, please see all the different factions below',
-                photo: images.b2DroidRed,
+                photo: images.b2DroidRed, // probably null ?
             },
         },
     },
