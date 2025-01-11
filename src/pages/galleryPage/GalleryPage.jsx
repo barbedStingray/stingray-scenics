@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform, useMotionTemplate } from 'framer-motion'
 import './galleryPage.css'
 import { sectionVariants } from './galleryComponents/animations'
@@ -10,6 +11,10 @@ import DisplayIcon from './galleryComponents/DisplayIcon'
 import ArrowButton from '../../components/arrowButton/ArrowButton'
 
 const GalleryPage = () => {
+
+    // reducers
+    const gallerySectionReducer = useSelector((state) => state.gallerySection)
+    console.log('gallerySection', gallerySectionReducer)
 
     const [gallerySection, setGallerySection] = useState('welcome')
     const [galleryDisplay, setGalleryDisplay] = useState('mainDisplay')
@@ -61,7 +66,7 @@ const GalleryPage = () => {
             className="galleryPage galleryBackground"
             style={{ '--color-shadeOne': colorShade }}
             transition={{
-                duration: 0.5
+                duration: 2.5
             }}
         >
 
@@ -102,7 +107,6 @@ const GalleryPage = () => {
                 <button onClick={handleViewJump}>Menu</button>
                 <ArrowButton handleNavigation={handleArrowNavigation} division='section' direction={1} pointer='rightArrow' />
             </div>
-
         </div >
     )
 }

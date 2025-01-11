@@ -24,6 +24,8 @@ function App() {
     'http://res.cloudinary.com/dzh1qe1zp/image/upload/v1704915035/squareEleven.jpg'
   ];
 
+  const location = useLocation()
+
 
 
   return (
