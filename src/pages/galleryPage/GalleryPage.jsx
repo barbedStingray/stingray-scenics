@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform, useMotionTemplate } from 'framer-motion'
 import './galleryPage.css'
 import { sectionVariants } from './galleryComponents/animations'
@@ -12,15 +12,10 @@ import ArrowButton from '../../components/arrowButton/ArrowButton'
 
 const GalleryPage = () => {
 
-    // reducers
-    const gallerySectionReducer = useSelector((state) => state.gallerySection)
-    console.log('gallerySection', gallerySectionReducer)
+    const dispatch = useDispatch()
+    const { gallerySection, galleryDisplay, colorShade } = useSelector((state) => state.gallerySlice)
+    const direction = useSelector((state) => state.direction)
 
-    const [gallerySection, setGallerySection] = useState('welcome')
-    const [galleryDisplay, setGalleryDisplay] = useState('mainDisplay')
-    const [direction, setDirection] = useState(0)
-    const currentData = galleryData[gallerySection][galleryDisplay]['content']
-    const [colorShade, setColorShade] = useState('#008225')
 
     const hiddenButtons = ['welcome', 'menuSection']
     const displayButtonClass = hiddenButtons.includes(gallerySection) ? 'noDisplay' : 'displayButtons'
@@ -28,11 +23,11 @@ const GalleryPage = () => {
 
     const handleViewJump = () => {
         console.log('menu option')
-        setGallerySection('menuSection')
-        setGalleryDisplay('mainDisplay')
-        // set color for menu as well OR leave it as whatever color it already is
+        dispatch({
+            type: 'SECTION_CHANGE',
+            payload: { gallerySection: 'menuSection', galleryDisplay: 'mainDisplay', colorShade: colorShade }
+        })
     }
-
 
 
     const handleArrowNavigation = (type, increment) => {
@@ -42,21 +37,23 @@ const GalleryPage = () => {
 
         if (newIndex < 0 || newIndex >= currentList.length || currentList[newIndex] === 'menuSection') return
 
-        setDirection(increment)
+        dispatch({ type: 'SET_DIRECTION', payload: increment })
 
         if (type === 'section') {
             const newSection = currentList[newIndex];
             const newShade = galleryData[newSection]['mainDisplay'].color
-
-            setGallerySection(currentList[newIndex])
-            setGalleryDisplay('mainDisplay')
-            setColorShade(newShade);
+            dispatch({
+                type: 'SECTION_CHANGE',
+                payload: { gallerySection: newSection, colorShade: newShade }
+            })
 
         } else {
             const newDisplay = currentList[newIndex];
             const newShade = galleryData[gallerySection][newDisplay].color
-            setGalleryDisplay(currentList[newIndex])
-            setColorShade(newShade);
+            dispatch({
+                type: 'DISPLAY_CHANGE',
+                payload: { gallerySection: gallerySection, galleryDisplay: newDisplay, colorShade: newShade }
+            })
         }
 
     }
@@ -70,7 +67,7 @@ const GalleryPage = () => {
             }}
         >
 
-            <DisplayIcon displayData={{ gallerySection, galleryDisplay }} />
+            <DisplayIcon />
 
             <AnimatePresence custom={direction} mode="wait" initial={false}>
                 <motion.div
@@ -88,11 +85,7 @@ const GalleryPage = () => {
                         ease: 'anticipate',
                     }}
                 >
-                    {gallerySection === 'menuSection' ?
-                        <MenuSection controls={{ setGallerySection, setGalleryDisplay, setColorShade }} />
-                        :
-                        <DisplayContent displayData={{ gallerySection, galleryDisplay, currentData, direction }} />
-                    }
+                    {gallerySection === 'menuSection' ? <MenuSection /> : <DisplayContent />}
 
                     <div className={displayButtonClass}>
                         <ArrowButton handleNavigation={handleArrowNavigation} division='display' direction={-1} pointer='upArrow' />

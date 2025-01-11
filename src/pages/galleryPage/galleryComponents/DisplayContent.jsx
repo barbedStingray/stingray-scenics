@@ -1,14 +1,17 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { slideVariants, displaySpring } from './animations'
 
 
-const DisplayContent = ({ displayData }) => {
-    const { gallerySection, galleryDisplay, currentData, direction } = displayData;
+const DisplayContent = () => {
 
     const navigate = useNavigate()
+    const direction = useSelector((state) => state.direction)
+    const { gallerySection, galleryDisplay } = useSelector((state) => state.gallerySlice)
+    const { title, description, photo } = useSelector((state) => state.gallerySlice).content
 
     const toGroupDisplay = () => {
         navigate('/groupDisplay')
@@ -29,8 +32,8 @@ const DisplayContent = ({ displayData }) => {
             >
                 <motion.img
                     className="displayImage"
-                    src={currentData.photo}
-                    alt={currentData.title}
+                    src={photo}
+                    alt={title}
                     custom={direction}
                     variants={slideVariants}
                     transition={displaySpring}
@@ -41,7 +44,7 @@ const DisplayContent = ({ displayData }) => {
                     variants={slideVariants}
                     transition={displaySpring}
                 >
-                    {currentData.title}
+                    {title}
                 </motion.p>
 
                 <div className='displayLine'></div>
@@ -52,7 +55,7 @@ const DisplayContent = ({ displayData }) => {
                     variants={slideVariants}
                     transition={displaySpring}
                 >
-                    {currentData.description}
+                    {description}
                 </motion.p>
 
                 <motion.button

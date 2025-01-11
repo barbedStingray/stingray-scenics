@@ -1,7 +1,6 @@
 import * as images from '../../../images';
 
 
-
 const galleryData = {
     welcome: {
         mainDisplay: {

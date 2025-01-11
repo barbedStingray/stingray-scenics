@@ -24,7 +24,7 @@ export const displaySpring = {
 export const slideVariants = {
     enter: (direction) => ({
         opacity: 0,
-        y: direction > 0 ? 30 : -30,
+        y: direction > 0 ? 15 : -15,
     }),
     center: {
         opacity: 1,
@@ -32,7 +32,7 @@ export const slideVariants = {
     },
     exit: (direction) => ({
         opacity: 0,
-        y: direction > 0 ? -30 : 30,
+        y: direction > 0 ? -15 : 15,
     })
 }
 
