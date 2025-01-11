@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform, useMotionTemplate } from 'framer-motion'
 import './galleryPage.css'
@@ -15,11 +15,10 @@ const GalleryPage = () => {
     const dispatch = useDispatch()
     const { gallerySection, galleryDisplay, colorShade } = useSelector((state) => state.gallerySlice)
     const direction = useSelector((state) => state.direction)
-    console.log(gallerySection, galleryDisplay, colorShade)
+    console.log(colorShade)
 
     const hiddenButtons = ['welcome', 'menuSection']
     const displayButtonClass = hiddenButtons.includes(gallerySection) ? 'noDisplay' : 'displayButtons'
-
 
     const handleViewJump = () => {
         console.log('menu option')
@@ -61,7 +60,7 @@ const GalleryPage = () => {
     return (
         <div
             className="galleryPage galleryBackground"
-            style={{ '--color-shadeOne': colorShade }}
+            style={{ '--color-shadeOne': colorShade[0] }}
             transition={{
                 duration: 2.5
             }}

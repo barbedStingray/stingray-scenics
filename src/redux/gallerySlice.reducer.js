@@ -10,7 +10,7 @@ const getContent = (section, display) => {
 const initialState = {
     gallerySection: 'welcome',
     galleryDisplay: 'mainDisplay',
-    colorShade: '#00822533',
+    colorShade: ['#00822544', '#0d00ff33'],
     content: getContent('welcome', 'mainDisplay'),
 }
 

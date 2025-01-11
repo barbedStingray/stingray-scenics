@@ -1,10 +1,14 @@
 import React, { useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import './groupDisplay.css'
 import '../galleryPage/galleryPage.css'
 import { motion, useScroll, useMotionTemplate, useTransform, useMotionValueEvent, useInView } from 'framer-motion'
 
 const GroupDisplay = () => {
+
+    const { colorShade } = useSelector((state) => state.gallerySlice)
+    
 
     const navigate = useNavigate()
 
@@ -16,13 +20,14 @@ const GroupDisplay = () => {
     useMotionValueEvent(groupContainer, 'change', (latest) =>
         console.log('mainY', latest)
     )
+    // * use for portfolio - double gradient shift
+    // const doubleGradientColor = useTransform(groupContainer, [0, 1], [
+    //     `linear-gradient(90deg,${colorShade[0]},${colorShade[1]})`,
+    //     `linear-gradient(190deg,${colorShade[1]},${colorShade[0]})`,
+    // ])
     const gradientColor = useTransform(groupContainer, [0, 1], [
-        'linear-gradient(90deg,#ecf9d455,#375354)', // start
-        'linear-gradient(90deg, #ff758c55, #01003188)', // start
-        // 'linear-gradient(90deg, #010031, #ff758c)', // start
-        // 'linear-gradient(90deg, #6a11cb, #2575fc)', // end
-        // 'linear-gradient(90deg, #ff7eb3, #ff758c)', // start
-        // 'linear-gradient(90deg, #6a11cb, #2575fc)', // end
+        `${colorShade[0]}`,
+        `${colorShade[1]}`,
     ])
     const gradientStyle = useMotionTemplate`${gradientColor}`
 
