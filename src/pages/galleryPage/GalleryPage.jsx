@@ -15,7 +15,7 @@ const GalleryPage = () => {
     const dispatch = useDispatch()
     const { gallerySection, galleryDisplay, colorShade } = useSelector((state) => state.gallerySlice)
     const direction = useSelector((state) => state.direction)
-
+    console.log(gallerySection, galleryDisplay, colorShade)
 
     const hiddenButtons = ['welcome', 'menuSection']
     const displayButtonClass = hiddenButtons.includes(gallerySection) ? 'noDisplay' : 'displayButtons'

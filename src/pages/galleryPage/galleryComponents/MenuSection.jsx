@@ -1,26 +1,30 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { AnimatePresence, motion } from 'framer-motion'
 
 import galleryData from './galleryData'
 
 
-const MenuSection = ({ controls }) => {
-    const { setGallerySection, setGalleryDisplay, setColorShade } = controls
+const MenuSection = () => {
+
+    const dispatch = useDispatch()
 
     const [currentSection, setCurrentSection] = useState('lordOfTheRings')
+
     const [menuSectionsOrder, setMenuSectionsOrder] = useState(
         Object.keys(galleryData)
             .map((section) => ({
                 galleryLabel: section,
                 title: galleryData[section]?.mainDisplay.content.title,
             }))
-            .filter((_, i, arr) => i < arr.length - 1 && i !== 0)
-    )
+            .filter((_, i, arr) => i < arr.length - 1 && i !== 0))
+            
     const menuDisplays = Object.keys(galleryData[currentSection]).map((display) => ({
         galleryLabel: display,
         title: galleryData[currentSection][display]?.content.title,
         color: galleryData[currentSection][display]?.color,
-    })).filter((_, i, arr) => i !== 0)
+    }))
+        .filter((_, i, arr) => i !== 0)
 
 
     const handleSectionClick = (clickedLabel) => {
@@ -55,6 +59,18 @@ const MenuSection = ({ controls }) => {
         exit: { opacity: 0, y: -20 },
     }
 
+    const handleMenuJump = (display) => {
+        console.log('BOOSTING')
+        dispatch({
+            type: 'MENU_JUMP',
+            payload: {
+                gallerySection: currentSection,
+                galleryDisplay: display.galleryLabel,
+                colorShade: display.color
+            },
+        })
+    }
+
 
     return (
         <div className='menuSection'>
@@ -65,7 +81,7 @@ const MenuSection = ({ controls }) => {
                         className={currentSection === section.galleryLabel ? 'menuButton glassMorphBlack' : 'menuButton glassMorphWhite'}
                         onClick={() => handleSectionClick(section.galleryLabel)}
                         key={section.galleryLabel}
-                        whileHover={{ scale: 1.05 }}
+                        whileHover={{ scale: 1.07 }}
                         whileTap={{ scale: 0.95 }}
                     >
                         {section.title}
@@ -86,11 +102,7 @@ const MenuSection = ({ controls }) => {
                         <motion.button
                             className='menuButton glassMorphWhite'
                             key={display.galleryLabel}
-                            onClick={() => {
-                                setGallerySection(currentSection)
-                                setGalleryDisplay(display.galleryLabel)
-                                setColorShade(display.color)
-                            }}
+                            onClick={() => handleMenuJump(display)}
                             variants={childVariants}
                         >
                             {display.title}
