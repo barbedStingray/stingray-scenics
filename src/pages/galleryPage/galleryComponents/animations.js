@@ -1,25 +1,8 @@
-
-// export const slideVariants = {
-//     enter: {
-//         opacity: 0,
-//         y: 30,
-//     },
-//     center: {
-//         opacity: 1,
-//         y: 0,
-//     },
-//     exit: {
-//         opacity: 0,
-//         y: -30,
-//     }
-// }
-
 export const displaySpring = {
     type: "spring",
     stiffness: 200,
     damping: 15,
 }
-
 
 export const slideVariants = {
     enter: (direction) => ({
@@ -35,7 +18,6 @@ export const slideVariants = {
         y: direction > 0 ? -15 : 15,
     })
 }
-
 
 export const sectionVariants = {
     enter: (direction) => ({
@@ -53,5 +35,3 @@ export const sectionVariants = {
         transformOrigin: "50% 50%",
     })
 }
-
-

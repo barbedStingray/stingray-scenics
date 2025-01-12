@@ -5,10 +5,12 @@ import './galleryPage.css'
 import { sectionVariants } from './galleryComponents/animations'
 
 import MenuSection from './galleryComponents/MenuSection'
+import GalleryInformation from './galleryComponents/GalleryInformation'
 import DisplayContent from './galleryComponents/DisplayContent'
 import galleryData from './galleryComponents/galleryData'
 import DisplayIcon from './galleryComponents/DisplayIcon'
 import ArrowButton from '../../components/arrowButton/ArrowButton'
+
 
 const GalleryPage = () => {
 
@@ -28,7 +30,6 @@ const GalleryPage = () => {
         })
     }
 
-
     const handleArrowNavigation = (type, increment) => {
         const currentList = type === 'section' ? Object.keys(galleryData) : Object.keys(galleryData[gallerySection])
         const currentIndex = currentList.indexOf(type === 'section' ? gallerySection : galleryDisplay)
@@ -42,8 +43,7 @@ const GalleryPage = () => {
             const newSection = currentList[newIndex];
             const newShade = galleryData[newSection]['mainDisplay'].color
             dispatch({
-                type: 'SECTION_CHANGE',
-                payload: { gallerySection: newSection, colorShade: newShade }
+                type: 'SECTION_CHANGE', payload: { gallerySection: newSection, colorShade: newShade }
             })
 
         } else {
@@ -54,8 +54,8 @@ const GalleryPage = () => {
                 payload: { gallerySection: gallerySection, galleryDisplay: newDisplay, colorShade: newShade }
             })
         }
-
     }
+
 
     return (
         <div
@@ -68,37 +68,14 @@ const GalleryPage = () => {
 
             <DisplayIcon />
 
-            <AnimatePresence custom={direction} mode="wait" initial={false}>
-                <motion.div
-                    className="gallerySection"
-                    key={`gallerySection${gallerySection}`}
-                    custom={direction} // Pass direction to variants
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
-                    variants={sectionVariants}
-                    transition={{
-                        type: 'spring',
-                        stiffness: 200,
-                        damping: 15,
-                        ease: 'anticipate',
-                    }}
-                >
-                    {gallerySection === 'menuSection' ? <MenuSection /> : <DisplayContent />}
-
-                    <div className={displayButtonClass}>
-                        <ArrowButton handleNavigation={handleArrowNavigation} division='display' direction={-1} pointer='upArrow' />
-                        <ArrowButton handleNavigation={handleArrowNavigation} division='display' direction={1} pointer='downArrow' />
-                    </div>
-
-                </motion.div>
-            </AnimatePresence>
+            <GalleryInformation />
 
             <div className='sectionButtons'>
-                <ArrowButton handleNavigation={handleArrowNavigation} division='section' direction={-1} pointer='leftArrow' />
+                <ArrowButton division='section' direction={-1} pointer='leftArrow' />
                 <button onClick={handleViewJump}>Menu</button>
-                <ArrowButton handleNavigation={handleArrowNavigation} division='section' direction={1} pointer='rightArrow' />
+                <ArrowButton division='section' direction={1} pointer='rightArrow' />
             </div>
+
         </div >
     )
 }

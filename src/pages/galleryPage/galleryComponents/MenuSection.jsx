@@ -8,7 +8,6 @@ import galleryData from './galleryData'
 const MenuSection = () => {
 
     const dispatch = useDispatch()
-
     const [currentSection, setCurrentSection] = useState('lordOfTheRings')
 
     const [menuSectionsOrder, setMenuSectionsOrder] = useState(

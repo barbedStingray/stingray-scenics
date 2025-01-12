@@ -1,12 +1,18 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 import './arrowButton.css'
+import { handleArrowNavigation } from "../../pages/galleryPage/galleryComponents/galleryScripts";
 
 
-const ArrowButton = ({ handleNavigation, division, direction, pointer }) => {
+
+const ArrowButton = ({ division, direction, pointer }) => {
+
+    const dispatch = useDispatch()
+    const { gallerySection, galleryDisplay } = useSelector((state) => state.gallerySlice)
 
     const [clicked, setClicked] = useState(false) // Track click state
-    const lines = Array.from({ length: 5 }) 
+    const lines = Array.from({ length: 5 })
     const dots = Array.from({ length: 3 })
 
     const dotVariants = {
@@ -32,7 +38,8 @@ const ArrowButton = ({ handleNavigation, division, direction, pointer }) => {
             setClicked(false) // triggers reset animation
         }, 500) // Adjust delay as needed (in milliseconds)
 
-        handleNavigation(division, direction)
+        // handle your actual navigation
+        handleArrowNavigation(division, direction, gallerySection, galleryDisplay, dispatch)
     };
 
 
@@ -55,9 +62,9 @@ const ArrowButton = ({ handleNavigation, division, direction, pointer }) => {
                             variants={dotVariants}
                             animate={clicked ? "clicked" : "initial"} // Change animation based on click state
                             transition={{
-                                duration: 0.3, 
+                                duration: 0.3,
                                 delay: dotIndex * 0.1,
-                            }} 
+                            }}
                         />
                     ))}
                 </motion.span>

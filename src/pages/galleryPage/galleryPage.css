@@ -83,13 +83,15 @@
 
 
 
-.gallerySection {
+.galleryInformation {
     border: 2px solid red;
     flex: 7;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0) 80%);
     /* overflow: hidden; */
     /* box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5); */
     width: 90%;
+    max-width: 510px;
+
     position: relative;
     display: flex;
     flex-flow: column nowrap;
