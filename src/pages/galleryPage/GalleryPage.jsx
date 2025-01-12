@@ -14,48 +14,7 @@ import ArrowButton from '../../components/arrowButton/ArrowButton'
 
 const GalleryPage = () => {
 
-    const dispatch = useDispatch()
-    const { gallerySection, galleryDisplay, colorShade } = useSelector((state) => state.gallerySlice)
-    const direction = useSelector((state) => state.direction)
-    console.log(colorShade)
-
-    const hiddenButtons = ['welcome', 'menuSection']
-    const displayButtonClass = hiddenButtons.includes(gallerySection) ? 'noDisplay' : 'displayButtons'
-
-    const handleViewJump = () => {
-        console.log('menu option')
-        dispatch({
-            type: 'SECTION_CHANGE',
-            payload: { gallerySection: 'menuSection', galleryDisplay: 'mainDisplay', colorShade: colorShade }
-        })
-    }
-
-    const handleArrowNavigation = (type, increment) => {
-        const currentList = type === 'section' ? Object.keys(galleryData) : Object.keys(galleryData[gallerySection])
-        const currentIndex = currentList.indexOf(type === 'section' ? gallerySection : galleryDisplay)
-        const newIndex = currentIndex + increment
-
-        if (newIndex < 0 || newIndex >= currentList.length || currentList[newIndex] === 'menuSection') return
-
-        dispatch({ type: 'SET_DIRECTION', payload: increment })
-
-        if (type === 'section') {
-            const newSection = currentList[newIndex];
-            const newShade = galleryData[newSection]['mainDisplay'].color
-            dispatch({
-                type: 'SECTION_CHANGE', payload: { gallerySection: newSection, colorShade: newShade }
-            })
-
-        } else {
-            const newDisplay = currentList[newIndex];
-            const newShade = galleryData[gallerySection][newDisplay].color
-            dispatch({
-                type: 'DISPLAY_CHANGE',
-                payload: { gallerySection: gallerySection, galleryDisplay: newDisplay, colorShade: newShade }
-            })
-        }
-    }
-
+    const { colorShade } = useSelector((state) => state.gallerySlice)
 
     return (
         <div
@@ -68,12 +27,9 @@ const GalleryPage = () => {
 
             <DisplayIcon />
 
-            <GalleryInformation />
-
-            <div className='sectionButtons'>
-                <ArrowButton division='section' direction={-1} pointer='leftArrow' />
-                <button onClick={handleViewJump}>Menu</button>
-                <ArrowButton division='section' direction={1} pointer='rightArrow' />
+            <div className='galleryInfoExpansion'>
+                <div className='bigImageSlider'></div>
+                <GalleryInformation />
             </div>
 
         </div >
