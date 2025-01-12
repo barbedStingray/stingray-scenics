@@ -5,7 +5,7 @@ import MenuSection from './MenuSection'
 import DisplayContent from './DisplayContent'
 import { sectionVariants } from './animations'
 import ArrowButton from '../../../components/arrowButton/ArrowButton'
-
+import DisplayIcon from './DisplayIcon'
 
 
 const GalleryInformation = () => {
@@ -27,7 +27,10 @@ const GalleryInformation = () => {
 
 
     return (
-        <>
+        <div className='galleryControlPanel'>
+
+            <DisplayIcon />
+
             <AnimatePresence custom={direction} mode="wait" initial={false}>
 
                 <motion.div
@@ -60,7 +63,7 @@ const GalleryInformation = () => {
                 <button onClick={handleViewJump}>Menu</button>
                 <ArrowButton division='section' direction={1} pointer='rightArrow' />
             </div>
-        </>
+        </div>
     )
 }
 
