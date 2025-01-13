@@ -7,8 +7,8 @@
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     gap: var(--dot-size);
 }
 

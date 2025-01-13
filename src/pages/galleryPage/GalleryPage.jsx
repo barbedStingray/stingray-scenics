@@ -21,12 +21,10 @@ const GalleryPage = () => {
             }}
         >
 
-            <div className='galleryInfoExpansion'>
-                <div className='bigImageSlider'>
-                    <img className='bigImage' src={imperials} />
-                </div>
-                <GalleryInformation />
+            <div className='bigImageSlider'>
+                <img className='bigImage' src={imperials} />
             </div>
+            <GalleryInformation />
 
         </div >
     )

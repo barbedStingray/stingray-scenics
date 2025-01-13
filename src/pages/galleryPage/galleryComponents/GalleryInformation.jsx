@@ -27,14 +27,14 @@ const GalleryInformation = () => {
 
 
     return (
-        <div className='galleryControlPanel'>
+        <div className='galleryVeiwControl'>
 
             <DisplayIcon />
 
             <AnimatePresence custom={direction} mode="wait" initial={false}>
 
                 <motion.div
-                    className="galleryInformation"
+                    className="contentContainer"
                     key={`galleryInformation-${gallerySection}`}
                     custom={direction} // Pass direction to variants
                     initial="enter"
