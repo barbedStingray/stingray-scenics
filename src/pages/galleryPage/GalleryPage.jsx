@@ -4,7 +4,6 @@ import { motion, AnimatePresence, useMotionValue, useSpring, useTransform, useMo
 import './galleryPage.css'
 
 import GalleryInformation from './galleryComponents/GalleryInformation'
-import DisplayIcon from './galleryComponents/DisplayIcon'
 import imperials from '../../images/imperials.jpeg'
 
 
@@ -24,6 +23,7 @@ const GalleryPage = () => {
             <div className='bigImageSlider'>
                 <img className='bigImage' src={imperials} />
             </div>
+
             <GalleryInformation />
 
         </div >

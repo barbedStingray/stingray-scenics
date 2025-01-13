@@ -228,7 +228,7 @@
     .galleryPage {
         /* custom variables for after shading */
         --color-shadeOne: #9300c9;
-    
+
         border: 2px solid magenta;
         display: flex;
         flex-flow: row nowrap;
@@ -238,16 +238,25 @@
         overflow: hidden;
         padding: 2dvh 0dvw;
     }
-    
+
+    .galleryViewControl {
+        flex: 0;
+        width: 430px;
+        /* max-width: none;
+        min-width: none; */
+        /* flex-shrink: 0; */
+        /* flex: 0 0 430px; */
+    }
+
 
     .bigImageSlider {
         border: 2px solid red;
-        /* display: none; */
         display: flex;
-        flex: 1;
+        flex-grow: 1;
         height: 100%;
+        padding: 2dvh;
     }
-    
+
     .bigImage {
         /* border: 2px solid yellow; */
         /* display: none; */
@@ -256,8 +265,7 @@
         height: 100%;
         object-fit: cover;
     }
-    
+
 
 
 }
-
