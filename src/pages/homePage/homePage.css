@@ -1,24 +1,67 @@
 .homePage {
-    /* border: 2px solid blue; */
+    border: 2px solid blue;
     width: 100dvw;
     height: 100dvh;
     display: block;
     overflow-y: scroll;
+    position: relative;
 }
 
 .homeScrollDiv {
-    /* border: 2px solid gold; */
-    height: 4000px;
+    border: 2px solid goldenrod;
+    position: relative;
+    /* overflow: hidden; */
+    /* height: 4000px; */
 }
 
-.homeDisplay {
+.homeImageDisplay {
+    /* border: 2px solid orangered; */
+    width: 100%;
     height: 100dvh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+
+.homeSection {
+    /* border: 2px solid greenyellow; */
     width: 100%;
     position: sticky;
-    top: 0;
-    overflow: hidden;
-    z-index: 5;
+    top: 0%;
+    /* background-color: black; */
 }
+
+
+.homeSection:nth-child(1) {
+    height: 65dvh;
+    top: 35dvh;
+    margin-top: 100dvh;
+}
+
+.homeSection:nth-child(2) {
+    height: 60dvh;
+    top: 40dvh;
+}
+
+.homeSection:nth-child(3) {
+    height: 55dvh;
+    top: 45dvh;
+}
+
+.homeSection:nth-child(4) {
+    height: 50dvh;
+    top: 50dvh;
+}
+
+.homeSection:nth-child(5) {
+    height: 45dvh;
+    top: 55dvh;
+}
+
+
+
+
 
 .homeImage {
     width: 100%;
@@ -26,6 +69,21 @@
     object-fit: cover;
     z-index: 0;
 }
+
+
+
+
+
+
+/* .homeDisplay {
+    height: 100dvh;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+    z-index: 5;
+} */
+
 
 .homeTextStyle {
     color: #e5e5e5;
@@ -36,8 +94,8 @@
     letter-spacing: 3px;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    /* align-items: center; */
     text-shadow:
         1px 1px 2px rgba(0, 0, 0, 0.8),
         2px 2px 5px rgba(0, 0, 0, 0.7),
@@ -51,65 +109,58 @@
     font-family: wildGrowth;
     top: 30%;
     left: 50%;
-    transform: translate(-50%, -50%) rotateX(15deg) rotateY(-10deg);
+    transform: translate(-50%, -50%) rotateX(18deg) rotateY(-10deg);
     width: 105%;
-    height: 30%;
-    font-size: 12vw;
-    padding: 0 0 8dvh 6dvw;
+    height: 10dvh;
+    font-size: 6vw;
+    padding: 0 0 8dvh 8dvw;
     word-wrap: break-word;
 }
 
-.scrollAdventure {
-    /* border: 2px solid lime; */
+/* .scrollAdventure {
     height: 20%;
     width: 75%;
     font-size: 6vw;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%) rotateX(15deg) rotateY(-10deg);
-}
+} */
 
-.tinyFigures {
-    /* border: 2px solid lime; */
+/* .tinyFigures {
     font-family: wildGrowth;
     height: 15%;
     width: 95%;
     font-size: 10vw;
     top: 30%;
     left: 0%;
-}
+} */
 
-.epicStories {
-    /* border: 2px solid lime; */
-    font-family: wildGrowth;
+/* .epicStories {
     height: 15%;
     width: 95%;
     font-size: 10vw;
     top: 38%;
     left: 15%;
-}
+} */
 
-.miniImage {
-    /* border: 2px solid white; */
+/* .miniImage {
     position: absolute;
     top: 0;
     left: 0;
     object-fit: contain;
     filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.75));
-}
+} */
 
-.landscapeImage {
-    /* border: 2px solid white; */
+/* .landscapeImage {
     border-radius: 10px;
     position: absolute;
     top: 0;
     left: 0;
     object-fit: cover;
     box-shadow: 3px 3px 15px 5px black;
-}
+} */
 
-.homeMenu {
-    /* border: 2px solid lime; */
+/* .homeMenu {
     height: 100dvh;
     width: 100%;
     position: absolute;
@@ -120,20 +171,18 @@
     flex-flow: column nowrap;
     justify-content: flex-start;
     gap: 20px;
-}
+} */
 
-.menuBanner {
-    /* border: 2px solid blue; */
+/* .menuBanner {
     height: 12%;
     white-space: nowrap;
     margin-left: -10px;
     overflow: hidden;
     transform: rotateX(15deg) rotateY(-10deg);
     z-index: 10;
-}
+} */
 
-.bannerText {
-    /* border: 2px solid red; */
+/* .bannerText {
     border-top: 2px solid white;
     border-bottom: 2px solid white;
     font-family: wildGrowth;
@@ -142,4 +191,4 @@
     text-decoration: none;
     font-size: 7.5dvw;
     padding: 0px 0px 6px 10px;
-}
+} */

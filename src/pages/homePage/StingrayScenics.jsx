@@ -38,10 +38,13 @@ const StingrayScenics = () => {
 
     // home photo
     const homePhotoScale = useTransform(homeContainer, [0, 1], [1.25, 1])
+    const homePhotoHeight = useTransform(homeContainer, [0, 0.285], ['100dvh', '40dvh'])
     // const homePhotoY = useTransform(homeContainer, [0.8, 1], ['0dvh', '100dvh'])
     const grayscaleValue = useTransform(homeContainer, [0, 0.5, 0.78, 0.92], ['0%', '100%', '100%', '0%'])
     const blurValue = useTransform(homeContainer, [0.14, 0.25, 0.78, 0.83], [0, 2, 2, 0]);
     const filterStyle = useMotionTemplate`grayscale(${grayscaleValue}) blur(${blurValue}px)`;
+
+
 
     // mini titles
     const titleOp = useTransform(homeContainer, [0, 0.1], [1, 0])
@@ -72,64 +75,100 @@ const StingrayScenics = () => {
         <motion.div className='homePage' ref={homeContainerRef}>
             {/* <NavBar /> */}
 
+            <motion.div className='homeImageDisplay'
+                style={{ height: homePhotoHeight }}
+            >
+                <img className='homeImage' src={pelennorFields}
+                    style={{ scale: homePhotoScale, filter: filterStyle, height: homePhotoHeight }}
+                />
+                <p className='homeTextStyle SStitle glassMorphGreen'
+                    style={{ opacity: titleOp }}
+                >Stingray scenics"</p>
+            </motion.div>
+
 
             <div className='homeScrollDiv'>
 
-                <div className='homeDisplay'>
-
-                    <motion.img className='homeImage' src={pelennorFields}
-                        style={{ scale: homePhotoScale, filter: filterStyle }}
-                    />
-
-                    {/* titles */}
-                    <motion.p className='homeTextStyle SStitle glassMorphGreen'
-                        style={{ opacity: titleOp }}
-                    >Stingray scenics"</motion.p>
-
-                    <motion.p className='homeTextStyle scrollAdventure'
-                        style={{ opacity: scrollAdventureOp }}
-                    >Scroll for Adventure</motion.p>
-
-                    <motion.p className='homeTextStyle tinyFigures'
-                        style={{ y: tinyFiguresY, opacity: tinyFiguresOp }}
-                    >Tiny figures+</motion.p>
-
-                    <motion.p className='homeTextStyle epicStories'
-                        style={{ x: epicStoriesX, opacity: epicStoriesOp }}
-                    >Epic stories?</motion.p>
-
-
-                    {/* images */}
-                    {tinyFiguresImages.map((tinyImage, i) => (
-                        <ParallaxImage key={i} scrollContainer={homeContainer} parDetails={tinyImage} />
-                    ))}
-
-                    {epicStoriesImages.map((storyImage, i) => (
-                        <ParallaxImage key={i} scrollContainer={homeContainer} parDetails={storyImage} />
-                    ))}
-
-
-                    <div className='homeMenu'>
-                        <motion.div className='menuBanner glassMorphGreen' style={{ width: bannerWidth0 }}>
-                            <Link className='homeTextStyle bannerText' to={'/gallery'}>Gallery.</Link>
-                        </motion.div>
-                        <motion.div className='menuBanner glassMorphGreen' style={{ width: bannerWidth1 }}>
-                            <Link className='homeTextStyle bannerText'>Commission"</Link>
-                        </motion.div>
-                        <motion.div className='menuBanner glassMorphGreen' style={{ width: bannerWidth2 }}>
-                            <Link className='homeTextStyle bannerText'>Contact$</Link>
-                        </motion.div>
-                        <motion.div className='menuBanner glassMorphGreen' style={{ width: bannerWidth3 }}>
-                            <Link className='homeTextStyle bannerText'>The hobby%</Link>
-                        </motion.div>
-                        {/* <motion.div className='bannerLink glassMorphGreen' style={{ width: bannerWidth3 }}>
-                            <Link>Products</Link>
-                        </motion.div> */}
-                    </div>
+                <div className='homeSection'>
+                    <h1>GALLERY</h1>
                 </div>
+                <div className='homeSection'>
+                    <h1>COMMISSION</h1>
+                </div>
+                <div className='homeSection'>
+                    <h1>CONTACT</h1>
+                </div>
+                <div className='homeSection'>
+                    <h1>THE HOBBY</h1>
+                </div>
+
+
             </div>
-            {/* <p>Custom Wargamming since 2020</p> */}
         </motion.div >
+
+
+
+
+
+
+
+        // <motion.div className='homePage' ref={homeContainerRef}>
+        //     {/* <NavBar /> */}
+
+
+        //     <div className='homeScrollDiv'>
+
+        //         <div className='homeDisplay'>
+
+        //             <motion.img className='homeImage' src={pelennorFields}
+        //                 style={{ scale: homePhotoScale, filter: filterStyle }}
+        //             />
+        //             <motion.p className='homeTextStyle SStitle glassMorphGreen'
+        //                 style={{ opacity: titleOp }}
+        //             >Stingray scenics"</motion.p>
+
+        //             <motion.p className='homeTextStyle scrollAdventure'
+        //                 style={{ opacity: scrollAdventureOp }}
+        //             >Scroll for Adventure</motion.p>
+
+
+        //             <motion.p className='homeTextStyle tinyFigures'
+        //                 style={{ y: tinyFiguresY, opacity: tinyFiguresOp }}
+        //             >Tiny figures+</motion.p>
+
+        //             <motion.p className='homeTextStyle epicStories'
+        //                 style={{ x: epicStoriesX, opacity: epicStoriesOp }}
+        //             >Epic stories?</motion.p>
+
+        //             {tinyFiguresImages.map((tinyImage, i) => (
+        //                 <ParallaxImage key={i} scrollContainer={homeContainer} parDetails={tinyImage} />
+        //             ))}
+
+        //             {epicStoriesImages.map((storyImage, i) => (
+        //                 <ParallaxImage key={i} scrollContainer={homeContainer} parDetails={storyImage} />
+        //             ))}
+
+
+        //             <div className='homeMenu'>
+        //                 <motion.div className='menuBanner glassMorphGreen' style={{ width: bannerWidth0 }}>
+        //                     <Link className='homeTextStyle bannerText' to={'/gallery'}>Gallery.</Link>
+        //                 </motion.div>
+        //                 <motion.div className='menuBanner glassMorphGreen' style={{ width: bannerWidth1 }}>
+        //                     <Link className='homeTextStyle bannerText'>Commission"</Link>
+        //                 </motion.div>
+        //                 <motion.div className='menuBanner glassMorphGreen' style={{ width: bannerWidth2 }}>
+        //                     <Link className='homeTextStyle bannerText'>Contact$</Link>
+        //                 </motion.div>
+        //                 <motion.div className='menuBanner glassMorphGreen' style={{ width: bannerWidth3 }}>
+        //                     <Link className='homeTextStyle bannerText'>The hobby%</Link>
+        //                 </motion.div>
+        //                 <motion.div className='bannerLink glassMorphGreen' style={{ width: bannerWidth3 }}>
+        //                     <Link>Products</Link>
+        //                 </motion.div>
+        //             </div>
+        //         </div>
+        //     </div>
+        // </motion.div >
     )
 }
 

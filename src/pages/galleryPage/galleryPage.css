@@ -7,7 +7,7 @@
     width: 100dvw;
     height: 100dvh;
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
     position: relative;
@@ -62,7 +62,6 @@
     width: 100%;
     min-width: 375px;
     max-width: 430px;
-    flex: 1;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -226,26 +225,13 @@
 @media (min-width: 430px) {
 
     .galleryPage {
-        /* custom variables for after shading */
-        --color-shadeOne: #9300c9;
-
         border: 2px solid magenta;
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        overflow: hidden;
-        padding: 2dvh 0dvw;
+        /* padding: 5dvh 5dvw; */
+
     }
 
     .galleryViewControl {
-        flex: 0;
         width: 430px;
-        /* max-width: none;
-        min-width: none; */
-        /* flex-shrink: 0; */
-        /* flex: 0 0 430px; */
     }
 
 
@@ -254,7 +240,8 @@
         display: flex;
         flex-grow: 1;
         height: 100%;
-        padding: 2dvh;
+        /* padding: 4dvh; */
+        z-index: 10;
     }
 
     .bigImage {
