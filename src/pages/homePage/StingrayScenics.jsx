@@ -9,6 +9,11 @@ import epicStoriesImages from '../../parallaxImages/epicStories';
 import pelennorFields from '../../images/pelennorFields.jpeg'
 import NavBar from '../../components/navigation/NavBar'
 
+import moriaGandalf from '../../images/lordoftheRings/moriaGandalf.png'
+import dunharrowGhost from '../../images/lordoftheRings/dunharrowGhost.png'
+import b1BattleDroid from '../../images/starWars/b1BattleDroid.png'
+import droids from '../../images/droids.png'
+
 const StingrayScenics = () => {
 
     const homeContainerRef = useRef()
@@ -24,21 +29,9 @@ const StingrayScenics = () => {
     )
 
 
-    // timeline
-    // 0.1 SS disappear
-    // 0.13 tiny figures title
-    // 0.14 blur starts
-    // 0.45 tiny figures ends (32 units of time)
-    // 0.45 epic stories starts
-    // 0.8 epic stories ends (35 units of time)
-    // 0.78 grayscale and blur revert begins
-    // 0.8 banner links begin
-    // 1 end
-
-
     // home photo
     const homePhotoScale = useTransform(homeContainer, [0, 1], [1.25, 1])
-    const homePhotoHeight = useTransform(homeContainer, [0, 0.285], ['100dvh', '40dvh'])
+    const homePhotoHeight = useTransform(homeContainer, [0, 0.245], ['100dvh', '40dvh'])
     // const homePhotoY = useTransform(homeContainer, [0.8, 1], ['0dvh', '100dvh'])
     const grayscaleValue = useTransform(homeContainer, [0, 0.5, 0.78, 0.92], ['0%', '100%', '100%', '0%'])
     const blurValue = useTransform(homeContainer, [0.14, 0.25, 0.78, 0.83], [0, 2, 2, 0]);
@@ -84,22 +77,42 @@ const StingrayScenics = () => {
                 <p className='homeTextStyle SStitle glassMorphGreen'
                     style={{ opacity: titleOp }}
                 >Stingray scenics"</p>
-            </motion.div>
+                <motion.p className='homeTextStyle scrollAdventure'
+                    style={{ opacity: scrollAdventureOp }}
+                >Scroll for Adventure</motion.p>
 
+            </motion.div>
 
             <div className='homeScrollDiv'>
 
                 <div className='homeSection'>
-                    <h1>GALLERY</h1>
+                    <div className='homeContent'>
+                        <h1 className='contentTitle'>WELCOME</h1>
+                        <div className='contentDisplay'>
+                            <div className='contentCoolScene'>
+                                <img src={droids} className='homeImage' />
+                            </div>
+                            <div className='contentDescription'>
+                                <div className='contentCoolMini'>
+                                    <img src={b1BattleDroid} className='homeImage' />
+                                </div>
+                                <p>{openingLine}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div className='homeSection'>
                     <h1>COMMISSION</h1>
+                    <button>Contact</button>
                 </div>
                 <div className='homeSection'>
-                    <h1>CONTACT</h1>
+                    <h1>GALLERY</h1>
                 </div>
                 <div className='homeSection'>
                     <h1>THE HOBBY</h1>
+                </div>
+                <div className='homeSection'>
+                    <h1>Custom Wargamming since 2009</h1>
                 </div>
 
 
