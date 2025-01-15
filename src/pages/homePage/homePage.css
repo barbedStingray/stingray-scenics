@@ -28,8 +28,21 @@
     width: 100%;
     position: sticky;
     top: 0%;
-    background-color: white;
-    /* color: white; */
+    background-color: black;
+    /* background: linear-gradient(150deg, #052900, #737900); */
+    color: white;
+
+
+    background-image: 
+    linear-gradient(150deg, #052900ee, #737900ee), /* Gradient layer */
+    url('../../images/texture1.png'); 
+
+    background-size: cover, cover;
+    background-repeat: no-repeat, no-repeat;
+    /* background-position: center, center; */
+    /* background-color: #0000ff99; */
+    /* background-blend-mode: overlay; */
+
 }
 
 
@@ -63,6 +76,8 @@
     top: 55dvh;
 }
 
+
+
 .homeContent {
     border: 2px solid blue;
     display: flex;
@@ -75,6 +90,7 @@
 
 .contentTitle {
     /* border: 2px solid magenta; */
+    /* font-family: wildGrowth; */
 }
 
 
@@ -91,19 +107,23 @@
 }
 
 
-
 .contentCoolScene {
     border: 2px solid purple;
-    /* display: none; */
     flex: 1;
+    height: 100%;
+    display: none;
 }
 
 .contentCoolMini {
-    border: 2px solid grey;
+    /* border: 2px solid grey; */
     border-radius: 50%;
 
-    width: 20dvh;
-    height: 20dvh;
+    margin: 1rem;
+    margin-right: 3rem;
+    padding: 8px;
+
+    width: 25dvh;
+    height: 25dvh;
 
     /* position: absolute;
     top: 50%;
@@ -112,21 +132,27 @@
 
     float: left;
     shape-outside: circle(50%);
-    clip-path: circle(50%);
+    /* clip-path: circle(50%); */
 
     background-color: transparent;
     backdrop-filter: blur(2px);
     background-image: linear-gradient(90deg,
-        #ffffff33,
-        #80808033,
-        #ffffff33);
+            #ffffff33,
+            #80808033,
+            #ffffff33);
+
+    box-shadow: 0px 0px 10px black;
+
 }
 
 .contentDescription {
     border: 2px solid gold;
     display: block;
     flex-flow: row nowrap;
-    width: 50%;
+    height: 100%;
+    flex: 1;
+    padding-top: 2rem;
+
 }
 
 .contentDescription p {
@@ -186,4 +212,3 @@
     left: 50%;
     transform: translate(-50%, -50%) rotateX(15deg) rotateY(-10deg);
 }
-

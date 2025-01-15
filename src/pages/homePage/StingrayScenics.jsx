@@ -31,7 +31,7 @@ const StingrayScenics = () => {
 
     // home photo
     const homePhotoScale = useTransform(homeContainer, [0, 1], [1.25, 1])
-    const homePhotoHeight = useTransform(homeContainer, [0, 0.245], ['100dvh', '40dvh'])
+    const homePhotoHeight = useTransform(homeContainer, [0, 0.2355], ['100dvh', '40dvh'])
     // const homePhotoY = useTransform(homeContainer, [0.8, 1], ['0dvh', '100dvh'])
     const grayscaleValue = useTransform(homeContainer, [0, 0.5, 0.78, 0.92], ['0%', '100%', '100%', '0%'])
     const blurValue = useTransform(homeContainer, [0.14, 0.25, 0.78, 0.83], [0, 2, 2, 0]);
