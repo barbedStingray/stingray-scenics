@@ -68,56 +68,93 @@ const StingrayScenics = () => {
         <motion.div className='homePage' ref={homeContainerRef}>
             {/* <NavBar /> */}
 
-            <motion.div className='homeImageDisplay'
-                style={{ height: homePhotoHeight }}
-            >
-                <img className='homeImage' src={pelennorFields}
-                    style={{ scale: homePhotoScale, filter: filterStyle, height: homePhotoHeight }}
-                />
-                <p className='homeTextStyle SStitle glassMorphGreen'
-                    style={{ opacity: titleOp }}
-                >Stingray scenics"</p>
-                <motion.p className='homeTextStyle scrollAdventure'
-                    style={{ opacity: scrollAdventureOp }}
-                >Scroll for Adventure</motion.p>
+            <p className='homeTextStyle SStitle glassMorphGreen'
+                style={{ opacity: titleOp }}
+            >Stingray scenics"</p>
+            <motion.p className='homeTextStyle scrollAdventure'
+                style={{ opacity: scrollAdventureOp }}
+            >Scroll for Adventure</motion.p>
 
-            </motion.div>
 
             <div className='homeScrollDiv'>
 
-                <div className='homeSection'>
-                    <div className='homeContent'>
-                        <h1 className='contentTitle'>WELCOME</h1>
-                        <div className='contentDisplay'>
-                            <div className='contentCoolScene'>
-                                <img src={droids} className='homeImage' />
-                            </div>
-                            <div className='contentDescription'>
-                                <div className='contentCoolMini'>
-                                    <img src={b1BattleDroid} className='homeImage' />
-                                </div>
-                                <p>{openingLine}</p>
-                            </div>
-                        </div>
-                    </div>
+                <div className='revealPanel'>
+                    <img className='homeImage' src={pelennorFields}
+                        style={{ scale: homePhotoScale, filter: filterStyle, height: homePhotoHeight }}
+                    />
                 </div>
-                <div className='homeSection'>
-                    <h1>COMMISSION</h1>
-                    <button>Contact</button>
+                <div className='stickyFooter'>
+                    <h1>Welcome</h1>
+                    <Link to={'/gallery'}>The Gallery</Link>
                 </div>
-                <div className='homeSection'>
-                    <h1>GALLERY</h1>
-                </div>
-                <div className='homeSection'>
-                    <h1>THE HOBBY</h1>
-                </div>
-                <div className='homeSection'>
-                    <h1>Custom Wargamming since 2009</h1>
-                </div>
+
 
 
             </div>
+
+
         </motion.div >
+
+
+
+
+
+
+
+
+        // <motion.div className='homePage' ref={homeContainerRef}>
+        //     {/* <NavBar /> */}
+
+        //     <motion.div className='homeImageDisplay'
+        //         style={{ height: homePhotoHeight }}
+        //     >
+        //         <img className='homeImage' src={pelennorFields}
+        //             style={{ scale: homePhotoScale, filter: filterStyle, height: homePhotoHeight }}
+        //         />
+        //         <p className='homeTextStyle SStitle glassMorphGreen'
+        //             style={{ opacity: titleOp }}
+        //         >Stingray scenics"</p>
+        //         <motion.p className='homeTextStyle scrollAdventure'
+        //             style={{ opacity: scrollAdventureOp }}
+        //         >Scroll for Adventure</motion.p>
+
+        //     </motion.div>
+
+        //     <div className='homeScrollDiv'>
+
+        //         <div className='homeSection'>
+        //             <div className='homeContent'>
+        //                 <h1 className='contentTitle'>WELCOME</h1>
+        //                 <div className='contentDisplay'>
+        //                     <div className='contentCoolScene'>
+        //                         <img src={droids} className='homeImage' />
+        //                     </div>
+        //                     <div className='contentDescription'>
+        //                         <div className='contentCoolMini'>
+        //                             <img src={b1BattleDroid} className='homeImage' />
+        //                         </div>
+        //                         <p>{openingLine}</p>
+        //                     </div>
+        //                 </div>
+        //             </div>
+        //         </div>
+        //         <div className='homeSection'>
+        //             <h1>COMMISSION</h1>
+        //             <button>Contact</button>
+        //         </div>
+        //         <div className='homeSection'>
+        //             <h1>GALLERY</h1>
+        //         </div>
+        //         <div className='homeSection'>
+        //             <h1>THE HOBBY</h1>
+        //         </div>
+        //         <div className='homeSection'>
+        //             <h1>Custom Wargamming since 2009</h1>
+        //         </div>
+
+
+        //     </div>
+        // </motion.div >
 
 
 
