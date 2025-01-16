@@ -21,6 +21,10 @@ html {
   font-family: wildGrowth;
   src: url('./fonts/WildGrowth.ttf')
 }
+@font-face {
+  font-family: ringbearer;
+  src: url('./fonts/Ringbearer.TTF')
+}
 
 /* Mobile 425 - 430 width! */
 
