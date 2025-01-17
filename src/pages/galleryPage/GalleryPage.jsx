@@ -14,7 +14,7 @@ const GalleryPage = () => {
     return (
         <div
             className="galleryPage galleryBackground"
-            style={{ '--color-shadeOne': colorShade[0] }}
+            style={{ '--shade-gallery': colorShade }}
             transition={{
                 duration: 2.5
             }}

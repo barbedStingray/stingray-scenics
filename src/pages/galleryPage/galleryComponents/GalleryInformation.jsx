@@ -13,6 +13,7 @@ const GalleryInformation = () => {
     const dispatch = useDispatch()
     const { gallerySection, colorShade } = useSelector((state) => state.gallerySlice)
     const direction = useSelector((state) => state.direction)
+    console.log('GALLERY shade', colorShade)
 
     const hiddenButtons = ['welcome', 'menuSection']
     const displayButtonClass = hiddenButtons.includes(gallerySection) ? 'noDisplay' : 'displayButtons'

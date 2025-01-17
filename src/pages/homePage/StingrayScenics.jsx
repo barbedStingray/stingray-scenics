@@ -86,18 +86,12 @@ const StingrayScenics = () => {
                 <div className='stickyFooter'>
                     <h1>Custom Wargamming since 2020</h1>
                     <h1 className='SSwelcome'>Welcome</h1>
-                    <div className='footerContent'>
-                        <div className='footerLinks'>
-                            <Link to={'/gallery'}>Gallery</Link>
-                            <Link to={'/gallery'}>Contact</Link>
-                            <Link to={'/gallery'}>Commission</Link>
-                            <Link to={'/gallery'}>Hobby</Link>
-                        </div>
-                        <div className='footerAbout'>
-                            <p>About Me</p>
-                            <p>The Mission</p>
-                        </div>
-
+                    <div className='footerLinks'>
+                        <Link to={'/gallery'}>Gallery</Link>
+                        <Link to={'/gallery'}>Contact</Link>
+                        <Link to={'/gallery'}>Commission</Link>
+                        <Link to={'/gallery'}>Hobby</Link>
+                        <p>About Me</p>
                     </div>
                 </div>
 

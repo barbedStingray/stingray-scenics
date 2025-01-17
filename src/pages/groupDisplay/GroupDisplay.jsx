@@ -3,12 +3,15 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import './groupDisplay.css'
 import '../galleryPage/galleryPage.css'
+import galleryData from '../galleryPage/galleryComponents/galleryData'
 import { motion, useScroll, useMotionTemplate, useTransform, useMotionValueEvent, useInView } from 'framer-motion'
 
 const GroupDisplay = () => {
 
-    const { colorShade } = useSelector((state) => state.gallerySlice)
-    
+    const { gallerySection, galleryDisplay, colorShade } = useSelector((state) => state.gallerySlice)
+    const { title, description, photo } = useSelector((state) => state.gallerySlice).content
+
+    // console.log('GROUP shade', gallerySection, galleryDisplay)
 
     const navigate = useNavigate()
 
@@ -22,14 +25,14 @@ const GroupDisplay = () => {
     )
     // * use for portfolio - double gradient shift
     // const doubleGradientColor = useTransform(groupContainer, [0, 1], [
-    //     `linear-gradient(90deg,${colorShade[0]},${colorShade[1]})`,
-    //     `linear-gradient(190deg,${colorShade[1]},${colorShade[0]})`,
+    //     `linear-gradient(90deg,#00fbff,#008225)`,
+    //     `linear-gradient(190deg,#008225,#0d00ff)`,
     // ])
-    const gradientColor = useTransform(groupContainer, [0, 1], [
-        `${colorShade[0]}`,
-        `${colorShade[1]}`,
-    ])
-    const gradientStyle = useMotionTemplate`${gradientColor}`
+    // const gradientColor = useTransform(groupContainer, [0, 1], [
+    //     `${colorShade[0]}`,
+    //     `${colorShade[1]}`,
+    // ])
+    // const gradientStyle = useMotionTemplate`${doubleGradientColor}`
 
     function backToGallery() {
         navigate('/gallery')
@@ -43,12 +46,12 @@ const GroupDisplay = () => {
         <motion.div
             className='groupDisplay'
             ref={groupContainerRef}
-            style={{ background: gradientStyle }}
+            style={{ '--shade-group': colorShade }}
         >
 
             <div className='scrollDisplay'>
                 <div className='stickyGroup'>
-                    <h1>The Wookies</h1>
+                    <h1>{title}</h1>
                     <button onClick={backToGallery}>Back</button>
                 </div>
 
@@ -68,6 +71,7 @@ const GroupDisplay = () => {
 }
 
 export default GroupDisplay
+
 
 
 const ArtImage = ({ children, index }) => {
