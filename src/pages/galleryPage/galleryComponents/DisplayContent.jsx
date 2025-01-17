@@ -58,6 +58,8 @@ const DisplayContent = () => {
                     {description}
                 </motion.p>
 
+
+
                 <motion.button
                     className='galleryButton'
                     onClick={toGroupDisplay}
@@ -65,8 +67,10 @@ const DisplayContent = () => {
                     variants={slideVariants}
                     transition={displaySpring}
                 >
-                    View Miniatures
+                    View Miniatures Mobile
                 </motion.button>
+
+
 
 
             </motion.div>
