@@ -86,11 +86,11 @@ const ArtImage = ({ children, index, character }) => {
     // const isInView = useInView(ref, { margin: '-30% 0px -20% 0px ' })
     const artImageVariants = {
         enter: { opacity: 1, y: 0, x: 0 },
-        exit: { opacity: 0, y: -20, x: index % 2 === 0 ? -40 : 40 },
+        exit: { opacity: 0, y: -20, x: index % 2 === 0 ? -20 : 20 },
     }
     const artTitleVariants = {
         enter: { opacity: 1, y: 0, x: 0 },
-        exit: { opacity: 0, y: 20, x: index % 2 === 0 ? 40 : -40 },
+        exit: { opacity: 0, y: 20, x: index % 2 === 0 ? 20 : -20 },
     }
 
     return (
@@ -106,10 +106,10 @@ const ArtImage = ({ children, index, character }) => {
                 whileInView="enter"
                 exit="exit"
                 variants={artImageVariants}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.7, delay: 0.4 }}
                 viewport={{
                     once: false,
-                    margin: '-30% 0px -40% 0px ',
+                    margin: '0% 0px 0% 0px ',
                 }}
             />
             <motion.p
@@ -120,10 +120,10 @@ const ArtImage = ({ children, index, character }) => {
                 whileInView="enter"
                 exit="exit"
                 variants={artTitleVariants}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.7, delay: 0.4 }}
                 viewport={{
                     once: false,
-                    margin: '-30% 0px -15% 0px ',
+                    margin: '0% 0px 0% 0px ',
                 }}
             >{character.title}</motion.p>
         </div>
