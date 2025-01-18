@@ -9,7 +9,6 @@
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-
 }
 
 .groupDisplay::after {
@@ -29,24 +28,21 @@
 }
 
 
-.scrollDisplay {
-    border: 2px solid magenta;
-}
-
 .groupTitle {
-    border: 2px solid white;
+    /* border: 2px solid white; */
     width: 100%;
     position: sticky;
     top: 0;
     font-size: 10dvw;
     text-align: right;
+    margin-bottom: 18dvh;
 }
 
 
 .artBox {
-    border: 2px solid lime;
+    /* border: 2px solid lime; */
     width: 375px;
-    height: 375px;
+    height: 425px;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -55,22 +51,18 @@
 
 }
 
-
-.artBox:first-child {
-    border: 2px solid skyblue;
-    margin-top: 12dvh;
-}
-
 .artImage {
-    border: 2px solid purple;
+    /* border: 2px solid purple; */
     width: 100%;
     height: 100%;
+    object-fit: contain;
 }
 
 .artTitle {
-    border: 2px solid white;
+    /* border: 2px solid white; */
     position: absolute;
     bottom: 5%;
     left: 10%;
-    font-size: 26px;
+    font-size: 30px;
+    color: lime;
 }

@@ -72,7 +72,6 @@ const GroupDisplay = () => {
             {characters.map((character, i) => (
                 <ArtImage key={i} index={i} character={character} />
             ))}
-            <button onClick={backToGallery}>Return</button>
 
         </motion.div>
     )
@@ -84,7 +83,7 @@ export default GroupDisplay
 
 const ArtImage = ({ children, index, character }) => {
     const ref = useRef()
-    const isInView = useInView(ref, { margin: '-30% 0px -20% 0px ' })
+    // const isInView = useInView(ref, { margin: '-30% 0px -20% 0px ' })
     const artImageVariants = {
         enter: { opacity: 1, y: 0, x: 0 },
         exit: { opacity: 0, y: -20, x: index % 2 === 0 ? -40 : 40 },
@@ -110,7 +109,7 @@ const ArtImage = ({ children, index, character }) => {
                 transition={{ duration: 0.5 }}
                 viewport={{
                     once: false,
-                    margin: '-25% 0px -25% 0px ',
+                    margin: '-30% 0px -40% 0px ',
                 }}
             />
             <motion.p
@@ -124,7 +123,7 @@ const ArtImage = ({ children, index, character }) => {
                 transition={{ duration: 0.5 }}
                 viewport={{
                     once: false,
-                    margin: '-25% 0px -25% 0px ',
+                    margin: '-30% 0px -15% 0px ',
                 }}
             >{character.title}</motion.p>
         </div>
