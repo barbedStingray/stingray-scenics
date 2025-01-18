@@ -1,12 +1,10 @@
 .groupDisplay {
-
     --shade-group: #9300c9;
     border: 2px solid blue;
     height: 100dvh;
     width: 100dvw;
     overflow: scroll;
     background: radial-gradient(circle, #929292 0%, #707070 40%, #0a0a0a 100%);
-
 }
 
 .groupDisplay::after {
@@ -16,15 +14,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-
     background-color: var(--shade-group);
     background-image: url('../../images/texture.png');
     background-size: cover;
-    background-blend-mode: overlay, normal;
+    /* background-blend-mode: overlay, normal; */
     mix-blend-mode: overlay;
     pointer-events: none;
     opacity: 0.5;
-
 }
 
 
@@ -41,17 +37,25 @@
     border: 2px solid gold;
     width: 100%;
     height: 20dvh;
-    height: 15dvh;
+    height: 18dvh;
     position: sticky;
     top: 0;
+    background-color: #ffffff66;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 
-.artImage {
-    border: 2px solid green;
-    width: 30dvh;
-    height: 30dvh;
+.artBox {
+    border: 2px solid lime;
+    width: 350px;
+    height: 66dvh;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 4dvh;
 }

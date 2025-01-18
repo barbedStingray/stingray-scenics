@@ -72,7 +72,6 @@ const DisplayContent = () => {
 
 
 
-
             </motion.div>
         </AnimatePresence>)
 }

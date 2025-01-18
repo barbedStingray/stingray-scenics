@@ -5,11 +5,13 @@ import './groupDisplay.css'
 import '../galleryPage/galleryPage.css'
 import galleryData from '../galleryPage/galleryComponents/galleryData'
 import { motion, useScroll, useMotionTemplate, useTransform, useMotionValueEvent, useInView } from 'framer-motion'
+import DisplayIcon from '../galleryPage/galleryComponents/DisplayIcon'
 
 const GroupDisplay = () => {
 
     const { gallerySection, galleryDisplay, colorShade } = useSelector((state) => state.gallerySlice)
     const { title, description, photo } = useSelector((state) => state.gallerySlice).content
+
 
     // console.log('GROUP shade', gallerySection, galleryDisplay)
 
@@ -38,8 +40,23 @@ const GroupDisplay = () => {
         navigate('/gallery')
     }
 
-    const theFellowship = ['Boromir', 'Aragorn', 'Legolas', 'Gandalf', 'Merry', 'Sam', 'Pippen', 'Frodo', 'Gimli', 'Kanan', 'Hera', 'Sabine', 'Chopper', 'Ezra', 'Zeb']
-    const spectralSquad = ['Kanan', 'Hera', 'Sabine', 'Chopper', 'Ezra', 'Zeb']
+    const characters = [
+        { title: 'Boromir', img: 'boromir.jpg' },
+        { title: 'Aragorn', img: 'aragorn.jpg' },
+        { title: 'Legolas', img: 'legolas.jpg' },
+        { title: 'Gandalf', img: 'gandalf.jpg' },
+        { title: 'Merry', img: 'merry.jpg' },
+        { title: 'Sam', img: 'sam.jpg' },
+        { title: 'Pippen', img: 'pippen.jpg' },
+        { title: 'Frodo', img: 'frodo.jpg' },
+        { title: 'Gimli', img: 'gimli.jpg' },
+        { title: 'Kanan', img: 'kanan.jpg' },
+        { title: 'Hera', img: 'hera.jpg' },
+        { title: 'Sabine', img: 'sabine.jpg' },
+        { title: 'Chopper', img: 'chopper.jpg' },
+        { title: 'Ezra', img: 'ezra.jpg' },
+        { title: 'Zeb', img: 'zeb.jpg' }
+    ];
 
 
     return (
@@ -48,18 +65,18 @@ const GroupDisplay = () => {
             ref={groupContainerRef}
             style={{ '--shade-group': colorShade }}
         >
+            <DisplayIcon />
 
             <div className='scrollDisplay'>
-                <div className='stickyGroup'>
+                {/* <div className='stickyGroup'>
                     <h1>{title}</h1>
-                    <button onClick={backToGallery}>Back</button>
-                </div>
+                    <button onClick={backToGallery}>Return</button>
+                </div> */}
 
-                {theFellowship.map((member, i) => (
-                    <ArtImage key={i} index={i}>
-                        <div className='artImage'>
-                            <p>{member}</p>
-                        </div>
+                {characters.map((character, i) => (
+                    <ArtImage key={i} index={i} character={character}>
+                        {/* <img alt={character.img} />
+                        <p>{character.title}</p> */}
                     </ArtImage>
                 ))}
 
@@ -74,7 +91,7 @@ export default GroupDisplay
 
 
 
-const ArtImage = ({ children, index }) => {
+const ArtImage = ({ children, index, character }) => {
     const ref = useRef()
     const isInView = useInView(ref, { margin: '-30% 0px -20% 0px ' })
     const groupDisplayVariants = {
@@ -83,19 +100,28 @@ const ArtImage = ({ children, index }) => {
     }
 
     return (
-        <motion.div
-            ref={ref}
-            initial="exit"
-            whileInView="enter"
-            exit="exit"
-            variants={groupDisplayVariants}
-            transition={{ duration: 0.5 }}
-            viewport={{
-                once: false,
-                margin: '-30% 0px -20% 0px ',
-            }}
+        <div
+            className='artBox'
         >
+            <motion.img
+            className='artImage'
+                alt={character.img}
+                ref={ref}
+                initial="exit"
+                whileInView="enter"
+                exit="exit"
+                variants={groupDisplayVariants}
+                transition={{ duration: 0.5 }}
+                viewport={{
+                    once: false,
+                    margin: '-25% 0px -45% 0px ',
+                }}
+            />
+            <motion.p
+                className='artTitle'
+
+            >{character.title}</motion.p>
             {children}
-        </motion.div>
+        </div>
     )
 }
