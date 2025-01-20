@@ -1,9 +1,8 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import './groupDisplay.css'
 import '../galleryPage/galleryPage.css'
-import galleryData from '../galleryPage/galleryComponents/galleryData'
 import { motion, useScroll, useMotionTemplate, useTransform, useMotionValueEvent, useInView } from 'framer-motion'
 import DisplayIcon from '../galleryPage/galleryComponents/DisplayIcon'
 

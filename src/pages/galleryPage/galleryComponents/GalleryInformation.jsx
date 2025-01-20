@@ -57,6 +57,8 @@ const GalleryInformation = () => {
                     </div>
 
                 </motion.div>
+
+                
             </AnimatePresence>
 
             <div className='sectionButtons'>

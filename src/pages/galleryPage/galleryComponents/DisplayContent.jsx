@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { slideVariants, displaySpring } from './animations'
@@ -8,13 +9,31 @@ import { slideVariants, displaySpring } from './animations'
 
 const DisplayContent = () => {
 
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const direction = useSelector((state) => state.direction)
     const { gallerySection, galleryDisplay } = useSelector((state) => state.gallerySlice)
     const { title, description, photo } = useSelector((state) => state.gallerySlice).content
+    const galleryView = useSelector((state) => state.galleryView)
 
     const toGroupDisplay = () => {
         navigate('/groupDisplay')
+    }
+
+    // todo this will be a async function when DB is implemented
+    const largeModelDisplay = () => {
+        console.log('largeModelDisplay')
+
+        // todo make axios request for images
+        // todo trigger loader
+
+        // todo toggle between slideshow and model display
+        dispatch({
+            type: 'SET_DISPLAY',
+            payload: !galleryView,
+        })
+        
+
     }
 
     return (
@@ -61,13 +80,23 @@ const DisplayContent = () => {
 
 
                 <motion.button
-                    className='galleryButton'
+                    className='galleryButton mobileView'
                     onClick={toGroupDisplay}
                     custom={direction}
                     variants={slideVariants}
                     transition={displaySpring}
                 >
                     View Miniatures Mobile
+                </motion.button>
+
+                <motion.button
+                    className='galleryButton largeView'
+                    onClick={() => largeModelDisplay()}
+                    custom={direction}
+                    variants={slideVariants}
+                    transition={displaySpring}
+                >
+                    View Miniatures LARGE
                 </motion.button>
 
 

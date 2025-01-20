@@ -91,6 +91,7 @@ const StingrayScenics = () => {
                         <Link to={'/gallery'}>Contact</Link>
                         <Link to={'/gallery'}>Commission</Link>
                         <Link to={'/gallery'}>Hobby</Link>
+                        <Link to={'/gallery'}>Restoration</Link>
                         <p>About Me</p>
                     </div>
                 </div>
