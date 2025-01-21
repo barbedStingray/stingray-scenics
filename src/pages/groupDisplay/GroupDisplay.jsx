@@ -10,32 +10,10 @@ import b1BattleDroid from '../../images/starWars/b1BattleDroid.png'
 
 const GroupDisplay = () => {
 
+    const navigate = useNavigate()
     const { gallerySection, galleryDisplay, colorShade } = useSelector((state) => state.gallerySlice)
     const { title, description, photo } = useSelector((state) => state.gallerySlice).content
 
-
-    // console.log('GROUP shade', gallerySection, galleryDisplay)
-
-    const navigate = useNavigate()
-
-    const groupContainerRef = useRef()
-    const { scrollYProgress: groupContainer } = useScroll({
-        container: groupContainerRef,
-        offset: ['start start', 'end end']
-    })
-    useMotionValueEvent(groupContainer, 'change', (latest) =>
-        console.log('mainY', latest)
-    )
-    // * use for portfolio - double gradient shift
-    // const doubleGradientColor = useTransform(groupContainer, [0, 1], [
-    //     `linear-gradient(90deg,#00fbff,#008225)`,
-    //     `linear-gradient(190deg,#008225,#0d00ff)`,
-    // ])
-    // const gradientColor = useTransform(groupContainer, [0, 1], [
-    //     `${colorShade[0]}`,
-    //     `${colorShade[1]}`,
-    // ])
-    // const gradientStyle = useMotionTemplate`${doubleGradientColor}`
 
     function backToGallery() {
         navigate('/gallery')
@@ -63,7 +41,6 @@ const GroupDisplay = () => {
     return (
         <motion.div
             className='groupDisplay'
-            ref={groupContainerRef}
             style={{ '--shade-group': colorShade }}
         >
             <DisplayIcon />

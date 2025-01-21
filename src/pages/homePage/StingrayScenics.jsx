@@ -88,10 +88,10 @@ const StingrayScenics = () => {
                     <h1 className='SSwelcome'>Welcome</h1>
                     <div className='footerLinks'>
                         <Link to={'/gallery'}>Gallery</Link>
-                        <Link to={'/gallery'}>Contact</Link>
-                        <Link to={'/gallery'}>Commission</Link>
-                        <Link to={'/gallery'}>Hobby</Link>
-                        <Link to={'/gallery'}>Restoration</Link>
+                        <p>Contact</p>
+                        <Link to={'/commission'}>Commission</Link>
+                        <p>Hobby</p>
+                        <p>Restore</p>
                         <p>About Me</p>
                     </div>
                 </div>

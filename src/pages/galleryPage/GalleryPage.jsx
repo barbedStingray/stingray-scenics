@@ -48,44 +48,7 @@ const GalleryPage = () => {
         { title: 'Zeb', img: b1BattleDroid }
     ]
 
-    // const slideShowVariants = {
-    //     initial: { opacity: 0, x: 50 },
-    //     animate: { opacity: 1, x: 0, transition: { duration: 0.8 } },
-    //     exit: { opacity: 0, x: -50, transition: { duration: 0.8 } },
-    // }
-    const slideShowVariants = {
-        enter: {
-            x: '100%', // Start off-screen to the right
-            zIndex: 2, // Ensure it's on top of the current image
-        },
-        center: {
-            x: 0, // Move to the center
-            zIndex: 1,
-            transition: { duration: 0.8, ease: 'easeOut' },
-        },
-        exit: {
-            x: '-100%', // Slide off-screen to the left
-            zIndex: 1, // Keep the outgoing image under the incoming one
-            transition: { duration: 0.8, ease: 'easeIn' },
-        },
-    }
 
-    const incomingVariants = {
-        initial: { x: '100%' }, // Start off-screen to the right
-        animate: {
-            x: 0, // Slide into view
-            zIndex: 2, // Place on top
-            transition: { duration: 0.8, ease: 'easeOut' },
-        },
-    };
-
-    const outgoingVariants = {
-        initial: { x: 0 }, // Start in place
-        exit: {
-            x: '-100%', // Slide out to the left
-            transition: { duration: 0.8, ease: 'easeIn', delay: 0.8 }, // Delays until incoming finishes
-        },
-    };
 
     return (
         <div
@@ -97,10 +60,9 @@ const GalleryPage = () => {
         >
 
             <div className='bigImageSlider'
-                style={{ position: 'relative', overflow: galleryView ? 'auto' : 'hidden' }}
+                style={{}}
             >
                 {galleryView ?
-                    // <p>BIG OL GALLERY DISPLAY</p>
                     <>
                         {characters.map((character, i) => (
                             <div key={i} className='largeArtBox'>
@@ -110,48 +72,9 @@ const GalleryPage = () => {
                         ))}
                     </>
                     :
-                    <AnimatePresence
-                        initial={false}
-                        mode="wait"
-                    // mode="poplayout"
-                    >
-                        {/* Incoming Image */}
-                        <motion.div
-                            key={`incoming-${slideIndex}`}
-                            className="bigImageWrapper"
-                            variants={incomingVariants}
-                            initial="initial"
-                            animate="animate"
-                            exit="exit" // Return to the starting position for reuse
-                            style={{
-                                position: 'absolute',
-                                width: '100%',
-                                height: '100%',
-                                backgroundImage: `url(${slideShowImages[slideIndex]})`,
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center',
-                            }}
-                        />
-                        {/* Outgoing Image */}
-                        {slideIndex > 0 && (
-                            <motion.div
-                                key={`outgoing-${slideIndex - 1}`}
-                                className="bigImageWrapper"
-                                variants={outgoingVariants}
-                                initial="initial"
-                                animate="initial" // Stay in place until it starts exiting
-                                exit="exit"
-                                style={{
-                                    position: 'absolute',
-                                    width: '100%',
-                                    height: '100%',
-                                    backgroundImage: `url(${slideShowImages[(slideIndex - 1) % slideShowImages.length]})`,
-                                    backgroundSize: 'cover',
-                                    backgroundPosition: 'center',
-                                }}
-                            />
-                        )}
-                    </AnimatePresence>}
+                    <img src={slideShowImages[slideIndex]} />
+
+                }
             </div>
 
             <GalleryInformation />
