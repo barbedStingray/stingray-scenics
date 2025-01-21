@@ -3,16 +3,7 @@ import { motion, useSpring, useInView, useTransform, useScroll, useMotionTemplat
 import { Link } from 'react-router-dom'
 import './homePage.css'
 
-import ParallaxImage from '../../components/ParallaxImage';
-import tinyFiguresImages from '../../parallaxImages/tinyFigures';
-import epicStoriesImages from '../../parallaxImages/epicStories';
 import pelennorFields from '../../images/pelennorFields.jpeg'
-import NavBar from '../../components/navigation/NavBar'
-
-import moriaGandalf from '../../images/lordoftheRings/moriaGandalf.png'
-import dunharrowGhost from '../../images/lordoftheRings/dunharrowGhost.png'
-import b1BattleDroid from '../../images/starWars/b1BattleDroid.png'
-import droids from '../../images/droids.png'
 
 const StingrayScenics = () => {
 
@@ -90,143 +81,15 @@ const StingrayScenics = () => {
                         <Link to={'/gallery'}>Gallery</Link>
                         <p>Contact</p>
                         <Link to={'/commission'}>Commission</Link>
-                        <p>Hobby</p>
                         <p>Restore</p>
+                        <p>Hobby</p>
                         <p>About Me</p>
+                        <p>Reviews</p>
                     </div>
                 </div>
 
-
-
             </div>
-
-
         </motion.div >
-
-
-
-
-
-
-
-
-        // <motion.div className='homePage' ref={homeContainerRef}>
-        //     {/* <NavBar /> */}
-
-        //     <motion.div className='homeImageDisplay'
-        //         style={{ height: homePhotoHeight }}
-        //     >
-        //         <img className='homeImage' src={pelennorFields}
-        //             style={{ scale: homePhotoScale, filter: filterStyle, height: homePhotoHeight }}
-        //         />
-        //         <p className='homeTextStyle SStitle glassMorphGreen'
-        //             style={{ opacity: titleOp }}
-        //         >Stingray scenics"</p>
-        //         <motion.p className='homeTextStyle scrollAdventure'
-        //             style={{ opacity: scrollAdventureOp }}
-        //         >Scroll for Adventure</motion.p>
-
-        //     </motion.div>
-
-        //     <div className='homeScrollDiv'>
-
-        //         <div className='homeSection'>
-        //             <div className='homeContent'>
-        //                 <h1 className='contentTitle'>WELCOME</h1>
-        //                 <div className='contentDisplay'>
-        //                     <div className='contentCoolScene'>
-        //                         <img src={droids} className='homeImage' />
-        //                     </div>
-        //                     <div className='contentDescription'>
-        //                         <div className='contentCoolMini'>
-        //                             <img src={b1BattleDroid} className='homeImage' />
-        //                         </div>
-        //                         <p>{openingLine}</p>
-        //                     </div>
-        //                 </div>
-        //             </div>
-        //         </div>
-        //         <div className='homeSection'>
-        //             <h1>COMMISSION</h1>
-        //             <button>Contact</button>
-        //         </div>
-        //         <div className='homeSection'>
-        //             <h1>GALLERY</h1>
-        //         </div>
-        //         <div className='homeSection'>
-        //             <h1>THE HOBBY</h1>
-        //         </div>
-        // <div className='homeSection'>
-        //     <h1>Custom Wargamming since 2009</h1>
-        // </div>
-
-
-        //     </div>
-        // </motion.div >
-
-
-
-
-
-
-
-        // <motion.div className='homePage' ref={homeContainerRef}>
-        //     {/* <NavBar /> */}
-
-
-        //     <div className='homeScrollDiv'>
-
-        //         <div className='homeDisplay'>
-
-        //             <motion.img className='homeImage' src={pelennorFields}
-        //                 style={{ scale: homePhotoScale, filter: filterStyle }}
-        //             />
-        //             <motion.p className='homeTextStyle SStitle glassMorphGreen'
-        //                 style={{ opacity: titleOp }}
-        //             >Stingray scenics"</motion.p>
-
-        //             <motion.p className='homeTextStyle scrollAdventure'
-        //                 style={{ opacity: scrollAdventureOp }}
-        //             >Scroll for Adventure</motion.p>
-
-
-        //             <motion.p className='homeTextStyle tinyFigures'
-        //                 style={{ y: tinyFiguresY, opacity: tinyFiguresOp }}
-        //             >Tiny figures+</motion.p>
-
-        //             <motion.p className='homeTextStyle epicStories'
-        //                 style={{ x: epicStoriesX, opacity: epicStoriesOp }}
-        //             >Epic stories?</motion.p>
-
-        //             {tinyFiguresImages.map((tinyImage, i) => (
-        //                 <ParallaxImage key={i} scrollContainer={homeContainer} parDetails={tinyImage} />
-        //             ))}
-
-        //             {epicStoriesImages.map((storyImage, i) => (
-        //                 <ParallaxImage key={i} scrollContainer={homeContainer} parDetails={storyImage} />
-        //             ))}
-
-
-        //             <div className='homeMenu'>
-        //                 <motion.div className='menuBanner glassMorphGreen' style={{ width: bannerWidth0 }}>
-        //                     <Link className='homeTextStyle bannerText' to={'/gallery'}>Gallery.</Link>
-        //                 </motion.div>
-        //                 <motion.div className='menuBanner glassMorphGreen' style={{ width: bannerWidth1 }}>
-        //                     <Link className='homeTextStyle bannerText'>Commission"</Link>
-        //                 </motion.div>
-        //                 <motion.div className='menuBanner glassMorphGreen' style={{ width: bannerWidth2 }}>
-        //                     <Link className='homeTextStyle bannerText'>Contact$</Link>
-        //                 </motion.div>
-        //                 <motion.div className='menuBanner glassMorphGreen' style={{ width: bannerWidth3 }}>
-        //                     <Link className='homeTextStyle bannerText'>The hobby%</Link>
-        //                 </motion.div>
-        //                 <motion.div className='bannerLink glassMorphGreen' style={{ width: bannerWidth3 }}>
-        //                     <Link>Products</Link>
-        //                 </motion.div>
-        //             </div>
-        //         </div>
-        //     </div>
-        // </motion.div >
     )
 }
 
