@@ -40,7 +40,16 @@ const CommissionPage = () => {
                 <p>Scroll to See More</p>
             </div>
 
-            <ComModels />
+            <div className='comSection'>
+                <h1>How it Works</h1>
+
+                <p>Step 1. Reach out and complete the Request Form!</p>
+                <p>Step 2. Confirm your Custom Options</p>
+                <p>Step 3. Source your Models</p>
+                <p>Step 4. Finalize the Price</p>
+                <p>Wait for your epic miniatures to arrive!</p>
+
+            </div>
 
             <div className='comSection'>
                 <h1>Commission</h1>
@@ -55,8 +64,20 @@ const CommissionPage = () => {
 export default CommissionPage
 
 
+
+
+
+
+
 const ComModels = ({ title, text }) => {
     const ref = useRef(null)
+
+    const acquireDescription = 'Finding the perfect miniatures for your custom projects is made easy with a variety of excellent sources. I primarily source from Warhammer and Etsy, each offering distinct advantages. Warhammer is known for its premium quality, though sometimes at a higher price. Etsy offers a wonderful mix of affordability and uniqueness, and I find there are many talented creators offering exclusive designs.'
+    const warhammerDesc = 'Strainght from the game creators themselves, Warhammer hasnt disappointed me yet with the detail and quality of their models.'
+    const etsyDesc = 'Etsy contains a wonderful mix of affordability and uniqueness, with talented creators offering exclusive designs'
+    const selfDesc = 'If you already own models, have printed your own, or would like to restore your current collection, those can certainly be worked on as well! Whether its repairing, repainting, or transforming your existing pieces into something uniquely yours, Im happy to breathe new life into your miniatures.'
+    const unknown = ''
+
 
     const containerVariants = {
         hidden: { opacity: 1 }, // Ensures the parent is visible but children animate in
@@ -87,13 +108,20 @@ const ComModels = ({ title, text }) => {
             }}
         >
             <div className='comModels'>
-                <motion.h1 variants={fadeIn}>Acquiring Your Models</motion.h1>
+                <motion.h1 variants={fadeIn}>Sourcing Your Models</motion.h1>
+                {/* <motion.p variants={fadeIn}>{acquireDescription}</motion.p> */}
                 <motion.div className='acquireMethod' variants={fadeIn}>
-                    <h3>Custom Miniature Service</h3>
-                    <p>This method is the full package. I will purchase, </p>
+                    <h3>Warhammer</h3>
+                    <p>{warhammerDesc}</p>
                 </motion.div>
-                <motion.p variants={fadeIn}>Welcome To STINGRAY SCENICS</motion.p>
-                <motion.p variants={fadeIn}>Scroll to See More</motion.p>
+                <motion.div className='acquireMethod' variants={fadeIn}>
+                    <h3>Etsy</h3>
+                    <p>{etsyDesc}</p>
+                </motion.div>
+                <motion.div className='acquireMethod' variants={fadeIn}>
+                    <h3>Self Sourced</h3>
+                    <p>{selfDesc}</p>
+                </motion.div>
             </div>
         </motion.div>
     )

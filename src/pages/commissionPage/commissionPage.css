@@ -56,18 +56,18 @@
 
 .comModels {
     border: 2px solid white;
-    width: 75%;
-    height: 70%;
+    width: 85%;
+    height: 85%;
 
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .acquireMethod {
     border: 2px solid blue;
-    width: 100%;
+    width: 80%;
     height: 15dvh;
     /* flex: 1; */
 }
