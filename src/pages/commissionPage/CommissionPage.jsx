@@ -1,10 +1,8 @@
 import React, { useRef } from 'react'
 import './commissionPage.css'
-import { motion, useScroll, useMotionTemplate, useTransform, useMotionValueEvent, useInView } from 'framer-motion'
+import { motion, useScroll, useAnimation, useMotionTemplate, useTransform, useMotionValueEvent, useInView } from 'framer-motion'
 
 const CommissionPage = () => {
-
-    const colorShade = '#140000ee'
 
     const commissionRef = useRef()
     const { scrollYProgress: commissionContainer } = useScroll({
@@ -17,46 +15,15 @@ const CommissionPage = () => {
     )
 
     const ringRotate = useTransform(commissionContainer, [0, 1], ['0deg', '90deg'])
-    const comSectionZero = useTransform(commissionContainer, [0, 0.17, 0.23], [1, 1, 0])
-    const comSectionOne = useTransform(commissionContainer, [0, 0.17, 0.23, 0.37, 0.43, 1], [0, 0, 1, 1, 0, 0])
-    const comSectionTwo = useTransform(commissionContainer, [0, 0.37, 0.43, 0.57, 0.63, 1], [0, 0, 1, 1, 0, 0])
-    const comSectionThree = useTransform(commissionContainer, [0, 0.57, 0.63, 0.77, 0.83, 1], [0, 0, 1, 1, 0, 0])
 
-
-
-
-    // * use for portfolio - double gradient shift
-    const doubleGradientColor = useTransform(commissionContainer, [0, 1], [
+    const doubleGradientColor = useTransform(commissionContainer, [0, 0.5, 1], [
         `linear-gradient(45deg,#001e00,#121e00)`,
+        `linear-gradient(120deg,#1e0000,#0a001e)`,
         `linear-gradient(120deg,#1e0000,#0a001e)`,
     ])
     const gradientStyle = useMotionTemplate`${doubleGradientColor}`
 
-    const comSections = [
-        {
-            title: 'Commission',
-            text: 'Scroll to learn more',
-            theOpacity: comSectionZero,
-        },
-        {
-            title: 'Models',
-            text: 'Scroll to learn more',
-            theOpacity: comSectionOne,
-        },
-        {
-            title: 'Process',
-            text: 'Scroll to learn more',
-            theOpacity: comSectionTwo,
-        },
-        {
-            title: 'Shipping',
-            text: 'Scroll to learn more',
-            theOpacity: comSectionThree,
-        },
-    ]
-
-    const sectionRef = useRef(null);
-    const isInView = useInView(sectionRef, { margin: '-50% 0px', amount: 0.5 });
+    const openingLine = 'Welcome to Stingray Scenics, the intersection of passion, creativity, and art! We specialize in crafting unique terrain and custom-painted miniatures, all tailored to your personal vision. Whether its a modular battlefield, a dramatic scene, or custom work on a personal hero, our versatile commissions ensure your tabletop is as epic as your imagination.'
 
 
     return (
@@ -65,22 +32,70 @@ const CommissionPage = () => {
             ref={commissionRef}
             style={{ background: gradientStyle }}
         >
-            <div className='scrollCommission'>
-                <motion.div className='ringBox' style={{ rotate: ringRotate }}></motion.div>
+            <motion.div className='ringBox' style={{ rotate: ringRotate }}></motion.div>
 
-                {/* {comSections.map((comSec, i) => (
-                    // <motion.div className='comSection' style={{ opacity: comSec.theOpacity }}>
-                    <motion.div className='comSection'>
-                        <h1>{comSec.title}</h1>
-                        <p>{comSec.text}</p>
-                    </motion.div>
-                ))} */}
-
+            <div className='comSection'>
+                <h1>Commission</h1>
+                <p>{openingLine}</p>
+                <p>Scroll to See More</p>
             </div>
 
+            <ComModels />
+
+            <div className='comSection'>
+                <h1>Commission</h1>
+                <p>{openingLine}</p>
+                <p>Scroll to See More</p>
+            </div>
 
         </motion.div>
     )
 }
 
 export default CommissionPage
+
+
+const ComModels = ({ title, text }) => {
+    const ref = useRef(null)
+
+    const containerVariants = {
+        hidden: { opacity: 1 }, // Ensures the parent is visible but children animate in
+        visible: {
+            opacity: 1,
+            transition: {
+                delayChildren: 0.5,
+                staggerChildren: 0.3, // Time between each child's animation
+            },
+        },
+    }
+
+    const fadeIn = {
+        hidden: { opacity: 0, y: 20 }, // Start transparent and slightly shifted down
+        visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    }
+
+    return (
+        <motion.div
+            className="comSection"
+            ref={ref}
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{
+                // once: true, 
+                margin: '-50% 0px'
+            }}
+        >
+            <div className='comModels'>
+                <motion.h1 variants={fadeIn}>Acquiring Your Models</motion.h1>
+                <motion.div className='acquireMethod' variants={fadeIn}>
+                    <h3>Custom Miniature Service</h3>
+                    <p>This method is the full package. I will purchase, </p>
+                </motion.div>
+                <motion.p variants={fadeIn}>Welcome To STINGRAY SCENICS</motion.p>
+                <motion.p variants={fadeIn}>Scroll to See More</motion.p>
+            </div>
+        </motion.div>
+    )
+
+}

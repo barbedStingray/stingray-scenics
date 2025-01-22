@@ -13,7 +13,6 @@ const StingrayScenics = () => {
         offset: ['start start', 'end end']
     })
 
-    const openingLine = 'Welcome to Stingray Scenics, the intersection of passion, creativity, and art! We specialize in crafting unique terrain and custom-painted miniatures, all tailored to your personal vision. Whether its a modular battlefield, a dramatic scene, or custom work on a personal hero, our versatile commissions ensure your tabletop is as epic as your imagination.'
 
     useMotionValueEvent(homeContainer, 'change', (latest) =>
         console.log('mainY', latest)
