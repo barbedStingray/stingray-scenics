@@ -41,21 +41,37 @@ const CommissionPage = () => {
             </div>
 
             <div className='comSection'>
-                <h1>How it Works</h1>
-
-                <p>Step 1. Reach out and complete the Request Form!</p>
-                <p>Step 2. Confirm your Custom Options</p>
-                <p>Step 3. Source your Models</p>
-                <p>Step 4. Finalize the Price</p>
-                <p>Wait for your epic miniatures to arrive!</p>
-
+                <p>Step 1.</p>
+                <p>What will we create?</p>
+                <label><input type="radio" name='creation' value='Miniatures' />Miniatures</label>
+                <label><input type="radio" name='creation' value='Terrain' />Terrain</label>
+                <label><input type="radio" name='creation' value='Diorama' />Diorama</label>
+                <p>Share your vision with me!</p>
+                <textarea />
+                <p>If you have a link, share it here!</p>
+                <input type='text' />
+                <p>What would you like to pay for this commission?</p>
+                <input type='text' />
             </div>
 
             <div className='comSection'>
-                <h1>Commission</h1>
-                <p>{openingLine}</p>
-                <p>Scroll to See More</p>
+                <p>Step 2. Base Options</p>
+                <p>Please indicate what kind of base you'd like the miniatures on</p>
             </div>
+
+            <ComModels />
+
+
+            <div className='comSection'>
+                <p>Step 4. Finalize the Price</p>
+                <p>Please indicate your desired price range</p>
+                <p>Or just make your quote</p>
+            </div>
+            <div className='comSection'>
+                <p>Step 4. Double Check your Request</p>
+                <p>button to send</p>
+            </div>
+
 
         </motion.div>
     )
