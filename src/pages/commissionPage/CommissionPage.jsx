@@ -1,6 +1,9 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import './commissionPage.css'
 import { motion, useScroll, useAnimation, useMotionTemplate, useTransform, useMotionValueEvent, useInView } from 'framer-motion'
+import emailjs from '@emailjs/browser'
+
+
 
 const CommissionPage = () => {
 
@@ -25,7 +28,33 @@ const CommissionPage = () => {
 
     const openingLine = 'Welcome to Stingray Scenics, the intersection of passion, creativity, and art! We specialize in crafting unique terrain and custom-painted miniatures, all tailored to your personal vision. Whether its a modular battlefield, a dramatic scene, or custom work on a personal hero, our versatile commissions ensure your tabletop is as epic as your imagination.'
 
+    const form = useRef()
+    const [isSent, setIsSent] = useState(false)
 
+    const sendEmail = (e) => {
+        e.preventDefault()
+
+        emailjs
+            .sendForm(
+                "service_m84dauj", // Service ID
+                "template_8zddm55", // Template ID
+                form.current,
+                "V7Z2us5299px9Hs2g" // Public Key
+            )
+            .then(
+                (result) => {
+                    console.log(result.text);
+                    setIsSent(true);
+                    e.target.reset(); // Optional: Reset form after sending
+                },
+                (error) => {
+                    console.error(error.text);
+                }
+            )
+    }
+
+
+    
     return (
         <motion.div
             className='commissionPage'
@@ -42,16 +71,26 @@ const CommissionPage = () => {
 
             <div className='comSection'>
                 <p>Step 1.</p>
-                <p>What will we create?</p>
-                <label><input type="radio" name='creation' value='Miniatures' />Miniatures</label>
-                <label><input type="radio" name='creation' value='Terrain' />Terrain</label>
-                <label><input type="radio" name='creation' value='Diorama' />Diorama</label>
-                <p>Share your vision with me!</p>
-                <textarea />
-                <p>If you have a link, share it here!</p>
-                <input type='text' />
-                <p>What would you like to pay for this commission?</p>
-                <input type='text' />
+                <form ref={form} onSubmit={sendEmail}>
+                    <p>What will we create?</p>
+
+                    <p>Your Name</p>
+                    <input type="text" name="user_name" placeholder="Enter your name" />
+
+                    <p>Your Email</p>
+                    <input type="email" name="user_email" placeholder="Enter your email" />
+
+                    <label><input type="radio" name='creation' value='Miniatures' />Miniatures</label>
+                    <label><input type="radio" name='creation' value='Terrain' />Terrain</label>
+                    <label><input type="radio" name='creation' value='Diorama' />Diorama</label>
+                    <p>Share your vision with me!</p>
+                    <textarea name="user_vision" />
+                    <p>If you have a link, share it here!</p>
+                    <input type='text' />
+                    <p>What would you like to pay for this commission?</p>
+                    <input type='text' name="user_offer" />
+                    <button type='submit'>SEND</button>
+                </form>
             </div>
 
             <div className='comSection'>
