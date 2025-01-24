@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef, useMemo } from 'react';
+import { useDispatch } from 'react-redux';
 import { motion, useSpring, useInView, useTransform, useScroll, useMotionTemplate, useMotionValueEvent } from 'framer-motion';
 import { Link } from 'react-router-dom'
 import './homePage.css'
@@ -7,6 +8,7 @@ import pelennorFields from '../../images/pelennorFields.jpeg'
 
 const StingrayScenics = () => {
 
+    const dispatch = useDispatch()
     const homeContainerRef = useRef()
     const { scrollYProgress: homeContainer } = useScroll({
         container: homeContainerRef,
@@ -17,6 +19,14 @@ const StingrayScenics = () => {
     useMotionValueEvent(homeContainer, 'change', (latest) =>
         console.log('mainY', latest)
     )
+
+    const displayContactView = () => {
+        dispatch({
+            type: 'SET_CONTACT',
+            payload: true,
+        })
+    }
+
 
 
     // home photo
@@ -78,7 +88,7 @@ const StingrayScenics = () => {
                     <h1 className='SSwelcome'>Welcome</h1>
                     <div className='footerLinks'>
                         <Link to={'/gallery'}>Gallery</Link>
-                        <p>Contact</p>
+                        <p onClick={displayContactView}>Contact</p>
                         <Link to={'/commission'}>Commission</Link>
                         <p>Restore</p>
                         <p>Hobby</p>

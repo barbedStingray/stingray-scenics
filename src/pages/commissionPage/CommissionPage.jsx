@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import './commissionPage.css'
 import { motion, useScroll, useAnimation, useMotionTemplate, useTransform, useMotionValueEvent, useInView } from 'framer-motion'
 import emailjs from '@emailjs/browser'
@@ -7,6 +8,7 @@ import emailjs from '@emailjs/browser'
 
 const CommissionPage = () => {
 
+    const dispatch = useDispatch()
     const commissionRef = useRef()
     const { scrollYProgress: commissionContainer } = useScroll({
         container: commissionRef,
@@ -53,7 +55,13 @@ const CommissionPage = () => {
             )
     }
 
-
+    const displayCommissionView = () => {
+        dispatch({
+          type: 'SET_COMMISSION',
+          payload: true,
+        })
+      }
+    
     
     return (
         <motion.div
@@ -66,7 +74,10 @@ const CommissionPage = () => {
             <div className='comSection'>
                 <h1>Commission</h1>
                 <p>{openingLine}</p>
-                <p>Scroll to See More</p>
+                <p>Scroll to View the Process</p>
+                <p>OR</p>
+                <p>Click the Button to Request a quote</p>
+                <button onClick={displayCommissionView}>Commission View</button>
             </div>
 
             <div className='comSection'>
