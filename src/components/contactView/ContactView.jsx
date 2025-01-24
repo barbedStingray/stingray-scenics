@@ -2,6 +2,7 @@ import React from 'react'
 import './contactView.css'
 import { motion, useSpring, useInView, useTransform, useScroll, useMotionTemplate, useMotionValueEvent, AnimatePresence } from 'framer-motion';
 import { useSelector, useDispatch } from 'react-redux';
+import { displayView } from '../universalFunctions';
 
 
 const ContactView = () => {
@@ -9,12 +10,6 @@ const ContactView = () => {
   const dispatch = useDispatch()
   const contactView = useSelector((state) => state.contactView)
 
-  const displayContactView = () => {
-    dispatch({
-      type: 'SET_CONTACT',
-      payload: false,
-    })
-  }
 
 
   return (
@@ -28,7 +23,7 @@ const ContactView = () => {
         transition={{ type: 'spring', stiffness: 100, damping: 20 }}
       >
         <h1>Welcome to the Contact Portion</h1>
-        <button onClick={displayContactView}>Return</button>
+        <button onClick={() => displayView('SET_CONTACT', false, dispatch)}>Return</button>
       </motion.div>
     </AnimatePresence>
   )

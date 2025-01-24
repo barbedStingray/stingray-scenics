@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import './commissionPage.css'
 import { motion, useScroll, useAnimation, useMotionTemplate, useTransform, useMotionValueEvent, useInView } from 'framer-motion'
 import emailjs from '@emailjs/browser'
+import { displayView } from '../../components/universalFunctions'
 
 
 
@@ -55,12 +56,6 @@ const CommissionPage = () => {
             )
     }
 
-    const displayCommissionView = () => {
-        dispatch({
-          type: 'SET_COMMISSION',
-          payload: true,
-        })
-      }
     
     
     return (
@@ -77,7 +72,7 @@ const CommissionPage = () => {
                 <p>Scroll to View the Process</p>
                 <p>OR</p>
                 <p>Click the Button to Request a quote</p>
-                <button onClick={displayCommissionView}>Commission View</button>
+                <button onClick={() => displayView('SET_COMMISSION', true, dispatch)}>Commission View</button>
             </div>
 
             <div className='comSection'>

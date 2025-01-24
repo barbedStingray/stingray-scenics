@@ -3,18 +3,14 @@ import './commissionView.css'
 import { motion, useSpring, useInView, useTransform, useScroll, useMotionTemplate, useMotionValueEvent, AnimatePresence } from 'framer-motion';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { displayView } from '../universalFunctions';
+
 
 const CommissionView = () => {
 
   const dispatch = useDispatch()
   const commissionView = useSelector((state) => state.commissionView)
 
-  const displayContactView = () => {
-    dispatch({
-      type: 'SET_COMMISSION',
-      payload: false,
-    })
-  }
 
 
   return (
@@ -28,7 +24,7 @@ const CommissionView = () => {
         transition={{ type: 'spring', stiffness: 100, damping: 20 }}
       >
         <h1>COMMISSION FORM</h1>
-        <button onClick={displayContactView}>Return</button>
+        <button onClick={() => displayView('SET_COMMISSION', false, dispatch)}>Return</button>
       </motion.div>
     </AnimatePresence>
   )
