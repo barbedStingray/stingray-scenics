@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import './commissionPage.css'
 import { motion, useScroll, useAnimation, useMotionTemplate, useTransform, useMotionValueEvent, useInView } from 'framer-motion'
-import emailjs from '@emailjs/browser'
 import { displayView } from '../../components/universalFunctions'
 
 
@@ -31,30 +30,6 @@ const CommissionPage = () => {
 
     const openingLine = 'Welcome to Stingray Scenics, the intersection of passion, creativity, and art! We specialize in crafting unique terrain and custom-painted miniatures, all tailored to your personal vision. Whether its a modular battlefield, a dramatic scene, or custom work on a personal hero, our versatile commissions ensure your tabletop is as epic as your imagination.'
 
-    const form = useRef()
-    const [isSent, setIsSent] = useState(false)
-
-    const sendEmail = (e) => {
-        e.preventDefault()
-
-        emailjs
-            .sendForm(
-                "service_m84dauj", // Service ID
-                "template_8zddm55", // Template ID
-                form.current,
-                "V7Z2us5299px9Hs2g" // Public Key
-            )
-            .then(
-                (result) => {
-                    console.log(result.text);
-                    setIsSent(true);
-                    e.target.reset(); // Optional: Reset form after sending
-                },
-                (error) => {
-                    console.error(error.text);
-                }
-            )
-    }
 
     
     
@@ -72,40 +47,24 @@ const CommissionPage = () => {
                 <p>Scroll to View the Process</p>
                 <p>OR</p>
                 <p>Click the Button to Request a quote</p>
-                <button onClick={() => displayView('SET_COMMISSION', true, dispatch)}>Commission View</button>
+                <button onClick={() => displayView('SET_CONTACT', true, dispatch)}>Make a Request</button>
             </div>
 
             <div className='comSection'>
-                <p>Step 1.</p>
-                <form ref={form} onSubmit={sendEmail}>
-                    <p>What will we create?</p>
-
-                    <p>Your Name</p>
-                    <input type="text" name="user_name" placeholder="Enter your name" />
-
-                    <p>Your Email</p>
-                    <input type="email" name="user_email" placeholder="Enter your email" />
-
-                    <label><input type="radio" name='creation' value='Miniatures' />Miniatures</label>
-                    <label><input type="radio" name='creation' value='Terrain' />Terrain</label>
-                    <label><input type="radio" name='creation' value='Diorama' />Diorama</label>
-                    <p>Share your vision with me!</p>
-                    <textarea name="user_vision" />
-                    <p>If you have a link, share it here!</p>
-                    <input type='text' />
-                    <p>What would you like to pay for this commission?</p>
-                    <input type='text' name="user_offer" />
-                    <button type='submit'>SEND</button>
-                </form>
-            </div>
-
-            <div className='comSection'>
-                <p>Step 2. Base Options</p>
-                <p>Please indicate what kind of base you'd like the miniatures on</p>
+                <p>What can I Customize?</p>
+                <ul>
+                    <li>Miniatures</li>
+                    <li>Scenic Bases</li>
+                    <li>Terrain</li>
+                </ul>
             </div>
 
             <ComModels />
 
+            <div className='comSection'>
+                <p>Step 2. Scenic Bases</p>
+                <p></p>
+            </div>
 
             <div className='comSection'>
                 <p>Step 4. Finalize the Price</p>
@@ -133,11 +92,11 @@ export default CommissionPage
 const ComModels = ({ title, text }) => {
     const ref = useRef(null)
 
-    const acquireDescription = 'Finding the perfect miniatures for your custom projects is made easy with a variety of excellent sources. I primarily source from Warhammer and Etsy, each offering distinct advantages. Warhammer is known for its premium quality, though sometimes at a higher price. Etsy offers a wonderful mix of affordability and uniqueness, and I find there are many talented creators offering exclusive designs.'
+    const acquireDescription = 'Finding great miniatures for your custom projects is made easy with a variety of excellent sources.'
     const warhammerDesc = 'Strainght from the game creators themselves, Warhammer hasnt disappointed me yet with the detail and quality of their models.'
     const etsyDesc = 'Etsy contains a wonderful mix of affordability and uniqueness, with talented creators offering exclusive designs'
     const selfDesc = 'If you already own models, have printed your own, or would like to restore your current collection, those can certainly be worked on as well! Whether its repairing, repainting, or transforming your existing pieces into something uniquely yours, Im happy to breathe new life into your miniatures.'
-    const unknown = ''
+    // const unknown = ''
 
 
     const containerVariants = {
@@ -169,7 +128,8 @@ const ComModels = ({ title, text }) => {
             }}
         >
             <div className='comModels'>
-                <motion.h1 variants={fadeIn}>Sourcing Your Models</motion.h1>
+                <p>{acquireDescription}</p>
+                <motion.h1 variants={fadeIn}>Step 2. Source Your Miniatures</motion.h1>
                 {/* <motion.p variants={fadeIn}>{acquireDescription}</motion.p> */}
                 <motion.div className='acquireMethod' variants={fadeIn}>
                     <h3>Warhammer</h3>

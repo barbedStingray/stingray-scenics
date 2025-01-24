@@ -9,7 +9,6 @@ import GroupDisplay from './pages/groupDisplay/GroupDisplay'
 import CommissionPage from './pages/commissionPage/CommissionPage';
 
 import ContactView from './components/contactView/ContactView';
-import CommissionView from './components/commissionView/CommissionView';
 
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
     <div className="stingrayScenics">
 
       <ContactView />
-      <CommissionView />
 
       <Routes>
         <Route path='/' element={<StingrayScenics />} />
