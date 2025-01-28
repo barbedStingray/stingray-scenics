@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
+
+import axios from 'axios'
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { slideVariants, displaySpring } from './animations'
@@ -16,25 +18,34 @@ const DisplayContent = () => {
     const { title, description, photo } = useSelector((state) => state.gallerySlice).content
     const galleryView = useSelector((state) => state.galleryView)
 
+    const [displayMinis, setDisplayMinis] = useState(null)
+
     const toGroupDisplay = () => {
         navigate('/groupDisplay')
     }
 
-    // todo this will be a async function when DB is implemented
-    const largeModelDisplay = () => {
-        console.log('largeModelDisplay')
 
-        // todo make axios request for images
-        // todo trigger loader
 
-        // todo toggle between slideshow and model display
-        dispatch({
-            type: 'SET_DISPLAY',
-            payload: !galleryView,
-        })
-        
+    const requestMinisShowcase = async () => {
+        try {
+            const results = await axios.get('/api/myMinis/allMinis')
+            console.log('results', results.data)
+            const myMinis = results.data
+            setDisplayMinis(myMinis)
 
+            // todo you will have to dispatch to your reducer for the mini's display
+
+            dispatch({
+                type: 'SET_DISPLAY',
+                payload: !galleryView,
+            })
+
+        } catch (error) {
+            console.log('error if finding your minis', error)
+            alert('there was an error in your request')
+        }
     }
+
 
     return (
         <AnimatePresence mode="wait" initial={false}>
@@ -91,7 +102,7 @@ const DisplayContent = () => {
 
                 <motion.button
                     className='galleryButton largeView'
-                    onClick={() => largeModelDisplay()}
+                    onClick={() => requestMinisShowcase()}
                     custom={direction}
                     variants={slideVariants}
                     transition={displaySpring}

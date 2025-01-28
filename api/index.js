@@ -4,15 +4,14 @@ require('dotenv').config()
 const path = require('path')
 
 
-// todo Route includes
-// const recipeRouter = require('./routes/recipes.router')
+// Route includes
+const myMinisRouter = require('./routes/minis.router')
 
 // express middleware
 app.use(express.json())
 
-// todo express routes
-// app.use('/api/recipes', recipeRouter)
-
+// express routes
+app.use('/api/myMinis', myMinisRouter)
 
 
 app.use(express.static(path.join(__dirname, '..', 'build')))

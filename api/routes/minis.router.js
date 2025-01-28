@@ -6,6 +6,8 @@ const router = express.Router()
 
 // Get ALL minis on display
 router.get('/allMinis', (req, res) => {
+    console.log('inside minis router')
+
     const queryText = `
     SELECT * FROM "minis" WHERE "ondisplay" = true
 	ORDER BY "rank" ASC, RANDOM();`
@@ -18,3 +20,6 @@ router.get('/allMinis', (req, res) => {
         res.sendStatus(500)
     })
 })
+
+
+module.exports = router 
