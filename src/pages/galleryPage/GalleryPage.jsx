@@ -72,7 +72,7 @@ const GalleryPage = () => {
                         ))}
                     </>
                     :
-                    <img src={slideShowImages[slideIndex]} />
+                    <img className='slideShowImage' src={slideShowImages[slideIndex]} />
 
                 }
             </div>
