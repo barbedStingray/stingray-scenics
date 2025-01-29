@@ -18,23 +18,19 @@ const DisplayContent = () => {
     const { title, description, photo } = useSelector((state) => state.gallerySlice).content
     const galleryView = useSelector((state) => state.galleryView)
 
-    const [displayMinis, setDisplayMinis] = useState(null)
-
     const toGroupDisplay = () => {
         navigate('/groupDisplay')
     }
-
-
 
     const requestMinisShowcase = async () => {
         try {
             const results = await axios.get('/api/myMinis/allMinis')
             console.log('results', results.data)
             const myMinis = results.data
-            setDisplayMinis(myMinis)
-
-            // todo you will have to dispatch to your reducer for the mini's display
-
+            dispatch({
+                type: 'SET_SHOWCASE',
+                payload: myMinis
+            })
             dispatch({
                 type: 'SET_DISPLAY',
                 payload: !galleryView,

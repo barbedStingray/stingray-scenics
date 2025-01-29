@@ -9,13 +9,13 @@ import imperials from '../../images/imperials.jpeg'
 import rivendellCharge from '../../images/rivendellCharge.jpeg'
 import trolls from '../../images/trolls.jpeg'
 
-import b1BattleDroid from '../../images/starWars/b1BattleDroid.png'
 
 
 const GalleryPage = () => {
 
     const { colorShade } = useSelector((state) => state.gallerySlice)
     const galleryView = useSelector((state) => state.galleryView)
+    const miniShowcase = useSelector((state) => state.miniShowcase)
 
 
     // slideshow
@@ -28,25 +28,6 @@ const GalleryPage = () => {
 
         return () => clearInterval(interval)
     }, [])
-
-
-    const characters = [
-        { title: 'Boromir', img: b1BattleDroid },
-        { title: 'Aragorn', img: b1BattleDroid },
-        { title: 'Legolas', img: b1BattleDroid },
-        { title: 'Gandalf', img: b1BattleDroid },
-        { title: 'Merry', img: b1BattleDroid },
-        { title: 'Sam', img: b1BattleDroid },
-        { title: 'Pippen', img: b1BattleDroid },
-        { title: 'Frodo', img: b1BattleDroid },
-        { title: 'Gimli', img: b1BattleDroid },
-        { title: 'Kanan', img: b1BattleDroid },
-        { title: 'Hera', img: b1BattleDroid },
-        { title: 'Sabine', img: b1BattleDroid },
-        { title: 'Chopper', img: b1BattleDroid },
-        { title: 'Ezra', img: b1BattleDroid },
-        { title: 'Zeb', img: b1BattleDroid }
-    ]
 
 
 
@@ -64,10 +45,10 @@ const GalleryPage = () => {
             >
                 {galleryView ?
                     <>
-                        {characters.map((character, i) => (
+                        {miniShowcase.map((character, i) => (
                             <div key={i} className='largeArtBox'>
-                                <p className='largeArtTitle'>{character.title}</p>
-                                <img className='largeArtImage' src={character.img} />
+                                <p className='largeArtTitle'>{character.model}</p>
+                                <img className='largeArtImage' src={character.picture} />
                             </div>
                         ))}
                     </>
