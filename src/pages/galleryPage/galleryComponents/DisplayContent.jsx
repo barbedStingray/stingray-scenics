@@ -24,7 +24,9 @@ const DisplayContent = () => {
 
     const requestMinisShowcase = async () => {
         try {
-            const results = await axios.get('/api/myMinis/allMinis')
+            const results = await axios.get('/api/myMinis/allMinis', {
+                params: { gallerySection, galleryDisplay }
+            })
             console.log('results', results.data)
             const myMinis = results.data
             dispatch({

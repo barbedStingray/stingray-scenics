@@ -32,6 +32,15 @@ const galleryData = {
                 photo: images.dunharrowGhost,
             },
         },
+        mordor: {
+            icon: 'mordor',
+            color: '#00fbff',
+            content: {
+                title: 'Mordor',
+                description: 'You cant escape the eye!',
+                photo: images.treeEnt,
+            },
+        },
         rohan: {
             icon: 'rohan',
             color: '#0d00ff',
