@@ -18,7 +18,7 @@ const characters = [
     { title: 'Zeb', img: b1BattleDroid }
 ]
 
-const miniShowcase = (state = characters, action) => {
+const miniShowcase = (state = [], action) => {
 
     switch (action.type) {
         case 'SET_SHOWCASE':

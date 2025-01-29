@@ -22,6 +22,7 @@ const DisplayContent = () => {
         navigate('/groupDisplay')
     }
 
+    
     const requestMinisShowcase = async () => {
         try {
             const results = await axios.get('/api/myMinis/allMinis', {
@@ -35,7 +36,7 @@ const DisplayContent = () => {
             })
             dispatch({
                 type: 'SET_DISPLAY',
-                payload: !galleryView,
+                payload: true,
             })
 
         } catch (error) {

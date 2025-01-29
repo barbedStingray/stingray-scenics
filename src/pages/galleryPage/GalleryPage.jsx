@@ -21,13 +21,13 @@ const GalleryPage = () => {
     // slideshow
     const slideShowImages = [imperials, rivendellCharge, trolls]
     const [slideIndex, setSlideIndex] = useState(0)
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setSlideIndex((prevIndex) => (prevIndex + 1) % slideShowImages.length)
-        }, 4000)
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         setSlideIndex((prevIndex) => (prevIndex + 1) % slideShowImages.length)
+    //     }, 4000)
 
-        return () => clearInterval(interval)
-    }, [])
+    //     return () => clearInterval(interval)
+    // }, [])
 
 
 
