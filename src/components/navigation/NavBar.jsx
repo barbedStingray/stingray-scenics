@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import './navBar.css'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence, useInView } from 'framer-motion'
+
 
 const NavBar = () => {
 
@@ -41,6 +42,7 @@ const Tab = ({ children, setPosition }) => {
     return (
         <Link
             ref={ref}
+            to={`/${children.toLowerCase()}`}
             onMouseEnter={() => {
                 const { width } = ref.current.getBoundingClientRect()
                 setPosition({
