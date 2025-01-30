@@ -20,11 +20,11 @@ const NavBar = () => {
                 }))
             }}
         >
-            <Tab setPosition={setPosition}>Home</Tab>
             <Tab setPosition={setPosition}>Gallery</Tab>
-            <Tab setPosition={setPosition}>Commission</Tab>
             <Tab setPosition={setPosition}>Contact</Tab>
-            <Tab setPosition={setPosition}>About</Tab>
+            <Tab setPosition={setPosition}>Commission</Tab>
+            <Tab setPosition={setPosition}>Hobby</Tab>
+            <Tab setPosition={setPosition}>Reviews</Tab>
             <Cursor position={position} />
         </ul>
     )
@@ -42,7 +42,6 @@ const Tab = ({ children, setPosition }) => {
         <Link
             ref={ref}
             onMouseEnter={() => {
-                // const data = ref.current.getBoundingClientRect()
                 const { width } = ref.current.getBoundingClientRect()
                 setPosition({
                     left: ref.current.offsetLeft,

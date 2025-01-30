@@ -23,6 +23,7 @@ html {
   font-family: wildGrowth;
   src: url('./fonts/WildGrowth.ttf')
 }
+
 @font-face {
   font-family: ringbearer;
   src: url('./fonts/Ringbearer.TTF')
@@ -53,6 +54,16 @@ html {
       #b6f80155);
 }
 
+.glassMorphClear {
+  /* Glass morph */
+  background-color: transparent;
+  backdrop-filter: blur(1px);
+  background-image: linear-gradient(90deg,
+      #ffffff22,
+      #80808022,
+      #ffffff22);
+}
+
 .pictureFit-cover {
   width: 100%;
   height: 100%;
@@ -78,24 +89,12 @@ html {
 
 
 
-.glassMorphClear {
-  /* Glass morph */
-  background-color: transparent;
-  backdrop-filter: blur(2px);
-  background-image: linear-gradient(90deg,
-      #ffffff33,
-      #80808033,
-      #ffffff33,
-      #80808033,
-      #ffffff33,
-      #80808033,
-      #ffffff33);
-}
 
 .glassMorphBlack,
 .glassMorphWhite {
   transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease;
 }
+
 .glassMorphWhite {
   background-color: transparent;
   backdrop-filter: blur(2px);
@@ -111,7 +110,3 @@ html {
   color: white;
   border: 1px solid gold;
 }
-
-
-
-

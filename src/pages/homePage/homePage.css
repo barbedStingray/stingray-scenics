@@ -120,23 +120,27 @@
 
 /* Screens greater than 430px */
 @media (min-width: 430px) {
-    /* .homePage {
-        border: 2px solid red;
-    } */
+    .homePage {
+        /* border: 2px solid red; */
+        overflow: hidden;
+    }
 
     .SStitle {
         /* border: 2px solid red; */
-        font-size: 8dvh;
+        font-size: 10dvh;
+        top: 40%;
+    
     }
     
     .scrollAdventure {
-        font-size: 3.5dvh;
+        display: none;
     }
 
-    .footerLinks {
-        padding-left: 12dvw;
-        align-items: flex-start;
+    .stickyFooter {
+        display: none;
     }
+
+
     
     
     
