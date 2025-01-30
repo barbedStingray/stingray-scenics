@@ -15,6 +15,7 @@ html {
 :root {
   /* arrow button */
   --dot-size: 5px;
+  background-color: black;
 
 }
 
@@ -28,6 +29,7 @@ html {
 }
 
 /* Mobile 425 - 430 width! */
+
 
 .stingrayScenics {
   /* border: 2px solid magenta; */
@@ -50,6 +52,31 @@ html {
       #ffffff55,
       #b6f80155);
 }
+
+.pictureFit-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.noDisplay {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .glassMorphClear {
   /* Glass morph */
@@ -85,7 +112,6 @@ html {
   border: 1px solid gold;
 }
 
-.noDisplay {
-  display: none;
-}
+
+
 

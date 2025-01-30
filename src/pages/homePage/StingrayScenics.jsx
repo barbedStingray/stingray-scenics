@@ -30,66 +30,36 @@ const StingrayScenics = () => {
     const filterStyle = useMotionTemplate`grayscale(${grayscaleValue}) blur(${blurValue}px)`;
 
 
-
-    // mini titles
-    const titleOp = useTransform(homeContainer, [0, 0.1], [1, 0])
     const scrollAdventureOp = useTransform(homeContainer, [0, 0.1], [1, 0])
-
-    const tinyFiguresOp = useTransform(homeContainer, [0.13, 0.20, 0.46, 0.50], [0, 1, 1, 0])
-    const tinyFiguresY = useTransform(homeContainer, [0.13, 0.5], ['0', '-5dvh'])
-    const epicStoriesOp = useTransform(homeContainer, [0.48, 0.52, 0.78, 0.83], [0, 1, 1, 0])
-    const epicStoriesX = useTransform(homeContainer, [0.48, 0.8], ['-1dvh', '2dvh'])
-
-    // banner links
-    const bannerWidth0 = useTransform(homeContainer, [0.80, 0.94], ['0%', '105%'])
-    const bannerWidth1 = useTransform(homeContainer, [0.83, 0.96], ['0%', '105%'])
-    const bannerWidth2 = useTransform(homeContainer, [0.86, 0.98], ['0%', '105%'])
-    const bannerWidth3 = useTransform(homeContainer, [0.89, 1], ['0%', '105%'])
-
-
-
-    const gradientColor = useTransform(homeContainer, [0, 1], [
-        'linear-gradient(90deg, #ff7eb3, #ff758c)', // Gradient at start
-        'linear-gradient(90deg, #6a11cb, #2575fc)', // Gradient at end
-    ])
-    const defaultGradient = 'linear-gradient(90deg, #ff7eb3, #ff758c)'
-    const gradientStyle = useMotionTemplate`${gradientColor}`
 
 
     return (
         <motion.div className='homePage' ref={homeContainerRef}>
             {/* <NavBar /> */}
 
-            <p className='homeTextStyle SStitle glassMorphGreen'
-                style={{ opacity: titleOp }}
-            >Stingray scenics"</p>
-            <motion.p className='homeTextStyle scrollAdventure'
+            <p className='SSTextStyle SStitle glassMorphGreen'>Stingray scenics"</p>
+            <motion.p className='SSTextStyle scrollAdventure'
                 style={{ opacity: scrollAdventureOp }}
             >Scroll for Adventure</motion.p>
 
 
-            <div className='homeScrollDiv'>
-
-                <div className='revealPanel'>
-                    <img className='homeImage' src={pelennorFields}
-                        style={{ scale: homePhotoScale, filter: filterStyle, height: homePhotoHeight }}
-                    />
-                </div>
-                <div className='stickyFooter'>
-                    <h1>Custom Wargamming since 2020</h1>
-                    <h1 className='SSwelcome'>Welcome</h1>
-                    <div className='footerLinks'>
-                        <Link to={'/gallery'}>Gallery</Link>
-                        <p onClick={() => displayView('SET_CONTACT', true, dispatch)}>Contact</p>
-                        <Link to={'/commission'}>Commission</Link>
-                        <p>Restore</p>
-                        <p>Hobby</p>
-                        <p>About Me</p>
-                        <p>Reviews</p>
-                    </div>
-                </div>
-
+            <div className='revealPanel'>
+                <img className='pictureFit-cover' src={pelennorFields}
+                    style={{ scale: homePhotoScale, filter: filterStyle, height: homePhotoHeight }}
+                />
             </div>
+            <div className='stickyFooter'>
+                <div className='footerLinks'>
+                    <Link className='footLink' to={'/gallery'}>Gallery</Link>
+                    <p className='footLink' onClick={() => displayView('SET_CONTACT', true, dispatch)}>Contact</p>
+                    <Link className='footLink' to={'/commission'}>Commission</Link>
+                    <p className='footLink'>Hobby</p>
+                    <p className='footLink'>Reviews</p>
+                </div>
+                <h1 className='SSwelcome'>Welcome</h1>
+                <h1 className='SStagline'>Custom Wargamming since 2020</h1>
+            </div>
+
         </motion.div >
     )
 }

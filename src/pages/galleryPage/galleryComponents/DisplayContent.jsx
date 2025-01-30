@@ -88,7 +88,6 @@ const DisplayContent = () => {
                 </motion.p>
 
 
-
                 <motion.button
                     className='galleryButton mobileView'
                     onClick={toGroupDisplay}
