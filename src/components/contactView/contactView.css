@@ -1,11 +1,80 @@
 .contactView {
-    border: 2px solid red;
-    background-color: lightblue;
-    width: 50%;
-    height: 100%;
-    position: fixed;
+  /* custom variables for after shading */
+  --shade-gallery: #0091e4aa;
+  border: 2px solid red;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: radial-gradient(circle, #929292 0%, #707070 40%, #0a0a0a 100%);
+  overflow: hidden;
+  color: white;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 5dvh;
+  gap: 5dvh;
+
+}
+
+.contactView::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+      linear-gradient(120deg, #0091e4ee 20%, #a300e4ee 60%),
+      url('../../images/texture1.png');
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: multiply;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+  .contactFett {
+    position: absolute;
     top: 0;
     left: 0;
-    z-index: 500;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    z-index: 0;
+    filter: grayscale(100%) contrast(120%) opacity(0.3) blur(2px);
+    mix-blend-mode: overlay; 
   }
+
+  .contactForm {
+    border: 2px solid white;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2dvh;
+    z-index: 100;
+    font-size: 3dvh;
+  }
+
+  .contactForm input{
+    width: 65%;
+
+  }
+  .contactForm select{
+    width: 25%;
+    text-align: center;
+  }
+
+
   
+

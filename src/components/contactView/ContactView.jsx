@@ -6,6 +6,8 @@ import emailjs from '@emailjs/browser'
 import { displayView } from '../universalFunctions';
 
 
+import bobaFett from '../../images/bobaFett.png'
+
 
 const ContactView = () => {
 
@@ -13,35 +15,40 @@ const ContactView = () => {
   const contactView = useSelector((state) => state.contactView)
 
 
-      const form = useRef()
-      const [isSent, setIsSent] = useState(false)
-  
-      const sendEmail = (e) => {
-          e.preventDefault()
-  
-          emailjs
-              .sendForm(
-                  "service_m84dauj", // Service ID
-                  "template_8zddm55", // Template ID
-                  form.current,
-                  "V7Z2us5299px9Hs2g" // Public Key
-              )
-              .then(
-                  (result) => {
-                      console.log(result.text);
-                      setIsSent(true);
-                      e.target.reset(); // Optional: Reset form after sending
-                  },
-                  (error) => {
-                      console.error(error.text);
-                  }
-              )
-      }
-  
+  const form = useRef()
+  const [isSent, setIsSent] = useState(false)
+
+  const sendEmail = (e) => {
+    e.preventDefault()
+
+    emailjs
+      .sendForm(
+        "service_m84dauj", // Service ID
+        "template_8zddm55", // Template ID
+        form.current,
+        "V7Z2us5299px9Hs2g" // Public Key
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setIsSent(true);
+          e.target.reset(); // Optional: Reset form after sending
+        },
+        (error) => {
+          console.error(error.text);
+        }
+      )
+  }
+
+  const prices = ['$0', '$50', '$100', '$150', '$200', '$250', '$300']
+
 
 
   return (
     <AnimatePresence mode='wait'>
+
+      {/* build the Congrats it sent page */}
+
       <motion.div
         className={contactView ? 'contactView' : 'noDisplay'}
         key={contactView ? 'contact-visible' : 'contact-hidden'}
@@ -50,29 +57,35 @@ const ContactView = () => {
         exit={{ x: '-100%' }}
         transition={{ type: 'spring', stiffness: 100, damping: 20 }}
       >
-        <h1>Welcome to the Contact Portion</h1>
+        <h1>Contact</h1>
 
-        <form ref={form} onSubmit={sendEmail}>
-          <p>What will we create?</p>
-
-          <p>Your Name</p>
+        <form className='contactForm' ref={form} onSubmit={sendEmail}>
+          <p>Name</p>
           <input type="text" name="user_name" placeholder="Enter your name" />
 
-          <p>Your Email</p>
+          <p>Email</p>
           <input type="email" name="user_email" placeholder="Enter your email" />
 
-          <p>Your Message</p>
-          <p>OR</p>
-          <p>Share your vision with me!</p>
+          <p>Message OR Commission</p>
           <textarea name="user_vision" />
-          
-          <p>What would you like to pay for this commission?</p>
-          <input type='text' name="user_offer" />
+
+          Optional: Your Budget
+          <select name="user_offer">
+            {/* <option value="just a contact">Just a Contact</option> */}
+            {prices.map((price) => (
+              <option key={price} value={price}>{price}</option>
+            ))}
+          </select>
+
           <button type='submit'>SEND</button>
+          
         </form>
 
 
         <button onClick={() => displayView('SET_CONTACT', false, dispatch)}>Return</button>
+
+        <img className='contactFett' src={bobaFett} />
+
       </motion.div>
     </AnimatePresence>
   )

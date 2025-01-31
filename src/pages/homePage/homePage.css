@@ -119,6 +119,7 @@
 }
 
 
+
 /* Screens greater than 430px */
 @media (min-width: 430px) {
     .homePage {
@@ -138,11 +139,5 @@
     .stickyFooter {
         display: none;
     }
-
-
-    
-    
-    
-
 
 }
