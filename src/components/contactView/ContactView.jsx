@@ -60,7 +60,19 @@ const ContactView = () => {
         <h1>Contact</h1>
 
         <form className='contactForm' ref={form} onSubmit={sendEmail}>
-          <p>Name</p>
+
+          <div className='input-group type-md'>
+            <input type='text' name="user_name" id='user_name' required />
+            <label for="user_name">User Name</label>
+            <span className='bottomline'></span>
+          </div>
+          <div className='input-group type-md'>
+            <input type='text' name="user_email" id='user_email' required />
+            <label for="user_email">User email</label>
+            <span className='bottomline'></span>
+          </div>
+
+          <p>User_name</p>
           <input type="text" name="user_name" placeholder="Enter your name" />
 
           <p>Email</p>
@@ -78,11 +90,11 @@ const ContactView = () => {
           </select>
 
           <button type='submit'>SEND</button>
-          
+
         </form>
 
 
-        <button onClick={() => displayView('SET_CONTACT', false, dispatch)}>Return</button>
+        <button className='contactReturn' onClick={() => displayView('SET_CONTACT', false, dispatch)}>Return</button>
 
         <img className='contactFett' src={bobaFett} />
 
