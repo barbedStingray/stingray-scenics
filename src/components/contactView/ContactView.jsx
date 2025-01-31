@@ -13,6 +13,8 @@ const ContactView = () => {
 
   const dispatch = useDispatch()
   const contactView = useSelector((state) => state.contactView)
+  const prices = ['$0', '$50', '$100', '$150', '$200', '$250', '$300']
+
 
 
   const form = useRef()
@@ -40,9 +42,10 @@ const ContactView = () => {
       )
   }
 
-  const prices = ['$0', '$50', '$100', '$150', '$200', '$250', '$300']
 
-
+  const textAreaRef = useRef(null)
+  const [textValue, setTextValue] = useState('')
+  const rotateValue = Math.floor(Math.random() * 201) - 100
 
   return (
     <AnimatePresence mode='wait'>
@@ -72,14 +75,40 @@ const ContactView = () => {
             <span className='bottomline'></span>
           </div>
 
-          <p>User_name</p>
-          <input type="text" name="user_name" placeholder="Enter your name" />
-
-          <p>Email</p>
-          <input type="email" name="user_email" placeholder="Enter your email" />
-
           <p>Message OR Commission</p>
-          <textarea name="user_vision" />
+          <textarea
+            className='realTextArea'
+            name="user_vision"
+            ref={textAreaRef}
+            onChange={(e) => setTextValue(e.target.value)}
+            value={textValue}
+          />
+          <div
+            className='fakeTextArea'
+            onClick={() => textAreaRef.current.focus()}
+          >
+            <AnimatePresence>
+              {textValue.split('').map((letter, index) => {
+                return <motion.span
+                  key={index}
+                  className={letter === " " ? "space" : "inline-block"}
+                  initial={{ opacity: 0, y: 100, rotate: rotateValue }}
+                  animate={{ opacity: 1, y: 0, rotate: 0 }}
+                  exit={{
+                    opacity: 0, y: 100, rotate: rotateValue,
+                    transition: { duration: 0.5, },
+                  }}
+                  transition={{ duration: 0.5, ease: 'easeIn'}}
+
+                >
+                  {letter === " " ? "\u00A0" : letter}
+                </motion.span>
+              })}
+            </AnimatePresence>
+
+          </div>
+
+
 
           Optional: Your Budget
           <select name="user_offer">
