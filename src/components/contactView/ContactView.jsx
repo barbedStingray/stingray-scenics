@@ -9,11 +9,20 @@ import { displayView } from '../universalFunctions';
 import bobaFett from '../../images/bobaFett.png'
 
 
+// todo limit your text area characters
+// todo build a cool select menu
+// todo edit your buttons
+// todo scale it to bigger screen sizes
+// todo be happy because it'll be complete
+
 const ContactView = () => {
 
   const dispatch = useDispatch()
   const contactView = useSelector((state) => state.contactView)
-  const prices = ['$0', '$50', '$100', '$150', '$200', '$250', '$300']
+  const textAreaRef = useRef(null)
+  const [textValue, setTextValue] = useState('')
+  const rotateValue = Math.floor(Math.random() * 201) - 100
+  console.log('textvalue', textValue.length)
 
 
 
@@ -34,7 +43,8 @@ const ContactView = () => {
         (result) => {
           console.log(result.text);
           setIsSent(true);
-          e.target.reset(); // Optional: Reset form after sending
+          e.target.reset();
+
         },
         (error) => {
           console.error(error.text);
@@ -43,9 +53,6 @@ const ContactView = () => {
   }
 
 
-  const textAreaRef = useRef(null)
-  const [textValue, setTextValue] = useState('')
-  const rotateValue = Math.floor(Math.random() * 201) - 100
 
 
   return (
@@ -61,22 +68,27 @@ const ContactView = () => {
         exit={{ x: '-100%' }}
         transition={{ type: 'spring', stiffness: 100, damping: 20 }}
       >
-        <p className='wildGrowth'>Contact!</p>
+        <p>Contact!</p>
 
         <form className='contactForm' ref={form} onSubmit={sendEmail}>
 
           <div className='input-group'>
             <input type='text' name="user_name" id='user_name' required />
-            <label for="user_name">User Name</label>
+            <label htmlFor="user_name">User Name</label>
             <span className='bottomline'></span>
           </div>
           <div className='input-group'>
             <input type='text' name="user_email" id='user_email' required />
-            <label for="user_email">User email</label>
+            <label htmlFor="user_email">User email</label>
+            <span className='bottomline'></span>
+          </div>
+          <div className='input-group'>
+            <input type='text' name="user_offer" id='user_offer' required />
+            <label htmlFor="user_offer">Your budget</label>
             <span className='bottomline'></span>
           </div>
 
-          <p className='wildGrowth'>Message;</p>
+          <p>Message;</p>
 
           <textarea
             className='realTextArea'
@@ -109,16 +121,6 @@ const ContactView = () => {
             </AnimatePresence>
 
           </div>
-
-
-
-          <p className='wildGrowth'>Your Budget</p>
-
-          <select name="user_offer">
-            {prices.map((price) => (
-              <option key={price} value={price}>~{price}</option>
-            ))}
-          </select>
 
           <button type='submit'>SEND</button>
 

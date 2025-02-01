@@ -1,6 +1,5 @@
 .contactView {
   /* custom variables for after shading */
-  --shade-gallery: #0091e4aa;
   border: 2px solid red;
   width: 100%;
   height: 100%;
@@ -16,7 +15,7 @@
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 5dvh;
+  padding-top: 6dvh;
   gap: 5dvh;
 
 }
@@ -24,6 +23,7 @@
 .contactView p {
   /* border: 2px solid white; */
   font-size: 2rem;
+  font-family: wildGrowth;
 }
 
 .contactView::after {
@@ -34,8 +34,8 @@
   width: 100%;
   height: 100%;
   background-image:
-      linear-gradient(120deg, #0091e4ee 20%, #a300e4ee 60%),
-      url('../../images/texture1.png');
+    linear-gradient(120deg, #0091e4ee 20%, #a300e4ee 60%),
+    url('../../images/texture1.png');
   background-position: center;
   background-size: cover;
   background-blend-mode: multiply;
@@ -44,125 +44,127 @@
   opacity: 0.5;
 }
 
-  .contactFett {
-    position: absolute;
-    top: 0;
-    left: 0;
-    top: 60%;
-    left: 35%;
-    transform: translate(-50%, -50%) rotate(-2.5deg);
-    width: 170%;
-    height: 150%;
-    object-fit: contain;
-    z-index: 0;
-    filter: opacity(0.15) blur(3px);
-    mix-blend-mode: overlay; 
-  }
+.contactFett {
+  position: absolute;
+  top: 0;
+  left: 0;
+  top: 60%;
+  left: 35%;
+  transform: translate(-50%, -50%) rotate(-2.5deg);
+  width: 170%;
+  height: 150%;
+  object-fit: contain;
+  z-index: 0;
+  filter: opacity(0.15) blur(3px);
+  mix-blend-mode: overlay;
+}
 
-  .contactForm {
-    /* border: 2px solid white; */
-    width: 100%;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
-    /* font-size: 3dvh; */
-    gap: 2.5dvh;
-  }
-
-
-
-  .input-group {
-    /* border: 2px solid blue; */
-    position: relative;
-    width: 80%;
-  }
-
-  .input-group input {
-    width: 100%;
-    padding: 1rem 0;
-    font-size: 1.25rem;
-    color: rgb(230, 254, 16);
-    border: none;
-    outline: none;
-    background-color: transparent;
-    border-bottom: 0.1rem solid white;
-    padding-left: 0;
-  }
-
-  .input-group label {
-    color: white;
-    font-size: 1.25rem;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    transition: 0.3s ease-in-out;
-  }
-
-
-  .input-group input:focus + label,
-  .input-group input:valid + label {
-    top: 5%;
-    color: cyan;
-    font-size: 0.8rem;
-  }
-
-  .input-group input:not(:focus) + label {
-    color: #e0e0e0;
-  }
-
-  .input-group .bottomline {
-    height: 0.1rem;
-    width: 100%;
-    background-color: cyan;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-
-    transform: scale(0);
-    transform-origin: left;
-    transition: 0.3s ease-in-out;
-    
-  }
-  
-  .input-group input:focus ~ .bottomline {
-    transform: scaleX(1);
-  }
+.contactForm {
+  /* border: 2px solid white; */
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  /* font-size: 3dvh; */
+  gap: 2dvh;
+}
 
 
 
-  .realTextArea {
-    width: 0;
-    height: 0;
-    opacity: 0;
-  }
+.input-group {
+  /* border: 2px solid blue; */
+  position: relative;
+  width: 80%;
+}
 
-  .fakeTextArea {
-    border: 1px solid white;
-    width: 90%;
-    height: 10dvh;
-  }
+.input-group input {
+  width: 100%;
+  padding: 0.8rem 0;
+  font-size: 1.15rem;
+  color: rgb(230, 254, 16);
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border-bottom: 0.1rem solid white;
+  padding-left: 0;
+}
 
-  .inline-block {
-    display: inline-block;
-    margin-right: 1px; 
-  }
-  
-  .space {
-    display: inline-block;
-    width: 0.3em; 
-  }
-
-
-
-
-
-  .contactReturn {
-    z-index: 1;
-  }
+.input-group label {
+  color: white;
+  font-size: 1.15rem;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  transition: 0.3s ease-in-out;
+}
 
 
-  
+.input-group input:focus+label,
+.input-group input:valid+label {
+  top: 5%;
+  color: cyan;
+  font-size: 0.8rem;
+}
 
+.input-group input:not(:focus)+label {
+  color: #e0e0e0;
+}
+
+.input-group .bottomline {
+  height: 0.1rem;
+  width: 100%;
+  background-color: cyan;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  transform: scale(0);
+  transform-origin: left;
+  transition: 0.5s ease-in-out;
+
+}
+
+.input-group input:focus~.bottomline {
+  transform: scaleX(1);
+}
+
+
+
+.realTextArea {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.fakeTextArea {
+  border: 1px solid white;
+  width: 90%;
+  height: 15dvh;
+  padding: 0.5rem;
+
+}
+
+.realTextArea:focus+.fakeTextArea {
+  border-color: cyan;
+}
+
+.inline-block {
+  display: inline-block;
+  margin-right: 1px;
+}
+
+.space {
+  display: inline-block;
+  width: 0.3em;
+}
+
+
+
+
+
+.contactReturn {
+  z-index: 1;
+}
