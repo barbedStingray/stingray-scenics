@@ -47,6 +47,7 @@ const ContactView = () => {
   const [textValue, setTextValue] = useState('')
   const rotateValue = Math.floor(Math.random() * 201) - 100
 
+
   return (
     <AnimatePresence mode='wait'>
 
@@ -60,22 +61,23 @@ const ContactView = () => {
         exit={{ x: '-100%' }}
         transition={{ type: 'spring', stiffness: 100, damping: 20 }}
       >
-        <h1>Contact</h1>
+        <p className='wildGrowth'>Contact!</p>
 
         <form className='contactForm' ref={form} onSubmit={sendEmail}>
 
-          <div className='input-group type-md'>
+          <div className='input-group'>
             <input type='text' name="user_name" id='user_name' required />
             <label for="user_name">User Name</label>
             <span className='bottomline'></span>
           </div>
-          <div className='input-group type-md'>
+          <div className='input-group'>
             <input type='text' name="user_email" id='user_email' required />
             <label for="user_email">User email</label>
             <span className='bottomline'></span>
           </div>
 
-          <p>Message OR Commission</p>
+          <p className='wildGrowth'>Message;</p>
+
           <textarea
             className='realTextArea'
             name="user_vision"
@@ -110,11 +112,11 @@ const ContactView = () => {
 
 
 
-          Optional: Your Budget
+          <p className='wildGrowth'>Your Budget</p>
+
           <select name="user_offer">
-            {/* <option value="just a contact">Just a Contact</option> */}
             {prices.map((price) => (
-              <option key={price} value={price}>{price}</option>
+              <option key={price} value={price}>~{price}</option>
             ))}
           </select>
 
