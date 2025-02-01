@@ -164,7 +164,69 @@
 
 
 
+.submitContact,
+.contactReturn {
+  /* border: 2px solid white; */
+  border: none;
+  border-radius: 10px;
+  box-shadow: -2px 2px 5px black;
+  width: 8rem;
+  height: 2.5rem;
+
+}
+
 
 .contactReturn {
   z-index: 1;
 }
+
+
+
+/* this is before major changes in the button */
+
+.slideButton {
+  position: relative;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  box-shadow: -1px 1px 8px black;
+  text-align: center;
+  overflow: hidden;
+  font-weight: 700;
+  background-color: rgb(51, 51, 51);
+  background-color: transparent;
+  padding: 1rem 4rem;
+  /* transition: all 0.5s ease-in-out 0s; */
+  color: rgb(255, 255, 255) !important;
+}
+
+.slideButton span {
+  position: relative;
+  z-index: 1;
+}
+
+.slideButton::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 13rem;
+  height: 13rem;
+  background: teal;
+  transition: all 0.66s ease-in-out 0s;
+  transform: translate(-100%, -38.5%) rotate(-45deg);
+
+}
+.slideButton:hover::after {
+  transform: translate(0%, -38.5%) rotate(-45deg);
+}
+
+
+
+
+
+
+
+
+
+

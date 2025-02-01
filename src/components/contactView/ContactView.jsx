@@ -112,7 +112,7 @@ const ContactView = () => {
                     opacity: 0, y: 100, rotate: rotateValue,
                     transition: { duration: 0.5, },
                   }}
-                  transition={{ duration: 0.5, ease: 'easeIn'}}
+                  transition={{ duration: 0.5, ease: 'easeIn' }}
 
                 >
                   {letter === " " ? "\u00A0" : letter}
@@ -122,7 +122,13 @@ const ContactView = () => {
 
           </div>
 
-          <button type='submit'>SEND</button>
+          <button className='submitContact' type='submit'>SEND</button>
+          <button className="slideButton">
+            <span>Click me</span>
+          </button>
+
+
+
 
         </form>
 
