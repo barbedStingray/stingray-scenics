@@ -7,6 +7,8 @@ import DisplayContent from './DisplayContent'
 import { sectionVariants } from './animations'
 import ArrowButton from '../../../components/arrowButton/ArrowButton'
 import DisplayIcon from './DisplayIcon'
+import { TbHomeShare } from "react-icons/tb";
+
 
 
 const GalleryInformation = () => {
@@ -59,13 +61,13 @@ const GalleryInformation = () => {
 
                 </motion.div>
 
-                
+
             </AnimatePresence>
 
             <div className='sectionButtons'>
                 <ArrowButton division='section' direction={-1} pointer='leftArrow' />
-                <button onClick={handleViewJump}>MENU</button>
-                <Link to={'/'}>HOME</Link>
+                <button onClick={handleViewJump} className="menu-btn"><span /></button>
+                <Link className='homeLink' to={'/'}><TbHomeShare /></Link>
                 <ArrowButton division='section' direction={1} pointer='rightArrow' />
             </div>
         </div>

@@ -7,13 +7,14 @@ export { default as stingrayLogo } from './stingrayLogo.png'
 
 // lord of the rings
 export { default as theOneRing } from './emblems/lordoftherings/light_oneRing.png';
-
+export { default as theFellowship } from './emblems/lordoftherings/light_theFellowshipCrossReverse.png'
+export { default as minasTirith } from './emblems/lordoftherings/light_gondor.png'
 
 
 // star wars
 export { default as r2d2 } from './emblems/starWars/light_r2d2.png'
-
-
+export { default as jediOrder } from './emblems/starWars/light_jediOrder.png'
+export { default as galacticEmpire } from './emblems/starWars/light_galacticEmpire.png'
 
 
 

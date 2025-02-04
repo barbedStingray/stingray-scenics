@@ -16,49 +16,31 @@ const galleryData = {
     lordOfTheRings: {
         mainDisplay: {
             icon: images.theOneRing,
-            color: '#008225aa',
+            color: '#00822599',
             content: {
                 title: 'Lord of the Rings',
                 description: 'Travel the world of Middle Earth with miniatures from Mordor, Gondor, Moria, Lothlorien, Rohan, Isengard, The Shire, Easterlings, Harad...',
                 photo: images.greatEagle,
             },
         },
-        // gondor: {
-        //     icon: 'gondor',
-        //     color: '#00fbff',
-        //     content: {
-        //         title: 'Gondor',
-        //         description: 'The White City',
-        //         photo: images.dunharrowGhost,
-        //     },
-        // },
-        // mordor: {
-        //     icon: 'mordor',
-        //     color: '#00fbff',
-        //     content: {
-        //         title: 'Mordor',
-        //         description: 'You cant escape the eye!',
-        //         photo: images.treeEnt,
-        //     },
-        // },
-        // rohan: {
-        //     icon: 'rohan',
-        //     color: '#0d00ff',
-        //     content: {
-        //         title: 'Rohan',
-        //         description: 'Land of the horse lords.',
-        //         photo: images.rohanCommand,
-        //     },
-        // },
-        // isengard: {
-        //     icon: 'isengard',
-        //     color: '#0d00ff',
-        //     content: {
-        //         title: 'Isengard',
-        //         description: 'The Other dark tower with a white hand.',
-        //         photo: images.urukHaiBanner,
-        //     },
-        // },
+        theFellowship: {
+            icon: images.theFellowship,
+            color: '#ffff0033',
+            content: {
+                title: 'The Fellowship',
+                description: 'Nine travellers on a quest',
+                photo: images.treeEnt,
+            },
+        },
+        gondor: {
+            icon: images.minasTirith,
+            color: '#ffffff33',
+            content: {
+                title: 'Minas Tirith',
+                description: 'The White City',
+                photo: images.treeEnt,
+            },
+        },
     },
     starWars: {
         mainDisplay: {
@@ -70,24 +52,24 @@ const galleryData = {
                 photo: images.b2DroidChrome,
             },
         },
-        // empire: {
-        //     icon: images.theEmpire,
-        //     color: '#9300c9',
-        //     content: {
-        //         title: 'Empire',
-        //         description: 'The Galactic Empire ruled by the Sith. Featuring figures such as Darth Vader, Emperor Palpatine, and legions of Storm Troopers.',
-        //         photo: images.b2Droid,
-        //     },
-        // },
-        // jediOrder: {
-        //     icon: images.jediOrder,
-        //     color: '#0d00ff',
-        //     content: {
-        //         title: 'Jedi Order',
-        //         description: 'Guardians of peace and justice in the galaxy.',
-        //         photo: images.b2DroidRed,
-        //     },
-        // },
+        jediOrder: {
+            icon: images.jediOrder,
+            color: '#66ff0088',
+            content: {
+                title: 'Jedi Order',
+                description: 'Guardians of peace and justice in the galaxy.',
+                photo: images.b2DroidRed,
+            },
+        },
+        galacticEmpire: {
+            icon: images.galacticEmpire,
+            color: '#004fc599',
+            content: {
+                title: 'Galactic Empire',
+                description: 'The Galactic Empire ruled by the Sith. Featuring figures such as Darth Vader, Emperor Palpatine, and legions of Storm Troopers.',
+                photo: images.b2Droid,
+            },
+        },
     },
     terrain: {
         mainDisplay: {
