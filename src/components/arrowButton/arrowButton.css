@@ -1,6 +1,7 @@
 .arrowButton {
     border: none;
-    border: 2px solid lime;
+    /* border: 2px solid ghostwhite; */
+    /* border-radius: 50%; */
     cursor: pointer;
     background: none;
     display: flex;
@@ -9,6 +10,8 @@
     align-items: center;
     width: 90px;
     height: 90px;
+    /* width: 120px;
+    height: 120px; */
     gap: var(--dot-size);
 }
 

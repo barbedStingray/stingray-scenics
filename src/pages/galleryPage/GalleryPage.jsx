@@ -14,9 +14,11 @@ import trolls from '../../images/trolls.jpeg'
 const GalleryPage = () => {
 
     const { colorShade } = useSelector((state) => state.gallerySlice)
+    console.log('color shade', colorShade)
     const galleryView = useSelector((state) => state.galleryView)
     const miniShowcase = useSelector((state) => state.miniShowcase)
 
+    // const colorDisplay = colo
 
     // slideshow
     const slideShowImages = [imperials, rivendellCharge, trolls]

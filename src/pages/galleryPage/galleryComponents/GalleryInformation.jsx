@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { AnimatePresence, motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import MenuSection from './MenuSection'
 import DisplayContent from './DisplayContent'
 import { sectionVariants } from './animations'
@@ -63,7 +64,8 @@ const GalleryInformation = () => {
 
             <div className='sectionButtons'>
                 <ArrowButton division='section' direction={-1} pointer='leftArrow' />
-                <button onClick={handleViewJump}>Menu</button>
+                <button onClick={handleViewJump}>MENU</button>
+                <Link to={'/'}>HOME</Link>
                 <ArrowButton division='section' direction={1} pointer='rightArrow' />
             </div>
         </div>
