@@ -18,6 +18,7 @@ const DisplayContent = () => {
     const { title, description, photo } = useSelector((state) => state.gallerySlice).content
     const galleryView = useSelector((state) => state.galleryView)
 
+    // todo: expand to request database
     const toGroupDisplay = () => {
         navigate('/groupDisplay')
     }

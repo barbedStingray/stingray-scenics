@@ -18,18 +18,17 @@ const GalleryPage = () => {
     const galleryView = useSelector((state) => state.galleryView)
     const miniShowcase = useSelector((state) => state.miniShowcase)
 
-    // const colorDisplay = colo
 
     // slideshow
     const slideShowImages = [imperials, rivendellCharge, trolls]
     const [slideIndex, setSlideIndex] = useState(0)
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         setSlideIndex((prevIndex) => (prevIndex + 1) % slideShowImages.length)
-    //     }, 4000)
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setSlideIndex((prevIndex) => (prevIndex + 1) % slideShowImages.length)
+        }, 10000) // 10s
 
-    //     return () => clearInterval(interval)
-    // }, [])
+        return () => clearInterval(interval)
+    }, [])
 
 
 
@@ -42,7 +41,7 @@ const GalleryPage = () => {
             }}
         >
 
-            <div className='bigImageSlider'
+            <div className='largeScreenGallery'
                 style={{}}
             >
                 {galleryView ?
@@ -55,7 +54,17 @@ const GalleryPage = () => {
                         ))}
                     </>
                     :
-                    <img className='slideShowImage' src={slideShowImages[slideIndex]} />
+                    <AnimatePresence mode='wait'>
+                        <motion.img
+                            className='slideShowImage'
+                            src={slideShowImages[slideIndex]}
+                            key={slideIndex}
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
+                            transition={{ duration: 0.6 }}
+                        />
+                    </AnimatePresence>
 
                 }
             </div>
