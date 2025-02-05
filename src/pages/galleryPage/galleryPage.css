@@ -243,24 +243,22 @@
 
 
 
-
 .slideShowImage {
     width: 100%;
     height: 100%;
     object-fit: cover;
 
-    -webkit-mask-image: 
-    linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%),
-    linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%),
-    linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%),
-    linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%)
-    ;
-    
-    mask-image: 
-    linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%),
-    linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%),
-    linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%),
-    linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%),
+        linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%),
+        linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%),
+        linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%);
+
+    mask-image:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%),
+        linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%),
+        linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%),
+        linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%);
     -webkit-mask-composite: destination-in;
     mask-composite: intersect;
 
@@ -277,7 +275,6 @@
 /* Actual Menu Button */
 
 .menu-btn {
-
     background: none;
     border: none;
     /* border: 2px solid white; */
@@ -325,6 +322,11 @@
 
 
 
+
+
+
+
+
 /* screens greater than 430 */
 
 @media (min-width: 430px) {
@@ -338,19 +340,29 @@
         width: 430px;
     }
 
+
     .largeScreenGallery {
         /* border: 2px solid red; */
-        display: flex;
         flex-grow: 1;
         height: 100%;
         z-index: 10;
+        position: relative;
 
-        /* NEW CODE */
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .scrollingArtBox {
+        border: 2px solid green;
+        width: 100%;
+        height: 100%;
         overflow: auto;
+
+        display: flex;
         flex-flow: row wrap;
         justify-content: center;
-        align-items: center;
-        gap: 20px;
+        align-items: flex-start;
+        gap: 10px;
         /* scroll-snap-type: y mandatory;
         scroll-behavior: smooth; */
 
@@ -364,6 +376,10 @@
         /* scroll-snap-align: center; */
     }
 
+    .largeArtBox:nth-child(even) {
+        transform: translateY(70px);
+    }
+
     .largeArtTitle {
         position: absolute;
         bottom: 0;
@@ -375,6 +391,16 @@
         height: 100%;
         object-fit: contain;
     }
+
+    .resumeSlideShow {
+        border: 2px solid yellow;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 20dvw;
+        height: 5dvh;
+    }
+
 
 
 
