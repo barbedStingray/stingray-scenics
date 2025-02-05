@@ -9,6 +9,7 @@ import GroupDisplay from './pages/groupDisplay/GroupDisplay'
 import CommissionPage from './pages/commissionPage/CommissionPage';
 
 import ContactView from './components/contactView/ContactView';
+import { AnimatePresence, motion } from 'framer-motion';
 
 
 function App() {
@@ -20,15 +21,31 @@ function App() {
 
       <ContactView />
 
-      <Routes>
-        <Route path='/' element={<StingrayScenics />} />
-        <Route path='/gallery' element={<GalleryPage />} />
-        <Route path='/groupDisplay' element={<GroupDisplay />} />
-        <Route path='/commission' element={<CommissionPage />} />
-        {/* todo 404 path */}
-      </Routes>
+      <AnimatePresence mode='wait'>
+        <Routes location={location} key={location.pathname}>
+          <Route path='/' element={<PageWrapper><StingrayScenics /></PageWrapper>} />
+          <Route path='/gallery' element={<PageWrapper><GalleryPage /></PageWrapper>} />
+          <Route path='/groupDisplay' element={<PageWrapper><GroupDisplay /></PageWrapper>} />
+          <Route path='/commission' element={<PageWrapper><CommissionPage /></PageWrapper>} />
+          {/* todo 404 path */}
+        </Routes>
+      </AnimatePresence>
+
     </div>
   );
+}
+
+function PageWrapper({ children }) {
+  return (
+    <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -20 }}
+    transition={{ duration: 1 }}
+    >
+      {children}
+    </motion.div> 
+  )
 }
 
 export default App;
