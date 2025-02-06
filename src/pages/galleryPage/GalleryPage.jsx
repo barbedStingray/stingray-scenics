@@ -85,7 +85,7 @@ const GalleryPage = () => {
                     {galleryView ?
                         <div className='scrollingArtBox'>
                             {characters.map((character, i) => (
-                                <div key={i} className='largeArtBox'>
+                                <div key={`character-${i}`} className='largeArtBox'>
                                     <p className='largeArtTitle'>{character.model}</p>
                                     <img className='largeArtImage' src={character.picture} />
                                 </div>
