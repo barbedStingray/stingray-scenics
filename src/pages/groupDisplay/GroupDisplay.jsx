@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import './groupDisplay.css'
 import '../galleryPage/galleryPage.css'
 import { motion, useScroll, useMotionTemplate, useTransform, useMotionValueEvent, useInView } from 'framer-motion'
-import DisplayIcon from '../galleryPage/galleryComponents/DisplayIcon'
+import DisplayIcon from '../galleryPage/galleryComponents/displayIcon/DisplayIcon'
 
 import b1BattleDroid from '../../images/starWars/b1BattleDroid.png'
 
@@ -54,6 +54,7 @@ const GroupDisplay = () => {
 }
 
 export default GroupDisplay
+
 
 
 

@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
+import './menuSection.css'
 import { useDispatch } from 'react-redux'
 import { AnimatePresence, motion } from 'framer-motion'
 
-import galleryData from './galleryData'
-
+import galleryData from '../galleryData'
 
 const MenuSection = () => {
 

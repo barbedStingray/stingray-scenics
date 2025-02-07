@@ -1,0 +1,10 @@
+.displayIcon {
+    /* border: 2px solid white; */
+    width: 50dvh;
+    height: 50dvh;
+    position: absolute;
+    top: -30px;
+    left: -85px;
+    object-fit: contain;
+    filter: opacity(25%);
+}

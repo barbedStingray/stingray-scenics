@@ -2,12 +2,14 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import MenuSection from './MenuSection'
+import MenuSection from './menuSection/MenuSection'
 import DisplayContent from './DisplayContent'
 import { sectionVariants } from './animations'
 import ArrowButton from '../../../components/arrowButton/ArrowButton'
-import DisplayIcon from './DisplayIcon'
+import DisplayIcon from './displayIcon/DisplayIcon'
 import { TbHomeShare } from "react-icons/tb";
+
+import MenuButton from './buttons/MenuButton'
 
 
 
@@ -66,7 +68,7 @@ const GalleryInformation = () => {
 
             <div className='sectionButtons'>
                 <ArrowButton division='section' direction={-1} pointer='leftArrow' />
-                <button onClick={handleViewJump} className="menu-btn"><span /></button>
+                <MenuButton />
                 <Link className='homeLink' to={'/'}><TbHomeShare /></Link>
                 <ArrowButton division='section' direction={1} pointer='rightArrow' />
             </div>

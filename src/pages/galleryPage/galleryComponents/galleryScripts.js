@@ -3,6 +3,7 @@
 import galleryData from "./galleryData"
 
 
+// Arrow Navigation
 export const handleArrowNavigation = (type, increment, gallerySection, galleryDisplay, dispatch) => {
     const currentList = type === 'section' ? Object.keys(galleryData) : Object.keys(galleryData[gallerySection])
     const currentIndex = currentList.indexOf(type === 'section' ? gallerySection : galleryDisplay)

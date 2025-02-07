@@ -5,9 +5,7 @@ import './galleryPage.css'
 
 
 import GalleryInformation from './galleryComponents/GalleryInformation'
-import imperials from '../../images/imperials.jpeg'
-import rivendellCharge from '../../images/rivendellCharge.jpeg'
-import trolls from '../../images/trolls.jpeg'
+import GallerySlides from './galleryComponents/slideShow/GallerySlides'
 
 
 import b1BattleDroid from '../../images/starWars/b1BattleDroid.png'
@@ -22,17 +20,6 @@ const GalleryPage = () => {
     const galleryView = useSelector((state) => state.galleryView)
     const miniShowcase = useSelector((state) => state.miniShowcase)
 
-
-    // slideshow
-    const slideShowImages = [imperials, rivendellCharge, trolls]
-    const [slideIndex, setSlideIndex] = useState(0)
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setSlideIndex((prevIndex) => (prevIndex + 1) % slideShowImages.length)
-        }, 10000) // 10s
-
-        return () => clearInterval(interval)
-    }, [])
 
     const resumeSlideShow = () => {
         dispatch({
@@ -93,20 +80,10 @@ const GalleryPage = () => {
                             <button className='resumeSlideShow' onClick={resumeSlideShow}>Resume Slideshow</button>
                         </div>
                         :
-                        <AnimatePresence mode='wait'>
-                            <motion.img
-                                className='slideShowImage'
-                                src={slideShowImages[slideIndex]}
-                                key={slideIndex}
-                                initial={{ opacity: 0, x: 20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: -20 }}
-                                transition={{ duration: 0.6 }}
-                            />
-                        </AnimatePresence>
-
+                        <GallerySlides />
                     }
                 </motion.div>
+                
             </AnimatePresence>
 
             <GalleryInformation />

@@ -1,0 +1,30 @@
+.menuSection {
+    border: 2px solid lime;
+    height: 65%;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.sectionItems,
+.displayItems {
+    border: 2px solid white;
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.menuButton {
+    /* border: 2px solid white; */
+    border-radius: 5px;
+    width: 85%;
+    height: 10dvh;
+    font-size: 2.75dvw;
+}

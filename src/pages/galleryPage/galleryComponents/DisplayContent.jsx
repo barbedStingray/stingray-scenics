@@ -23,7 +23,7 @@ const DisplayContent = () => {
         navigate('/groupDisplay')
     }
 
-    
+
     const requestMinisShowcase = async () => {
         try {
             const results = await axios.get('/api/myMinis/allMinis', {
@@ -39,7 +39,6 @@ const DisplayContent = () => {
                 type: 'SET_DISPLAY',
                 payload: true,
             })
-
         } catch (error) {
             console.log('error if finding your minis', error)
             alert('there was an error in your request')

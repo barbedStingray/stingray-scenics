@@ -1,7 +1,8 @@
 import React from 'react'
+import './displayIcon.css'
 import { useSelector } from 'react-redux'
 import { motion, AnimatePresence } from 'framer-motion'
-import galleryData from './galleryData'
+import galleryData from '../galleryData'
 
 
 const DisplayIcon = () => {

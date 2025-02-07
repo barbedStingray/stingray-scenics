@@ -1,5 +1,8 @@
 import b1BattleDroid from '../images/starWars/b1BattleDroid.png'
 
+
+// todo model / picture need to be the tags for your images
+// todo then make sure it ligns up with the back end
 const characters = [
     { title: 'Boromir', img: b1BattleDroid },
     { title: 'Aragorn', img: b1BattleDroid },

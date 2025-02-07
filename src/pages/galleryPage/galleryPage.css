@@ -49,14 +49,6 @@
     flex: 0;
 }
 
-.bigImage {
-    display: none;
-    /* border: 2px solid grey;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; */
-}
-
 
 .galleryVeiwControl {
     /* border: 2px solid purple; */
@@ -69,17 +61,6 @@
     justify-content: center;
     align-items: center;
     position: relative;
-}
-
-.displayIcon {
-    /* border: 2px solid white; */
-    width: 50dvh;
-    height: 50dvh;
-    position: absolute;
-    top: -30px;
-    left: -85px;
-    object-fit: contain;
-    filter: opacity(25%);
 }
 
 .sectionButtons {
@@ -95,11 +76,11 @@
 
 .contentContainer {
     /* border: 2px solid pink; */
+    position: relative;
     flex: 1;
     width: 95%;
     /* background: linear-gradient(180deg, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.04) 50%, rgba(255, 255, 255, 0) 80%); */
     /* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); */
-    position: relative;
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-end;
@@ -191,6 +172,9 @@
     bottom: 7%;
 }
 
+
+
+
 .homeLink {
     font-size: 45px;
     width: 50px;
@@ -207,112 +191,30 @@
 
 
 
-/* menu Section */
 
-.menuSection {
-    border: 2px solid lime;
-    height: 65%;
-    width: 100%;
+/* toggles your different button */
+.mobileView {
     display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 10px;
 }
 
-.sectionItems,
-.displayItems {
-    border: 2px solid white;
-    width: 40%;
-    height: 100%;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
-}
-
-.menuButton {
-    /* border: 2px solid white; */
-    border-radius: 5px;
-    width: 85%;
-    height: 10dvh;
-    font-size: 2.75dvw;
+.largeView {
+    display: none;
 }
 
 
+@media (min-width: 767px) {
+
+    .mobileView {
+        display: none;
+
+    }
+
+    .largeView {
+        display: flex;
+    }
 
 
-.slideShowImage {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-
-    -webkit-mask-image:
-        linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%),
-        linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%),
-        linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%),
-        linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%);
-
-    mask-image:
-        linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%),
-        linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%),
-        linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%),
-        linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%);
-    -webkit-mask-composite: destination-in;
-    mask-composite: intersect;
 }
-
-
-
-
-
-
-
-
-
-/* Actual Menu Button */
-
-.menu-btn {
-    background: none;
-    border: none;
-    /* border: 2px solid white; */
-    width: 50px;
-    height: 40px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.menu-btn::before,
-.menu-btn::after,
-.menu-btn span {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 4px;
-    background: ghostwhite;
-    border-radius: 2px;
-    position: absolute;
-    transition: 0.3s;
-}
-
-.menu-btn::before {
-    top: 6px;
-}
-
-.menu-btn::after {
-    bottom: 6px;
-}
-
-.menu-btn span {
-    position: relative;
-}
-
-
-
 
 
 
@@ -358,7 +260,6 @@
         overflow-y: auto;
         padding-top: 40px;
 
-
         display: flex;
         flex-flow: row wrap;
         justify-content: center;
@@ -395,35 +296,4 @@
         height: 20dvh;
         writing-mode: vertical-rl;
     }
-
-
-
-}
-
-
-
-
-
-/* toggles your different button */
-.mobileView {
-    display: flex;
-}
-
-.largeView {
-    display: none;
-}
-
-
-@media (min-width: 767px) {
-
-    .mobileView {
-        display: none;
-
-    }
-
-    .largeView {
-        display: flex;
-    }
-
-
 }
