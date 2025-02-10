@@ -173,8 +173,6 @@
 }
 
 
-
-
 .homeLink {
     font-size: 45px;
     width: 50px;
@@ -184,42 +182,6 @@
     color: ghostwhite;
     text-decoration: none;
 }
-
-
-
-
-
-
-
-
-/* toggles your different button */
-.mobileView {
-    display: flex;
-}
-
-.largeView {
-    display: none;
-}
-
-
-@media (min-width: 767px) {
-
-    .mobileView {
-        display: none;
-
-    }
-
-    .largeView {
-        display: flex;
-    }
-
-
-}
-
-
-
-
-
 
 
 
@@ -260,5 +222,29 @@
         width: 4dvw;
         height: 20dvh;
         writing-mode: vertical-rl;
+    }
+}
+
+
+
+
+/* toggles your different button */
+.mobileView {
+    display: flex;
+}
+
+.largeView {
+    display: none;
+}
+
+@media (min-width: 767px) {
+
+    .mobileView {
+        display: none;
+
+    }
+
+    .largeView {
+        display: flex;
     }
 }

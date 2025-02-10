@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import './navBar.css'
 import { motion, AnimatePresence, useInView } from 'framer-motion'
@@ -31,18 +32,41 @@ const NavBar = () => {
     )
 }
 
+
 export default NavBar
+
 
 
 // nav tabs
 const Tab = ({ children, setPosition }) => {
 
+    const dispatch = useDispatch()
     const ref = useRef(null)
+    const openContactModal = () => {
+        dispatch({ type: 'SET_CONTACT', payload: true })
+    }
 
-    return (
+    return children === 'Contact' ? (
+        <div
+            ref={ref}
+            className="motionTab"
+            onClick={openContactModal}
+            onMouseEnter={() => {
+                const { width } = ref.current.getBoundingClientRect()
+                setPosition({
+                    left: ref.current.offsetLeft,
+                    width,
+                    opacity: 1,
+                })
+            }}
+        >
+            {children}
+        </div>
+    ) : (
         <Link
             ref={ref}
             to={`/${children.toLowerCase()}`}
+            className="motionTab"
             onMouseEnter={() => {
                 const { width } = ref.current.getBoundingClientRect()
                 setPosition({
@@ -56,6 +80,8 @@ const Tab = ({ children, setPosition }) => {
         </Link>
     )
 }
+
+
 
 // shadowbox for nav
 const Cursor = ({ position }) => {

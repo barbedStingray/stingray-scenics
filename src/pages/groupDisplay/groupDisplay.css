@@ -27,30 +27,10 @@
 
 
 .groupTitle {
-    border: 2px solid white;
+    /* border: 2px solid white; */
     width: 90%;
     position: fixed;
     top: 5%;
-    font-size: 6dvh;
+    font-size: 8dvh;
     text-align: right;
-}
-
-
-
-
-
-
-
-
-
-
-@media (min-width: 430px) {
-
-    .groupDisplay {
-        /* scroll-snap-type: none; */
-        /* gap: 15px; */
-        /* padding: 0 40px; */        
-    }
-
-
 }

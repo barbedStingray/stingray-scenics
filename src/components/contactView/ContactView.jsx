@@ -4,15 +4,16 @@ import { motion, useSpring, useInView, useTransform, useScroll, useMotionTemplat
 import { useSelector, useDispatch } from 'react-redux';
 import emailjs from '@emailjs/browser'
 import { displayView } from '../universalFunctions';
+import { LuArrowLeftFromLine } from "react-icons/lu";
+
 
 
 import bobaFett from '../../images/bobaFett.png'
 
 
-// todo limit your text area characters
-// todo build a cool select menu
 // todo edit your buttons
-// todo scale it to bigger screen sizes
+// todo add your success modal
+
 // todo be happy because it'll be complete
 
 const ContactView = () => {
@@ -68,6 +69,11 @@ const ContactView = () => {
         exit={{ x: '-100%' }}
         transition={{ type: 'spring', stiffness: 100, damping: 20 }}
       >
+
+        <div className='contactReturn' onClick={() => displayView('SET_CONTACT', false, dispatch)}><LuArrowLeftFromLine /></div>
+
+        <img className='contactFett' src={bobaFett} />
+
         <p>Contact!</p>
 
         <form className='contactForm' ref={form} onSubmit={sendEmail}>
@@ -96,6 +102,7 @@ const ContactView = () => {
             ref={textAreaRef}
             onChange={(e) => setTextValue(e.target.value)}
             value={textValue}
+            maxLength={220}
           />
           <div
             className='fakeTextArea'
@@ -123,19 +130,8 @@ const ContactView = () => {
           </div>
 
           <button className='submitContact' type='submit'>SEND</button>
-          <button className="slideButton">
-            <span>Click me</span>
-          </button>
-
-
-
 
         </form>
-
-
-        <button className='contactReturn' onClick={() => displayView('SET_CONTACT', false, dispatch)}>Return</button>
-
-        <img className='contactFett' src={bobaFett} />
 
       </motion.div>
     </AnimatePresence>
