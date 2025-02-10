@@ -1,11 +1,13 @@
 import React, { useRef, useState } from 'react'
 import './contactView.css'
-import { motion, useSpring, useInView, useTransform, useScroll, useMotionTemplate, useMotionValueEvent, AnimatePresence } from 'framer-motion';
+import { motion, useAnimate, useSpring, useInView, useTransform, useScroll, useMotionTemplate, useMotionValueEvent, AnimatePresence } from 'framer-motion';
 import { useSelector, useDispatch } from 'react-redux';
 import emailjs from '@emailjs/browser'
 import { displayView } from '../universalFunctions';
 import { LuArrowLeftFromLine } from "react-icons/lu";
 import SentSuccess from './SentSuccess';
+
+import SequenceButton from '../sequenceButton/SequenceButton';
 
 
 import bobaFett from '../../images/bobaFett.png'
@@ -23,7 +25,6 @@ const ContactView = () => {
   const [textValue, setTextValue] = useState('')
   const rotateValue = Math.floor(Math.random() * 201) - 100
   console.log('textvalue', textValue.length)
-
 
 
   const form = useRef()
@@ -136,7 +137,11 @@ const ContactView = () => {
           )}
         </AnimatePresence>
 
-          <button style={{ zIndex: '100' }} onClick={() => setIsSent(true)}>SEND IT</button>
+        <button style={{ zIndex: '100' }} onClick={() => setIsSent(true)}>SEND IT</button>
+
+        <SequenceButton />
+
+        
       </motion.div>
     </AnimatePresence>
   )
