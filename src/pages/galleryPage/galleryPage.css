@@ -241,7 +241,6 @@
         width: 430px;
     }
 
-
     .largeScreenGallery {
         /* border: 2px solid red; */
         flex-grow: 1;
@@ -251,40 +250,6 @@
 
         display: flex;
         align-items: flex-start;
-    }
-
-    .scrollingArtBox {
-        /* border: 2px solid green; */
-        width: 100%;
-        height: 100%;
-        overflow-y: auto;
-        padding-top: 40px;
-
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 15px;
-
-    }
-
-    .largeArtBox {
-        /* border: 2px solid gold; */
-        width: 250px;
-        height: 250px;
-        position: relative;
-    }      
-
-    .largeArtTitle {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-    }
-
-    .largeArtImage {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
     }
 
     .resumeSlideShow {

@@ -1,24 +1,12 @@
 import React, { useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import './groupDisplay.css'
-import '../galleryPage/galleryPage.css'
-import { motion, useScroll, useMotionTemplate, useTransform, useMotionValueEvent, useInView } from 'framer-motion'
-import DisplayIcon from '../galleryPage/galleryComponents/displayIcon/DisplayIcon'
-import MiniDisplay from '../../components/miniDisplay/MiniDisplay'
+import './miniDisplay.css'
 import b1BattleDroid from '../../images/starWars/b1BattleDroid.png'
 
-const GroupDisplay = () => {
+import { motion, useInView } from 'framer-motion'
 
-    const navigate = useNavigate()
-    const { gallerySection, galleryDisplay, colorShade } = useSelector((state) => state.gallerySlice)
-    const { title, description, photo } = useSelector((state) => state.gallerySlice).content
 
-    // todo implement the array to MiniDisplay prop
+const MiniDisplay = () => {
 
-    function backToGallery() {
-        navigate('/gallery')
-    }
 
     const characters = [
         { title: 'Boromir', img: b1BattleDroid },
@@ -36,24 +24,17 @@ const GroupDisplay = () => {
         { title: 'Chopper', img: b1BattleDroid },
         { title: 'Ezra', img: b1BattleDroid },
         { title: 'Zeb', img: b1BattleDroid }
-    ];
+    ]
 
 
     return (
-        <motion.div
-            className='groupDisplay'
-            style={{ '--shade-group': colorShade }}
-        >
-
-            <DisplayIcon />
-            <h1 className='groupTitle' style={{ color: colorShade }}>{title}</h1>
-            <MiniDisplay />
-
-        </motion.div>
+        <div className='miniDisplay'>
+            {characters.map((character, i) => (
+                <ArtImage key={i} index={i} character={character} />
+            ))}
+        </div>
     )
 }
-
-export default GroupDisplay
 
 
 
@@ -74,7 +55,7 @@ const ArtImage = ({ children, index, character }) => {
         <div
             className='artBox'
         >
-            <motion.img
+            <img
                 className='artImage'
                 src={character.img}
                 alt={character.img}
@@ -89,7 +70,7 @@ const ArtImage = ({ children, index, character }) => {
                     margin: '0% 0px 0% 0px ',
                 }}
             />
-            <motion.p
+            <p
                 className='artTitle'
                 alt={character.img}
                 ref={ref}
@@ -102,7 +83,10 @@ const ArtImage = ({ children, index, character }) => {
                     once: false,
                     margin: '0% 0px 0% 0px ',
                 }}
-            >{character.title}</motion.p>
+            >{character.title}</p>
         </div>
     )
 }
+
+
+export default MiniDisplay

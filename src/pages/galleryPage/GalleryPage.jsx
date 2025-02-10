@@ -6,6 +6,7 @@ import './galleryPage.css'
 
 import GalleryInformation from './galleryComponents/GalleryInformation'
 import GallerySlides from './galleryComponents/slideShow/GallerySlides'
+import MiniDisplay from '../../components/miniDisplay/MiniDisplay'
 
 
 import b1BattleDroid from '../../images/starWars/b1BattleDroid.png'
@@ -70,15 +71,16 @@ const GalleryPage = () => {
                     transition={{ duration: 0.6 }}
                 >
                     {galleryView ?
-                        <div className='scrollingArtBox'>
-                            {characters.map((character, i) => (
-                                <div key={`character-${i}`} className='largeArtBox'>
-                                    <p className='largeArtTitle'>{character.model}</p>
-                                    <img className='largeArtImage' src={character.picture} />
-                                </div>
-                            ))}
-                            <button className='resumeSlideShow' onClick={resumeSlideShow}>Resume Slideshow</button>
-                        </div>
+                        <MiniDisplay />
+                        // <div className='scrollingArtBox'>
+                        //     {characters.map((character, i) => (
+                        //         <div key={`character-${i}`} className='largeArtBox'>
+                        //             <p className='largeArtTitle'>{character.model}</p>
+                        //             <img className='largeArtImage' src={character.picture} />
+                        //         </div>
+                        //     ))}
+                        //     <button className='resumeSlideShow' onClick={resumeSlideShow}>Resume Slideshow</button>
+                        // </div>
                         :
                         <GallerySlides />
                     }
