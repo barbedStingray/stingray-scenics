@@ -5,15 +5,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import emailjs from '@emailjs/browser'
 import { displayView } from '../universalFunctions';
 import { LuArrowLeftFromLine } from "react-icons/lu";
-
+import SentSuccess from './SentSuccess';
 
 
 import bobaFett from '../../images/bobaFett.png'
 
 
-// todo edit your buttons
-// todo add your success modal
-
+// todo edit your button / animation sequence
+// todo style your success modal
 // todo be happy because it'll be complete
 
 const ContactView = () => {
@@ -44,8 +43,8 @@ const ContactView = () => {
         (result) => {
           console.log(result.text);
           setIsSent(true);
+          setTextValue('')
           e.target.reset();
-
         },
         (error) => {
           console.error(error.text);
@@ -59,8 +58,6 @@ const ContactView = () => {
   return (
     <AnimatePresence mode='wait'>
 
-      {/* build the Congrats it sent page */}
-
       <motion.div
         className={contactView ? 'contactView' : 'noDisplay'}
         key={contactView ? 'contact-visible' : 'contact-hidden'}
@@ -71,68 +68,75 @@ const ContactView = () => {
       >
 
         <div className='contactReturn' onClick={() => displayView('SET_CONTACT', false, dispatch)}><LuArrowLeftFromLine /></div>
-
         <img className='contactFett' src={bobaFett} />
 
-        <p>Contact!</p>
+        <AnimatePresence mode='wait'>
+          {isSent ? (
+            <SentSuccess isSent={isSent} setIsSent={setIsSent} />
+          ) : (
+            <motion.form
+              className='contactForm'
+              ref={form}
+              onSubmit={sendEmail}
+              key={isSent ? 'form-hidden' : 'form-visible'}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+            >
 
-        <form className='contactForm' ref={form} onSubmit={sendEmail}>
+              <p>Contact!</p>
+              <div className='input-group'>
+                <input type='text' name="user_name" id='user_name' required />
+                <label htmlFor="user_name">User Name</label>
+                <span className='bottomline'></span>
+              </div>
+              <div className='input-group'>
+                <input type='text' name="user_email" id='user_email' required />
+                <label htmlFor="user_email">User email</label>
+                <span className='bottomline'></span>
+              </div>
+              <div className='input-group'>
+                <input type='text' name="user_offer" id='user_offer' required />
+                <label htmlFor="user_offer">Your budget</label>
+                <span className='bottomline'></span>
+              </div>
 
-          <div className='input-group'>
-            <input type='text' name="user_name" id='user_name' required />
-            <label htmlFor="user_name">User Name</label>
-            <span className='bottomline'></span>
-          </div>
-          <div className='input-group'>
-            <input type='text' name="user_email" id='user_email' required />
-            <label htmlFor="user_email">User email</label>
-            <span className='bottomline'></span>
-          </div>
-          <div className='input-group'>
-            <input type='text' name="user_offer" id='user_offer' required />
-            <label htmlFor="user_offer">Your budget</label>
-            <span className='bottomline'></span>
-          </div>
+              <p>Message;</p>
+              <textarea
+                className='realTextArea'
+                name="user_vision"
+                ref={textAreaRef}
+                onChange={(e) => setTextValue(e.target.value)}
+                value={textValue}
+                maxLength={220}
+              />
+              <div
+                className='fakeTextArea'
+                onClick={() => textAreaRef.current.focus()}
+              >
+                <AnimatePresence>
+                  {textValue.split('').map((letter, index) => {
+                    return <motion.span
+                      key={index}
+                      className={letter === " " ? "space" : "inline-block"}
+                      initial={{ opacity: 0, y: 100, rotate: rotateValue }}
+                      animate={{ opacity: 1, y: 0, rotate: 0 }}
+                      exit={{ opacity: 0, y: 100, rotate: rotateValue, transition: { duration: 0.5, } }}
+                      transition={{ duration: 0.5, ease: 'easeIn' }}
+                    >
+                      {letter === " " ? "\u00A0" : letter}
+                    </motion.span>
+                  })}
+                </AnimatePresence>
+              </div>
 
-          <p>Message;</p>
+              <button className='submitContact' type='submit'>SEND</button>
+            </motion.form>
+          )}
+        </AnimatePresence>
 
-          <textarea
-            className='realTextArea'
-            name="user_vision"
-            ref={textAreaRef}
-            onChange={(e) => setTextValue(e.target.value)}
-            value={textValue}
-            maxLength={220}
-          />
-          <div
-            className='fakeTextArea'
-            onClick={() => textAreaRef.current.focus()}
-          >
-            <AnimatePresence>
-              {textValue.split('').map((letter, index) => {
-                return <motion.span
-                  key={index}
-                  className={letter === " " ? "space" : "inline-block"}
-                  initial={{ opacity: 0, y: 100, rotate: rotateValue }}
-                  animate={{ opacity: 1, y: 0, rotate: 0 }}
-                  exit={{
-                    opacity: 0, y: 100, rotate: rotateValue,
-                    transition: { duration: 0.5, },
-                  }}
-                  transition={{ duration: 0.5, ease: 'easeIn' }}
-
-                >
-                  {letter === " " ? "\u00A0" : letter}
-                </motion.span>
-              })}
-            </AnimatePresence>
-
-          </div>
-
-          <button className='submitContact' type='submit'>SEND</button>
-
-        </form>
-
+          <button style={{ zIndex: '100' }} onClick={() => setIsSent(true)}>SEND IT</button>
       </motion.div>
     </AnimatePresence>
   )

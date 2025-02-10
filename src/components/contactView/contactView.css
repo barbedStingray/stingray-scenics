@@ -1,11 +1,11 @@
 .contactView {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   width: 100%;
   height: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 50;
   background: radial-gradient(circle, #929292 0%, #707070 40%, #0a0a0a 100%);
   overflow: hidden;
   color: white;
@@ -175,6 +175,16 @@
   width: 0.3em;
 }
 
+.sentSuccess {
+  border: 2px solid lime;
+  background-color: #000000ab;
+  position: absolute;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
 
 
 

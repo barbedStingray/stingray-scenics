@@ -21,7 +21,7 @@ function App() {
 
       <ContactView />
 
-      <AnimatePresence mode='wait'>
+      <AnimatePresence mode='wait' initial={false}>
         <Routes location={location} key={location.pathname}>
           <Route path='/' element={<PageWrapper><StingrayScenics /></PageWrapper>} />
           <Route path='/gallery' element={<PageWrapper><GalleryPage /></PageWrapper>} />
