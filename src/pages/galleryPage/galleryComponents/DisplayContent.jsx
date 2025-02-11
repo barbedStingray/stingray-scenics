@@ -26,6 +26,8 @@ const DisplayContent = () => {
 
     const requestMinisShowcase = async () => {
         try {
+            // todo setting your loader here
+
             const results = await axios.get('/api/myMinis/allMinis', {
                 params: { gallerySection, galleryDisplay }
             })
@@ -43,6 +45,7 @@ const DisplayContent = () => {
             console.log('error if finding your minis', error)
             alert('there was an error in your request')
         }
+        // todo .after or whatever to set your screen display changes
     }
 
 
@@ -88,25 +91,34 @@ const DisplayContent = () => {
                 </motion.p>
 
 
-                <motion.button
-                    className='galleryButton mobileView'
-                    onClick={toGroupDisplay}
+                <motion.div
+                    className='galleryButton-container mobileView'
                     custom={direction}
                     variants={slideVariants}
                     transition={displaySpring}
                 >
-                    View Miniatures Mobile
-                </motion.button>
+                    <button
+                        className='trackButton'
+                        onClick={toGroupDisplay}
+                    >
+                        <span>View Models</span>
+                    </button>
+                </motion.div>
 
-                <motion.button
-                    className='galleryButton largeView'
-                    onClick={() => requestMinisShowcase()}
+                <motion.div
+                    className='galleryButton-container largeView'
                     custom={direction}
                     variants={slideVariants}
                     transition={displaySpring}
                 >
-                    View Miniatures LARGE
-                </motion.button>
+                    <button
+                        className='trackButton'
+                        onClick={() => requestMinisShowcase()}
+                    >
+                        <span>View Models</span>
+                    </button>
+                </motion.div>
+
 
 
 

@@ -9,9 +9,6 @@ import SentSuccess from './SentSuccess';
 import SequenceButton from '../sequenceButton/SequenceButton';
 import bobaFett from '../../images/bobaFett.png'
 
-// todo style your success modal
-// todo animate your success modal
-// todo be happy because it'll be complete
 
 const ContactView = () => {
 
@@ -24,7 +21,7 @@ const ContactView = () => {
 
 
   const form = useRef()
-  const [isSent, setIsSent] = useState(true)
+  const [isSent, setIsSent] = useState(false)
 
   const sendEmail = (e) => {
     e.preventDefault()
@@ -134,7 +131,7 @@ const ContactView = () => {
           )}
         </AnimatePresence>
 
-        <button style={{ zIndex: '100' }} onClick={() => setIsSent(true)}>SEND IT</button>
+        {/* <button style={{ zIndex: '100' }} onClick={() => setIsSent(true)}>SEND IT</button> */}
         
       </motion.div>
     </AnimatePresence>

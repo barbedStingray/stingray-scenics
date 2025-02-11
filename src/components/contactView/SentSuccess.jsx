@@ -58,11 +58,11 @@ const SentSuccess = ({ isSent, setIsSent }) => {
                     <motion.img variants={childVariants} className='sentStingray' src={stingray} />
                     <motion.p variants={childVariants} className='sentMessage'>Message sent!</motion.p>
                     <motion.p variants={childVariants} className='sentText'>{thanksMessage}</motion.p>
-                    <div variants={{ childVariants }} className='sentButton-container'>
-                        <motion.button variants={childVariants} onClick={messageSentSuccess} className='trackButton'>
+                    <motion.div variants={childVariants} className='sentButton-container'>
+                        <button  onClick={messageSentSuccess} className='trackButton'>
                             <span>Great!</span>
-                        </motion.button>
-                    </div>
+                        </button>
+                    </motion.div>
                 </motion.div>
             )}
         </AnimatePresence>
