@@ -6,10 +6,7 @@ import emailjs from '@emailjs/browser'
 import { displayView } from '../universalFunctions';
 import { LuArrowLeftFromLine } from "react-icons/lu";
 import SentSuccess from './SentSuccess';
-
 import SequenceButton from '../sequenceButton/SequenceButton';
-
-
 import bobaFett from '../../images/bobaFett.png'
 
 // todo style your success modal
