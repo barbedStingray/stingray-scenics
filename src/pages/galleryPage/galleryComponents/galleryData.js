@@ -41,6 +41,15 @@ const galleryData = {
                 photo: images.treeEnt,
             },
         },
+        rohan: {
+            icon: images.horseLords,
+            color: '#04c22044',
+            content: {
+                title: 'Rohan',
+                description: 'Land of the Horse Lords',
+                photo: images.rohanCommand,
+            },
+        },
     },
     starWars: {
         mainDisplay: {

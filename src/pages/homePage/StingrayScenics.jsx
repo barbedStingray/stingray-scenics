@@ -6,7 +6,6 @@ import './homePage.css'
 import { displayView } from '../../components/universalFunctions';
 
 import NavBar from '../../components/navigation/NavBar'
-
 import pelennorFields from '../../images/pelennorFields.jpeg'
 
 const StingrayScenics = () => {
@@ -30,15 +29,18 @@ const StingrayScenics = () => {
             <NavBar />
 
             <p className='SSTextStyle SStitle glassMorphGreen'>Stingray scenics"</p>
-            <motion.p className='SSTextStyle scrollAdventure'
+            <motion.p
+                className='SSTextStyle scrollAdventure'
                 style={{ opacity: scrollAdventureOp }}
-            >Scroll for Adventure</motion.p>
+            >
+                Scroll for Adventure
+            </motion.p>
 
 
             <div className='revealPanel'>
-                <img className='pictureFit-cover' src={pelennorFields}/>
+                <img className='pictureFit-cover' src={pelennorFields} />
             </div>
-            
+
             <div className='stickyFooter'>
                 <div className='footerLinks'>
                     <Link className='footLink' to={'/gallery'}>Gallery</Link>

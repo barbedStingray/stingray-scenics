@@ -1,16 +1,21 @@
 import React, { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import './groupDisplay.css'
 import '../galleryPage/galleryPage.css'
 import { motion, useScroll, useMotionTemplate, useTransform, useMotionValueEvent, useInView } from 'framer-motion'
 import DisplayIcon from '../galleryPage/galleryComponents/displayIcon/DisplayIcon'
 import MiniDisplay from '../../components/miniDisplay/MiniDisplay'
 import b1BattleDroid from '../../images/starWars/b1BattleDroid.png'
+import { LuArrowLeftFromLine } from "react-icons/lu";
+
+
+
 
 const GroupDisplay = () => {
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const { gallerySection, galleryDisplay, colorShade } = useSelector((state) => state.gallerySlice)
     const { title, description, photo } = useSelector((state) => state.gallerySlice).content
 
@@ -48,6 +53,9 @@ const GroupDisplay = () => {
             <DisplayIcon />
             <h1 className='groupTitle' style={{ color: colorShade }}>{title}</h1>
             <MiniDisplay />
+
+            <button className='returnButton' onClick={backToGallery}><LuArrowLeftFromLine />Return</button>
+            <button className='groupCommission' onClick={(e) => {dispatch({ type: 'SET_CONTACT', payload: true })}}>Request</button>
 
         </motion.div>
     )
