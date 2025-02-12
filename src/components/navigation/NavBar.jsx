@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import './navBar.css'
-import { motion, AnimatePresence, useInView } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 
 const NavBar = () => {

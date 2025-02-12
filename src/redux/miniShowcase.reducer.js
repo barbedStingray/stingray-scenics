@@ -1,27 +1,25 @@
 import b1BattleDroid from '../images/starWars/b1BattleDroid.png'
 
 
-// todo model / picture need to be the tags for your images
-// todo then make sure it ligns up with the back end
 const characters = [
-    { title: 'Boromir', img: b1BattleDroid },
-    { title: 'Aragorn', img: b1BattleDroid },
-    { title: 'Legolas', img: b1BattleDroid },
-    { title: 'Gandalf', img: b1BattleDroid },
-    { title: 'Merry', img: b1BattleDroid },
-    { title: 'Sam', img: b1BattleDroid },
-    { title: 'Pippen', img: b1BattleDroid },
-    { title: 'Frodo', img: b1BattleDroid },
-    { title: 'Gimli', img: b1BattleDroid },
-    { title: 'Kanan', img: b1BattleDroid },
-    { title: 'Hera', img: b1BattleDroid },
-    { title: 'Sabine', img: b1BattleDroid },
-    { title: 'Chopper', img: b1BattleDroid },
-    { title: 'Ezra', img: b1BattleDroid },
-    { title: 'Zeb', img: b1BattleDroid }
+    { model: 'Boromir', picture: b1BattleDroid },
+    { model: 'Aragorn', picture: b1BattleDroid },
+    { model: 'Legolas', picture: b1BattleDroid },
+    { model: 'Gandalf', picture: b1BattleDroid },
+    { model: 'Merry', picture: b1BattleDroid },
+    { model: 'Sam', picture: b1BattleDroid },
+    { model: 'Pippen', picture: b1BattleDroid },
+    { model: 'Frodo', picture: b1BattleDroid },
+    { model: 'Gimli', picture: b1BattleDroid },
+    { model: 'Kanan', picture: b1BattleDroid },
+    { model: 'Hera', picture: b1BattleDroid },
+    { model: 'Sabine', picture: b1BattleDroid },
+    { model: 'Chopper', picture: b1BattleDroid },
+    { model: 'Ezra', picture: b1BattleDroid },
+    { model: 'Zeb', picture: b1BattleDroid }
 ]
 
-const miniShowcase = (state = [], action) => {
+const miniShowcase = (state = characters, action) => {
 
     switch (action.type) {
         case 'SET_SHOWCASE':

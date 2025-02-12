@@ -19,9 +19,9 @@ const MenuButton = () => {
         })
     }
 
-  return (
-    <button onClick={handleViewJump} className="menu-btn"><span /></button>
-)
+    return (
+        <button onClick={handleViewJump} className="menu-btn"><span /></button>
+    )
 }
 
 export default MenuButton

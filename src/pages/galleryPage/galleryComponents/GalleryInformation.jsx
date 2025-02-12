@@ -23,14 +23,6 @@ const GalleryInformation = () => {
     const hiddenButtons = ['welcome', 'menuSection']
     const displayButtonClass = hiddenButtons.includes(gallerySection) ? 'noDisplay' : 'displayButtons'
 
-    const handleViewJump = () => {
-        console.log('menu option')
-        dispatch({
-            type: 'SECTION_CHANGE',
-            payload: { gallerySection: 'menuSection', galleryDisplay: 'mainDisplay', colorShade: colorShade }
-        })
-    }
-
 
     return (
         <div className='galleryVeiwControl'>
@@ -42,7 +34,7 @@ const GalleryInformation = () => {
                 <motion.div
                     className="contentContainer"
                     key={`galleryInformation-${gallerySection}`}
-                    custom={direction} // Pass direction to variants
+                    custom={direction}
                     initial="enter"
                     animate="center"
                     exit="exit"
@@ -69,7 +61,16 @@ const GalleryInformation = () => {
             <div className='sectionButtons'>
                 <ArrowButton division='section' direction={-1} pointer='leftArrow' />
                 <MenuButton />
-                <Link className='homeLink' to={'/'} onClick={(e) => {dispatch({ type: 'SET_DISPLAY', payload: false })}}><TbHomeShare /></Link>
+                <Link
+                    className="homeLink"
+                    to={'/'}
+                    onClick={(e) => {
+                        dispatch({ type: 'SET_DISPLAY', payload: false });
+                        dispatch({ type: 'SECTION_CHANGE', payload: { gallerySection: 'welcome', galleryDisplay: 'mainDisplay' } })
+                    }}
+                >
+                    <TbHomeShare />
+                </Link>
                 <ArrowButton division='section' direction={1} pointer='rightArrow' />
             </div>
         </div>

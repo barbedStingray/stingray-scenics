@@ -4,6 +4,7 @@ export const displaySpring = {
     damping: 15,
 }
 
+
 export const slideVariants = {
     enter: (direction) => ({
         opacity: 0,
@@ -18,6 +19,7 @@ export const slideVariants = {
         y: direction > 0 ? -15 : 15,
     })
 }
+
 
 export const sectionVariants = {
     enter: (direction) => ({

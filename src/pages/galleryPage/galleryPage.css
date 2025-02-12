@@ -114,13 +114,14 @@
 
 .displayImage {
     /* border: 2px solid lime; */
-    width: 30dvh;
-    height: 30dvh;
+    width: 33dvh;
+    height: 33dvh;
+    padding: 2dvh;
     object-fit: contain;
     position: absolute;
     top: 5%;
-    left: 5%;
-    filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 0.75));
+    left: 3%;
+    filter: drop-shadow(2px 2px 10px #000000bf);
 }
 
 .displayTitle {

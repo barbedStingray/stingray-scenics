@@ -4,8 +4,6 @@ import { stagger, useAnimate } from 'framer-motion';
 import sword from '../../images/sword.svg'
 
 
-
-
 const SequenceButton = () => {
 
     const randomNumberBetween = (min, max) => {

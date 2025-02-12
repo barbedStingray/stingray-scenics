@@ -16,9 +16,10 @@ const StingrayScenics = () => {
         container: homeContainerRef,
         offset: ['start start', 'end end']
     })
-    useMotionValueEvent(homeContainer, 'change', (latest) =>
-        console.log('mainY', latest)
-    )
+    // console.log for screen scroll position
+    // useMotionValueEvent(homeContainer, 'change', (latest) =>
+    //     console.log('mainY', latest)
+    // )
 
     const scrollAdventureOp = useTransform(homeContainer, [0, 0.1], [1, 0])
 
@@ -35,7 +36,6 @@ const StingrayScenics = () => {
             >
                 Scroll for Adventure
             </motion.p>
-
 
             <div className='revealPanel'>
                 <img className='pictureFit-cover' src={pelennorFields} />

@@ -1,5 +1,3 @@
-// todo fix consistency - galleryDisplay
-
 const galleryView = (state = false, action) => {
 
     switch (action.type) {

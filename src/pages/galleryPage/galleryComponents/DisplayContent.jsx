@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
@@ -17,36 +17,29 @@ const DisplayContent = () => {
     const { gallerySection, galleryDisplay } = useSelector((state) => state.gallerySlice)
     const { title, description, photo } = useSelector((state) => state.gallerySlice).content
     const galleryView = useSelector((state) => state.galleryView)
-    console.log('view', galleryView)
-
-    // todo: expand to request database
-    const toGroupDisplay = () => {
-        navigate('/groupDisplay')
-    }
 
 
-    const requestMinisShowcase = async () => {
+    const requestMinisShowcase = async (leavePage) => {
         try {
             // todo setting your loader here
 
-            const results = await axios.get('/api/myMinis/allMinis', {
+            const { data: myMinis } = await axios.get('/api/myMinis/allMinis', {
                 params: { gallerySection, galleryDisplay }
-            })
-            console.log('results', results.data)
-            const myMinis = results.data
-            dispatch({
-                type: 'SET_SHOWCASE',
-                payload: myMinis
-            })
-            dispatch({
-                type: 'SET_DISPLAY',
-                payload: true,
-            })
+            });
+            // ! toggle back when you have photos of models
+            // dispatch({ type: 'SET_SHOWCASE', payload: myMinis })
+
         } catch (error) {
             console.log('error if finding your minis', error)
             alert('there was an error in your request')
+        } finally {
+
+            dispatch({ type: 'SET_DISPLAY', payload: !leavePage });
+            if (leavePage) {
+                navigate('/groupDisplay')
+            }
+
         }
-        // todo .after or whatever to set your screen display changes
     }
 
 
@@ -107,7 +100,7 @@ const DisplayContent = () => {
                             variants={slideVariants}
                             transition={displaySpring}
                         >
-                            <button className='trackButton' onClick={toGroupDisplay}>
+                            <button className='trackButton' onClick={() => requestMinisShowcase(true)}>
                                 <span>View Models</span>
                             </button>
                         </motion.div>
@@ -118,7 +111,7 @@ const DisplayContent = () => {
                             variants={slideVariants}
                             transition={displaySpring}
                         >
-                            <button className='trackButton' onClick={() => requestMinisShowcase()}>
+                            <button className='trackButton' onClick={() => requestMinisShowcase(false)}>
                                 <span>View Models</span>
                             </button>
                         </motion.div>

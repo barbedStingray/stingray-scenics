@@ -22,8 +22,7 @@ const MenuSection = () => {
         galleryLabel: display,
         title: galleryData[currentSection][display]?.content.title,
         color: galleryData[currentSection][display]?.color,
-    }))
-        .filter((_, i, arr) => i !== 0)
+    })).filter((_, i, arr) => i !== 0)
 
 
     const handleSectionClick = (clickedLabel) => {

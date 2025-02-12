@@ -90,6 +90,15 @@ const galleryData = {
                 photo: images.b2DroidRed,
             },
         },
+        // miniBases: {
+        //     icon: images.stingrayLogo,
+        //     color: '#0d00ff',
+        //     content: {
+        //         title: 'Miniature Bases',
+        //         description: 'Unit bases for all sizes',
+        //         photo: images.b2Droid,
+        //     },
+        // },
         // scatter: {
         //     icon: images.stingrayLogo,
         //     color: '#0d00ff',
@@ -105,15 +114,6 @@ const galleryData = {
         //     content: {
         //         title: 'Scenic Squares',
         //         description: 'A small section of terrain that can be configured in different arrangements to form an entire battlefield.',
-        //         photo: images.b2Droid,
-        //     },
-        // },
-        // miniBases: {
-        //     icon: images.stingrayLogo,
-        //     color: '#0d00ff',
-        //     content: {
-        //         title: 'Miniature Bases',
-        //         description: 'Unit bases for all sizes',
         //         photo: images.b2Droid,
         //     },
         // },

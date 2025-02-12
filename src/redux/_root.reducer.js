@@ -6,7 +6,6 @@ import contactView from './contactView.reducer';
 import miniShowcase from './miniShowcase.reducer';
 
 const rootReducer = combineReducers({
-    //   newReducerNameHere, // sets newly bought dToons
     gallerySlice,
     direction,
     galleryView,
