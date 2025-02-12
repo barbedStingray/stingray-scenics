@@ -17,6 +17,7 @@ const DisplayContent = () => {
     const { gallerySection, galleryDisplay } = useSelector((state) => state.gallerySlice)
     const { title, description, photo } = useSelector((state) => state.gallerySlice).content
     const galleryView = useSelector((state) => state.galleryView)
+    console.log('view', galleryView)
 
     // todo: expand to request database
     const toGroupDisplay = () => {
@@ -62,16 +63,14 @@ const DisplayContent = () => {
                     staggerChildren: 0.09,
                 }}
             >
-                <motion.img
-                    className="displayImage"
+                <motion.img className="displayImage"
                     src={photo}
                     alt={title}
                     custom={direction}
                     variants={slideVariants}
                     transition={displaySpring}
                 />
-                <motion.p
-                    className="displayTitle"
+                <motion.p className="displayTitle"
                     custom={direction}
                     variants={slideVariants}
                     transition={displaySpring}
@@ -81,8 +80,7 @@ const DisplayContent = () => {
 
                 <div className='displayLine'></div>
 
-                <motion.p
-                    className="displayDescription"
+                <motion.p className="displayDescription"
                     custom={direction}
                     variants={slideVariants}
                     transition={displaySpring}
@@ -91,35 +89,42 @@ const DisplayContent = () => {
                 </motion.p>
 
 
-                <motion.div
-                    className='galleryButton-container mobileView'
-                    custom={direction}
-                    variants={slideVariants}
-                    transition={displaySpring}
-                >
-                    <button
-                        className='trackButton'
-                        onClick={toGroupDisplay}
+                {galleryView ? (
+                    <motion.div
+                        className='galleryButton-container'
+                        custom={direction}
+                        variants={slideVariants}
+                        transition={displaySpring}
                     >
-                        <span>View Models</span>
-                    </button>
-                </motion.div>
+                        <button className='trackButton' onClick={(e) => { dispatch({ type: 'SET_CONTACT', payload: true }) }}>
+                            <span>Commission</span>
+                        </button>
+                    </motion.div>
+                ) : (
+                    <>
+                        <motion.div className='galleryButton-container mobileView'
+                            custom={direction}
+                            variants={slideVariants}
+                            transition={displaySpring}
+                        >
+                            <button className='trackButton' onClick={toGroupDisplay}>
+                                <span>View Models</span>
+                            </button>
+                        </motion.div>
 
-                <motion.div
-                    className='galleryButton-container largeView'
-                    custom={direction}
-                    variants={slideVariants}
-                    transition={displaySpring}
-                >
-                    <button
-                        className='trackButton'
-                        onClick={() => requestMinisShowcase()}
-                    >
-                        <span>View Models</span>
-                    </button>
-                </motion.div>
+                        <motion.div
+                            className='galleryButton-container largeView'
+                            custom={direction}
+                            variants={slideVariants}
+                            transition={displaySpring}
+                        >
+                            <button className='trackButton' onClick={() => requestMinisShowcase()}>
+                                <span>View Models</span>
+                            </button>
+                        </motion.div>
+                    </>
 
-
+                )}
 
 
             </motion.div>

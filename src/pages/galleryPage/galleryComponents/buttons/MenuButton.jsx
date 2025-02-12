@@ -13,6 +13,10 @@ const MenuButton = () => {
             // option to set menu color here...
             payload: { gallerySection: 'menuSection', galleryDisplay: 'mainDisplay', colorShade: '#00000099' }
         })
+        dispatch({
+            type: 'SET_DISPLAY',
+            payload: false,
+        })
     }
 
   return (

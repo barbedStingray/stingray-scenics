@@ -40,6 +40,12 @@ const ArrowButton = ({ division, direction, pointer }) => {
 
         // handle your actual navigation
         handleArrowNavigation(division, direction, gallerySection, galleryDisplay, dispatch)
+    
+        dispatch({
+            type: 'SET_DISPLAY',
+            payload: false,
+        })
+
     };
 
 

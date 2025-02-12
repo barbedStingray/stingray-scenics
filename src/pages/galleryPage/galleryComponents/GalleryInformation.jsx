@@ -69,7 +69,7 @@ const GalleryInformation = () => {
             <div className='sectionButtons'>
                 <ArrowButton division='section' direction={-1} pointer='leftArrow' />
                 <MenuButton />
-                <Link className='homeLink' to={'/'}><TbHomeShare /></Link>
+                <Link className='homeLink' to={'/'} onClick={(e) => {dispatch({ type: 'SET_DISPLAY', payload: false })}}><TbHomeShare /></Link>
                 <ArrowButton division='section' direction={1} pointer='rightArrow' />
             </div>
         </div>

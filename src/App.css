@@ -153,8 +153,8 @@ html {
     border-bottom-width: 1px;
     border-top-style: solid;
     border-bottom-style: solid;
-    border-top-color: rgba(255,255,255,0.5);
-    border-bottom-color: rgba(255,255,255,0.5);
+    border-top-color: #ffffff80;
+    border-bottom-color: #ffffff80;
     transform: scale(0.1, 1);
   }
   .trackButton:hover span {
@@ -173,9 +173,10 @@ html {
     height: 100%;
     z-index: 1;
     transition: all 0.3s;
-    background-color: rgba(255,255,255,0.1);
+    background-color: #ffffff1a;
   }
   .trackButton:hover::after {
     opacity: 0; 
     transform: scale(0.1, 1);
   }
+
