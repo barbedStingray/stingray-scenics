@@ -27,7 +27,7 @@ const DisplayContent = () => {
                 params: { gallerySection, galleryDisplay }
             });
             // ! toggle back when you have photos of models
-            // dispatch({ type: 'SET_SHOWCASE', payload: myMinis })
+            dispatch({ type: 'SET_SHOWCASE', payload: myMinis })
 
         } catch (error) {
             console.log('error if finding your minis', error)

@@ -5,30 +5,52 @@ const router = express.Router()
 
 // Get minis based on section and display
 router.get('/allMinis', (req, res) => {
-    const { gallerySection, galleryDisplay } = req.query
+    const { gallerySection, galleryDisplay } = req.query;
 
-    let queryText = `SELECT * FROM "minis" WHERE "ondisplay" = true`
-    let queryParams = []
+    // Define the basic queries
+    const allMinisQuery = `SELECT * FROM "minis"
+                           WHERE "ondisplay" = true 
+                           ORDER BY "minis"."rank" DESC, RANDOM();`;
 
-    if (gallerySection !== 'welcome') {
-        queryText += ` AND "theme" = $1`
-        queryParams.push(gallerySection)
+    const realmQuery = `SELECT * FROM "minis"
+                        JOIN "mini_realm" ON "minis"."id" = "mini_realm"."mini_id"
+                        JOIN "realm" ON "mini_realm"."realm_id" = "realm"."id"
+                        WHERE "realm"."group" = $1 
+                        AND "minis"."ondisplay" = true 
+                        ORDER BY "minis"."rank" DESC, RANDOM();`;
 
-        if (galleryDisplay !== 'mainDisplay') {
-            queryText += ` AND "realm" = $2`
-            queryParams.push(galleryDisplay)
-        }
+    const themeQuery = `SELECT * FROM "minis"
+                        WHERE "theme" = $1 
+                        AND "minis"."ondisplay" = true 
+                        ORDER BY "minis"."rank" DESC, RANDOM();`;
+
+    let queryText = '';
+    let queryParams = [];
+
+    // Determine the correct query
+    if (gallerySection === 'welcome') {
+        queryText = allMinisQuery;
+    } else if (galleryDisplay === 'mainDisplay') {
+        queryText = themeQuery;
+        queryParams.push(gallerySection); // Use gallerySection as theme
+    } else {
+        queryText = realmQuery;
+        queryParams.push(galleryDisplay); // Use galleryDisplay for realm group
     }
-    queryText += ` ORDER BY "rank" ASC, RANDOM()`
 
-    pool.query(queryText, queryParams).then((result) => {
-        console.log(`/api/allMinis success`)
-        res.send(result.rows)
-    }).catch((error) => {
-        console.log('/api/allMinis error', error)
-        res.sendStatus(500)
-    })
-})
+    // Execute the query
+    pool.query(queryText, queryParams)
+        .then((result) => {
+            console.log(`/api/allMinis success`);
+            res.send(result.rows);
+        })
+        .catch((error) => {
+            console.log('/api/allMinis error', error);
+            res.sendStatus(500);
+        });
+});
+
+module.exports = router;
 
 
 module.exports = router 

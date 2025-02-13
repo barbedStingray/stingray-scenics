@@ -23,33 +23,51 @@ const galleryData = {
                 photo: images.greatEagle,
             },
         },
-        theFellowship: {
-            icon: images.theFellowship,
-            color: '#ffff0033',
-            content: {
-                title: 'The Fellowship',
-                description: 'Nine travellers on a quest',
-                photo: images.treeEnt,
-            },
-        },
         gondor: {
             icon: images.minasTirith,
             color: '#ffffff33',
             content: {
                 title: 'Minas Tirith',
                 description: 'The White City',
-                photo: images.treeEnt,
+                photo: images.dunharrowGhost,
             },
         },
-        rohan: {
-            icon: images.horseLords,
-            color: '#04c22044',
+        mordor: {
+            icon: images.mordor,
+            color: '#ffff0033',
             content: {
-                title: 'Rohan',
-                description: 'Land of the Horse Lords',
-                photo: images.rohanCommand,
+                title: 'Mordor',
+                description: 'The Eye sees all. The time of the Free Peoples is over.',
+                photo: images.mordorOrc,
             },
         },
+        rhun: {
+            icon: images.rhun,
+            color: '#ffff0033',
+            content: {
+                title: 'Rhun',
+                description: 'Mysterious lands to the east. Easterlings, as theyre called',
+                photo: images.easterling,
+            },
+        },
+        // theFellowship: {
+        //     icon: images.theFellowship,
+        //     color: '#ffff0033',
+        //     content: {
+        //         title: 'The Fellowship',
+        //         description: 'Nine travellers on a quest',
+        //         photo: images.treeEnt,
+        //     },
+        // },
+        // rohan: {
+        //     icon: images.horseLords,
+        //     color: '#04c22044',
+        //     content: {
+        //         title: 'Rohan',
+        //         description: 'Land of the Horse Lords',
+        //         photo: images.rohanCommand,
+        //     },
+        // },
     },
     starWars: {
         mainDisplay: {
