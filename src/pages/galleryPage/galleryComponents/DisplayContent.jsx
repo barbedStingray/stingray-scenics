@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 
 import axios from 'axios'
+import ProgressiveImage from '../../../components/progressiveImage/ProgressiveImage'
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { slideVariants, displaySpring } from './animations'
@@ -56,13 +57,25 @@ const DisplayContent = () => {
                     staggerChildren: 0.09,
                 }}
             >
-                <motion.img className="displayImage"
+                {/* <motion.img className="displayImage"
                     src={photo}
                     alt={title}
                     custom={direction}
                     variants={slideVariants}
                     transition={displaySpring}
-                />
+                /> */}
+                
+                <motion.div
+                    className='displayImage'
+                    custom={direction}
+                    variants={slideVariants}
+                    transition={displaySpring}
+                >
+                    <ProgressiveImage picture={photo} />
+                </motion.div>
+
+
+
                 <motion.p className="displayTitle"
                     custom={direction}
                     variants={slideVariants}

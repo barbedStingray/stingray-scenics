@@ -6,6 +6,7 @@ export { default as stingrayLogo } from './stingrayLogo.png'
 
 
 // lord of the rings
+
 export { default as theOneRing } from './realmIcon/lordoftherings/light_oneRing.png';
 export { default as rhun } from './realmIcon/lordoftherings/light_rhun.png'
 export { default as minasTirith } from './realmIcon/lordoftherings/light_gondor.png'
@@ -23,14 +24,24 @@ export { default as galacticEmpire } from './realmIcon/starWars/light_galacticEm
 
 
 
-// -------- Emblems ----------
 
 
 
+// ------- HEROES -----------
+
+
+// WELCOME - MAIN DISPLAY
+
+export { default as mainHeroSm } from './realmHero/lordoftheRings/rohanCommand-3sm.webp'
+export { default as mainHeroLg } from './realmHero/lordoftheRings/rohanCommand-3lg.webp'
+
+
+// Lotr -  MAIN DISPLAY
+export { default as lotrMainSm } from './realmHero/lordoftheRings/mordorOrc-a1sm.webp'
+export { default as lotrMainLg } from './realmHero/lordoftheRings/mordorOrc-a1lg.webp'
 
 
 
-// 
 // REALM HERO IMAGES - lord of the rings
 
 export { default as easterling } from './realmHero/lordoftheRings/easterlingHero.png'

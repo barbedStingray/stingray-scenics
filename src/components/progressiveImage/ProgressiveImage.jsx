@@ -1,64 +1,35 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import './progressiveImage.css'
 
-const ProgressiveImage = ({ lowSrc, medSrc, highSrc }) => {
+// const ProgressiveImage = ({ lowResImg, highResImg }) => {
+const ProgressiveImage = ({ picture }) => {
 
-    const [inView, setInView] = useState(false)
-    const [mediumLoad, setMediumLoad] = useState(false)
-    const [highLoad, setHighLoad] = useState(false)
-    const containerRef = useRef(null)
+    // * accepts both database url's and src files
+    // * URL generates low res on the fly from cloudinary (disable strict transformations)
+    // * src files with squoosh - largest dimension to 200
+    // * STRETCH : use srcset to adjust dpr values with photos = dpr sizes / device px !== css px
+
+    const isCloudinary = typeof picture === 'string' 
+    const highResImg = isCloudinary ? picture : picture.highSrc
+    const lowResImg = isCloudinary ? highResImg.replace('/upload/', '/upload/w_50,q_10/') : picture.lowSrc
+
+    const [imgSrc, setImgSrc] = useState(lowResImg || highResImg)
 
     useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            console.log('ENTRIES', entries)
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    setInView(true)
-                    observer.disconnect()
-                }
-            })
-        })
-        if (containerRef.current) {
-            observer.observe(containerRef.current)
+        const img = new Image()
+        img.src = highResImg
+        img.onload = () => {
+            setImgSrc(highResImg)
         }
-        return () => observer.disconnect()
-    }, [])
+    }, [highResImg])
 
 
     return (
-        <div className='progressive-container' ref={containerRef}>
+        <img
+            src={imgSrc}
+            className='progressive-Img'
 
-            {/* Low-quality image: Always rendered and blurred; fades out when the medium loads */}
-            <img
-                className='progressive-Img'
-                src={lowSrc}
-                // alt={alt}
-                style={{ opacity: mediumLoad ? 0 : 1 }}
-            />
-
-            {/* Medium-quality image: Loaded when in view; fades in over the low-quality version.
-              Once the high-quality image loads, this fades out. */}
-            {inView && (
-                <img
-                    className='progressive-Img'
-                    src={medSrc}
-                    // alt={alt}
-                    onLoad={() => setMediumLoad(true)}
-                    style={{ opacity: mediumLoad ? (highLoad ? 0 : 1) : 0 }}
-                />
-            )}
-
-            {/* High-quality image: Loaded when in view; fades in once loaded */}
-            {inView && (
-                <img
-                    className='progressive-Img'
-                    src={highSrc}
-                    // alt={alt}
-                    onLoad={() => setHighLoad(true)}
-                    style={{ opacity: highLoad ? 1 : 0 }}
-                />
-            )}
-        </div>
+        />
     )
 }
 
