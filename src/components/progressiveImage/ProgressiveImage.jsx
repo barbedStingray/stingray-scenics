@@ -28,7 +28,7 @@ const ProgressiveImage = ({ picture }) => {
         <img
             src={imgSrc}
             className='progressive-Img'
-
+            loading='lazy'
         />
     )
 }

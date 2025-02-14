@@ -36,23 +36,24 @@ export { default as mainHeroSm } from './realmHero/lordoftheRings/rohanCommand-3
 export { default as mainHeroLg } from './realmHero/lordoftheRings/rohanCommand-3lg.webp'
 
 
-// Lotr -  MAIN DISPLAY
+// lotr -  MAIN DISPLAY
 export { default as lotrMainSm } from './realmHero/lordoftheRings/mordorOrc-a1sm.webp'
 export { default as lotrMainLg } from './realmHero/lordoftheRings/mordorOrc-a1lg.webp'
 
+// lotr - FACTIONS
+
+// rhun
+export { default as rhunSm } from './realmHero/lordoftheRings/easterlingWarrior-5sm.webp'
+export { default as rhunLg } from './realmHero/lordoftheRings/easterlingWarrior-5lg.webp'
+// gondor
+export { default as gondorSm } from './realmHero/lordoftheRings/dunharrowGhost-1sm.webp'
+export { default as gondorLg } from './realmHero/lordoftheRings/dunharrowGhost-1lg.webp'
+// mordor
+export { default as mordorSm } from './realmHero/lordoftheRings/mordorOrc-a9sm.webp'
+export { default as mordorLg } from './realmHero/lordoftheRings/mordorOrc-a9lg.webp'
 
 
-// REALM HERO IMAGES - lord of the rings
 
-export { default as easterling } from './realmHero/lordoftheRings/easterlingHero.png'
-export { default as dunharrowGhost } from './realmHero/lordoftheRings/dunharrowHero.png';
-export { default as mordorOrc } from './realmHero/lordoftheRings/mordorOrcHero.png';
-
-
-export { default as rohanCommand } from './lordoftheRings/rohanCommand.png';
-export { default as urukHaiBanner } from './lordoftheRings/urukHaiBanner.png';
-export { default as treeEnt } from './lordoftheRings/treeEnt.png';
-export { default as greatEagle } from './lordoftheRings/greatEagle.png';
 
 // REALM HERO IMAGES -  star wars
 export { default as b2Droid } from './starWars/superBattleDroidBlue.png';

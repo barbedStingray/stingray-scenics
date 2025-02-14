@@ -1,6 +1,8 @@
 import * as images from '../../../images';
 
 
+// when inputing new Sections
+// * section names NEED to match what the database name is
 // * if you update your photos, use Squoosh to make webp photos.
 // * high resolution are just webp at 75% quality - Low is largest dimension to 200 and 0-20% quality
 
@@ -27,33 +29,33 @@ const galleryData = {
                 photo: { lowSrc: images.lotrMainSm, highSrc: images.lotrMainLg},
             },
         },
-        // gondor: {
-        //     icon: images.minasTirith,
-        //     color: '#ffffff33',
-        //     content: {
-        //         title: 'Minas Tirith',
-        //         description: 'The White City',
-        //         photo: images.dunharrowGhost,
-        //     },
-        // },
-        // mordor: {
-        //     icon: images.mordor,
-        //     color: '#ffff0033',
-        //     content: {
-        //         title: 'Mordor',
-        //         description: 'The Eye sees all. The time of the Free Peoples is over.',
-        //         photo: images.mordorOrc,
-        //     },
-        // },
-        // rhun: {
-        //     icon: images.rhun,
-        //     color: '#ffff0033',
-        //     content: {
-        //         title: 'Rhun',
-        //         description: 'Mysterious lands to the east. Easterlings, as theyre called',
-        //         photo: images.easterling,
-        //     },
-        // },
+        gondor: {
+            icon: images.minasTirith,
+            color: '#ffffff33',
+            content: {
+                title: 'Minas Tirith',
+                description: 'The White City',
+                photo: { lowSrc: images.gondorSm, highSrc: images.gondorLg},
+            },
+        },
+        mordor: {
+            icon: images.mordor,
+            color: '#ffff0033',
+            content: {
+                title: 'Mordor',
+                description: 'The Eye sees all. The time of the Free Peoples is over.',
+                photo: { lowSrc: images.mordorSm, highSrc: images.mordorLg},
+            },
+        },
+        rhun: {
+            icon: images.rhun,
+            color: '#ffff0033',
+            content: {
+                title: 'Rhun',
+                description: 'Mysterious lands to the east. Easterlings, as theyre called',
+                photo: { lowSrc: images.rhunSm, highSrc: images.rhunLg},
+            },
+        },
         // theFellowship: {
         //     icon: images.theFellowship,
         //     color: '#ffff0033',
@@ -73,16 +75,16 @@ const galleryData = {
         //     },
         // },
     },
-    // starWars: {
-    //     mainDisplay: {
-    //         icon: images.r2d2,
-    //         color: '#c00000aa',
-    //         content: {
-    //             title: 'Star Wars',
-    //             description: 'Roam the galaxy and encounter heroes and villains from the Galactic Republic, the Empire, Rebel Alliance, Separatist Battle Droids, Jedi Order, Deathwatch, Crime Syndicates...',
-    //             photo: images.b2DroidChrome,
-    //         },
-    //     },
+    starWars: {
+        mainDisplay: {
+            icon: images.r2d2,
+            color: '#c00000aa',
+            content: {
+                title: 'Star Wars',
+                description: 'Roam the galaxy and encounter heroes and villains from the Galactic Republic, the Empire, Rebel Alliance, Separatist Battle Droids, Jedi Order, Deathwatch, Crime Syndicates...',
+                photo: { lowSrc: images.b2DroidChrome, highSrc: images.b2DroidChrome},
+            },
+        },
     //     jediOrder: {
     //         icon: images.jediOrder,
     //         color: '#66ff0088',
@@ -101,7 +103,7 @@ const galleryData = {
     //             photo: images.b2Droid,
     //         },
     //     },
-    // },
+    },
     // terrain: {
     //     mainDisplay: {
     //         icon: images.stingrayLogo,

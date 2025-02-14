@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { slideVariants, displaySpring } from './animations'
 
 
+
 const DisplayContent = () => {
 
     const dispatch = useDispatch()

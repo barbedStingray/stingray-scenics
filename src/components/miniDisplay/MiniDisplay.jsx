@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import './miniDisplay.css'
 
 import { motion, useInView } from 'framer-motion'
+import ProgressiveImage from '../progressiveImage/ProgressiveImage.jsx'
 
 
 const MiniDisplay = ({ miniList }) => {
@@ -30,14 +31,14 @@ const ArtImage = ({ character, index }) => {
         exit: { opacity: 0, y: 20, x: index % 2 === 0 ? 20 : -20 },
     }
 
+    console.log('character.picture', character.picture)
+
     return (
         <div
             className='artBox'
         >
-            <img
+            <div
                 className='artImage'
-                src={character.picture}
-                alt={character.picture}
                 ref={ref}
                 initial="exit"
                 whileInView="enter"
@@ -48,10 +49,11 @@ const ArtImage = ({ character, index }) => {
                     once: false,
                     margin: '0% 0px 0% 0px ',
                 }}
-            />
-            <p
+            >
+                <ProgressiveImage picture={character.picture} />
+            </div>
+            {/* <p
                 className='artTitle'
-                // alt={character.img}
                 ref={ref}
                 initial="exit"
                 whileInView="enter"
@@ -62,7 +64,9 @@ const ArtImage = ({ character, index }) => {
                     once: false,
                     margin: '0% 0px 0% 0px ',
                 }}
-            >{character.model}</p>
+            >
+                {character.model}
+            </p> */}
         </div>
     )
 }
