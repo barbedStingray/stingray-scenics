@@ -11,6 +11,7 @@ import { TbHomeShare } from "react-icons/tb";
 
 import MenuButton from './buttons/MenuButton'
 import TrackButton from '../../../components/trackButton/TrackButton'
+import Loader from '../../../components/loader/Loader'
 
 
 
@@ -54,6 +55,7 @@ const GalleryInformation = () => {
                 </motion.div>
             </AnimatePresence>
 
+            <Loader />
             <TrackButton />
 
             <div className='sectionButtons'>

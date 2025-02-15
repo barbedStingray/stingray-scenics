@@ -1,0 +1,29 @@
+/* loader.css */
+
+.loading-container {
+    height: 15px;
+    width: 200px;
+    position: relative;
+}
+
+.slide-ball {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+@keyframes slideBall {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(190px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
