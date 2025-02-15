@@ -15,7 +15,7 @@ const galleryData = {
             content: {
                 title: 'The Gallery',
                 description: 'Welcome! On display you will find figures from Lord of the Rings and Star Wars as well as custom made terrain. Use the arrows to browse the different sections and factions.',
-                photo: { lowSrc: images.mainHeroSm, highSrc: images.mainHeroLg},
+                photo: { lowSrc: images.mainHeroSm, highSrc: images.mainHeroLg },
             },
         },
     },
@@ -26,7 +26,7 @@ const galleryData = {
             content: {
                 title: 'Lord of the Rings',
                 description: 'Travel the world of Middle Earth with miniatures from Mordor, Gondor, Moria, Lothlorien, Rohan, Isengard, The Shire, Easterlings, Harad...',
-                photo: { lowSrc: images.lotrMainSm, highSrc: images.lotrMainLg},
+                photo: { lowSrc: images.lotrMainSm, highSrc: images.lotrMainLg },
             },
         },
         gondor: {
@@ -35,16 +35,25 @@ const galleryData = {
             content: {
                 title: 'Minas Tirith',
                 description: 'The White City',
-                photo: { lowSrc: images.gondorSm, highSrc: images.gondorLg},
+                photo: { lowSrc: images.gondorSm, highSrc: images.gondorLg },
             },
         },
         mordor: {
             icon: images.mordor,
-            color: '#ffff0033',
+            color: '#5c000066',
             content: {
                 title: 'Mordor',
                 description: 'The Eye sees all. The time of the Free Peoples is over.',
-                photo: { lowSrc: images.mordorSm, highSrc: images.mordorLg},
+                photo: { lowSrc: images.mordorSm, highSrc: images.mordorLg },
+            },
+        },
+        rohan: {
+            icon: images.horseLords,
+            color: '#04c22044',
+            content: {
+                title: 'Rohan',
+                description: 'Land of the Horse Lords',
+                photo: { lowSrc: images.mainHeroSm, highSrc: images.mainHeroLg },
             },
         },
         rhun: {
@@ -53,7 +62,7 @@ const galleryData = {
             content: {
                 title: 'Rhun',
                 description: 'Mysterious lands to the east. Easterlings, as theyre called',
-                photo: { lowSrc: images.rhunSm, highSrc: images.rhunLg},
+                photo: { lowSrc: images.rhunSm, highSrc: images.rhunLg },
             },
         },
         // theFellowship: {
@@ -65,15 +74,6 @@ const galleryData = {
         //         photo: images.treeEnt,
         //     },
         // },
-        // rohan: {
-        //     icon: images.horseLords,
-        //     color: '#04c22044',
-        //     content: {
-        //         title: 'Rohan',
-        //         description: 'Land of the Horse Lords',
-        //         photo: images.rohanCommand,
-        //     },
-        // },
     },
     starWars: {
         mainDisplay: {
@@ -82,27 +82,27 @@ const galleryData = {
             content: {
                 title: 'Star Wars',
                 description: 'Roam the galaxy and encounter heroes and villains from the Galactic Republic, the Empire, Rebel Alliance, Separatist Battle Droids, Jedi Order, Deathwatch, Crime Syndicates...',
-                photo: { lowSrc: images.b2DroidChrome, highSrc: images.b2DroidChrome},
+                photo: { lowSrc: images.b2DroidChrome, highSrc: images.b2DroidChrome },
             },
         },
-    //     jediOrder: {
-    //         icon: images.jediOrder,
-    //         color: '#66ff0088',
-    //         content: {
-    //             title: 'Jedi Order',
-    //             description: 'Guardians of peace and justice in the galaxy.',
-    //             photo: images.b2DroidRed,
-    //         },
-    //     },
-    //     galacticEmpire: {
-    //         icon: images.galacticEmpire,
-    //         color: '#004fc599',
-    //         content: {
-    //             title: 'Galactic Empire',
-    //             description: 'The Galactic Empire ruled by the Sith. Featuring figures such as Darth Vader, Emperor Palpatine, and legions of Storm Troopers.',
-    //             photo: images.b2Droid,
-    //         },
-    //     },
+        //     jediOrder: {
+        //         icon: images.jediOrder,
+        //         color: '#66ff0088',
+        //         content: {
+        //             title: 'Jedi Order',
+        //             description: 'Guardians of peace and justice in the galaxy.',
+        //             photo: images.b2DroidRed,
+        //         },
+        //     },
+        //     galacticEmpire: {
+        //         icon: images.galacticEmpire,
+        //         color: '#004fc599',
+        //         content: {
+        //             title: 'Galactic Empire',
+        //             description: 'The Galactic Empire ruled by the Sith. Featuring figures such as Darth Vader, Emperor Palpatine, and legions of Storm Troopers.',
+        //             photo: images.b2Droid,
+        //         },
+        //     },
     },
     // terrain: {
     //     mainDisplay: {
@@ -114,33 +114,33 @@ const galleryData = {
     //             photo: images.b2DroidRed,
     //         },
     //     },
-        // miniBases: {
-        //     icon: images.stingrayLogo,
-        //     color: '#0d00ff',
-        //     content: {
-        //         title: 'Miniature Bases',
-        //         description: 'Unit bases for all sizes',
-        //         photo: images.b2Droid,
-        //     },
-        // },
-        // scatter: {
-        //     icon: images.stingrayLogo,
-        //     color: '#0d00ff',
-        //     content: {
-        //         title: 'Scatter Terrain',
-        //         description: 'Bits of terrain that can be spread across your battlefield',
-        //         photo: images.b2DroidChrome,
-        //     },
-        // },
-        // scenicSquares: {
-        //     icon: images.stingrayLogo,
-        //     color: '#0d00ff',
-        //     content: {
-        //         title: 'Scenic Squares',
-        //         description: 'A small section of terrain that can be configured in different arrangements to form an entire battlefield.',
-        //         photo: images.b2Droid,
-        //     },
-        // },
+    // miniBases: {
+    //     icon: images.stingrayLogo,
+    //     color: '#0d00ff',
+    //     content: {
+    //         title: 'Miniature Bases',
+    //         description: 'Unit bases for all sizes',
+    //         photo: images.b2Droid,
+    //     },
+    // },
+    // scatter: {
+    //     icon: images.stingrayLogo,
+    //     color: '#0d00ff',
+    //     content: {
+    //         title: 'Scatter Terrain',
+    //         description: 'Bits of terrain that can be spread across your battlefield',
+    //         photo: images.b2DroidChrome,
+    //     },
+    // },
+    // scenicSquares: {
+    //     icon: images.stingrayLogo,
+    //     color: '#0d00ff',
+    //     content: {
+    //         title: 'Scenic Squares',
+    //         description: 'A small section of terrain that can be configured in different arrangements to form an entire battlefield.',
+    //         photo: images.b2Droid,
+    //     },
+    // },
     // },
     menuSection: {
         mainDisplay: {

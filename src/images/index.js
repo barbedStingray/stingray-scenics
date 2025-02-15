@@ -51,6 +51,8 @@ export { default as gondorLg } from './realmHero/lordoftheRings/dunharrowGhost-1
 // mordor
 export { default as mordorSm } from './realmHero/lordoftheRings/mordorOrc-a9sm.webp'
 export { default as mordorLg } from './realmHero/lordoftheRings/mordorOrc-a9lg.webp'
+// rohan - currently using mainHeroSm/Lg
+
 
 
 

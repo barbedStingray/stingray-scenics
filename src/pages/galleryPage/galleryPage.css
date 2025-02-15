@@ -28,7 +28,7 @@
         url('../../images/texture.png'); */
     /* settled for solid color */
     background-color: var(--shade-gallery);
-    /* background-color: #04c22061; */
+    /* background-color: #5c000088; */
     background-image: url('../../images/texture.png');
 
     /* background-position: center; */
