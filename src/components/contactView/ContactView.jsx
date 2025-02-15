@@ -58,7 +58,7 @@ const ContactView = () => {
         initial={{ x: '-100%' }}
         animate={{ x: contactView ? '0%' : '-100%' }}
         exit={{ x: '-100%' }}
-        transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+        transition={{ type: 'spring', stiffness: 55, damping: 8 }}
       >
 
         <div className='contactReturn' onClick={() => displayView('SET_CONTACT', false, dispatch)}><LuArrowLeftFromLine /></div>

@@ -7,7 +7,6 @@ const ProgressiveImage = ({ picture }) => {
     const lowResImg = isCloudinary ? highResImg.replace('/upload/', '/upload/w_50,q_10/') : picture.lowSrc
 
     const [imgSrc, setImgSrc] = useState(lowResImg || highResImg)
-    const [isLoaded, setIsLoaded] = useState(false)
     const imgRef = useRef(null)
 
     useEffect(() => {
@@ -17,7 +16,6 @@ const ProgressiveImage = ({ picture }) => {
                     const img = new Image()
                     img.src = highResImg
                     img.onload = () => {
-                        setIsLoaded(true)
                         setImgSrc(highResImg)
                     }
                     observer.disconnect()
@@ -45,19 +43,22 @@ const ProgressiveImage = ({ picture }) => {
 
     return (
         <div className="progressive-wrapper" ref={imgRef}>
-            <img src={lowResImg} className={`progressive-img low-res ${isLoaded ? 'fade-out' : ''}`} alt="" />
-            <img src={imgSrc} className={`progressive-img high-res ${isLoaded ? 'fade-in' : ''}`} alt="" />
+            <img src={lowResImg} className={`progressive-img low-res ${imgSrc === highResImg ? 'fade-out' : ''}`} alt="" />
+            <img src={imgSrc} className={`progressive-img high-res ${imgSrc === highResImg ? 'fade-in' : ''}`} alt="" />
         </div>
-        
-        // * lazy loading if not using intersection
-        //      <img
-        //      ref={imgRef}
-        //      src={imgSrc}
-        //      className={`progressive-Img ${imgClassname}`}
-        //      loading='lazy'
-        //      alt='' // alt text needed for SEO
-        //  />
     )
 }
 
 export default ProgressiveImage
+
+
+
+// * Return - lazy loading if not using intersection
+//      <img
+//      ref={imgRef}
+//      src={imgSrc}
+//      className={`progressive-Img ${imgClassname}`}
+//      loading='lazy'
+//      alt='' // alt text needed for SEO
+//  />
+

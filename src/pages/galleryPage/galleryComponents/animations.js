@@ -8,17 +8,21 @@ export const displaySpring = {
 export const slideVariants = {
     enter: (direction) => ({
         opacity: 0,
-        y: direction > 0 ? 15 : -15,
+        y: direction > 0 ? 30 : -30,
+        transition: { duration: 0.5, ease: "easeInOut" }
     }),
     center: {
         opacity: 1,
         y: 0,
+        transition: { duration: 0.5, ease: "easeOut" }
     },
     exit: (direction) => ({
         opacity: 0,
-        y: direction > 0 ? -15 : 15,
+        y: direction > 0 ? -30 : 30,
+        transition: { duration: 0.4, ease: "easeInOut" } 
     })
 }
+
 
 
 export const sectionVariants = {

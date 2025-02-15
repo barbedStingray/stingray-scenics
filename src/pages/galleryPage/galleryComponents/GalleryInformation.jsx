@@ -10,19 +10,18 @@ import DisplayIcon from './displayIcon/DisplayIcon'
 import { TbHomeShare } from "react-icons/tb";
 
 import MenuButton from './buttons/MenuButton'
+import TrackButton from '../../../components/trackButton/TrackButton'
 
 
 
 const GalleryInformation = () => {
 
     const dispatch = useDispatch()
-    const { gallerySection, colorShade } = useSelector((state) => state.gallerySlice)
+    const { gallerySection } = useSelector((state) => state.gallerySlice)
     const direction = useSelector((state) => state.direction)
-    console.log('GALLERY shade', colorShade)
 
     const hiddenButtons = ['welcome', 'menuSection']
     const displayButtonClass = hiddenButtons.includes(gallerySection) ? 'noDisplay' : 'displayButtons'
-
 
     return (
         <div className='galleryVeiwControl'>
@@ -30,7 +29,6 @@ const GalleryInformation = () => {
             <DisplayIcon />
 
             <AnimatePresence custom={direction} mode="wait" initial={false}>
-
                 <motion.div
                     className="contentContainer"
                     key={`galleryInformation-${gallerySection}`}
@@ -54,9 +52,9 @@ const GalleryInformation = () => {
                     </div>
 
                 </motion.div>
-
-
             </AnimatePresence>
+
+            <TrackButton />
 
             <div className='sectionButtons'>
                 <ArrowButton division='section' direction={-1} pointer='leftArrow' />
