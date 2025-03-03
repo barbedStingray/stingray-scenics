@@ -11,20 +11,21 @@ const GallerySlides = () => {
 
     const slideShowImages = [imperials, rivendellCharge, trolls]
     const [slideIndex, setSlideIndex] = useState(0)
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setSlideIndex((prevIndex) => (prevIndex + 1) % slideShowImages.length)
-        }, 10000) // 10s
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         setSlideIndex((prevIndex) => (prevIndex + 1) % slideShowImages.length)
+    //     }, 10000) // 10s
 
-        return () => clearInterval(interval)
-    }, [])
+    //     return () => clearInterval(interval)
+    // }, [])
 
 
     return (
         <AnimatePresence mode='wait'>
             <motion.img
                 className='slideShowImage'
-                src={slideShowImages[slideIndex]}
+                // change back to slideIndex when you're ready for the show. 
+                src={slideShowImages[0]}
                 key={slideIndex}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}

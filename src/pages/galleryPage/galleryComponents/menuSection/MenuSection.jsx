@@ -58,7 +58,6 @@ const MenuSection = () => {
     }
 
     const handleMenuJump = (display) => {
-        console.log('BOOSTING')
         dispatch({
             type: 'MENU_JUMP',
             payload: {
@@ -72,22 +71,24 @@ const MenuSection = () => {
 
     return (
         <div className='menuSection'>
+            <p className='menuTitle'>Archives</p>
+
+            <p className='menu-subTitle'>Category</p>
             <div className='sectionItems'>
                 {menuSectionsOrder.map((section, i) => (
                     <motion.button
                         layout
-                        className={currentSection === section.galleryLabel ? 'menuButton glassMorphBlack' : 'menuButton glassMorphWhite'}
+                        className={currentSection === section.galleryLabel ? 'sectionButton glassMorphBlack' : 'sectionButton glassMorphWhite'}
                         onClick={() => handleSectionClick(section.galleryLabel)}
                         key={section.galleryLabel}
-                        whileHover={{ scale: 1.07 }}
-                        whileTap={{ scale: 0.95 }}
+                        whileHover={{ scale: 1.08 }}
                     >
                         {section.title}
                     </motion.button>
                 ))}
             </div>
 
-
+            <p className='menu-subTitle'>Realm</p>
             <AnimatePresence mode='wait'>
                 <motion.div className='displayItems'
                     variants={containerVariants}
@@ -102,6 +103,7 @@ const MenuSection = () => {
                             key={display.galleryLabel}
                             onClick={() => handleMenuJump(display)}
                             variants={childVariants}
+                            whileHover={{ scale: 1.08 }}
                         >
                             {display.title}
                         </motion.button>

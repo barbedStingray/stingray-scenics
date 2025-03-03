@@ -94,26 +94,8 @@ html {
 
 
 
-.glassMorphBlack,
-.glassMorphWhite {
-  transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease;
-}
 
-.glassMorphWhite {
-  background-color: transparent;
-  backdrop-filter: blur(2px);
-  background-color: #ffffff77;
-  color: black;
-  border: 1px solid white;
-}
 
-.glassMorphBlack {
-  background-color: transparent;
-  backdrop-filter: blur(2px);
-  background-color: #00000077;
-  color: white;
-  border: 1px solid gold;
-}
 
 
 

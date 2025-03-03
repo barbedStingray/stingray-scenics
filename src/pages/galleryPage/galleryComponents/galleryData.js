@@ -104,52 +104,55 @@ const galleryData = {
         //         },
         //     },
     },
-    // terrain: {
-    //     mainDisplay: {
-    //         icon: images.stingrayLogo,
-    //         color: '#000dbe88',
-    //         content: {
-    //             title: 'Terrain',
-    //             description: 'Various terrains to explore and admire.',
-    //             photo: images.b2DroidRed,
-    //         },
-    //     },
-    // miniBases: {
-    //     icon: images.stingrayLogo,
-    //     color: '#0d00ff',
-    //     content: {
-    //         title: 'Miniature Bases',
-    //         description: 'Unit bases for all sizes',
-    //         photo: images.b2Droid,
-    //     },
-    // },
-    // scatter: {
-    //     icon: images.stingrayLogo,
-    //     color: '#0d00ff',
-    //     content: {
-    //         title: 'Scatter Terrain',
-    //         description: 'Bits of terrain that can be spread across your battlefield',
-    //         photo: images.b2DroidChrome,
-    //     },
-    // },
-    // scenicSquares: {
-    //     icon: images.stingrayLogo,
-    //     color: '#0d00ff',
-    //     content: {
-    //         title: 'Scenic Squares',
-    //         description: 'A small section of terrain that can be configured in different arrangements to form an entire battlefield.',
-    //         photo: images.b2Droid,
-    //     },
-    // },
-    // },
+    terrain: {
+        mainDisplay: {
+            icon: images.stingrayLogo,
+            color: '#000dbe88',
+            content: {
+                title: 'Terrain',
+                description: 'Various terrains to explore and admire.',
+                photo: images.b2DroidRed,
+            },
+        },
+        miniBases: {
+            icon: images.stingrayLogo,
+            color: '#0d00ff',
+            content: {
+                title: 'Miniature Bases',
+                description: 'Unit bases for all sizes',
+                photo: images.b2Droid,
+            },
+        },
+        scenicSquares: {
+            icon: images.stingrayLogo,
+            color: '#0d00ff',
+            content: {
+                title: 'Scenic Squares',
+                description: 'A small section of terrain that can be configured in different arrangements to form an entire battlefield.',
+                photo: images.b2Droid,
+            },
+        },
+    },
+    finalFantasy: {
+        mainDisplay: {
+            icon: images.stingrayLogo,
+            color: '#00000055',
+            content: {
+                title: 'Final Fantasy',
+                description: 'Final Fantasy Section',
+                photo: { lowSrc: images.mainHeroSm, highSrc: images.mainHeroLg },
+            },
+        },
+    },
     menuSection: {
         mainDisplay: {
             icon: images.stingrayLogo,
             color: ['#000', '#fff'],
             content: {
-                title: 'MENU',
+                title: 'Archives',
                 description: 'Welcome to the menu, please see all the different factions below',
-                photo: images.b2DroidRed, // probably null ?
+                // ? This photo can't be null - throws error, but it's not used in the menu section
+                photo: { lowSrc: images.mainHeroSm, highSrc: images.mainHeroLg },
             },
         },
     },

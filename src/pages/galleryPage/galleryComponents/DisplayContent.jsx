@@ -25,15 +25,8 @@ const DisplayContent = () => {
                 transition={{
                     staggerChildren: 0.1,
                 }}
-            >
-                {/* <motion.img className="displayImage"
-                    src={photo}
-                    alt={title}
-                    custom={direction}
-                    variants={slideVariants}
-                    transition={displaySpring}
-                /> */}
-                
+            >     
+                       
                 <motion.div
                     className='displayImage'
                     custom={direction}
@@ -42,8 +35,6 @@ const DisplayContent = () => {
                 >
                     <ProgressiveImage picture={photo} />
                 </motion.div>
-
-
 
                 <motion.p className="displayTitle"
                     custom={direction}

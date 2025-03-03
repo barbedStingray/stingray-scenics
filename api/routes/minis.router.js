@@ -28,7 +28,7 @@ router.get('/allMinis', (req, res) => {
     let queryParams = [];
 
     // Determine the correct query
-    if (gallerySection === 'welcome') {
+    if (gallerySection === 'welcome' || gallerySection === 'menuSection') {
         queryText = allMinisQuery;
     } else if (galleryDisplay === 'mainDisplay') {
         queryText = themeQuery;
