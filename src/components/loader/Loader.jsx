@@ -1,31 +1,39 @@
-import React from "react";
-import './loader.css';
+import React from "react"
+import { useSelector } from "react-redux"
+import './loader.css'
+
 
 const Loader = () => {
-    // Define the animation durations and colors
+
+    const loadStatus = useSelector((state) => state.loadStatus)
+    console.log('load Status', loadStatus)
+
+
     const ballProps = [
         { duration: 1.75, color: 'black' },
-        { duration: 2.25, color: 'red' },
-        { duration: 2.75, color: 'blue' },
-        { duration: 3.25, color: 'green' }
+        { duration: 2.25, color: '#dddddd' },
+        { duration: 2.75, color: '#b5b5b5' },
+        { duration: 3.25, color: '#3d3d3d' }
     ];
     
     return (
         <div className="loading-container">
 
-            {ballProps.map((ball, index) => (
-                <div 
-                    key={index} 
-                    className="slide-ball" 
-                    style={{
-                        animation: `slideBall ${ball.duration}s ease-in-out infinite`,
-                        backgroundColor: ball.color
-                    }}
-                />
-            ))}
+            {loadStatus && (
+                ballProps.map((ball, index) => (
+                    <div 
+                        key={index} 
+                        className="slide-ball" 
+                        style={{
+                            animation: `slideBall ${ball.duration}s ease-in-out infinite`,
+                            backgroundColor: ball.color
+                        }}
+                    />
+                ))
+            )}
             
         </div>
-    );
-};
+    )
+}
 
-export default Loader;
+export default Loader

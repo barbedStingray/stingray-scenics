@@ -55,6 +55,7 @@ const GalleryInformation = () => {
                 </motion.div>
             </AnimatePresence>
 
+            
             <Loader />
             <TrackButton />
 

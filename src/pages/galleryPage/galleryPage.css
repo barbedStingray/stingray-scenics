@@ -30,7 +30,6 @@
     background-color: var(--shade-gallery);
     /* background-color: #5c000088; */
     background-image: url('../../images/texture.png');
-
     /* background-position: center; */
     background-size: cover;
     /* Blend gradient and texture */

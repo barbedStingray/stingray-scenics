@@ -19,20 +19,17 @@ const TrackButton = () => {
 
     const requestMinisShowcase = async (leavePage) => {
         try {
-            // todo setting your loader here
-
+            dispatch({ type: 'SET_LOAD_STATUS', payload: true })
             const { data: myMinis } = await axios.get('/api/myMinis/allMinis', {
                 params: { gallerySection, galleryDisplay }
             });
-            // ! toggle back when you have photos of models
             dispatch({ type: 'SET_SHOWCASE', payload: myMinis })
-
         } catch (error) {
             console.log('error if finding your minis', error)
             alert('there was an error in your request')
         } finally {
-
-            dispatch({ type: 'SET_DISPLAY', payload: !leavePage });
+            dispatch({ type: 'SET_DISPLAY', payload: !leavePage })
+            dispatch({ type: 'SET_LOAD_STATUS', payload: false })
             if (leavePage) {
                 navigate('/groupDisplay')
             }
