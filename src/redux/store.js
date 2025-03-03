@@ -1,14 +1,27 @@
 import { createStore, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 
-import rootReducer from './_root.reducer'; // imports ./redux/reducers/index.js
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'; // Local storage for web
+import rootReducer from './_root.reducer'; 
 
+// Redux Persist configuration
+const persistConfig = {
+  key: 'root',
+  storage, // Use localStorage to persist state
+  whitelist: ['miniShowcase', 'gallerySlice', 'galleryView'], // Only persist needed data
+};
+
+// Create the persisted reducer
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const middlewareList = process.env.NODE_ENV === 'development' ? [logger] : [];
 
 const store = createStore(
-  rootReducer,
+  persistedReducer,
   applyMiddleware(...middlewareList),
 );
 
-export default store;
+const persistor = persistStore(store)
+
+export { store, persistor };

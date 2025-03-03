@@ -1,11 +1,16 @@
 ## Checklist
 
 
-## High Priority
-build persist to hold your redux states in the gallery
+#### High Priority
+
+# Stingray Scenics
 Hide your scroll bars
 switch icon png's to webP images - do you want this to be progressive? 
 fix purple shade in group display
+
+# Hobbit Hues
+begin refining hobbit hues
+
 
 
 
