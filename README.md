@@ -14,11 +14,13 @@ begin refining hobbit hues
 
 
 
+
+
+
+
 ## low Priority
 SEO beginnings and optimizations
 implement progressive image into the big picture slideshow
-
-
 
 ## to watch out for...
 check out sticky contact animation -- seems ok now...

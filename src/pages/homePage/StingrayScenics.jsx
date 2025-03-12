@@ -45,7 +45,7 @@ const StingrayScenics = () => {
                 <div className='footerLinks'>
                     <Link className='footLink' to={'/gallery'}>Gallery</Link>
                     <p className='footLink' onClick={() => displayView('SET_CONTACT', true, dispatch)}>Contact</p>
-                    <Link className='footLink' to={'/commission'}>Commission</Link>
+                    <Link className='footLink'>Commission</Link>
                     <p className='footLink'>Hobby</p>
                     <p className='footLink'>Reviews</p>
                 </div>
